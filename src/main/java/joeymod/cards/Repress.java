@@ -28,7 +28,7 @@ public class Repress extends AbstractSleeperCard {
         super(ID, info); //Pass the required information to the BaseCard constructor.
 
         setBlock(DMG, UPG_BLOCK); //Sets the card's damage and how much it changes when upgraded.
-//        this.forget = true;
+        this.forget = true;
     }
 
     @Override

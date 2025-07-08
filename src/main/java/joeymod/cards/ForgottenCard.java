@@ -20,7 +20,7 @@ public class ForgottenCard extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private AbstractCard forgottenCard;
+    public AbstractCard forgottenCard;
     public boolean purgeOnUse = true;
     MySleeperPlayer p;
 
@@ -35,8 +35,9 @@ public class ForgottenCard extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        System.out.println("Forgotten Card: " + this.forgottenCard.getClass());
         this.p.forgottenPile.group.remove(this.forgottenCard);
-        addToBot((AbstractGameAction) new NewQueueCardAction(this.forgottenCard, true, false, true));
+        addToBot(new NewQueueCardAction(this.forgottenCard, true, false, true));
         if (this.forgottenCard instanceof AbstractSleeperCard) {
             ((AbstractSleeperCard) this.forgottenCard).triggerOnPlayedFromForgotten(p,m,true);
         }

@@ -13,13 +13,4 @@ public class SleeperCardGroup extends CardGroup {
 
     MySleeperPlayer p;
 
-    public AbstractCard moveToForgottenPile(AbstractCard c) {
-        this.removeCard(c);
-        ForgottenCard newForgottenCard = new ForgottenCard(c);
-        this.addToBottom(newForgottenCard);
-        this.p.forgottenPile.addToTop(c);
-        return newForgottenCard;
-    }
-
-
 }

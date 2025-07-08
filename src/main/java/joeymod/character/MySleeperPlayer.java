@@ -39,18 +39,7 @@ public class MySleeperPlayer extends CustomPlayer {
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
 
-    public SleeperCardGroup forgottenPile = new SleeperCardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-
-    public SleeperCardGroup masterDeck = new SleeperCardGroup(CardGroup.CardGroupType.MASTER_DECK);
-
-    public SleeperCardGroup drawPile = new SleeperCardGroup(CardGroup.CardGroupType.DRAW_PILE);
-
-    public SleeperCardGroup hand = new SleeperCardGroup(CardGroup.CardGroupType.HAND);
-
-    public SleeperCardGroup discardPile = new SleeperCardGroup(CardGroup.CardGroupType.DISCARD_PILE);
-
-    public SleeperCardGroup exhaustPile = new SleeperCardGroup(CardGroup.CardGroupType.EXHAUST_PILE);
-
+    public CardGroup forgottenPile = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
     //Strings
     private static final String ID = makeID("Sleeper"); //This should match whatever you have in the CharacterStrings.json file
@@ -167,7 +156,6 @@ public class MySleeperPlayer extends CustomPlayer {
         retVal.add(Repress.ID);
         retVal.add(SleeperStrike.ID);
         retVal.add(Defend_Blue.ID);
-        retVal.add(ForgottenCard.ID);
         return retVal;
     }
 

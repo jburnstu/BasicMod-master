@@ -2,12 +2,13 @@ package joeymod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import joeymod.cards.SleeperCardGroup;
+import joeymod.cards.ForgottenCard;
 import joeymod.character.MySleeperPlayer;
 
 public class ForgetAction extends AbstractGameAction {
@@ -71,27 +72,31 @@ public class ForgetAction extends AbstractGameAction {
     }
 
     public void update() {
-        SleeperCardGroup hand = this.p.hand;
+        CardGroup hand = this.p.hand;
         if (this.duration == this.startDuration) {
             System.out.println("Reached main ForgetActionUpdateBlock");
-            if (hand.isEmpty()) {
+            System.out.println(this.p.hand.group);
+            if (this.p.hand.isEmpty()) {
+                System.out.println("Reached wrong 0");
                 this.isDone = true;
                 return;
             }
             if (!this.anyNumber &&
                     hand.size() <= this.amount) {
+                System.out.println("Reached wrong 1");
                 this.amount = hand.size();
                 numForgotten = this.amount;
                 int tmp = hand.size();
                 for (int i = 0; i < tmp; i++) {
                     AbstractCard c = hand.getTopCard();
-                    hand.moveToForgottenPile(c);
+                    Move.toForgottenPile(hand,c);
                 }
                 return;
             }
             if (this.isRandom) {
+                System.out.println("Reached wrong 2");
                 for (int i = 0; i < this.amount; i++)
-                    hand.moveToForgottenPile(hand.getRandomCard(AbstractDungeon.cardRandomRng));
+                    Move.toForgottenPile(hand,hand.getRandomCard(AbstractDungeon.cardRandomRng));
             } else {
                 System.out.println("Reached start of else block");
                 System.out.println(TEXT[0]);
@@ -101,10 +106,10 @@ public class ForgetAction extends AbstractGameAction {
                 return;
             }
         }
-        System.out.println("Reached second part of ForgetActionUpdateBlock");
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
             for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group)
-                hand.moveToExhaustPile(c);
+                Move.toForgottenPile(hand,c);
+                System.out.println(((ForgottenCard) hand.getBottomCard()).forgottenCard);
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
         }
         tickDuration();
