@@ -9,9 +9,39 @@
       "Blizzard is a good example for this."
     ]
   },
-  "${modID}:Strike": {
+  "${modID}:SleeperStrike": {
     "NAME": "Strike",
     "DESCRIPTION": "Deal !D! damage.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:Startle": {
+    "NAME": "Startle",
+    "DESCRIPTION": "Deal !D! damage. If played forgotten, heal !M! HP.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:Repress": {
+    "NAME": "Repress",
+    "DESCRIPTION": "Forget 1 card in your hand. Deal !D! damage.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:ForgottenCard": {
+    "NAME": "Forgotten Card",
+    "DESCRIPTION": "Forgotten.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
     "EXTENDED_DESCRIPTION": [
       "You can put more text in here.",
