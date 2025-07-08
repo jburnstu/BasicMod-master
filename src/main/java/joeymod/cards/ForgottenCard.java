@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
@@ -21,12 +22,13 @@ public class ForgottenCard extends AbstractSleeperCard {
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
     public AbstractCard forgottenCard;
-    public boolean purgeOnUse = true;
+//    public boolean purgeOnUse = true;
     MySleeperPlayer p;
 
     public ForgottenCard(AbstractCard c) {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.forgottenCard = c;
+        this.p = (MySleeperPlayer) AbstractDungeon.player;
     }
 
     public ForgottenCard() {
