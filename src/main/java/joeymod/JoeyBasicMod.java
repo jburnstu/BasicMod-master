@@ -3,8 +3,9 @@ package joeymod;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.*;
+import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import joeymod.cards.BaseCard;
-import joeymod.character.MySleeper;
+import joeymod.character.MySleeperPlayer;
 import joeymod.util.GeneralUtils;
 import joeymod.util.KeywordInfo;
 import joeymod.util.TextureLoader;
@@ -51,13 +52,16 @@ public class JoeyBasicMod implements
     public static void initialize() {
         new JoeyBasicMod();
 
-        MySleeper.Meta.registerColor();
+        MySleeperPlayer.Meta.registerColor();
+
     }
 
     public JoeyBasicMod() {
         BaseMod.subscribe(this); //This will make BaseMod trigger all the subscribers at their appropriate times.
         logger.info(modID + " subscribed to BaseMod.");
     }
+
+
 
     @Override
     public void receivePostInitialize() {
@@ -236,6 +240,6 @@ public class JoeyBasicMod implements
 
     @Override
     public void receiveEditCharacters() {
-        MySleeper.Meta.registerCharacter();
+        MySleeperPlayer.Meta.registerCharacter();
     }
 }
