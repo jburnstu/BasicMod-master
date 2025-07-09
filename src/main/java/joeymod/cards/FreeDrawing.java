@@ -21,7 +21,6 @@ public class FreeDrawing extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-//    testing commit
     private static final int DMG = 6;
     private static final int UPG_BLOCK = 3;
 
