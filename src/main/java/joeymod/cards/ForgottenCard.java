@@ -2,6 +2,7 @@ package joeymod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
+import com.megacrit.cardcrawl.actions.utility.ShowCardAndPoofAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -22,7 +23,6 @@ public class ForgottenCard extends AbstractSleeperCard {
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
     public AbstractCard forgottenCard;
-//    public boolean purgeOnUse = true;
     MySleeperPlayer p;
 
     public ForgottenCard(AbstractCard c) {
@@ -43,6 +43,7 @@ public class ForgottenCard extends AbstractSleeperCard {
         if (this.forgottenCard instanceof AbstractSleeperCard) {
             ((AbstractSleeperCard) this.forgottenCard).triggerOnPlayedFromForgotten(p,m,true);
         }
+        addToTop(new ShowCardAndPoofAction(this));
     }
 
 

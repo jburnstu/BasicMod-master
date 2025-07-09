@@ -75,7 +75,6 @@ public class ForgetAction extends AbstractGameAction {
         ForgottenCard newForgottenCard = new ForgottenCard();
         CardGroup hand = this.p.hand;
         if (this.duration == this.startDuration) {
-            System.out.println("Reached main ForgetActionUpdateBlock");
             System.out.println(this.p.hand.group);
             if (this.p.hand.isEmpty()) {
                 this.isDone = true;
@@ -98,8 +97,6 @@ public class ForgetAction extends AbstractGameAction {
                     newForgottenCard = Move.toForgottenPile(hand,hand.getRandomCard(AbstractDungeon.cardRandomRng));
                     this.p.hand.moveToDiscardPile(newForgottenCard);
             } else {
-                System.out.println("Reached start of else block");
-                System.out.println(TEXT[0]);
                 numForgotten = this.amount;
                 AbstractDungeon.handCardSelectScreen.open(TEXT[0], numForgotten, this.anyNumber, this.canPickZero);
                 tickDuration();
