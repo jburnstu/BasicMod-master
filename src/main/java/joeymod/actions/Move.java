@@ -8,11 +8,14 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class Move {
 
-    public static ForgottenCard toForgottenPile(CardGroup g, AbstractCard c) {
+    public static ForgottenCard toForgottenPile(CardGroup g, AbstractCard c, boolean immediateDiscard) {
         g.removeCard(c);
         ForgottenCard newForgottenCard = new ForgottenCard(c);
         g.addToBottom(newForgottenCard);
         ((MySleeperPlayer) AbstractDungeon.player).forgottenPile.addToTop(c);
+        if (immediateDiscard) {
+            g.moveToDiscardPile(newForgottenCard);
+        }
         return newForgottenCard;
     }
 }

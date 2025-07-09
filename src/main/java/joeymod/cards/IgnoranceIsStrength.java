@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.actions.ForgetAction;
+import joeymod.actions.IgnoranceIsStrengthAction;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
@@ -25,14 +26,11 @@ public class IgnoranceIsStrength extends AbstractSleeperCard {
 
     public IgnoranceIsStrength() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-
         setBlock(BLOCK, UPG_BLOCK); //Sets the card's damage and how much it changes when upgraded.
-        this.forget = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainBlockAction(p, block));
-        addToBot(new ForgetAction(1,false,false,false));
+        addToBot(new IgnoranceIsStrengthAction(p,block));
     }
 }

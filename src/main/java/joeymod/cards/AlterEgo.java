@@ -6,6 +6,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import joeymod.actions.ForgetAction;
+import joeymod.actions.ForgetAllAttackAction;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
@@ -35,8 +37,9 @@ public class AlterEgo extends AbstractSleeperCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
         for (AbstractCard c : p.hand.group) {
-            if (c instanceof ForgottenCard) {
-                addToTop(new NewQueueCardAction(c,true,false,true));
+            if (c != this && c.type == AbstractCard.CardType.ATTACK) {
+                addToTop(new ForgetAllAttackAction());
+
             }
         };
     }

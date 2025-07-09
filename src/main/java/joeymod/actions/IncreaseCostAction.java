@@ -7,108 +7,35 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import joeymod.cards.ForgottenCard;
 import joeymod.character.MySleeperPlayer;
 
+import java.util.UUID;
+
 public class IncreaseCostAction extends AbstractGameAction {
-    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("ExhaustAction");
+    UUID uuid;
 
-    public static final String[] TEXT = uiStrings.TEXT;
+    private AbstractCard card = null;
 
-    private MySleeperPlayer p;
+    public IncreaseCostAction(AbstractCard card) {
+        this.card = card;
+    }
 
-    private boolean isRandom;
-
-    private boolean anyNumber;
-
-    private boolean canPickZero;
-
-    public static int numForgotten;
-
-    public IncreaseCostAction(int amount, boolean isRandom, boolean anyNumber, boolean canPickZero) {
-        this.anyNumber = anyNumber;
-        this.p = (MySleeperPlayer) AbstractDungeon.player;
-        this.canPickZero = canPickZero;
-        this.isRandom = isRandom;
+    public IncreaseCostAction(UUID targetUUID, int amount) {
+        this.uuid = targetUUID;
         this.amount = amount;
-        this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
-        this.actionType = ActionType.SPECIAL;
-    }
-
-    public IncreaseCostAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom, boolean anyNumber) {
-        this(amount, isRandom, anyNumber);
-        this.target = target;
-        this.source = source;
-    }
-
-    public IncreaseCostAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom) {
-        this(amount, isRandom, false, false);
-        this.target = target;
-        this.source = source;
-    }
-
-    public IncreaseCostAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom, boolean anyNumber, boolean canPickZero) {
-        this(amount, isRandom, anyNumber, canPickZero);
-        this.target = target;
-        this.source = source;
-    }
-
-    public IncreaseCostAction(boolean isRandom, boolean anyNumber, boolean canPickZero) {
-        this(99, isRandom, anyNumber, canPickZero);
-    }
-
-    public IncreaseCostAction(int amount, boolean canPickZero) {
-        this(amount, false, false, canPickZero);
-    }
-
-    public IncreaseCostAction(int amount, boolean isRandom, boolean anyNumber) {
-        this(amount, isRandom, anyNumber, false);
-    }
-
-    public IncreaseCostAction(int amount, boolean isRandom, boolean anyNumber, boolean canPickZero, float duration) {
-        this(amount, isRandom, anyNumber, canPickZero);
-        this.duration = this.startDuration = duration;
+        this.duration = Settings.ACTION_DUR_XFAST;
     }
 
     public void update() {
-        ForgottenCard newForgottenCard = new ForgottenCard();
-        CardGroup hand = this.p.hand;
-        if (this.duration == this.startDuration) {
-            System.out.println(this.p.hand.group);
-            if (this.p.hand.isEmpty()) {
-                this.isDone = true;
-                return;
-            }
-            if (!this.anyNumber &&
-                    hand.size() <= this.amount) {
-                this.amount = hand.size();
-                numForgotten = this.amount;
-                int tmp = hand.size();
-                for (int i = 0; i < tmp; i++) {
-                    AbstractCard c = hand.getTopCard();
-                    newForgottenCard = Move.toForgottenPile(hand,c);
-                    this.p.hand.moveToDiscardPile(newForgottenCard);
-                }
-                return;
-            }
-            if (this.isRandom) {
-                for (int i = 0; i < this.amount; i++)
-                    newForgottenCard = Move.toForgottenPile(hand,hand.getRandomCard(AbstractDungeon.cardRandomRng));
-                    this.p.hand.moveToDiscardPile(newForgottenCard);
-            } else {
-                numForgotten = this.amount;
-                AbstractDungeon.handCardSelectScreen.open(TEXT[0], numForgotten, this.anyNumber, this.canPickZero);
-                tickDuration();
-                return;
-            }
+        if (this.card == null) {
+            for (AbstractCard c : GetAllInBattleInstances.get(this.uuid))
+                c.modifyCostForCombat(1);
+        } else {
+            this.card.modifyCostForCombat(1);
         }
-        if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
-            for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group)
-                newForgottenCard = Move.toForgottenPile(hand,c);
-                this.p.hand.moveToDiscardPile(newForgottenCard);
-            AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
-        }
-        tickDuration();
+        this.isDone = true;
     }
 }

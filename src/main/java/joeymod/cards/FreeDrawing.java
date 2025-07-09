@@ -1,5 +1,6 @@
 package joeymod.cards;
 
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -32,7 +33,6 @@ public class FreeDrawing extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainBlockAction(p, block));
-        addToBot(new ForgetAction(1,false,false,false));
+        addToBot(new DrawCardAction(p,3));
     }
 }

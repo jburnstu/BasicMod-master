@@ -4,6 +4,7 @@ package joeymod.cards;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
+import com.megacrit.cardcrawl.actions.common.ReduceCostAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -25,7 +26,7 @@ public class TossAndTurn extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
     private static final int DAMAGE = 15;
     private static final int UPG_DAMAGE = 5;
-    public static final int magicNumber = 4;
+    public static final int magicNumber = 1;
 
 
     public TossAndTurn() {
@@ -36,7 +37,7 @@ public class TossAndTurn extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-
+        addToBot(new ReduceCostAction(this.uuid, this.magicNumber));
     }
 
 

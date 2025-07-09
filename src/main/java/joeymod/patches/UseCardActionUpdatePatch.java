@@ -24,7 +24,7 @@ public class UseCardActionUpdatePatch {
         boolean forgetCard = targetCard instanceof AbstractSleeperCard && ((AbstractSleeperCard) targetCard).forget;
         if (forgetCard) {
             System.out.println("forgetCard activated -- targetCard:" + targetCard.getClass());
-            newForgottenCard = Move.toForgottenPile(AbstractDungeon.player.hand, targetCard);
+            newForgottenCard = Move.toForgottenPile(AbstractDungeon.player.hand, targetCard,false);
             AbstractDungeon.actionManager.addToTop(new ShowCardAndPoofAction(targetCard));
             AbstractDungeon.player.cardInUse = null;
             if (_self.reboundCard) { //Will never happen for now

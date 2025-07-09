@@ -87,15 +87,13 @@ public class ForgetAction extends AbstractGameAction {
                 int tmp = hand.size();
                 for (int i = 0; i < tmp; i++) {
                     AbstractCard c = hand.getTopCard();
-                    newForgottenCard = Move.toForgottenPile(hand,c);
-                    this.p.hand.moveToDiscardPile(newForgottenCard);
+                    newForgottenCard = Move.toForgottenPile(hand,c,true);
                 }
                 return;
             }
             if (this.isRandom) {
                 for (int i = 0; i < this.amount; i++)
-                    newForgottenCard = Move.toForgottenPile(hand,hand.getRandomCard(AbstractDungeon.cardRandomRng));
-                    this.p.hand.moveToDiscardPile(newForgottenCard);
+                    newForgottenCard = Move.toForgottenPile(hand,hand.getRandomCard(AbstractDungeon.cardRandomRng),true);
             } else {
                 numForgotten = this.amount;
                 AbstractDungeon.handCardSelectScreen.open(TEXT[0], numForgotten, this.anyNumber, this.canPickZero);
@@ -105,8 +103,7 @@ public class ForgetAction extends AbstractGameAction {
         }
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
             for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group)
-                newForgottenCard = Move.toForgottenPile(hand,c);
-                this.p.hand.moveToDiscardPile(newForgottenCard);
+                newForgottenCard = Move.toForgottenPile(hand,c,true);
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
         }
         tickDuration();
