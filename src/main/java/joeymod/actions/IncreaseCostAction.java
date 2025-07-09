@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import joeymod.cards.ForgottenCard;
 import joeymod.character.MySleeperPlayer;
 
-public class ForgetAction extends AbstractGameAction {
+public class IncreaseCostAction extends AbstractGameAction {
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("ExhaustAction");
 
     public static final String[] TEXT = uiStrings.TEXT;
@@ -26,7 +26,7 @@ public class ForgetAction extends AbstractGameAction {
 
     public static int numForgotten;
 
-    public ForgetAction(int amount, boolean isRandom, boolean anyNumber, boolean canPickZero) {
+    public IncreaseCostAction(int amount, boolean isRandom, boolean anyNumber, boolean canPickZero) {
         this.anyNumber = anyNumber;
         this.p = (MySleeperPlayer) AbstractDungeon.player;
         this.canPickZero = canPickZero;
@@ -36,37 +36,37 @@ public class ForgetAction extends AbstractGameAction {
         this.actionType = ActionType.SPECIAL;
     }
 
-    public ForgetAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom, boolean anyNumber) {
+    public IncreaseCostAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom, boolean anyNumber) {
         this(amount, isRandom, anyNumber);
         this.target = target;
         this.source = source;
     }
 
-    public ForgetAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom) {
+    public IncreaseCostAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom) {
         this(amount, isRandom, false, false);
         this.target = target;
         this.source = source;
     }
 
-    public ForgetAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom, boolean anyNumber, boolean canPickZero) {
+    public IncreaseCostAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom, boolean anyNumber, boolean canPickZero) {
         this(amount, isRandom, anyNumber, canPickZero);
         this.target = target;
         this.source = source;
     }
 
-    public ForgetAction(boolean isRandom, boolean anyNumber, boolean canPickZero) {
+    public IncreaseCostAction(boolean isRandom, boolean anyNumber, boolean canPickZero) {
         this(99, isRandom, anyNumber, canPickZero);
     }
 
-    public ForgetAction(int amount, boolean canPickZero) {
+    public IncreaseCostAction(int amount, boolean canPickZero) {
         this(amount, false, false, canPickZero);
     }
 
-    public ForgetAction(int amount, boolean isRandom, boolean anyNumber) {
+    public IncreaseCostAction(int amount, boolean isRandom, boolean anyNumber) {
         this(amount, isRandom, anyNumber, false);
     }
 
-    public ForgetAction(int amount, boolean isRandom, boolean anyNumber, boolean canPickZero, float duration) {
+    public IncreaseCostAction(int amount, boolean isRandom, boolean anyNumber, boolean canPickZero, float duration) {
         this(amount, isRandom, anyNumber, canPickZero);
         this.duration = this.startDuration = duration;
     }

@@ -18,7 +18,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.events.city.ForgottenAltar;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
@@ -152,7 +151,7 @@ public class MySleeperPlayer extends CustomPlayer {
         retVal.add(Defend_Blue.ID);
         retVal.add(Neutralize.ID);
         retVal.add(SleeperStrike.ID);
-        retVal.add(Startle.ID);
+        retVal.add(Closure.ID);
         retVal.add(Repress.ID);
         retVal.add(SleeperStrike.ID);
         retVal.add(Defend_Blue.ID);

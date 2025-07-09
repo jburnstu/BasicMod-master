@@ -8,7 +8,7 @@ import joeymod.util.CardStats;
 
 import joeymod.actions.ForgetAction;
 
-//6 -> 9 damage. Forget 1 card. Forget.
+//9 Block. Forget one other card in your hand. forget.
 public class Repress extends AbstractSleeperCard {
     public static final String ID = makeID("Repress");
     private static Object MyCharacter;
@@ -21,13 +21,13 @@ public class Repress extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int DMG = 6;
+    private static final int BLOCK = 6;
     private static final int UPG_BLOCK = 3;
 
     public Repress() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
 
-        setBlock(DMG, UPG_BLOCK); //Sets the card's damage and how much it changes when upgraded.
+        setBlock(BLOCK, UPG_BLOCK); //Sets the card's damage and how much it changes when upgraded.
         this.forget = true;
     }
 

@@ -7,8 +7,8 @@ import joeymod.actions.ForgetAction;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-//Gain 8 block. shuffle a forgotten X into your discard pile.
-public class Startle extends AbstractSleeperCard {
+//Draw three cards.
+public class FreeDrawing extends AbstractSleeperCard {
     public static final String ID = makeID("Repress");
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
@@ -20,13 +20,13 @@ public class Startle extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int BLOCK = 6;
+    private static final int DMG = 6;
     private static final int UPG_BLOCK = 3;
 
-    public Startle() {
+    public FreeDrawing() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
 
-        setBlock(BLOCK, UPG_BLOCK); //Sets the card's damage and how much it changes when upgraded.
+        setBlock(DMG, UPG_BLOCK); //Sets the card's damage and how much it changes when upgraded.
         this.forget = true;
     }
 
