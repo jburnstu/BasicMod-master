@@ -21,7 +21,6 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
-import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import joeymod.cards.*;
 
@@ -29,6 +28,7 @@ import java.util.ArrayList;
 
 import static joeymod.JoeyBasicMod.characterPath;
 import static joeymod.JoeyBasicMod.makeID;
+import joeymod.relics.TeddyBear;
 
 public class MySleeperPlayer extends CustomPlayer {
     //Stats
@@ -162,7 +162,7 @@ public class MySleeperPlayer extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         //IDs of starting relics. You can have multiple, but one is recommended.
-        retVal.add(BurningBlood.ID);
+        retVal.add(TeddyBear.ID);
 
         return retVal;
     }

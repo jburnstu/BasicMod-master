@@ -1,15 +1,11 @@
 package joeymod.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.RupturePower;
-import joeymod.actions.ForgetAction;
 import joeymod.character.MySleeperPlayer;
-import joeymod.powers.PavlovianResponsePower;
+import joeymod.powers.ObliviousPower;
 import joeymod.util.CardStats;
 
 //Whenever you remember an attack, gain 1 strength.
@@ -33,7 +29,7 @@ public class PavlovianResponse extends AbstractSleeperCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new PavlovianResponsePower(p,this.magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new ObliviousPower(p,this.magicNumber)));
     }
 
     public void upgrade() {
