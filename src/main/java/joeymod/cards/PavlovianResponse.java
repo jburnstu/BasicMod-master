@@ -14,7 +14,7 @@ import joeymod.util.CardStats;
 
 //Whenever you remember an attack, gain 1 strength.
 public class PavlovianResponse extends AbstractSleeperCard {
-    public static final String ID = makeID("Repress");
+    public static final String ID = makeID(PavlovianResponse.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -33,7 +33,7 @@ public class PavlovianResponse extends AbstractSleeperCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new PavlovianResponsePower(p,this.magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new PavlovianResponsePower(p,this.magicNumber)));
     }
 
     public void upgrade() {

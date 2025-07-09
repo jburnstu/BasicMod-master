@@ -11,7 +11,7 @@ import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
 public class ForgottenCard extends AbstractSleeperCard {
-    public static final String ID = makeID("ForgottenCard");
+    public static final String ID = makeID(ForgottenCard.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.

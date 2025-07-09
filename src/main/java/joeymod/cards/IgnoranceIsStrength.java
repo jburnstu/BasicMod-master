@@ -10,7 +10,7 @@ import joeymod.util.CardStats;
 
 //Gain 3 block and draw one card for every forgotten card in your hand.
 public class IgnoranceIsStrength extends AbstractSleeperCard {
-    public static final String ID = makeID("Repress");
+    public static final String ID = makeID(IgnoranceIsStrength.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.

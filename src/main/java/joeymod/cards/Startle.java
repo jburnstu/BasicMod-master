@@ -9,7 +9,7 @@ import joeymod.util.CardStats;
 
 //Gain 8 block. shuffle a forgotten X into your discard pile.
 public class Startle extends AbstractSleeperCard {
-    public static final String ID = makeID("Repress");
+    public static final String ID = makeID(Startle.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
