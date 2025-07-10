@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.common.ReduceCostAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import joeymod.actions.IncreaseCostAction;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
@@ -37,7 +38,7 @@ public class TossAndTurn extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        addToBot(new ReduceCostAction(this.uuid, this.magicNumber));
+        addToBot(new IncreaseCostAction(this.uuid, this.magicNumber));
     }
 
 
