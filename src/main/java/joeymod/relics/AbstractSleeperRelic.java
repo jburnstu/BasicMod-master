@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public abstract class AbstractSleeperRelic extends BaseRelic {
 
-
     public AbstractSleeperRelic(String id, String imageName, RelicTier tier, LandingSound sfx) {
         super(id, imageName, tier, sfx);
     }

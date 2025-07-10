@@ -146,15 +146,16 @@ public class MySleeperPlayer extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();
         //List of IDs of cards for your starting deck.
         //If you want multiple of the same card, you have to add it multiple times.
-        retVal.add(Strike_Red.ID);
-        retVal.add(Defend_Blue.ID);
-        retVal.add(Defend_Blue.ID);
-        retVal.add(Neutralize.ID);
         retVal.add(SleeperStrike.ID);
-        retVal.add(Closure.ID);
+        retVal.add(SleeperStrike.ID);
+        retVal.add(SleeperStrike.ID);
+        retVal.add(SleeperStrike.ID);
+        retVal.add(Defend_Blue.ID);
+        retVal.add(Defend_Blue.ID);
+        retVal.add(Defend_Blue.ID);
+        retVal.add(Defend_Blue.ID);
         retVal.add(Repress.ID);
-        retVal.add(SleeperStrike.ID);
-        retVal.add(Defend_Blue.ID);
+        retVal.add(TossAndTurn.ID);
         return retVal;
     }
 

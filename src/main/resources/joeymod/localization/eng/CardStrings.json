@@ -9,6 +9,76 @@
       "Blizzard is a good example for this."
     ]
   },
+  "${modID}:AlterEgo": {
+    "NAME": "Alter Ego",
+    "DESCRIPTION": "!D! Damage. Forget all other attack cards in your hand.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:Breakthrough": {
+    "NAME": "Breakthrough",
+    "DESCRIPTION": "!D! Damage. Play all forgotten cards in your hand.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:Closure": {
+    "NAME": "Closure",
+    "DESCRIPTION": "!D! Damage. If remembered, gain !M! health.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:FreeDrawing": {
+    "NAME": "Free-Drawing",
+    "DESCRIPTION": "Draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:Ignorance Is Strength": {
+    "NAME": "Ignorance Is Strength",
+    "DESCRIPTION": "Gain !B! block and draw 1 card for every forgotten card in your hand.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:PavlovianResponse": {
+    "NAME": "Pavlovian Response",
+    "DESCRIPTION": "Whenever you remember an attack, gain !M! Strength.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:Repress": {
+    "NAME": "Repress",
+    "DESCRIPTION": "Forget 1 card in your hand. Gain !B! Block. Forget.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
   "${modID}:SleeperStrike": {
     "NAME": "Strike",
     "DESCRIPTION": "Deal !D! damage.",
@@ -29,19 +99,9 @@
       "Blizzard is a good example for this."
     ]
   },
-  "${modID}:Repress": {
-    "NAME": "Repress",
-    "DESCRIPTION": "Forget 1 card in your hand. Deal !D! damage.",
-    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
-    "EXTENDED_DESCRIPTION": [
-      "You can put more text in here.",
-      "If you need to use it for stuff.",
-      "Blizzard is a good example for this."
-    ]
-  },
-  "${modID}:ForgottenCard": {
-    "NAME": "Forgotten Card",
-    "DESCRIPTION": "Forgotten.",
+  "${modID}:TossAndTurn": {
+    "NAME": "Toss And Turn",
+    "DESCRIPTION": "X Damage. Increase the cost of this card by 1 this combat.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
     "EXTENDED_DESCRIPTION": [
       "You can put more text in here.",

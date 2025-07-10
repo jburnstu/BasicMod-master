@@ -5,13 +5,12 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.character.MySleeperPlayer;
-import joeymod.powers.ObliviousPower;
 import joeymod.powers.PavlovianResponsePower;
 import joeymod.util.CardStats;
 
 //Whenever you remember an attack, gain 1 strength.
-public class PavlovianResponse extends AbstractSleeperCard {
-    public static final String ID = makeID(PavlovianResponse.class.getSimpleName());
+public class Oblivious extends AbstractSleeperCard {
+    public static final String ID = makeID(Oblivious.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -23,7 +22,7 @@ public class PavlovianResponse extends AbstractSleeperCard {
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
 
-    public PavlovianResponse() {
+    public Oblivious() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
@@ -41,6 +40,6 @@ public class PavlovianResponse extends AbstractSleeperCard {
     }
 
     public AbstractCard makeCopy() {
-        return new PavlovianResponse();
+        return new Oblivious();
     }
 }
