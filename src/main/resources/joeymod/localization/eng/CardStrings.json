@@ -39,6 +39,14 @@
       "Blizzard is a good example for this."
     ]
   },
+  "${modID}:ForgottenCard": {
+    "NAME": "???",
+    "DESCRIPTION": "Forgotten.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "Until you play this card, its action is hidden and its cost is changed to 1. It is remembered when played."
+    ]
+  },
   "${modID}:FreeDrawing": {
     "NAME": "Free-Drawing",
     "DESCRIPTION": "Draw !M! cards.",

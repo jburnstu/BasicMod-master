@@ -36,11 +36,7 @@ public class AlterEgo extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
-        for (AbstractCard c : p.hand.group) {
-            if (c != this && c.type == AbstractCard.CardType.ATTACK) {
-                addToTop(new ForgetAllAttackAction());
+        addToBot(new ForgetAllAttackAction());
 
-            }
-        };
-    }
+        }
 }
