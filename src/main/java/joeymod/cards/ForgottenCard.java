@@ -41,7 +41,6 @@ public class ForgottenCard extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        System.out.println("Forgotten Card: " + this.forgottenCard.getClass());
         this.p.forgottenPile.group.remove(this.forgottenCard);
         addToBot(new NewQueueCardAction(this.forgottenCard, true, false, true));
         if (this.forgottenCard instanceof AbstractSleeperCard) {

@@ -20,10 +20,12 @@ public class UseCardActionUpdatePatch {
 //    static Logger log = Logger.getLogger("MyLogger");
     @SpireInsertPatch(locator = Locator.class,localvars = {"targetCard"})
     public static void Insert(UseCardAction _self, AbstractCard targetCard) {
+        Thread.dumpStack(); // Optional: shows call path
         AbstractCard newForgottenCard;
         boolean forgetCard = targetCard instanceof AbstractSleeperCard && ((AbstractSleeperCard) targetCard).forget;
         if (forgetCard) {
-            System.out.println("forgetCard activated -- targetCard:" + targetCard.getClass());
+//            System.out.println("forgetCard activated -- targetCard:" + targetCard.getClass());
+//            System.out.println(targetCard.dontTriggerOnUseCard);
             newForgottenCard = Move.toForgottenPile(AbstractDungeon.player.hand, targetCard,false);
             AbstractDungeon.actionManager.addToTop(new ShowCardAndPoofAction(targetCard));
             AbstractDungeon.player.cardInUse = null;
@@ -35,8 +37,9 @@ public class UseCardActionUpdatePatch {
                 AbstractDungeon.player.hand.moveToHand(newForgottenCard);
                 AbstractDungeon.player.onCardDrawOrDiscard();
             } else {
-                System.out.println("Reached part where forgottenCard is discarded");
+//                System.out.println("Reached part where forgottenCard is discarded");
                 AbstractDungeon.player.hand.moveToDiscardPile(newForgottenCard);
+                System.out.println("Discard Pile Size:" AbstractDungeon.player.discardPile.size());
             }
         }
     }
@@ -44,10 +47,11 @@ public class UseCardActionUpdatePatch {
     private static class Locator extends SpireInsertLocator {
         public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
             Matcher.MethodCallMatcher methodCallMatcher = new Matcher.MethodCallMatcher(CardGroup.class, "moveToDeck");
-            int[] lines = LineFinder.findAllInOrder(ctMethodToPatch, (Matcher)methodCallMatcher);
+            int[] lines = LineFinder.findInOrder(ctMethodToPatch, (Matcher)methodCallMatcher);
             for (int i = 0; i < lines.length; i++) {
                 lines[i] += 1;
             }
+            System.out.println(lines);
             return lines;
         }
     }

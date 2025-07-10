@@ -75,7 +75,6 @@ public class ForgetAction extends AbstractGameAction {
         ForgottenCard newForgottenCard = new ForgottenCard();
         CardGroup hand = this.p.hand;
         if (this.duration == this.startDuration) {
-            System.out.println(this.p.hand.group);
             if (this.p.hand.isEmpty()) {
                 this.isDone = true;
                 return;
