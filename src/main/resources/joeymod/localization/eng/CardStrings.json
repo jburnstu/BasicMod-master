@@ -57,7 +57,7 @@
       "Blizzard is a good example for this."
     ]
   },
-  "${modID}:Ignorance Is Strength": {
+  "${modID}:IgnoranceIsStrength": {
     "NAME": "Ignorance Is Strength",
     "DESCRIPTION": "Gain !B! block and draw 1 card for every forgotten card in your hand.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
@@ -80,6 +80,16 @@
   "${modID}:Repress": {
     "NAME": "Repress",
     "DESCRIPTION": "Forget 1 card in your hand. Gain !B! Block. Forget.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:SleeperDefend": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! block.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
     "EXTENDED_DESCRIPTION": [
       "You can put more text in here.",

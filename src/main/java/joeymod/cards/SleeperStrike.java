@@ -36,7 +36,7 @@ public class SleeperStrike extends AbstractSleeperCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         System.out.println("Discard Pile Size pre playing strike: "+ AbstractDungeon.player.discardPile.size());
 
-        System.out.println("Discard Pile list pre playing strike: "+ AbstractDungeon.player.discardPile);
+        System.out.println("Discard Pile list pre playing strike: "+ AbstractDungeon.player.discardPile.group);
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 }
