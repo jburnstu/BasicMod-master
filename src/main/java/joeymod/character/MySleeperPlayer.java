@@ -157,7 +157,7 @@ public class MySleeperPlayer extends CustomPlayer {
         retVal.add(Defend_Blue.ID);
         retVal.add(Repress.ID);
         retVal.add(TossAndTurn.ID);
-        retVal.add(PanicButton.ID);
+        retVal.add(Repress.ID);
         return retVal;
     }
 

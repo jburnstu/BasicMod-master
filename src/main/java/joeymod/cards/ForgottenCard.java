@@ -33,6 +33,7 @@ public class ForgottenCard extends AbstractSleeperCard {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.forgottenCard = c;
         this.p = (MySleeperPlayer) AbstractDungeon.player;
+        this.purgeOnUse = true;
     }
 
     public ForgottenCard() {
