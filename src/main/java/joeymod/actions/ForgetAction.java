@@ -72,34 +72,28 @@ public class ForgetAction extends AbstractGameAction {
     }
 
     public void update() {
+        ForgottenCard newForgottenCard = new ForgottenCard();
         CardGroup hand = this.p.hand;
         if (this.duration == this.startDuration) {
-            System.out.println("Reached main ForgetActionUpdateBlock");
-            System.out.println(this.p.hand.group);
             if (this.p.hand.isEmpty()) {
-                System.out.println("Reached wrong 0");
                 this.isDone = true;
                 return;
             }
             if (!this.anyNumber &&
                     hand.size() <= this.amount) {
-                System.out.println("Reached wrong 1");
                 this.amount = hand.size();
                 numForgotten = this.amount;
                 int tmp = hand.size();
                 for (int i = 0; i < tmp; i++) {
                     AbstractCard c = hand.getTopCard();
-                    Move.toForgottenPile(hand,c);
+                    newForgottenCard = Move.toForgottenPile(hand,c,true);
                 }
                 return;
             }
             if (this.isRandom) {
-                System.out.println("Reached wrong 2");
                 for (int i = 0; i < this.amount; i++)
-                    Move.toForgottenPile(hand,hand.getRandomCard(AbstractDungeon.cardRandomRng));
+                    newForgottenCard = Move.toForgottenPile(hand,hand.getRandomCard(AbstractDungeon.cardRandomRng),true);
             } else {
-                System.out.println("Reached start of else block");
-                System.out.println(TEXT[0]);
                 numForgotten = this.amount;
                 AbstractDungeon.handCardSelectScreen.open(TEXT[0], numForgotten, this.anyNumber, this.canPickZero);
                 tickDuration();
@@ -108,8 +102,7 @@ public class ForgetAction extends AbstractGameAction {
         }
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
             for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group)
-                Move.toForgottenPile(hand,c);
-                System.out.println(((ForgottenCard) hand.getBottomCard()).forgottenCard);
+                newForgottenCard = Move.toForgottenPile(hand,c,true);
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
         }
         tickDuration();

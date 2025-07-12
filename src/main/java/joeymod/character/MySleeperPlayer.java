@@ -12,17 +12,16 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.blue.Defend_Blue;
+import com.megacrit.cardcrawl.cards.colorless.PanicButton;
 import com.megacrit.cardcrawl.cards.green.Neutralize;
 import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.events.city.ForgottenAltar;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
-import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import joeymod.cards.*;
 
@@ -30,6 +29,7 @@ import java.util.ArrayList;
 
 import static joeymod.JoeyBasicMod.characterPath;
 import static joeymod.JoeyBasicMod.makeID;
+import joeymod.relics.TeddyBear;
 
 public class MySleeperPlayer extends CustomPlayer {
     //Stats
@@ -147,15 +147,17 @@ public class MySleeperPlayer extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();
         //List of IDs of cards for your starting deck.
         //If you want multiple of the same card, you have to add it multiple times.
-        retVal.add(Strike_Red.ID);
-        retVal.add(Defend_Blue.ID);
-        retVal.add(Defend_Blue.ID);
-        retVal.add(Neutralize.ID);
         retVal.add(SleeperStrike.ID);
-        retVal.add(Startle.ID);
+        retVal.add(SleeperStrike.ID);
+        retVal.add(SleeperStrike.ID);
+        retVal.add(SleeperStrike.ID);
+        retVal.add(Defend_Blue.ID);
+        retVal.add(Defend_Blue.ID);
+        retVal.add(Defend_Blue.ID);
+        retVal.add(Defend_Blue.ID);
         retVal.add(Repress.ID);
-        retVal.add(SleeperStrike.ID);
-        retVal.add(Defend_Blue.ID);
+        retVal.add(TossAndTurn.ID);
+        retVal.add(Repress.ID);
         return retVal;
     }
 
@@ -163,7 +165,7 @@ public class MySleeperPlayer extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         //IDs of starting relics. You can have multiple, but one is recommended.
-        retVal.add(BurningBlood.ID);
+        retVal.add(TeddyBear.ID);
 
         return retVal;
     }
