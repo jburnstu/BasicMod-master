@@ -8,6 +8,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 @SpirePatch(clz = UseCardAction.class, method = "update")
 public class UseCardActionLoggingPatch {
     public static void Prefix(Object _self) {
-        System.out.println("UseCardAction update called");
+//        System.out.println("UseCardAction update called");
     }
 }

@@ -39,7 +39,7 @@ public class UseCardActionUpdatePatch {
             } else {
 //                System.out.println("Reached part where forgottenCard is discarded");
                 AbstractDungeon.player.hand.moveToDiscardPile(newForgottenCard);
-                System.out.println("Discard Pile Size:" + AbstractDungeon.player.discardPile.size());
+//                System.out.println("Discard Pile Size:" + AbstractDungeon.player.discardPile.size());
             }
         }
     }
@@ -51,7 +51,7 @@ public class UseCardActionUpdatePatch {
             for (int i = 0; i < lines.length; i++) {
                 lines[i] += 1;
             }
-            System.out.println(lines);
+//            System.out.println(lines);
             return lines;
         }
     }

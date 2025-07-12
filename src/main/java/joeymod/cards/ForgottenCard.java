@@ -44,7 +44,7 @@ public class ForgottenCard extends AbstractSleeperCard {
         this.p.forgottenPile.group.remove(this.forgottenCard);
         addToBot(new NewQueueCardAction(this.forgottenCard, true, false, true));
         if (this.forgottenCard instanceof AbstractSleeperCard) {
-            this.p.hand.addToHand(this.forgottenCard);
+//            this.p.hand.addToHand(this.forgottenCard);
             ((AbstractSleeperCard) this.forgottenCard).triggerOnPlayedFromForgotten(p,m,true);
         }
         addToTop(new ShowCardAndPoofAction(this));
