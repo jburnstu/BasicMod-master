@@ -1,19 +1,17 @@
-package joeymod.cards;
+package joeymod.cards.attacks;
 
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import joeymod.actions.ForgetAction;
+import joeymod.actions.ForgetAllAttackAction;
+import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-//10 Damage. play all forgotten cards in hand.
-public class Breakthrough extends AbstractSleeperCard {
-    public static final String ID = makeID(Breakthrough.class.getSimpleName());
+//13 Damage. forget all other attack cards in hand.
+public class AlterEgo extends AbstractSleeperCard {
+    public static final String ID = makeID(AlterEgo.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -25,21 +23,18 @@ public class Breakthrough extends AbstractSleeperCard {
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
     private static final int DMG = 10;
-    private static final int UPG_DMG = 4;
+    private static final int UPG_BLOCK = 4;
 
-    public Breakthrough() {
+    public AlterEgo() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
 
-        setBlock(DMG, UPG_DMG); //Sets the card's damage and how much it changes when upgraded.
+        setBlock(DMG, UPG_BLOCK); //Sets the card's damage and how much it changes when upgraded.
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
-        for (AbstractCard c : p.hand.group) {
-            if (c instanceof ForgottenCard) {
-                addToTop(new NewQueueCardAction(c,true,false,true));
-            }
-        };
-    }
+        addToBot(new ForgetAllAttackAction());
+
+        }
 }

@@ -1,4 +1,4 @@
-package joeymod.cards;
+package joeymod.cards.attacks;
 
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -7,12 +7,13 @@ import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-// Deal X damage. If played from forgotten, apply 6 health. Exhaust.
-public class Closure extends AbstractSleeperCard {
-    public static final String ID = makeID(Closure.class.getSimpleName());
+// Deal X damage. If played from forgotten, gain 1 dexterity.
+public class SelfProtection extends AbstractSleeperCard {
+    public static final String ID = makeID(SelfProtection.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -28,7 +29,7 @@ public class Closure extends AbstractSleeperCard {
     public static final int magicNumber = 4;
 
 
-    public Closure() {
+    public SelfProtection() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
         this.exhaust = true;

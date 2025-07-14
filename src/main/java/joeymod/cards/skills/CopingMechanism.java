@@ -1,16 +1,15 @@
-package joeymod.cards;
+package joeymod.cards.skills;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import joeymod.actions.ForgetAction;
+import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-//Draw two cards. Forget.
-public class FreeDrawing extends AbstractSleeperCard {
-    public static final String ID = makeID(FreeDrawing.class.getSimpleName());
+//Gain 2 energy. gain 1 forgetful.
+public class CopingMechanism extends AbstractSleeperCard {
+    public static final String ID = makeID(CopingMechanism.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -23,7 +22,7 @@ public class FreeDrawing extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
     private int magicNumber = 2;
 
-    public FreeDrawing() {
+    public CopingMechanism() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.forget = true;
         this.magicNumber = magicNumber;
