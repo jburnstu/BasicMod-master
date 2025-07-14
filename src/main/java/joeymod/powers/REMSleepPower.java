@@ -1,8 +1,12 @@
 package joeymod.powers;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.powers.watcher.VigorPower;
+import joeymod.cards.ForgottenCard;
 
 import static joeymod.JoeyBasicMod.makeID;
 
@@ -19,8 +23,10 @@ public class REMSleepPower extends AbstractSleeperPower {
     }
 
     @Override
-    public void onForget(AbstractCard card) {
-        addToTop(new GainBlockAction(this.owner, this.amount));
+    public void onCardDraw(AbstractCard card) {
+        if (card instanceof ForgottenCard) {
+            addToTop(new ApplyPowerAction(this.owner,this.owner, new VigorPower(this.owner,1)));
+        }
     }
 
 }

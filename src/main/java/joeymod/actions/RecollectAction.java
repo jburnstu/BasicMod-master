@@ -33,7 +33,7 @@ public class RecollectAction extends AbstractGameAction {
         this.duration = Settings.ACTION_DUR_FAST;
     }
 
-    public update() {
+    public void update() {
         CardGroup f = ((MySleeperPlayer) this.p).forgottenPile;
         if (this.duration == Settings.ACTION_DUR_FAST) {
             if (AbstractDungeon.player.hand.size() == 10) {
@@ -46,10 +46,6 @@ public class RecollectAction extends AbstractGameAction {
                 return;
             }
             if (f.size() == 1) {
-                if (((AbstractCard)f.group.get(0)).cardID.equals("Exhume")) {
-                    this.isDone = true;
-                    return;
-                }
                 AbstractCard abstractCard = f.getTopCard();
                 abstractCard.unfadeOut();
                 this.p.hand.addToHand(abstractCard);

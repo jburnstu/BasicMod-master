@@ -89,14 +89,6 @@ public class JoeyBasicMod implements
 
     public static final Map<String, KeywordInfo> keywords = new HashMap<>();
 
-    @Override
-    public void receiveEditCards() {
-        new AutoAdd(modID) //Loads files from this mod
-                .packageFilter(BaseCard.class) //In the same package as this class
-                .setDefaultSeen(true) //And marks them as seen in the compendium
-                .cards(); //Adds the cards
-
-    }
 
     @Override
     public void receiveEditRelics() { //somewhere in the class
@@ -113,6 +105,20 @@ public class JoeyBasicMod implements
                     if (info.seen)
                         UnlockTracker.markRelicAsSeen(relic.relicId);
                 });
+    }
+
+    @Override
+    public void receiveEditCharacters() {
+        MySleeperPlayer.Meta.registerCharacter();
+    }
+
+    @Override
+    public void receiveEditCards() {
+        new AutoAdd(modID) //Loads files from this mod
+                .packageFilter(BaseCard.class) //In the same package as this class
+                .setDefaultSeen(true) //And marks them as seen in the compendium
+                .cards(); //Adds the cards
+
     }
 
     @Override
@@ -134,26 +140,6 @@ public class JoeyBasicMod implements
         }
     }
 
-    private void loadLocalization(String lang) {
-        //While this does load every type of localization, most of these files are just outlines so that you can see how they're formatted.
-        //Feel free to comment out/delete any that you don't end up using.
-        BaseMod.loadCustomStringsFile(CardStrings.class,
-                localizationPath(lang, "CardStrings.json"));
-        BaseMod.loadCustomStringsFile(CharacterStrings.class,
-                localizationPath(lang, "CharacterStrings.json"));
-        BaseMod.loadCustomStringsFile(EventStrings.class,
-                localizationPath(lang, "EventStrings.json"));
-        BaseMod.loadCustomStringsFile(OrbStrings.class,
-                localizationPath(lang, "OrbStrings.json"));
-        BaseMod.loadCustomStringsFile(PotionStrings.class,
-                localizationPath(lang, "PotionStrings.json"));
-        BaseMod.loadCustomStringsFile(PowerStrings.class,
-                localizationPath(lang, "PowerStrings.json"));
-        BaseMod.loadCustomStringsFile(RelicStrings.class,
-                localizationPath(lang, "RelicStrings.json"));
-        BaseMod.loadCustomStringsFile(UIStrings.class,
-                localizationPath(lang, "UIStrings.json"));
-    }
 
     @Override
     public void receiveEditKeywords()
@@ -190,6 +176,30 @@ public class JoeyBasicMod implements
             keywords.put(info.ID, info);
         }
     }
+
+
+    private void loadLocalization(String lang) {
+        //While this does load every type of localization, most of these files are just outlines so that you can see how they're formatted.
+        //Feel free to comment out/delete any that you don't end up using.
+        BaseMod.loadCustomStringsFile(CardStrings.class,
+                localizationPath(lang, "CardStrings.json"));
+        BaseMod.loadCustomStringsFile(CharacterStrings.class,
+                localizationPath(lang, "CharacterStrings.json"));
+        BaseMod.loadCustomStringsFile(EventStrings.class,
+                localizationPath(lang, "EventStrings.json"));
+        BaseMod.loadCustomStringsFile(OrbStrings.class,
+                localizationPath(lang, "OrbStrings.json"));
+        BaseMod.loadCustomStringsFile(PotionStrings.class,
+                localizationPath(lang, "PotionStrings.json"));
+        BaseMod.loadCustomStringsFile(PowerStrings.class,
+                localizationPath(lang, "PowerStrings.json"));
+        BaseMod.loadCustomStringsFile(RelicStrings.class,
+                localizationPath(lang, "RelicStrings.json"));
+        BaseMod.loadCustomStringsFile(UIStrings.class,
+                localizationPath(lang, "UIStrings.json"));
+    }
+
+
 
     //These methods are used to generate the correct filepaths to various parts of the resources folder.
     public static String localizationPath(String lang, String file) {
@@ -258,8 +268,4 @@ public class JoeyBasicMod implements
         }
     }
 
-    @Override
-    public void receiveEditCharacters() {
-        MySleeperPlayer.Meta.registerCharacter();
-    }
 }

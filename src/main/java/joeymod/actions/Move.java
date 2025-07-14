@@ -25,7 +25,6 @@ public class Move {
         ForgottenCard newForgottenCard = new ForgottenCard(c);
         g.addToBottom(newForgottenCard);
         ((MySleeperPlayer) AbstractDungeon.player).forgottenPile.addToTop(c);
-        System.out.println("Group just prior to moving to discard: " + g.group);
         if (immediateDiscard) {
             g.moveToDiscardPile(newForgottenCard);
         }

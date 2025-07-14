@@ -27,6 +27,6 @@
       "Forgotten",
       "Forgot"
     ],
-    "DESCRIPTION": "Forget -- . Spaces should not be used be avoided in NAMES, with the exception of multi-word keywords (see next entry)."
+    "DESCRIPTION": "Forget -- when a card is forgotten, its effect is hidden and its energy cost changed to 1, until played. Forgotten cards are remembered when played."
   }
 ]

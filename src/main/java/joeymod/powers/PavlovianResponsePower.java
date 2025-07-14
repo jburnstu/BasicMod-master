@@ -12,6 +12,7 @@ import joeymod.cards.ForgottenCard;
 import static com.megacrit.cardcrawl.cards.AbstractCard.CardType.ATTACK;
 import static joeymod.JoeyBasicMod.makeID;
 
+
 public class PavlovianResponsePower extends AbstractSleeperPower {
     public static final String POWER_ID = makeID(PavlovianResponsePower.class.getSimpleName());
     private static final PowerType TYPE = PowerType.BUFF;
