@@ -1,9 +1,11 @@
 package joeymod.cards.skills;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.cards.AbstractSleeperCard;
+import joeymod.cards.powers.ForgetfulPower;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
@@ -20,7 +22,7 @@ public class Sublimation extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int magicNumber = 2;
+    private int magicNumber = 3;
 
     public Sublimation() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
@@ -30,6 +32,8 @@ public class Sublimation extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+
         addToBot(new DrawCardAction(p,this.magicNumber));
+        addToBot(new ApplyPowerAction(p,p, new ForgetfulPower(p,1)));
     }
 }

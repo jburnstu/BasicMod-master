@@ -3,6 +3,7 @@ package joeymod.cards.attacks;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -42,8 +43,8 @@ public class SpiritGuidance extends AbstractSleeperCard {
 
     @Override
     public void triggerOnPlayedFromForgotten (AbstractPlayer p, AbstractMonster m, boolean randomTarget) {
-        addToBot(new HealAction(p, p, magicNumber));
-    }
+        addToBot((AbstractGameAction)new GainEnergyAction(2));
+      }
 
 
 }

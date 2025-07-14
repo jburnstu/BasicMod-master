@@ -1,9 +1,11 @@
 package joeymod.cards.skills;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.cards.AbstractSleeperCard;
+import joeymod.cards.powers.ForgetfulPower;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
@@ -30,6 +32,7 @@ public class CopingMechanism extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToTop(new ApplyPowerAction(p,p,new ForgetfulPower(p,p)))
         addToBot(new DrawCardAction(p,this.magicNumber));
     }
 }

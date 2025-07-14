@@ -9,7 +9,7 @@ import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-// Attack 2x4 times.
+// Attack 2x4 times. Forget.
 public class Thrash extends AbstractSleeperCard {
     public static final String ID = makeID(Thrash.class.getSimpleName());
     private static Object MyCharacter;

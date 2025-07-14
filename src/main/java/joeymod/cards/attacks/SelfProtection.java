@@ -2,11 +2,13 @@ package joeymod.cards.attacks;
 
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
@@ -42,7 +44,7 @@ public class SelfProtection extends AbstractSleeperCard {
 
     @Override
     public void triggerOnPlayedFromForgotten (AbstractPlayer p, AbstractMonster m, boolean randomTarget) {
-        addToBot(new HealAction(p, p, magicNumber));
+        addToBot(new ApplyPowerAction(p ,p, new DexterityPower(p,1)));
     }
 
 
