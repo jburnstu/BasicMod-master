@@ -25,7 +25,8 @@ public abstract class AbstractSleeperCard extends BaseCard {
     }
 
     public boolean forget = false;
-    public BaseCard forgottenCard;
+    public boolean urgent = false;
+//    public AbstractCard forgottenCard;
 
     public void triggerOnForgotten () {}
 

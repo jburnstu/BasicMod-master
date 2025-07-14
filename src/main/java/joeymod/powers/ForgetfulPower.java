@@ -1,4 +1,4 @@
-package joeymod.cards.powers;
+package joeymod.powers;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.powers.AbstractPower;
