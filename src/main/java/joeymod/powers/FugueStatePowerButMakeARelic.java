@@ -20,8 +20,8 @@ public class FugueStatePowerButMakeARelic extends AbstractSleeperPower {
 
     @Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
-        if (c instanceof ForgottenCard && ((ForgottenCard) c).forgottenCard.type == AbstractCard.CardType.POWER) {
-           AbstractCard copy = new ((ForgottenCard) c).forgottenCard.getClass();        }
+        if (c instanceof ForgottenCard && ((ForgottenCard) c).frontForgottenCard.type == AbstractCard.CardType.POWER) {
+           AbstractCard copy = new ((ForgottenCard) c).frontForgottenCard.getClass();        }
 
     }
 

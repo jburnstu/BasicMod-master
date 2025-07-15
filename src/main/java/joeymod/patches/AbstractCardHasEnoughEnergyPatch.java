@@ -18,10 +18,14 @@ public class AbstractCardHasEnoughEnergyPatch {
 
     @SpirePrefixPatch()
     public static SpireReturn<Boolean> Prefix(Object _self) {
-        for (AbstractCard c : AbstractDungeon.player.hand.group) {
-            if (((AbstractSleeperCard) c).urgent && c!=_self){
-                return SpireReturn.Return(false);
+        if (!((AbstractSleeperCard) _self).urgent) {
+            for (AbstractCard c : AbstractDungeon.player.hand.group) {
+                if (((AbstractSleeperCard) c).urgent) {
+                    ((AbstractSleeperCard) _self).cantUseMessage = "I have an Urgent card I must play first.";
+                    return SpireReturn.Return(false);
+                }
             }
+        }
         return SpireReturn.Continue();
     }
 }

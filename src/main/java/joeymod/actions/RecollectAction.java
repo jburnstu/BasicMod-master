@@ -26,7 +26,7 @@ public class RecollectAction extends AbstractGameAction {
 
     private ArrayList<AbstractCard> recalls = new ArrayList<>();
 
-    public RecollectAction(AbstractPlayer p, int magicNumber) {
+    public RecollectAction(int magicNumber) {
         this.p = AbstractDungeon.player;
         setValues((AbstractCreature)this.p, (AbstractCreature)AbstractDungeon.player, this.amount);
         this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;

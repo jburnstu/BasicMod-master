@@ -1,8 +1,13 @@
 package joeymod.powers;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.EnergizedPower;
+import joeymod.cards.ForgottenCard;
 
 import static joeymod.JoeyBasicMod.makeID;
 
@@ -20,6 +25,21 @@ public class DisseveredFormPower extends AbstractSleeperPower {
     @Override
     public void onForget(AbstractCard card) {
         addToTop(new GainBlockAction(this.owner, this.amount));
+    }
+
+    @Override
+    public void onCardDraw(AbstractCard c) {
+        if (c instanceof ForgottenCard) {
+            ((ForgottenCard) c).urgent = true;
+            // change description
+        }
+    }
+
+    @Override
+    public void onPlayCard(AbstractCard c, AbstractMonster m) {
+            if (c instanceof ForgottenCard) {
+                addToTop(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player, new EnergizedPower(AbstractDungeon.player,1)));
+        }
     }
 
 }

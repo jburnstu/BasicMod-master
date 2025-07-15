@@ -32,7 +32,7 @@ public class CopingMechanism extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToTop(new ApplyPowerAction(p,p,new ForgetfulPower(p,p)))
+        addToTop(new ApplyPowerAction(p,p,new ForgetfulPower(p,1)));
         addToBot(new DrawCardAction(p,this.magicNumber));
     }
 }

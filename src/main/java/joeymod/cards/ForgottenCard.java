@@ -1,17 +1,12 @@
 package joeymod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.ShowCardAndPoofAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import joeymod.character.MySleeperPlayer;
-import joeymod.powers.AbstractSleeperPower;
-import joeymod.relics.AbstractSleeperRelic;
 import joeymod.util.CardStats;
 
 public class ForgottenCard extends AbstractSleeperCard {
@@ -26,14 +21,16 @@ public class ForgottenCard extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    public AbstractCard forgottenCard;
+    public AbstractCard frontForgottenCard;
     MySleeperPlayer p;
 
     public ForgottenCard(AbstractCard c) {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.forgottenCard = c;
+        this.frontForgottenCard = c;
+        ((AbstractSleeperCard) c).backForgottenCard = this;
         this.p = (MySleeperPlayer) AbstractDungeon.player;
         this.purgeOnUse = true;
+
     }
 
     public ForgottenCard() {
@@ -42,11 +39,11 @@ public class ForgottenCard extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.p.forgottenPile.group.remove(this.forgottenCard);
-        addToBot(new NewQueueCardAction(this.forgottenCard, true, false, true));
-        if (this.forgottenCard instanceof AbstractSleeperCard) {
+        this.p.forgottenPile.group.remove(this.frontForgottenCard);
+        addToBot(new NewQueueCardAction(this.frontForgottenCard, true, false, true));
+        if (this.frontForgottenCard instanceof AbstractSleeperCard) {
 //            this.p.hand.addToHand(this.forgottenCard);
-            ((AbstractSleeperCard) this.forgottenCard).triggerOnPlayedFromForgotten(p,m,true);
+            ((AbstractSleeperCard) this.frontForgottenCard).triggerOnPlayedFromForgotten(p,m,true);
         }
         addToTop(new ShowCardAndPoofAction(this));
     }

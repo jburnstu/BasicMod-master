@@ -1,5 +1,6 @@
 package joeymod.cards.skills;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -34,6 +35,7 @@ public class Coma extends AbstractSleeperCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         for (AbstractCard c : ((MySleeperPlayer) AbstractDungeon.player).forgottenPile.group) {
-
+            ((AbstractSleeperCard) c).backForgottenCard.setCostForTurn(0);
+        addToTop(new ApplyPowerAction(p,new ComaPower()));
     }
 }
