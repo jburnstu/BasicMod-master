@@ -1,6 +1,5 @@
 package joeymod.cards.skills;
 
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.actions.MagicalThinkingAction;
@@ -31,6 +30,6 @@ public class MagicalThinking extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToTop(new MagicalThinkingAction(p,this.magicNumber));
+        addToTop(new MagicalThinkingAction(this));
     }
 }
