@@ -129,7 +129,7 @@
   },
   "${modID}:TossAndTurn": {
     "NAME": "Toss And Turn",
-    "DESCRIPTION": "X Damage. Increase the cost of this card by 1 this combat.",
+    "DESCRIPTION": "Urgent. !D! Damage. Increase the cost of this card by 1 this combat.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
     "EXTENDED_DESCRIPTION": [
       "You can put more text in here.",

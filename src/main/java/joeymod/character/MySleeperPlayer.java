@@ -152,13 +152,12 @@ public class MySleeperPlayer extends CustomPlayer {
         retVal.add(SleeperStrike.ID);
         retVal.add(SleeperStrike.ID);
         retVal.add(SleeperStrike.ID);
-        retVal.add(Defend_Blue.ID);
-        retVal.add(Defend_Blue.ID);
-        retVal.add(Defend_Blue.ID);
-        retVal.add(Defend_Blue.ID);
+        retVal.add(SleeperDefend.ID);
+        retVal.add(SleeperDefend.ID);
+        retVal.add(SleeperDefend.ID);
+        retVal.add(SleeperDefend.ID);
         retVal.add(Repress.ID);
         retVal.add(TossAndTurn.ID);
-        retVal.add(Repress.ID);
         return retVal;
     }
 
