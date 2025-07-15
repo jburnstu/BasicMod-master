@@ -7,10 +7,17 @@
     ]
   },
   "${modID}:TeddyBear": {
-    "NAME": "Teddy Bear",
-    "FLAVOR": "Flavor text displayed in detailed relic view.",
+    "NAME": "TeddyBear",
+    "FLAVOR": "A treasured toy that seems to respond to strong dreams.",
     "DESCRIPTIONS": [
       "The first time each turn that you draw a forgotten card, draw another card."
+    ]
+  },
+  "${modID}:SleepMobile": {
+    "NAME": "Sleep Mobile",
+    "FLAVOR": "Looking at it gives you an odd sense of deja vu.",
+    "DESCRIPTIONS": [
+      "Whenever you remember a power card, shuffle a copy of that card into your deck."
     ]
   }
 }

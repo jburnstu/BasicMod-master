@@ -19,10 +19,11 @@ public class ForgetAllAttackAction extends AbstractGameAction {
         if (this.duration == this.startingDuration) {
             for (AbstractCard c : AbstractDungeon.player.hand.group) {
                 if (c.type == AbstractCard.CardType.ATTACK)
-                    addToTop((AbstractGameAction)new ForgetSpecificCardAction(c, AbstractDungeon.player.hand));
+                    addToBot((AbstractGameAction)new ForgetSpecificCardAction(c, AbstractDungeon.player.hand));
             }
             this.isDone = true;
         }
+        tickDuration();
     }
 
 

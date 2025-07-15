@@ -102,8 +102,8 @@ public class JoeyBasicMod implements
 
                     //If the class is annotated with @AutoAdd.Seen, it will be marked as seen, making it visible in the relic library.
                     //If you want all your relics to be visible by default, just remove this if statement.
-                    if (info.seen)
-                        UnlockTracker.markRelicAsSeen(relic.relicId);
+//                    if (info.seen)
+//                        UnlockTracker.markRelicAsSeen(relic.relicId);
                 });
     }
 
