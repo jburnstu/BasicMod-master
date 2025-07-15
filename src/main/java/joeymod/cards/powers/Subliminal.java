@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.powers.PavlovianResponsePower;
+import joeymod.powers.SubliminalPower;
 import joeymod.util.CardStats;
 
 //Whenever you remember an attack, gain 1 strength.
@@ -30,7 +31,7 @@ public class Subliminal extends AbstractSleeperCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new PavlovianResponsePower(p,this.magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new SubliminalPower(p,this.magicNumber)));
     }
 
     public void upgrade() {

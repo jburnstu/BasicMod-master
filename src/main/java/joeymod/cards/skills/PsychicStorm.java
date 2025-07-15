@@ -12,7 +12,7 @@ import joeymod.powers.ComaPower;
 import joeymod.powers.PsychicStormPower;
 import joeymod.util.CardStats;
 
-//Forgotten cards cost zero this turn. This turn, when you play a card, forget it.
+//Lose 2 strength. When you remember an attack, its damage is dealt to ALL enemies.
 public class PsychicStorm extends AbstractSleeperCard {
     public static final String ID = makeID(PsychicStorm.class.getSimpleName());
     private static Object MyCharacter;

@@ -1,17 +1,15 @@
 package joeymod.cards.skills;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import joeymod.actions.ForgetAction;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
 //Urgent, draw 3 cards
-public class Overwhelm extends AbstractSleeperCard {
-    public static final String ID = makeID(Overwhelm.class.getSimpleName());
+public class FlashBeforeMyEyes extends AbstractSleeperCard {
+    public static final String ID = makeID(FlashBeforeMyEyes.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -26,7 +24,7 @@ public class Overwhelm extends AbstractSleeperCard {
 //    private static final int BLOCK = 6;
 //    private static final int UPG_BLOCK = 3;
 
-    public Overwhelm() {
+    public FlashBeforeMyEyes() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.forget = true;
         this.magicNumber = magicNumber;

@@ -39,6 +39,46 @@
       "Blizzard is a good example for this."
     ]
   },
+  "${modID}:Coma": {
+    "NAME": "Coma",
+    "DESCRIPTION": "All forgotten cards cost zero this turn. This turn, when you play a card, forget it.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:CopingMechanism": {
+    "NAME": "Coping Mechanism",
+    "DESCRIPTION": "Gain !M! Energy. Gain 1 forgetful.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:DisseveredForm": {
+    "NAME": "Dissevered Form",
+    "DESCRIPTION": "All forgotten cards gain urgent. Whenever you remember a card, gain 1 energy at the star of next turn..",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:FlashBeforeMyEyes": {
+    "NAME": "Flash Before My Eyes",
+    "DESCRIPTION": "Urgent. Draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
   "${modID}:ForgottenCard": {
     "NAME": "???",
     "DESCRIPTION": "Forgotten.",
@@ -67,6 +107,46 @@
       "Blizzard is a good example for this."
     ]
   },
+  "${modID}:InOneEar": {
+    "NAME": "In One Ear",
+    "DESCRIPTION": "Whenever you forget a card, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:LucidDream": {
+    "NAME": "Lucid Dream",
+    "DESCRIPTION": "At the start of your turn, recollect !M! and gain !M! forgetful.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:MagicalThinking": {
+    "NAME": "Magical Thinking",
+    "DESCRIPTION": "Exchange the cost of this card with another card in your hand until the end of combat.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:Oblivious": {
+    "NAME": "Oblivious",
+    "DESCRIPTION": "Whenever you forget a card, gain three block.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
   "${modID}:PavlovianResponse": {
     "NAME": "Pavlovian Response",
     "DESCRIPTION": "Whenever you remember an attack, gain !M! Strength.",
@@ -77,9 +157,59 @@
       "Blizzard is a good example for this."
     ]
   },
+  "${modID}:PsionicScream": {
+    "NAME": "Psionic Scream",
+    "DESCRIPTION": "Urgent. Deal !D! Damage to all enemies.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:PsychicStorm": {
+    "NAME": "Psychic Storm",
+    "DESCRIPTION": "Lose 2 strength. When you remember an attack, its damage is dealt to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:Recollect": {
+    "NAME": "Recollect",
+    "DESCRIPTION": "Recollect 1 card.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:REMSleep": {
+    "NAME": "REM Sleep",
+    "DESCRIPTION": "Whenever you draw a forgotten card, gain !M! Vigour.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
   "${modID}:Repress": {
     "NAME": "Repress",
     "DESCRIPTION": "Forget 1 card in your hand. Gain !B! Block. Forget.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:SelfProtection": {
+    "NAME": "Self Protection",
+    "DESCRIPTION": "!D! Damage. If remembered, gain !M! Dexterity.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
     "EXTENDED_DESCRIPTION": [
       "You can put more text in here.",
@@ -107,9 +237,49 @@
       "Blizzard is a good example for this."
     ]
   },
+  "${modID}:SleepingPill": {
+    "NAME": "Sleeping Pill",
+    "DESCRIPTION": "Urgent. Gain !B! Block. Forget a card.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:SpiritGuidance": {
+    "NAME": "Spirit Guidance",
+    "DESCRIPTION": "!D! Damage. If remembered, gain !M! energy.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
   "${modID}:Startle": {
     "NAME": "Startle",
     "DESCRIPTION": "Deal !D! damage. If played forgotten, heal !M! HP.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:Sublimation": {
+    "NAME": "Sublimation",
+    "DESCRIPTION": "Gain !B! Block. Gain 1 forgetful.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:Subliminal": {
+    "NAME": "Sublimation",
+    "DESCRIPTION": "Whenever you remember a skill, apply 1 weak to all enemies.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
     "EXTENDED_DESCRIPTION": [
       "You can put more text in here.",
