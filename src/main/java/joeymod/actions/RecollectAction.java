@@ -18,16 +18,15 @@ public class RecollectAction extends AbstractGameAction {
 
     private AbstractPlayer p;
 
-    private final boolean upgrade;
-
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("ExhumeAction");
 
     public static final String[] TEXT = uiStrings.TEXT;
 
     private ArrayList<AbstractCard> recalls = new ArrayList<>();
 
-    public RecollectAction(int magicNumber) {
+    public RecollectAction(int amount, boolean isRandom) {
         this.p = AbstractDungeon.player;
+        this.amount = amount;
         setValues((AbstractCreature)this.p, (AbstractCreature)AbstractDungeon.player, this.amount);
         this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FAST;
@@ -48,10 +47,7 @@ public class RecollectAction extends AbstractGameAction {
             if (f.size() == 1) {
                 AbstractCard abstractCard = f.getTopCard();
                 abstractCard.unfadeOut();
-                this.p.hand.addToHand(abstractCard);
-                if (AbstractDungeon.player.hasPower("Corruption") && abstractCard.type == AbstractCard.CardType.SKILL)
-                    abstractCard.setCostForTurn(-9);
-                f.removeCard(abstractCard);
+                Move.fromForgottenPile(abstractCard);
                 abstractCard.unhover();
                 abstractCard.fadingOut = false;
                 this.isDone = true;
@@ -74,10 +70,7 @@ public class RecollectAction extends AbstractGameAction {
         }
         if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
             for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
-                this.p.hand.addToHand(c);
-                if (AbstractDungeon.player.hasPower("Corruption") && c.type == AbstractCard.CardType.SKILL)
-                    c.setCostForTurn(-9);
-                f.removeCard(c);
+                Move.fromForgottenPile(c);
                 c.unhover();
             }
             AbstractDungeon.gridSelectScreen.selectedCards.clear();

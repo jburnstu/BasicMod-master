@@ -1,8 +1,11 @@
 package joeymod.cards.skills;
 
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.powers.LoseStrengthPower;
+import joeymod.cards.ForgottenCard;
+import joeymod.powers.PsychicStormPower;
 import joeymod.powers.AbstractSleeperPower;
 
 import static joeymod.JoeyBasicMod.makeID;
@@ -19,8 +22,10 @@ public class PsychicStorm extends AbstractSleeperPower {
     }
 
     @Override
-    public void onForget(AbstractCard card) {
-        addToTop(new GainBlockAction(this.owner, this.amount));
+    public void onCardPlay(AbstractCard card) {
+        if (card instanceof ForgottenCard) {
+            addToBot(new ApplyPowerAction(this.owner, this.owner, new LoseStrengthPower(this.owner, this.amount)));
+            addToBot(new ApplyPowerAction(this.owner,this.owner,new PsychicStormPower(this.owner,this.amount)));
+        }
     }
-
 }

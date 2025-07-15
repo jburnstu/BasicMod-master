@@ -2,8 +2,10 @@ package joeymod.actions;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import joeymod.cards.AbstractSleeperCard;
 import joeymod.cards.ForgottenCard;
 import joeymod.character.MySleeperPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -29,5 +31,19 @@ public class Move {
             g.moveToDiscardPile(newForgottenCard);
         }
         return newForgottenCard;
+    }
+
+    public static void fromForgottenPile(AbstractCard c) {
+        MySleeperPlayer p = (MySleeperPlayer) AbstractDungeon.player;
+        if (p.forgottenPile.group.contains(c)) {
+            ForgottenCard backForgottenCard = ((AbstractSleeperCard) c).backForgottenCard;
+            if (p.drawPile.group.contains(backForgottenCard)) {
+                p.drawPile.group.remove(backForgottenCard);
+            } else if (p.discardPile.group.contains(backForgottenCard)) {
+                p.discardPile.group.remove(backForgottenCard);
+            } else if (p.hand.group.contains(backForgottenCard)) {
+                p.hand.group.remove(backForgottenCard);}
+            p.hand.addToHand(c);
+        }
     }
 }

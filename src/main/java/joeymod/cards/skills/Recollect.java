@@ -31,6 +31,6 @@ public class Recollect extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        addToBot(new RecollectAction(p,this.magicNumber));
+        addToBot(new RecollectAction(this.magicNumber,false));
     }
 }

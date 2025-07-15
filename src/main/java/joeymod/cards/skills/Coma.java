@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
+import joeymod.powers.ComaPower;
 import joeymod.util.CardStats;
 
 //Forgotten cards cost zero this turn. This turn, when you play a card, forget it.
@@ -36,6 +37,7 @@ public class Coma extends AbstractSleeperCard {
 
         for (AbstractCard c : ((MySleeperPlayer) AbstractDungeon.player).forgottenPile.group) {
             ((AbstractSleeperCard) c).backForgottenCard.setCostForTurn(0);
-        addToTop(new ApplyPowerAction(p,new ComaPower()));
+            addToTop(new ApplyPowerAction(p, p, new ComaPower(p, this.magicNumber)));
+        }
     }
 }

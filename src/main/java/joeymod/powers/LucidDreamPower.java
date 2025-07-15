@@ -23,7 +23,7 @@ public class LucidDreamPower extends AbstractSleeperPower {
     public void atStartOfTurnPostDraw() {
         flash();
         addToBot((AbstractGameAction)new ApplyPowerAction(this.owner, this.owner, new ForgetfulPower(this.owner, this.amount), this.amount));
-        addToBot((AbstractGameAction)new RecollectAction();
+        addToBot((AbstractGameAction)new RecollectAction(this.amount,false));
 
     }
 }
