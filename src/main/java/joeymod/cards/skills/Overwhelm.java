@@ -1,5 +1,6 @@
 package joeymod.cards.skills;
 
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -8,7 +9,7 @@ import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-//Urgent, gain x block, forget a card.
+//Urgent, draw 3 cards
 public class Overwhelm extends AbstractSleeperCard {
     public static final String ID = makeID(Overwhelm.class.getSimpleName());
     private static Object MyCharacter;
@@ -21,21 +22,21 @@ public class Overwhelm extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int magicNumber = 2;
-    private static final int BLOCK = 6;
-    private static final int UPG_BLOCK = 3;
+    private int magicNumber = 3;
+//    private static final int BLOCK = 6;
+//    private static final int UPG_BLOCK = 3;
 
     public Overwhelm() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.forget = true;
         this.magicNumber = magicNumber;
         this.urgent = true;
-        setBlock(BLOCK, UPG_BLOCK);
+//        setBlock(BLOCK, UPG_BLOCK);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainBlockAction(p,this.block));
-        addToTop(new ForgetAction(1,false,false,false));
+//        addToBot(new GainBlockAction(p,this.block));
+        addToTop(new DrawCardAction(this.magicNumber));
         }
 }
