@@ -10,7 +10,7 @@ import joeymod.powers.PavlovianResponsePower;
 import joeymod.powers.SubliminalPower;
 import joeymod.util.CardStats;
 
-//Whenever you remember an attack, gain 1 strength.
+//W
 public class Subliminal extends AbstractSleeperCard {
     public static final String ID = makeID(Subliminal.class.getSimpleName());
     private static Object MyCharacter;

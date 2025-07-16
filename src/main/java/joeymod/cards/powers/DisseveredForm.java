@@ -6,10 +6,11 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
+import joeymod.powers.DisseveredFormPower;
 import joeymod.powers.PavlovianResponsePower;
 import joeymod.util.CardStats;
 
-//Whenever you remember an attack, gain 1 strength.
+//All forgotten cards gain urgent. when you remember a card, gain 1 energy next turn
 public class DisseveredForm extends AbstractSleeperCard {
     public static final String ID = makeID(DisseveredForm.class.getSimpleName());
     private static Object MyCharacter;
@@ -30,7 +31,7 @@ public class DisseveredForm extends AbstractSleeperCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new PavlovianResponsePower(p,this.magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new DisseveredFormPower(p,this.magicNumber)));
     }
 
     public void upgrade() {

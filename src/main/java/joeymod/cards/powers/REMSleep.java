@@ -10,7 +10,7 @@ import joeymod.powers.PavlovianResponsePower;
 import joeymod.powers.REMSleepPower;
 import joeymod.util.CardStats;
 
-//Whenever you remember an attack, gain 1 strength.
+//Whenever you draw a forgotten card, gain 1 vigour.
 public class REMSleep extends AbstractSleeperCard {
     public static final String ID = makeID(REMSleep.class.getSimpleName());
     private static Object MyCharacter;

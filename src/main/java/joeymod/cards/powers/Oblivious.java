@@ -9,7 +9,7 @@ import joeymod.character.MySleeperPlayer;
 import joeymod.powers.ObliviousPower;
 import joeymod.util.CardStats;
 
-//Whenever you remember an attack, gain 1 strength.
+//Whenever you forget a card, gain 3 block.
 public class Oblivious extends AbstractSleeperCard {
     public static final String ID = makeID(Oblivious.class.getSimpleName());
     private static Object MyCharacter;
