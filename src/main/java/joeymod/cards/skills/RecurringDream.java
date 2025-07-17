@@ -38,4 +38,3 @@ public class RecurringDream extends AbstractSleeperCard {
 
         }
     }
-}

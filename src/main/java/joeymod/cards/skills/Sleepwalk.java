@@ -44,4 +44,3 @@ public class Sleepwalk extends AbstractSleeperCard {
         addToBot(new ForgetAction(1,false,false,false));
         }
     }
-}

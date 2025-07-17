@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
+import joeymod.powers.WoozyPower;
 import joeymod.util.CardStats;
 
 // Attack and inflict woozy
@@ -25,21 +26,21 @@ public class EnterDreams extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
     private static final int DAMAGE = 2;
     private static final int UPG_DAMAGE = 2;
-    private static int magicNumber = 2;
+    private static int baseMagicNumber = 2;
 
     public EnterDreams() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
 
         setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
 
-        this.magicNumber = magicNumber;
+        this.magicNumber = baseMagicNumber;
         this.forget = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        addToBot(new ApplyPowerAction((m,p,new WoozyPower())));
+        addToBot(new ApplyPowerAction(m,p,new WoozyPower(p,this.baseMagicNumber)));
           }
 }
 

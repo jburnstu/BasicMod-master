@@ -37,4 +37,3 @@ public class BlankSlate extends AbstractSleeperCard {
         addToTop(new BlankSlateAction());
         }
     }
-}

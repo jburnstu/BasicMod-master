@@ -16,11 +16,13 @@ public class InOneEarPower extends AbstractSleeperPower {
 
 
     public InOneEarPower(AbstractCreature owner, int amount) {
+
         super(POWER_ID, TYPE, false, owner, amount);
     }
 
     @Override
     public void onForget(AbstractCard card) {
+
         addToTop(new DrawCardAction(this.owner, this.amount));
     }
 
