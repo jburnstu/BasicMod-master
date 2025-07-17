@@ -26,13 +26,15 @@ public class Sleepwalk extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
+    private static final int BLOCK = 8;
+    private static final int UPG_BLOCK = 3;
     private int magicNumber = 2;
 
     public Sleepwalk() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.forget = true;
         this.magicNumber = magicNumber;
-        this.block
+        setBlock(BLOCK,UPG_BLOCK);
     }
 
     @Override

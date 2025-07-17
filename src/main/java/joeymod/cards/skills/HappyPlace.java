@@ -10,7 +10,7 @@ import joeymod.character.MySleeperPlayer;
 import joeymod.powers.ComaPower;
 import joeymod.util.CardStats;
 
-//Forgotten cards cost zero this turn. This turn, when you play a card, forget it.
+//Urgent. end your turn and have another turn. exhaust
 public class HappyPlace extends AbstractSleeperCard {
     public static final String ID = makeID(HappyPlace.class.getSimpleName());
     private static Object MyCharacter;
@@ -27,16 +27,13 @@ public class HappyPlace extends AbstractSleeperCard {
 
     public HappyPlace() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.forget = true;
+        this.exhaust = true;
+        this.urgent = true;
         this.magicNumber = magicNumber;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
-        for (AbstractCard c : ((MySleeperPlayer) AbstractDungeon.player).forgottenPile.group) {
-            ((AbstractSleeperCard) c).backForgottenCard.setCostForTurn(0);
-            addToTop(new ApplyPowerAction(p, p, new ComaPower(p, this.magicNumber)));
-        }
+        // check Vault
     }
 }

@@ -5,11 +5,11 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.cards.AbstractSleeperCard;
-import joeymod.powers.ForgetfulPower;
+import joeymod.powers.AmnesiaPower;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-//Draw three cards. gain 1 forgetful [exhaust the next forgotten card you play].
+//Draw three cards. gain 1 amnesia [exhaust the next forgotten card you play].
 public class Sublimation extends AbstractSleeperCard {
     public static final String ID = makeID(Sublimation.class.getSimpleName());
     private static Object MyCharacter;
@@ -34,6 +34,6 @@ public class Sublimation extends AbstractSleeperCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         addToBot(new DrawCardAction(p,this.magicNumber));
-        addToBot(new ApplyPowerAction(p,p, new ForgetfulPower(p,1)));
+        addToBot(new ApplyPowerAction(p,p, new AmnesiaPower(p,1)));
     }
 }

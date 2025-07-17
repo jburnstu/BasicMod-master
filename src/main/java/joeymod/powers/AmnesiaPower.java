@@ -4,17 +4,14 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import joeymod.cards.ForgottenCard;
 
-public class ForgetfulPower extends AbstractPower {
+public class AmnesiaPower extends AbstractPower {
     public static final String POWER_ID = "Forgetful";
 
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings("Weakened");
@@ -27,7 +24,7 @@ public class ForgetfulPower extends AbstractPower {
 
     private static final int EFFECTIVENESS_STRING = 25;
 
-    public ForgetfulPower(AbstractCreature owner, int amount) {
+    public AmnesiaPower(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = "Forgetful";
         this.owner = owner;

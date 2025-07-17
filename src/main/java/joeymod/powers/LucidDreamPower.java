@@ -2,8 +2,6 @@ package joeymod.powers;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import joeymod.actions.RecollectAction;
 
@@ -22,7 +20,7 @@ public class LucidDreamPower extends AbstractSleeperPower {
 
     public void atStartOfTurnPostDraw() {
         flash();
-        addToBot((AbstractGameAction)new ApplyPowerAction(this.owner, this.owner, new ForgetfulPower(this.owner, this.amount), this.amount));
+        addToBot((AbstractGameAction)new ApplyPowerAction(this.owner, this.owner, new AmnesiaPower(this.owner, this.amount), this.amount));
         addToBot((AbstractGameAction)new RecollectAction(this.amount,false));
 
     }

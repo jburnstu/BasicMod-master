@@ -7,7 +7,7 @@ import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-//Choose a forgotten card from anywhere in play, remember it, and put it into your hand. exhaust.
+//Recollect 1.
 public class Recollect extends AbstractSleeperCard {
     public static final String ID = makeID(Recollect.class.getSimpleName());
     private static Object MyCharacter;
@@ -20,7 +20,7 @@ public class Recollect extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int magicNumber = 2;
+    private int magicNumber = 1;
 
     public Recollect() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
