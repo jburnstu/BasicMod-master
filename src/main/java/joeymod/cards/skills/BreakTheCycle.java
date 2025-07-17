@@ -7,9 +7,9 @@ import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-//Recollect 1. If the card you chose is an attack, gain its attack damage as block.
-public class ChangeTheProphecy extends AbstractSleeperCard {
-    public static final String ID = makeID(ChangeTheProphecy.class.getSimpleName());
+//RRecollect 1. If the card you recollect is an attack, gain its base attack as block.",
+public class BreakTheCycle extends AbstractSleeperCard {
+    public static final String ID = makeID(BreakTheCycle.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -22,7 +22,7 @@ public class ChangeTheProphecy extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
     private int magicNumber = 2;
 
-    public ChangeTheProphecy() {
+    public BreakTheCycle() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.forget = true;
         this.magicNumber = magicNumber;

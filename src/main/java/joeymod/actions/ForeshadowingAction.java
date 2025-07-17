@@ -7,5 +7,9 @@ public class ForeshadowingAction extends AbstractGameAction {
     }
 
 
-    public void update () {}
+    public void update () {
+        //Do a recollect action
+        // return the target card as a variable
+        // check on that, perform vulnerable if so
+    }
 }

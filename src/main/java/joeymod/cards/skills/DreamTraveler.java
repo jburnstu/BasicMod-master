@@ -1,6 +1,8 @@
 package joeymod.cards.skills;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.TransformCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,7 +12,7 @@ import joeymod.character.MySleeperPlayer;
 import joeymod.powers.ComaPower;
 import joeymod.util.CardStats;
 
-//Forgotten cards cost zero this turn. This turn, when you play a card, forget it.
+//X damamge then transform
 public class DreamTraveler extends AbstractSleeperCard {
     public static final String ID = makeID(DreamTraveler.class.getSimpleName());
     private static Object MyCharacter;
@@ -34,9 +36,8 @@ public class DreamTraveler extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        for (AbstractCard c : ((MySleeperPlayer) AbstractDungeon.player).forgottenPile.group) {
-            ((AbstractSleeperCard) c).backForgottenCard.setCostForTurn(0);
-            addToTop(new ApplyPowerAction(p, p, new ComaPower(p, this.magicNumber)));
+        addToBot(new DamageAction());
+        addToBot(new TransformCardInHandAction(1,random));
         }
     }
 }
