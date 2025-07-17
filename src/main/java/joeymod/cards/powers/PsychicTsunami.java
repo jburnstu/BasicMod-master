@@ -1,11 +1,9 @@
-package joeymod.cards.attacks;
+package joeymod.cards.powers;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
@@ -17,7 +15,7 @@ import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-// Deal
+// Lose 2 strength. When you remember an attack, deal its damage to all enemies.
 public class PsychicTsunami extends AbstractSleeperCard {
     public static final String ID = makeID(PsychicTsunami.class.getSimpleName());
     private static Object MyCharacter;

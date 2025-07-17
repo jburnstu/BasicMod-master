@@ -297,8 +297,8 @@
       "Blizzard is a good example for this."
     ]
   },
-  "${modID}:PsychicStorm": {
-    "NAME": "Psychic Storm",
+  "${modID}:PsychicTsunami": {
+    "NAME": "Psychic Tsunami",
     "DESCRIPTION": "Lose 2 strength. When you remember an attack, its damage is dealt to ALL enemies.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
     "EXTENDED_DESCRIPTION": [
