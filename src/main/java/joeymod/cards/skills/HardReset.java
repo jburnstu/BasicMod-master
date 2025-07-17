@@ -3,6 +3,7 @@ package joeymod.cards.skills;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.RemoveAllBlockAction;
 import com.megacrit.cardcrawl.actions.utility.LoseBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -36,7 +37,7 @@ public class HardReset extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new LoseBlockAction(p,p,currentBlock)); //how to get this?
+        addToBot(new RemoveAllBlockAction(p,p)); //how to get this?
         addToBot(new GainEnergyAction(2));
         addToBot(new DrawCardAction(3));
     }
