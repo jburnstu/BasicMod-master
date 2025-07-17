@@ -1,4 +1,4 @@
-package joeymod.powers;
+package joeymod.actions;
 
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
