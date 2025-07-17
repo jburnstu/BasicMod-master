@@ -14,7 +14,7 @@ import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-// Deal X damage. If remembered, recollect 1.
+// Deal X damage. If played frogotten, recollect 1.
 public class TriggerPhrase extends AbstractSleeperCard {
     public static final String ID = makeID(TriggerPhrase.class.getSimpleName());
     private static Object MyCharacter;

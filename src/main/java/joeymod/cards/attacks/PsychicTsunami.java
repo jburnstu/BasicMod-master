@@ -1,15 +1,23 @@
 package joeymod.cards.attacks;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import com.megacrit.cardcrawl.vfx.combat.BlizzardEffect;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-// Attack 2x4 times. Forget.
+// Deal
 public class PsychicTsunami extends AbstractSleeperCard {
     public static final String ID = makeID(PsychicTsunami.class.getSimpleName());
     private static Object MyCharacter;
@@ -24,20 +32,59 @@ public class PsychicTsunami extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
     private static final int DAMAGE = 2;
     private static final int UPG_DAMAGE = 2;
+    private static final int baseMagicNumber = 1;
 
     public PsychicTsunami() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
 
         setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
         this.forget = true;
+        this.magicNumber = baseMagicNumber;
     }
 
-    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        int numberOfForgottenCards = ((MySleeperPlayer) AbstractDungeon.player).forgottenPile.size();
+        this.baseDamage = numberOfForgottenCards * this.magicNumber;
+        calculateCardDamage((AbstractMonster)null);
+        if (Settings.FAST_MODE) {
+            addToBot((AbstractGameAction)new VFXAction((AbstractGameEffect)new BlizzardEffect(numberOfForgottenCards,
+                    AbstractDungeon.getMonsters().shouldFlipVfx()), 0.25F));
+        } else {
+            addToBot((AbstractGameAction)new VFXAction((AbstractGameEffect)new BlizzardEffect(numberOfForgottenCards, AbstractDungeon.getMonsters().shouldFlipVfx()), 1.0F));
+        }
+        addToBot((AbstractGameAction)new DamageAllEnemiesAction((AbstractCreature)p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_HEAVY, false));
+    }
+
+    public void applyPowers() {
+        int numberOfForgottenCards = ((MySleeperPlayer) AbstractDungeon.player).forgottenPile.size();
+        if (numberOfForgottenCards > 0) {
+            this.baseDamage = numberOfForgottenCards * this.magicNumber;
+            super.applyPowers();
+            this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+            initializeDescription();
+        }
+    }
+
+    public void onMoveToDiscard() {
+        this.rawDescription = cardStrings.DESCRIPTION;
+        initializeDescription();
+    }
+
+    public void calculateCardDamage(AbstractMonster mo) {
+        super.calculateCardDamage(mo);
+        this.rawDescription = cardStrings.DESCRIPTION;
+        this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0];
+        initializeDescription();
+    }
+
+    public void upgrade() {
+        if (!this.upgraded) {
+            upgradeName();
+            upgradeMagicNumber(1);
+        }
+    }
+
+    public AbstractCard makeCopy() {
+        return new PsychicTsunami();
     }
 }
-
