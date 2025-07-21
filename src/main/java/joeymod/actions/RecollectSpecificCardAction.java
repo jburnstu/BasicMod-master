@@ -30,7 +30,7 @@ public class RecollectSpecificCardAction extends AbstractGameAction {
 
     public void update() {
         if (this.duration == this.startingDuration && this.group.contains(this.targetCard)) {
-            Move.toForgottenPile(this.group,this.targetCard,true);
+            Move.fromForgottenPile(this.targetCard);
 //  Should this be added for all forget features?           this.targetCard.exhaustOnUseOnce = false;
             this.targetCard.freeToPlayOnce = false;
         }

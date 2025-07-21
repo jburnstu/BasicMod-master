@@ -18,7 +18,9 @@ public class RecollectAction extends AbstractGameAction {
 
     private AbstractPlayer p;
 
-    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("ExhumeAction");
+    public static ArrayList<AbstractCard> recalledCards = new ArrayList<>();
+
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("RecollectAction");
 
     public static final String[] TEXT = uiStrings.TEXT;
 
@@ -33,6 +35,7 @@ public class RecollectAction extends AbstractGameAction {
     }
 
     public void update() {
+        recalledCards.clear();
         CardGroup f = ((MySleeperPlayer) this.p).forgottenPile;
         if (this.duration == Settings.ACTION_DUR_FAST) {
             if (AbstractDungeon.player.hand.size() == 10) {
@@ -48,6 +51,7 @@ public class RecollectAction extends AbstractGameAction {
                 AbstractCard abstractCard = f.getTopCard();
                 abstractCard.unfadeOut();
                 Move.fromForgottenPile(abstractCard);
+                recalledCards.add(abstractCard);
                 abstractCard.unhover();
                 abstractCard.fadingOut = false;
                 this.isDone = true;
@@ -71,6 +75,7 @@ public class RecollectAction extends AbstractGameAction {
         if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
             for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
                 Move.fromForgottenPile(c);
+                recalledCards.add(c);
                 c.unhover();
             }
             AbstractDungeon.gridSelectScreen.selectedCards.clear();

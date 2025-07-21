@@ -1,7 +1,14 @@
 package joeymod.cards.skills;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
+import joeymod.actions.RecollectAction;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.actions.ForeshadowingAction;
 import joeymod.character.MySleeperPlayer;
@@ -21,6 +28,8 @@ public class Foreshadowing extends AbstractSleeperCard {
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
     private int magicNumber = 2;
+    private RecollectAction recollectAction;
+
 
     public Foreshadowing() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
@@ -30,6 +39,11 @@ public class Foreshadowing extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ForeshadowingAction(this.magicNumber,false));
+        addToBot(new RecollectAction(this.magicNumber,false));
+        if (RecollectAction.recalledCards.get(0).type ==  AbstractCard.CardType.ATTACK) {
+            for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters)
+                addToBot(new ApplyPowerAction(mo, p, new VulnerablePower(mo, 1, false), 1, true, AbstractGameAction.AttackEffect.NONE));
+        }
+
     }
 }
