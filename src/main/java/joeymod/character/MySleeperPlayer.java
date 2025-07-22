@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import static joeymod.JoeyBasicMod.characterPath;
 import static joeymod.JoeyBasicMod.makeID;
 
+import joeymod.cards.skills.BlankSlate;
 import joeymod.cards.skills.Foreshadowing;
 import joeymod.cards.skills.Recollect;
 import joeymod.cards.skills.Repress;
@@ -161,6 +162,7 @@ public class MySleeperPlayer extends CustomPlayer {
         retVal.add(Foreshadowing.ID);
         retVal.add(Recollect.ID);
         retVal.add(Repress.ID);
+        retVal.add(BlankSlate.ID);
 
         return retVal;
     }

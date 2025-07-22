@@ -27,19 +27,20 @@ public class Foreshadowing extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int magicNumber = 2;
+    private int baseMagicNumber = 2;
     private RecollectAction recollectAction;
 
 
     public Foreshadowing() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.forget = true;
-        this.magicNumber = magicNumber;
+        this.magicNumber = baseMagicNumber;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new RecollectAction(this.magicNumber,false));
+        System.out.println("This shouldn't trigger until we're done...");
         if (RecollectAction.recalledCards.get(0).type ==  AbstractCard.CardType.ATTACK) {
             for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters)
                 addToBot(new ApplyPowerAction(mo, p, new VulnerablePower(mo, 1, false), 1, true, AbstractGameAction.AttackEffect.NONE));

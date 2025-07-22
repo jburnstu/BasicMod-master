@@ -38,6 +38,7 @@ public class RecollectAction extends AbstractGameAction {
         recalledCards.clear();
         CardGroup f = ((MySleeperPlayer) this.p).forgottenPile;
         if (this.duration == Settings.ACTION_DUR_FAST) {
+            System.out.println("RecollectAction starting...");
             if (AbstractDungeon.player.hand.size() == 10) {
                 AbstractDungeon.player.createHandIsFullDialog();
                 this.isDone = true;
@@ -57,18 +58,23 @@ public class RecollectAction extends AbstractGameAction {
                 this.isDone = true;
                 return;
             }
+            System.out.println("Past if block which shouldn't trigger...");
             for (AbstractCard abstractCard : f.group) {
+                System.out.println("Inside suspicious for loop...");
                 abstractCard.stopGlowing();
                 abstractCard.unhover();
                 abstractCard.unfadeOut();
             }
             if (f.isEmpty()) {
+                System.out.println("inside second ifempty block...");
                 f.group.addAll(this.recalls);
                 this.recalls.clear();
                 this.isDone = true;
                 return;
             }
+            System.out.println("creating select screen....");
             AbstractDungeon.gridSelectScreen.open(f, 1, TEXT[0], false);
+            System.out.println("screen successfully created...");
             tickDuration();
             return;
         }
