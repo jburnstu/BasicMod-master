@@ -28,6 +28,8 @@ import java.util.ArrayList;
 import static joeymod.JoeyBasicMod.characterPath;
 import static joeymod.JoeyBasicMod.makeID;
 
+import joeymod.cards.skills.Foreshadowing;
+import joeymod.cards.skills.Recollect;
 import joeymod.cards.skills.Repress;
 import joeymod.cards.attacks.TossAndTurn;
 import joeymod.relics.TeddyBear;
@@ -156,8 +158,10 @@ public class MySleeperPlayer extends CustomPlayer {
         retVal.add(SleeperDefend.ID);
         retVal.add(SleeperDefend.ID);
         retVal.add(SleeperDefend.ID);
+        retVal.add(Foreshadowing.ID);
+        retVal.add(Recollect.ID);
         retVal.add(Repress.ID);
-        retVal.add(TossAndTurn.ID);
+
         return retVal;
     }
 

@@ -1,14 +1,10 @@
 package joeymod.cards.skills;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
-import joeymod.powers.BlankSlateAction;
-import joeymod.powers.ComaPower;
+import joeymod.actions.BlankSlateAction;
 import joeymod.util.CardStats;
 
 //Shuffle every forgotten card in play into your deck. exhaust.
