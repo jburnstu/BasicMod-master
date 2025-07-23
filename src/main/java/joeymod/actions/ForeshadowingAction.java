@@ -1,15 +1,28 @@
 package joeymod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 public class ForeshadowingAction extends AbstractGameAction {
-    public ForeshadowingAction(int magicNumber, boolean b) {
+
+    private int magicNumber;
+
+    public AbstractPlayer p;
+
+    public ForeshadowingAction(int magicNumber) {
+    this.magicNumber = magicNumber;
     }
 
 
     public void update () {
-        //Do a recollect action
-        // return the target card as a variable
-        // check on that, perform vulnerable if so
+        if (RecollectAction.recalledCards.get(0).type == AbstractCard.CardType.ATTACK) {
+            for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters)
+                addToBot(new ApplyPowerAction(mo, p, new VulnerablePower(mo, 1, false), 1, true, AbstractGameAction.AttackEffect.NONE));
+        }
     }
 }

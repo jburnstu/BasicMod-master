@@ -18,25 +18,37 @@ public class RecollectAction extends AbstractGameAction {
 
     private AbstractPlayer p;
 
+    private boolean isRandom;
+
+    public AbstractGameAction followUpAction = null;
+
     public static ArrayList<AbstractCard> recalledCards = new ArrayList<>();
 
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("RecollectAction");
 
-    public static final String[] TEXT = uiStrings.TEXT;
-
     private ArrayList<AbstractCard> recalls = new ArrayList<>();
 
     public RecollectAction(int amount, boolean isRandom) {
+        System.out.println("Constructor starting...");
         this.p = AbstractDungeon.player;
         this.amount = amount;
+        this.isRandom = isRandom;
         setValues((AbstractCreature)this.p, (AbstractCreature)AbstractDungeon.player, this.amount);
         this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FAST;
+        System.out.println("Constructor complete...");
+    }
+
+    public RecollectAction(int amount, AbstractGameAction followUpAction) {
+        this(amount,false);
+        this.followUpAction = followUpAction;
     }
 
     public void update() {
+        System.out.println("update starting...");
         recalledCards.clear();
         CardGroup f = ((MySleeperPlayer) this.p).forgottenPile;
+        System.out.println("Checking duration...");
         if (this.duration == Settings.ACTION_DUR_FAST) {
             System.out.println("RecollectAction starting...");
             if (AbstractDungeon.player.hand.size() == 10) {
@@ -53,6 +65,7 @@ public class RecollectAction extends AbstractGameAction {
                 abstractCard.unfadeOut();
                 Move.fromForgottenPile(abstractCard);
                 recalledCards.add(abstractCard);
+                endActionWithFollowUp();
                 abstractCard.unhover();
                 abstractCard.fadingOut = false;
                 this.isDone = true;
@@ -73,7 +86,7 @@ public class RecollectAction extends AbstractGameAction {
                 return;
             }
             System.out.println("creating select screen....");
-            AbstractDungeon.gridSelectScreen.open(f, 1, TEXT[0], false);
+            AbstractDungeon.gridSelectScreen.open(f, 1, "Choose a card to recollect", false);
             System.out.println("screen successfully created...");
             tickDuration();
             return;
@@ -81,7 +94,9 @@ public class RecollectAction extends AbstractGameAction {
         if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
             for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
                 Move.fromForgottenPile(c);
+                System.out.println("Adding card to recalledCards...");
                 recalledCards.add(c);
+                endActionWithFollowUp();
                 c.unhover();
             }
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
@@ -96,4 +111,12 @@ public class RecollectAction extends AbstractGameAction {
         }
         tickDuration();
     }
+
+
+    private void endActionWithFollowUp() {
+        this.isDone = true;
+        if (this.followUpAction != null)
+            addToTop(this.followUpAction);
+    }
 }
+

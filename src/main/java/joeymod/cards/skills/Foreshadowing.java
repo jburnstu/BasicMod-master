@@ -39,12 +39,8 @@ public class Foreshadowing extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RecollectAction(this.magicNumber,false));
-        System.out.println("This shouldn't trigger until we're done...");
-        if (RecollectAction.recalledCards.get(0).type ==  AbstractCard.CardType.ATTACK) {
-            for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters)
-                addToBot(new ApplyPowerAction(mo, p, new VulnerablePower(mo, 1, false), 1, true, AbstractGameAction.AttackEffect.NONE));
-        }
-
+        System.out.println("Recollect Card Called...");
+        addToBot(new RecollectAction(this.magicNumber,new ForeshadowingAction(this.magicNumber)));
+        System.out.println("This shouldn't trigger until we're done..."+RecollectAction.recalledCards);
     }
 }
