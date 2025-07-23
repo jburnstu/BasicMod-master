@@ -39,6 +39,16 @@
       "Blizzard is a good example for this."
     ]
   },
+  "${modID}:BlankSlate": {
+    "NAME": "Blank Slate",
+    "DESCRIPTION": "Shuffle every forgotten card in play into your deck. Exhaust.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
   "${modID}:Breakthrough": {
     "NAME": "Breakthrough",
     "DESCRIPTION": "!D! Damage. Play all forgotten cards in your hand.",
@@ -132,6 +142,16 @@
   "${modID}:FinalSession": {
     "NAME": "Final Session",
     "DESCRIPTION": "Recollect 3. Exhaust.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:Flashback": {
+    "NAME": "Flashback",
+    "DESCRIPTION": "Recollect 1.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
     "EXTENDED_DESCRIPTION": [
       "You can put more text in here.",

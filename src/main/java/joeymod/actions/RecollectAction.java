@@ -96,7 +96,6 @@ public class RecollectAction extends AbstractGameAction {
                 Move.fromForgottenPile(c);
                 System.out.println("Adding card to recalledCards...");
                 recalledCards.add(c);
-                endActionWithFollowUp();
                 c.unhover();
             }
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
@@ -108,6 +107,7 @@ public class RecollectAction extends AbstractGameAction {
                 c.target_x = CardGroup.DISCARD_PILE_X;
                 c.target_y = 0.0F;
             }
+        endActionWithFollowUp();
         }
         tickDuration();
     }

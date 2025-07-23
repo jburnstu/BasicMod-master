@@ -8,8 +8,8 @@ import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
 //Recollect 1.
-public class Recollect extends AbstractSleeperCard {
-    public static final String ID = makeID(Recollect.class.getSimpleName());
+public class Flashback extends AbstractSleeperCard {
+    public static final String ID = makeID(Flashback.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -22,7 +22,7 @@ public class Recollect extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
     private int magicNumber = 1;
 
-    public Recollect() {
+    public Flashback() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.forget = true;
         this.magicNumber = magicNumber;
@@ -30,7 +30,6 @@ public class Recollect extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
         addToBot(new RecollectAction(this.magicNumber,false));
     }
 }
