@@ -171,8 +171,8 @@ public class MySleeperPlayer extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         //IDs of starting relics. You can have multiple, but one is recommended.
-        retVal.add(TeddyBear.ID);
-
+        retVal.add("TeddyBear");
+        retVal.add("Ring Of The Serpent");
         return retVal;
     }
 
