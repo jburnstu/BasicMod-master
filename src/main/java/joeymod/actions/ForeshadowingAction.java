@@ -15,14 +15,21 @@ public class ForeshadowingAction extends AbstractGameAction {
     public AbstractPlayer p;
 
     public ForeshadowingAction(int magicNumber) {
-    this.magicNumber = magicNumber;
+        System.out.println("FA constructor called...");
+        this.magicNumber = magicNumber;
+        this.duration = 0.0F;
+        this.actionType = AbstractGameAction.ActionType.WAIT;
     }
 
 
     public void update () {
+        System.out.println("FA Update reached...");
         if (RecollectAction.recalledCards.get(0).type == AbstractCard.CardType.ATTACK) {
-            for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters)
+            for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters) {
                 addToBot(new ApplyPowerAction(mo, p, new VulnerablePower(mo, 1, false), 1, true, AbstractGameAction.AttackEffect.NONE));
+            }
         }
+        System.out.println("done with update...");
+        this.isDone = true;
     }
 }

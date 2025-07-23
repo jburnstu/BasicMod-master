@@ -24,12 +24,11 @@ public class Flashback extends AbstractSleeperCard {
 
     public Flashback() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.forget = true;
         this.magicNumber = magicNumber;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RecollectAction(this.magicNumber,false));
+        addToBot(new RecollectAction(this.magicNumber, false));
     }
 }

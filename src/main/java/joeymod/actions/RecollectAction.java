@@ -37,6 +37,7 @@ public class RecollectAction extends AbstractGameAction {
         this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FAST;
         System.out.println("Constructor complete...");
+//        this.followUpAction = null;
     }
 
     public RecollectAction(int amount, AbstractGameAction followUpAction) {
@@ -108,15 +109,24 @@ public class RecollectAction extends AbstractGameAction {
                 c.target_y = 0.0F;
             }
         endActionWithFollowUp();
+        System.out.println("Escaped followUp block...");
+        return;
         }
         tickDuration();
     }
 
 
     private void endActionWithFollowUp() {
+        System.out.println("Reached endActionWithFollowUp...");
+        System.out.println("this.followUpAction:" + this.followUpAction);
         this.isDone = true;
-        if (this.followUpAction != null)
+        if (this.followUpAction != null) {
+            System.out.println("Action queued...");
             addToTop(this.followUpAction);
+        }
+        System.out.println("Passed the followUp...");
+
+
     }
 }
 

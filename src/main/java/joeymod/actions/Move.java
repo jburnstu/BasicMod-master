@@ -38,11 +38,12 @@ public class Move {
         if (p.forgottenPile.group.contains(c)) {
             ForgottenCard backForgottenCard = ((AbstractSleeperCard) c).backForgottenCard;
             if (p.drawPile.group.contains(backForgottenCard)) {
-                p.drawPile.group.remove(backForgottenCard);
+                p.drawPile.removeCard(backForgottenCard);
             } else if (p.discardPile.group.contains(backForgottenCard)) {
-                p.discardPile.group.remove(backForgottenCard);
+                p.discardPile.removeCard(backForgottenCard);
             } else if (p.hand.group.contains(backForgottenCard)) {
-                p.hand.group.remove(backForgottenCard);}
+                p.hand.removeCard(backForgottenCard);}
+            p.forgottenPile.removeCard(c);
             p.hand.addToHand(c);
         }
     }

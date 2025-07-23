@@ -33,14 +33,13 @@ public class Foreshadowing extends AbstractSleeperCard {
 
     public Foreshadowing() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.forget = true;
         this.magicNumber = baseMagicNumber;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         System.out.println("Recollect Card Called...");
-        addToBot(new RecollectAction(this.magicNumber,new ForeshadowingAction(this.magicNumber)));
+        addToBot(new RecollectAction(this.magicNumber, (AbstractGameAction) new ForeshadowingAction(this.magicNumber)));
         System.out.println("This shouldn't trigger until we're done..."+RecollectAction.recalledCards);
     }
 }

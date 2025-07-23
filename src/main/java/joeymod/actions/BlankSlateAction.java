@@ -6,9 +6,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import joeymod.cards.ForgottenCard;
 
 public class BlankSlateAction extends AbstractGameAction {
-
-
-
     public void update() {
 
         for (AbstractCard c : AbstractDungeon.player.hand.group) {
@@ -24,8 +21,3 @@ public class BlankSlateAction extends AbstractGameAction {
         this.isDone = true;
     }
 }
-
-
-
-
-
