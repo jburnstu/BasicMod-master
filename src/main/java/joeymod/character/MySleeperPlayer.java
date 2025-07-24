@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import joeymod.cards.*;
 
 import java.util.ArrayList;
@@ -170,9 +171,10 @@ public class MySleeperPlayer extends CustomPlayer {
     @Override
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        //IDs of starting relics. You can have multiple, but one is recommended.
-        retVal.add("TeddyBear");
-        retVal.add("Ring Of The Serpent");
+        retVal.add(TeddyBear.ID);
+        retVal.add("Burning Blood");
+        UnlockTracker.markRelicAsSeen(TeddyBear.ID);
+        System.out.println("MADEIT");
         return retVal;
     }
 

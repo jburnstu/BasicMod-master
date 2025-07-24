@@ -10,14 +10,17 @@ import joeymod.powers.ObliviousPower;
 
 import static joeymod.JoeyBasicMod.makeID;
 
-public class TeddyBear extends AbstractRelic {
-    public static final String ID = "TeddyBear";
-
-    private static final int HEALTH_AMT = 6;
+public class TeddyBear extends AbstractSleeperRelic {
+    public static final String ID = makeID("TeddyBear");
 
     public TeddyBear() {
-        super("TeddyBear", "burningBlood.png", AbstractRelic.RelicTier.STARTER, AbstractRelic.LandingSound.MAGICAL);
+        super(makeID("TeddyBear"), AbstractRelic.RelicTier.STARTER, AbstractRelic.LandingSound.MAGICAL);
     }
+
+    public String getUpdatedDescription() {
+        return this.DESCRIPTIONS[0] + '\003' + this.DESCRIPTIONS[1];
+    }
+
 
     public AbstractRelic makeCopy() {
         return new TeddyBear();
@@ -31,6 +34,7 @@ public class TeddyBear extends AbstractRelic {
 
     public void onCardDraw (AbstractCard drawnCard) {
         if (!usedThisTurn && drawnCard instanceof ForgottenCard) {
+            flash();
             addToBot(new DrawCardAction(1));
         }
     }

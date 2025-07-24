@@ -5,9 +5,8 @@
     "DESCRIPTIONS": [
       "Gain [E] at the start of your turn. [E] is an energy icon."
     ]
-  },
-  "${modID}:TeddyBear": {
-    "NAME": "TeddyBear",
+  }, "${modID}:TeddyBear": {
+    "NAME": "Teddy Bear",
     "FLAVOR": "A treasured toy that seems to respond to strong dreams.",
     "DESCRIPTIONS": [
       "The first time each turn that you draw a forgotten card, draw another card."
