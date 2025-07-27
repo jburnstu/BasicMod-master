@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import joeymod.cards.BaseCard;
 import joeymod.character.MySleeperPlayer;
+import joeymod.patches.CardColorEnum;
 import joeymod.relics.BaseRelic;
 import joeymod.relics.TeddyBear;
 import joeymod.util.GeneralUtils;
@@ -33,6 +34,8 @@ import org.scannotation.AnnotationDB;
 
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+
+import static com.badlogic.gdx.graphics.Color.RED;
 
 @SpireInitializer
 public class JoeyBasicMod implements
@@ -95,12 +98,19 @@ public class JoeyBasicMod implements
 
     @Override
     public void receiveEditRelics() { //somewhere in the class
-        BaseMod.addRelicToCustomPool((AbstractRelic)new TeddyBear(),  AbstractCard.CardColor.COLORLESS);
+        BaseMod.addRelicToCustomPool((AbstractRelic)new TeddyBear(),  CardColorEnum.SLEEPER);
+        System.out.println("Relic function was called....");
     }
 
     @Override
     public void receiveEditCharacters() {
         MySleeperPlayer.Meta.registerCharacter();
+    }
+
+    public void receiveEditColors() {
+        MySleeperPlayer.Meta.registerCharacter();
+        BaseMod.addColor(CardColorEnum.SLEEPER, RED,  RED, RED, RED, RED, RED, RED, "joeymod/images/badge.png", "joeymod/images/badge.png", "joeymod/images/badge.png", "joeymod/images/badge.png", "joeymod/images/badge.png","joeymod/images/badge.png","joeymod/images/badge.png","joeymod/images/badge.png");
+
     }
 
     @Override

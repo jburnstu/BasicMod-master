@@ -18,7 +18,7 @@ public class TeddyBear extends AbstractSleeperRelic {
     }
 
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0] + '\003' + this.DESCRIPTIONS[1];
+        return "Try this";
     }
 
 
