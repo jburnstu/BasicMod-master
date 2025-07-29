@@ -4,10 +4,14 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import joeymod.cards.BaseCard;
 import joeymod.character.MySleeperPlayer;
+import joeymod.patches.CardColorEnum;
 import joeymod.relics.BaseRelic;
+import joeymod.relics.TeddyBear;
 import joeymod.util.GeneralUtils;
 import joeymod.util.KeywordInfo;
 import joeymod.util.TextureLoader;
@@ -27,9 +31,13 @@ import com.megacrit.cardcrawl.localization.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
+import com.badlogic.gdx.graphics.Color;
+
 
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+
+import static com.badlogic.gdx.graphics.Color.RED;
 
 @SpireInitializer
 public class JoeyBasicMod implements
@@ -43,6 +51,9 @@ public class JoeyBasicMod implements
     public static String modID; //Edit your pom.xml to change this
     static { loadModInfo(); }
     private static final String resourcesFolder = checkResourcesPath();
+
+    public static final Color GREY = new Color(0.7F, 0.6F, 0.1F, 1.0F);
+
     public static final Logger logger = LogManager.getLogger(modID); //Used to output to the console.
 
     //This is used to prefix the IDs of various objects like cards and relics,
@@ -60,7 +71,8 @@ public class JoeyBasicMod implements
     }
 
     public JoeyBasicMod() {
-        BaseMod.subscribe(this); //This will make BaseMod trigger all the subscribers at their appropriate times.
+        BaseMod.subscribe(this);
+        receiveEditColors();//This will make BaseMod trigger all the subscribers at their appropriate times.
         logger.info(modID + " subscribed to BaseMod.");
     }
 
@@ -89,6 +101,23 @@ public class JoeyBasicMod implements
 
     public static final Map<String, KeywordInfo> keywords = new HashMap<>();
 
+
+    @Override
+    public void receiveEditRelics() { //somewhere in the class
+        BaseMod.addRelicToCustomPool((AbstractRelic)new TeddyBear(),  CardColorEnum.SLEEPER);
+        System.out.println("Relic function was called....");
+    }
+
+    @Override
+    public void receiveEditCharacters() {
+        MySleeperPlayer.Meta.registerCharacter();
+    }
+
+    public void receiveEditColors() {
+        BaseMod.addColor(CardColorEnum.SLEEPER, GREY,GREY,GREY,GREY,GREY,GREY,GREY, "joeymod/images/badge.png", "joeymod/images/badge.png", "joeymod/images/badge.png", "joeymod/images/badge.png", "joeymod/images/badge.png","joeymod/images/badge.png","joeymod/images/badge.png","joeymod/images/badge.png","joeymod/images/badge.png");
+        System.out.println("recieveEditColors called...");
+    }
+
     @Override
     public void receiveEditCards() {
         new AutoAdd(modID) //Loads files from this mod
@@ -96,23 +125,6 @@ public class JoeyBasicMod implements
                 .setDefaultSeen(true) //And marks them as seen in the compendium
                 .cards(); //Adds the cards
 
-    }
-
-    @Override
-    public void receiveEditRelics() { //somewhere in the class
-        new AutoAdd(modID) //Loads files from this mod
-                .packageFilter(BaseRelic.class) //In the same package as this class
-                .any(BaseRelic.class, (info, relic) -> { //Run this code for any classes that extend this class
-                    if (relic.pool != null)
-                        BaseMod.addRelicToCustomPool(relic, relic.pool); //Register a custom character specific relic
-                    else
-                        BaseMod.addRelic(relic, relic.relicType); //Register a shared or base game character specific relic
-
-                    //If the class is annotated with @AutoAdd.Seen, it will be marked as seen, making it visible in the relic library.
-                    //If you want all your relics to be visible by default, just remove this if statement.
-                    if (info.seen)
-                        UnlockTracker.markRelicAsSeen(relic.relicId);
-                });
     }
 
     @Override
@@ -134,26 +146,6 @@ public class JoeyBasicMod implements
         }
     }
 
-    private void loadLocalization(String lang) {
-        //While this does load every type of localization, most of these files are just outlines so that you can see how they're formatted.
-        //Feel free to comment out/delete any that you don't end up using.
-        BaseMod.loadCustomStringsFile(CardStrings.class,
-                localizationPath(lang, "CardStrings.json"));
-        BaseMod.loadCustomStringsFile(CharacterStrings.class,
-                localizationPath(lang, "CharacterStrings.json"));
-        BaseMod.loadCustomStringsFile(EventStrings.class,
-                localizationPath(lang, "EventStrings.json"));
-        BaseMod.loadCustomStringsFile(OrbStrings.class,
-                localizationPath(lang, "OrbStrings.json"));
-        BaseMod.loadCustomStringsFile(PotionStrings.class,
-                localizationPath(lang, "PotionStrings.json"));
-        BaseMod.loadCustomStringsFile(PowerStrings.class,
-                localizationPath(lang, "PowerStrings.json"));
-        BaseMod.loadCustomStringsFile(RelicStrings.class,
-                localizationPath(lang, "RelicStrings.json"));
-        BaseMod.loadCustomStringsFile(UIStrings.class,
-                localizationPath(lang, "UIStrings.json"));
-    }
 
     @Override
     public void receiveEditKeywords()
@@ -190,6 +182,30 @@ public class JoeyBasicMod implements
             keywords.put(info.ID, info);
         }
     }
+
+
+    private void loadLocalization(String lang) {
+        //While this does load every type of localization, most of these files are just outlines so that you can see how they're formatted.
+        //Feel free to comment out/delete any that you don't end up using.
+        BaseMod.loadCustomStringsFile(CardStrings.class,
+                localizationPath(lang, "CardStrings.json"));
+        BaseMod.loadCustomStringsFile(CharacterStrings.class,
+                localizationPath(lang, "CharacterStrings.json"));
+        BaseMod.loadCustomStringsFile(EventStrings.class,
+                localizationPath(lang, "EventStrings.json"));
+        BaseMod.loadCustomStringsFile(OrbStrings.class,
+                localizationPath(lang, "OrbStrings.json"));
+        BaseMod.loadCustomStringsFile(PotionStrings.class,
+                localizationPath(lang, "PotionStrings.json"));
+        BaseMod.loadCustomStringsFile(PowerStrings.class,
+                localizationPath(lang, "PowerStrings.json"));
+        BaseMod.loadCustomStringsFile(RelicStrings.class,
+                localizationPath(lang, "RelicStrings.json"));
+        BaseMod.loadCustomStringsFile(UIStrings.class,
+                localizationPath(lang, "UIStrings.json"));
+    }
+
+
 
     //These methods are used to generate the correct filepaths to various parts of the resources folder.
     public static String localizationPath(String lang, String file) {
@@ -258,8 +274,4 @@ public class JoeyBasicMod implements
         }
     }
 
-    @Override
-    public void receiveEditCharacters() {
-        MySleeperPlayer.Meta.registerCharacter();
-    }
 }

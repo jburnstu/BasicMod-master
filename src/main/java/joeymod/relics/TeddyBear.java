@@ -10,26 +10,35 @@ import joeymod.powers.ObliviousPower;
 
 import static joeymod.JoeyBasicMod.makeID;
 
-public abstract class TeddyBear extends AbstractSleeperRelic {
-    private static final String NAME = "TeddyBear"; //The name will be used for determining the image file as well as the ID.
-    public static final String ID = makeID(NAME); //This adds the mod's prefix to the relic ID, resulting in modID:MyRelic
-    private static final RelicTier RARITY = RelicTier.COMMON; //The relic's rarity.
-    private static final LandingSound SOUND = LandingSound.CLINK; //The sound played when the relic is clicked.
-
+public class TeddyBear extends AbstractSleeperRelic {
+    public static final String ID = makeID("TeddyBear");
 
     public TeddyBear() {
-        super(ID, NAME, MySleeperPlayer.Meta.CARD_COLOR, RARITY, SOUND);
+        super(makeID("TeddyBear"), AbstractRelic.RelicTier.STARTER, AbstractRelic.LandingSound.MAGICAL);
+        System.out.println("TeddyBear constructor called....");
+    }
+
+    public String getUpdatedDescription() {
+        return "Try this";
+    }
+
+
+    public AbstractRelic makeCopy() {
+        return new TeddyBear();
     }
 
     public boolean usedThisTurn = false;
 
     public void atTurnStart() {
+        System.out.println("atTurnStart called....");
         usedThisTurn = false;
     }
 
     public void onCardDraw (AbstractCard drawnCard) {
         if (!usedThisTurn && drawnCard instanceof ForgottenCard) {
+            flash();
             addToBot(new DrawCardAction(1));
+            usedThisTurn = true;
         }
     }
 }

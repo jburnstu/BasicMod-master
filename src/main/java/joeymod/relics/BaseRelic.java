@@ -30,6 +30,7 @@ public abstract class BaseRelic extends CustomRelic {
     //To use a basegame relic image, just pass in the imagename used by a basegame relic instead of the ID.
     //eg. "calendar.png"
     public BaseRelic(String id, String imageName, RelicTier tier, LandingSound sfx) {
+
         super(testStrings(id), notPng(imageName) ? "" : imageName, tier, sfx);
 
         this.imageName = imageName;

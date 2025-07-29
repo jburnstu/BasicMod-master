@@ -11,6 +11,8 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import joeymod.cards.ForgottenCard;
 import joeymod.character.MySleeperPlayer;
 
+import java.util.ArrayList;
+
 public class ForgetAction extends AbstractGameAction {
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("ExhaustAction");
 
@@ -59,6 +61,7 @@ public class ForgetAction extends AbstractGameAction {
     }
 
     public ForgetAction(int amount, boolean canPickZero) {
+
         this(amount, false, false, canPickZero);
     }
 
@@ -73,37 +76,52 @@ public class ForgetAction extends AbstractGameAction {
 
     public void update() {
         ForgottenCard newForgottenCard = new ForgottenCard();
-        CardGroup hand = this.p.hand;
+        CardGroup forgettable = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        for (AbstractCard c: this.p.hand.group) {
+            if (!(c instanceof ForgottenCard)) {
+                forgettable.addToTop(c);
+            }
+        }
+
         if (this.duration == this.startDuration) {
-            if (this.p.hand.isEmpty()) {
+            if (forgettable.isEmpty()) {
                 this.isDone = true;
                 return;
             }
             if (!this.anyNumber &&
-                    hand.size() <= this.amount) {
-                this.amount = hand.size();
+                    forgettable.size() <= this.amount) {
+                this.amount = forgettable.size();
                 numForgotten = this.amount;
-                int tmp = hand.size();
+                int tmp = forgettable.size();
                 for (int i = 0; i < tmp; i++) {
-                    AbstractCard c = hand.getTopCard();
-                    newForgottenCard = Move.toForgottenPile(hand,c,true);
+                    AbstractCard c = forgettable.getTopCard();
+                    newForgottenCard = Move.toForgottenPile(this.p.hand,c,true);
+                    forgettable.removeCard(c);
                 }
                 return;
             }
             if (this.isRandom) {
-                for (int i = 0; i < this.amount; i++)
-                    newForgottenCard = Move.toForgottenPile(hand,hand.getRandomCard(AbstractDungeon.cardRandomRng),true);
+                for (int i = 0; i < this.amount; i++) {
+                    AbstractCard c = forgettable.getRandomCard(AbstractDungeon.cardRandomRng);
+                    newForgottenCard = Move.toForgottenPile(this.p.hand, c, true);
+                    forgettable.removeCard(c);
+                }
             } else {
                 numForgotten = this.amount;
-                AbstractDungeon.handCardSelectScreen.open(TEXT[0], numForgotten, this.anyNumber, this.canPickZero);
+                AbstractDungeon.gridSelectScreen.open(forgettable, numForgotten, "Choose a card(s) to forget",this.anyNumber, this.canPickZero);
                 tickDuration();
                 return;
             }
         }
-        if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
-            for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group)
-                newForgottenCard = Move.toForgottenPile(hand,c,true);
-            AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
+        if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0) {
+            for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
+                c.unhover();
+                newForgottenCard = Move.toForgottenPile(this.p.hand, c, true);
+                this.p.hand.refreshHandLayout();
+                this.p.hand.applyPowers();
+            }
+            AbstractDungeon.gridSelectScreen.selectedCards.clear();
+            this.p.hand.refreshHandLayout();
         }
         tickDuration();
     }
