@@ -31,6 +31,8 @@ import com.megacrit.cardcrawl.localization.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
+import com.badlogic.gdx.graphics.Color;
+
 
 import java.nio.charset.StandardCharsets;
 import java.util.*;
@@ -49,6 +51,9 @@ public class JoeyBasicMod implements
     public static String modID; //Edit your pom.xml to change this
     static { loadModInfo(); }
     private static final String resourcesFolder = checkResourcesPath();
+
+    public static final Color GREY = new Color(0.7F, 0.6F, 0.1F, 1.0F);
+
     public static final Logger logger = LogManager.getLogger(modID); //Used to output to the console.
 
     //This is used to prefix the IDs of various objects like cards and relics,
@@ -66,7 +71,8 @@ public class JoeyBasicMod implements
     }
 
     public JoeyBasicMod() {
-        BaseMod.subscribe(this); //This will make BaseMod trigger all the subscribers at their appropriate times.
+        BaseMod.subscribe(this);
+        receiveEditColors();//This will make BaseMod trigger all the subscribers at their appropriate times.
         logger.info(modID + " subscribed to BaseMod.");
     }
 
@@ -108,9 +114,8 @@ public class JoeyBasicMod implements
     }
 
     public void receiveEditColors() {
-        MySleeperPlayer.Meta.registerCharacter();
-        BaseMod.addColor(CardColorEnum.SLEEPER, RED,  RED, RED, RED, RED, RED, RED, "joeymod/images/badge.png", "joeymod/images/badge.png", "joeymod/images/badge.png", "joeymod/images/badge.png", "joeymod/images/badge.png","joeymod/images/badge.png","joeymod/images/badge.png","joeymod/images/badge.png");
-
+        BaseMod.addColor(CardColorEnum.SLEEPER, GREY,GREY,GREY,GREY,GREY,GREY,GREY, "joeymod/images/badge.png", "joeymod/images/badge.png", "joeymod/images/badge.png", "joeymod/images/badge.png", "joeymod/images/badge.png","joeymod/images/badge.png","joeymod/images/badge.png","joeymod/images/badge.png","joeymod/images/badge.png");
+        System.out.println("recieveEditColors called...");
     }
 
     @Override

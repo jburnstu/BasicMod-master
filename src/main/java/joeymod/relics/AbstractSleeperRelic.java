@@ -9,9 +9,9 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 public abstract class AbstractSleeperRelic extends CustomRelic {
     public AbstractSleeperRelic(String id, AbstractRelic.RelicTier tier, AbstractRelic.LandingSound landingSound) {
             super(id, "", tier, landingSound);
-//            this.img = ImageMaster.loadImage(MadScienceMod.relicImage(id));
-//            this.largeImg = ImageMaster.loadImage(MadScienceMod.relicLargeImage(id));
-//            this.outlineImg = ImageMaster.loadImage(MadScienceMod.relicOutlineImage(id));
+            this.img = ImageMaster.loadImage("joeymod/images/badge.png");
+            this.largeImg = ImageMaster.loadImage("joeymod/images/badge.png");
+            this.outlineImg = ImageMaster.loadImage("joeymod/images/badge.png");
         }
 
 
