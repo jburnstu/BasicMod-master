@@ -15,10 +15,11 @@ public class TeddyBear extends AbstractSleeperRelic {
 
     public TeddyBear() {
         super(makeID("TeddyBear"), AbstractRelic.RelicTier.STARTER, AbstractRelic.LandingSound.MAGICAL);
+        System.out.println("TeddyBear constructor called....");
     }
 
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0] + '\003' + this.DESCRIPTIONS[1];
+        return "Try this";
     }
 
 
@@ -29,6 +30,7 @@ public class TeddyBear extends AbstractSleeperRelic {
     public boolean usedThisTurn = false;
 
     public void atTurnStart() {
+        System.out.println("atTurnStart called....");
         usedThisTurn = false;
     }
 

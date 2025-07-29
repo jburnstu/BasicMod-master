@@ -1,11 +1,5 @@
 {
-  "${modID}:RelicID": {
-    "NAME": "Good Relic",
-    "FLAVOR": "Flavor text displayed in detailed relic view.",
-    "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn. [E] is an energy icon."
-    ]
-  }, "${modID}:TeddyBear": {
+ "${modID}:TeddyBear": {
     "NAME": "Teddy Bear",
     "FLAVOR": "A treasured toy that seems to respond to strong dreams.",
     "DESCRIPTIONS": [
