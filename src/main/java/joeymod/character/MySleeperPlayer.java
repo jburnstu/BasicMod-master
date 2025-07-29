@@ -171,10 +171,10 @@ public class MySleeperPlayer extends CustomPlayer {
     @Override
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(TeddyBear.ID);
         retVal.add("Burning Blood");
+        retVal.add(TeddyBear.ID);
         UnlockTracker.markRelicAsSeen(TeddyBear.ID);
-        System.out.println("MADEIT");
+        System.out.println("getStartingRelics in MySleeperPlayer called....");
         return retVal;
     }
 
