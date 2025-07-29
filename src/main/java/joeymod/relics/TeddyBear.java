@@ -36,6 +36,7 @@ public class TeddyBear extends AbstractSleeperRelic {
         if (!usedThisTurn && drawnCard instanceof ForgottenCard) {
             flash();
             addToBot(new DrawCardAction(1));
+            usedThisTurn = true;
         }
     }
 }
