@@ -7,7 +7,7 @@ import joeymod.actions.RecollectAction;
 
 import static joeymod.JoeyBasicMod.makeID;
 
-// At the start of your turn, gain 1 forgetful and recall 1.
+// At the start of your turn, gain 1 amnesia and recall 1.
 public class LucidDreamPower extends AbstractSleeperPower {
     public static final String POWER_ID = makeID(LucidDreamPower.class.getSimpleName());
     private static final PowerType TYPE = PowerType.BUFF;
