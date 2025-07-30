@@ -50,7 +50,7 @@ public class AmnesiaPower extends AbstractPower {
 
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
         if (c instanceof ForgottenCard) {
-            ((ForgottenCard) c).backForgottenCard.exhaust = true;
+            ((ForgottenCard) c).backForgottenCard.exhaustOnUseOnce = true;
         }
     }
 }

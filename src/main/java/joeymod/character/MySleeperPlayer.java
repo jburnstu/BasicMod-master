@@ -11,7 +11,6 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.blue.Defend_Blue;
 import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -22,18 +21,20 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import joeymod.cards.*;
+import joeymod.cards.cardBeta.attacks.AlterEgo;
+import joeymod.cards.attacks.Reflex;
+import joeymod.cards.attacks.Catharsis;
 
 import java.util.ArrayList;
 
 import static joeymod.JoeyBasicMod.characterPath;
 import static joeymod.JoeyBasicMod.makeID;
 
+import joeymod.cards.attacks.Closure;
+import joeymod.cards.cardBeta.skills.*;
+import joeymod.cards.skills.AndAnotherThing;
 import joeymod.cards.skills.BlankSlate;
-import joeymod.cards.skills.Flashback;
-import joeymod.cards.skills.Foreshadowing;
-import joeymod.cards.skills.Repress;
-import joeymod.cards.attacks.TossAndTurn;
+import joeymod.cards.skills.BreakTheCycle;
 import joeymod.relics.TeddyBear;
 
 public class MySleeperPlayer extends CustomPlayer {
@@ -152,19 +153,16 @@ public class MySleeperPlayer extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();
         //List of IDs of cards for your starting deck.
         //If you want multiple of the same card, you have to add it multiple times.
-        retVal.add(SleeperStrike.ID);
-        retVal.add(SleeperStrike.ID);
-        retVal.add(SleeperStrike.ID);
-        retVal.add(SleeperStrike.ID);
-        retVal.add(SleeperDefend.ID);
-        retVal.add(SleeperDefend.ID);
-        retVal.add(SleeperDefend.ID);
-        retVal.add(SleeperDefend.ID);
-        retVal.add(Foreshadowing.ID);
-        retVal.add(Flashback.ID);
-        retVal.add(Repress.ID);
+        retVal.add(AlterEgo.ID);
+        retVal.add(Reflex.ID);
+        retVal.add(Catharsis.ID);
+        retVal.add(Closure.ID);
+        retVal.add(AndAnotherThing.ID);
         retVal.add(BlankSlate.ID);
-
+        retVal.add(BreakTheCycle.ID);
+        retVal.add(CopingMechanism.ID);
+        retVal.add(FinalSession.ID);
+        retVal.add(Flashback.ID);
         return retVal;
     }
 

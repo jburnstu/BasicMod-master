@@ -1,17 +1,15 @@
-package joeymod.cards.skills;
+package joeymod.cards.cardBeta.skills;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.cards.AbstractSleeperCard;
-import joeymod.powers.AmnesiaPower;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-//Draw three cards. gain 1 amnesia [exhaust the next forgotten card you play].
-public class Sublimation extends AbstractSleeperCard {
-    public static final String ID = makeID(Sublimation.class.getSimpleName());
+//Draw two cards. Forget.
+public class FreeDrawing extends AbstractSleeperCard {
+    public static final String ID = makeID(FreeDrawing.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -24,7 +22,7 @@ public class Sublimation extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
     private int magicNumber = 2;
 
-    public Sublimation() {
+    public FreeDrawing() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.forget = true;
         this.magicNumber = magicNumber;
@@ -32,8 +30,6 @@ public class Sublimation extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
         addToBot(new DrawCardAction(p,this.magicNumber));
-        addToBot(new ApplyPowerAction(p,p, new AmnesiaPower(p,1)));
     }
 }

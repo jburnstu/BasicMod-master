@@ -1,0 +1,71 @@
+package joeymod.cards.cardBeta.attacks;
+
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import joeymod.actions.ForgetAllAttackAction;
+import joeymod.actions.NewLeafAction;
+import joeymod.cards.AbstractSleeperCard;
+import joeymod.character.MySleeperPlayer;
+import joeymod.util.CardStats;
+
+//13 Damage. forget all other attack cards in hand.
+public class AlterEgo extends AbstractSleeperCard {
+    public static final String ID = makeID(AlterEgo.class.getSimpleName());
+    private static Object MyCharacter;
+    private static final CardStats info = new CardStats(
+            MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
+            CardType.ATTACK, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
+            CardRarity.COMMON, //Rarity. BASIC is for starting cards, then there's COMMON/UNCOMMON/RARE, and then SPECIAL and CURSE. SPECIAL is for cards you only get from events. Curse is for curses, except for special curses like Curse of the Bell and Necronomicurse.
+            CardTarget.ENEMY, //The target. Single target is ENEMY, all enemies is ALL_ENEMY. Look at cards similar to what you want to see what to use.
+            1 //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
+    );
+    //These will be used in the constructor. Technically you can just use the values directly,
+    //but constants at the top of the file are easy to adjust.
+    private static final int DMG = 10;
+    private static final int UPG_BLOCK = 4;
+
+    public AlterEgo() {
+        super(ID, info); //Pass the required information to the BaseCard constructor.
+
+        setBlock(DMG, UPG_BLOCK); //Sets the card's damage and how much it changes when upgraded.
+    }
+
+    @Override
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
+        addToBot(new ForgetAllAttackAction());
+
+        }
+
+    // Attack 2x4 times. Forget.
+    public static class NewLeaf extends AbstractSleeperCard {
+        public static final String ID = makeID(NewLeaf.class.getSimpleName());
+        private static Object MyCharacter;
+        private static final CardStats info = new CardStats(
+                MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
+                CardType.ATTACK, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
+                CardRarity.COMMON, //Rarity. BASIC is for starting cards, then there's COMMON/UNCOMMON/RARE, and then SPECIAL and CURSE. SPECIAL is for cards you only get from events. Curse is for curses, except for special curses like Curse of the Bell and Necronomicurse.
+                CardTarget.ENEMY, //The target. Single target is ENEMY, all enemies is ALL_ENEMY. Look at cards similar to what you want to see what to use.
+                1 //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
+        );
+        //These will be used in the constructor. Technically you can just use the values directly,
+        //but constants at the top of the file are easy to adjust.
+        private static final int DAMAGE = 2;
+        private static final int UPG_DAMAGE = 2;
+
+        public NewLeaf() {
+            super(ID, info); //Pass the required information to the BaseCard constructor.
+
+            setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
+            this.forget = true;
+        }
+
+        @Override
+        public void use(AbstractPlayer p, AbstractMonster m) {
+            addToBot(new NewLeafAction((AbstractCreature)m, new DamageInfo((AbstractCreature)p, this.damage, this.damageTypeForTurn)));
+               }
+    }
+}

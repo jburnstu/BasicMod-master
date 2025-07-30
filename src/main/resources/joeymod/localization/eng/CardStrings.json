@@ -49,9 +49,9 @@
       "Blizzard is a good example for this."
     ]
   },
-  "${modID}:Breakthrough": {
-    "NAME": "Breakthrough",
-    "DESCRIPTION": "!D! Damage. Play all forgotten cards in your hand.",
+  "${modID}:Reflex": {
+    "NAME": "Reflex",
+    "DESCRIPTION": "!D! Damage. Forget a card.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
     "EXTENDED_DESCRIPTION": [
       "You can put more text in here.",
