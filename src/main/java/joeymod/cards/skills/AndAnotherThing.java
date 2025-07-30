@@ -32,7 +32,7 @@ public class AndAnotherThing extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        addToBot(new RecollectAction(this.magicNumber,false));
+        addToBot(new RecollectAction(1,AndAnotherThingAction(this.magicNumber)));
     }
 
     //9 Block. Forget one other card in your hand. forget.
