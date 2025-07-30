@@ -6,21 +6,21 @@
     ]
   },
   "${modID}:PavlovianResponsePower": {
-    "NAME": "Ultimate Power",
+    "NAME": "Pavlovian Response",
     "DESCRIPTIONS": [
-      "You are Very Cool and Strong."
+      "When you remember an attack, gain 1 strength."
     ]
   },
   "${modID}:ObliviousPower": {
-    "NAME": "Ultimate Power",
+    "NAME": "Oblivious",
     "DESCRIPTIONS": [
-      "You are Very Cool and Strong."
+      "When you forget a card, gain three block."
     ]
   },
   "${modID}:InOneEarPower": {
-    "NAME": "Ultimate Power",
+    "NAME": "In One Ear",
     "DESCRIPTIONS": [
-      "You are Very Cool and Strong."
+      "When you forget a card, draw a card."
     ]
   }
 }

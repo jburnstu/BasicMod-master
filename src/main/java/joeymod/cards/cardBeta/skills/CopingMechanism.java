@@ -2,6 +2,7 @@ package joeymod.cards.cardBeta.skills;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.cards.AbstractSleeperCard;
@@ -9,7 +10,7 @@ import joeymod.powers.AmnesiaPower;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-//Gain 2 energy. gain 1 forgetful.
+//Gain 2 energy. gain 1 amnesia.
 public class CopingMechanism extends AbstractSleeperCard {
     public static final String ID = makeID(CopingMechanism.class.getSimpleName());
     private static Object MyCharacter;
@@ -22,17 +23,17 @@ public class CopingMechanism extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int magicNumber = 2;
+    private int basemagicNumber = 2;
 
     public CopingMechanism() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.forget = true;
-        this.magicNumber = magicNumber;
+        this.magicNumber = basemagicNumber;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToTop(new ApplyPowerAction(p,p,new AmnesiaPower(p,1)));
-        addToBot(new DrawCardAction(p,this.magicNumber));
+        addToBot(new GainEnergyAction(this.magicNumber));
     }
 }
