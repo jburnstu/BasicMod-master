@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import joeymod.cards.ForgottenCard;
 
 public class AmnesiaPower extends AbstractPower {
-    public static final String POWER_ID = "Forgetful";
+    public static final String POWER_ID = "Amnesia";
 
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings("Weakened");
 
@@ -26,7 +26,7 @@ public class AmnesiaPower extends AbstractPower {
 
     public AmnesiaPower(AbstractCreature owner, int amount) {
         this.name = NAME;
-        this.ID = "Forgetful";
+        this.ID = "Amnesia";
         this.owner = owner;
         this.amount = amount;
         updateDescription();
@@ -42,9 +42,9 @@ public class AmnesiaPower extends AbstractPower {
             return;
         }
         if (this.amount == 0) {
-            addToBot((AbstractGameAction)new RemoveSpecificPowerAction(this.owner, this.owner, "Forgetful"));
+            addToBot((AbstractGameAction)new RemoveSpecificPowerAction(this.owner, this.owner, "Amnesia"));
         } else {
-            addToBot((AbstractGameAction)new ReducePowerAction(this.owner, this.owner, "Forgetful", 1));
+            addToBot((AbstractGameAction)new ReducePowerAction(this.owner, this.owner, "Amnesia", 1));
         }
     }
 

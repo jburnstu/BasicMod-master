@@ -3,6 +3,7 @@ package joeymod.cards.skills;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import joeymod.actions.AndAnotherThingAction;
 import joeymod.actions.ForgetAction;
 import joeymod.actions.RecollectAction;
 import joeymod.cards.AbstractSleeperCard;
@@ -32,7 +33,7 @@ public class AndAnotherThing extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        addToBot(new RecollectAction(1,AndAnotherThingAction(this.magicNumber)));
+        addToBot(new RecollectAction(1,new AndAnotherThingAction(this.magicNumber)));
     }
 
     //9 Block. Forget one other card in your hand. forget.

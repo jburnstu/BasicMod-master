@@ -8,19 +8,29 @@
   "${modID}:PavlovianResponsePower": {
     "NAME": "Pavlovian Response",
     "DESCRIPTIONS": [
-      "When you remember an attack, gain 1 strength."
+      "When you remember an attack, gain",
+      "strength."
     ]
   },
   "${modID}:ObliviousPower": {
     "NAME": "Oblivious",
     "DESCRIPTIONS": [
-      "When you forget a card, gain three block."
+      "When you forget a card, gain",
+      "block."
     ]
   },
   "${modID}:InOneEarPower": {
     "NAME": "In One Ear",
     "DESCRIPTIONS": [
       "When you forget a card, draw a card."
+    ]
+  },
+  "${modID}:AmnesiaPower": {
+    "NAME": "Amnesia",
+    "DESCRIPTIONS": [
+      "The next",
+      "times you play a forgotten card, exhaust it."
+
     ]
   }
 }
