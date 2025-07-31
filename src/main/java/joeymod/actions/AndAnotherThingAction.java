@@ -25,7 +25,7 @@ public class AndAnotherThingAction extends AbstractGameAction {
     public void update () {
         System.out.println("FA Update reached...");
         if (RecollectAction.recalledCards.get(0).cost >= this.magicNumber) {
-            addToTop(new GainEnergyAction(2));
+            addToTop(new RecollectAction(1,false));
         }
         System.out.println("done with update...");
         this.isDone = true;

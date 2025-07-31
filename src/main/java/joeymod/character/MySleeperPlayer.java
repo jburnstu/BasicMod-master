@@ -22,9 +22,7 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import joeymod.cards.SleeperStrike;
-import joeymod.cards.cardBeta.attacks.AlterEgo;
 import joeymod.cards.attacks.Reflex;
-import joeymod.cards.attacks.Catharsis;
 
 import java.util.ArrayList;
 
@@ -32,11 +30,7 @@ import static joeymod.JoeyBasicMod.characterPath;
 import static joeymod.JoeyBasicMod.makeID;
 
 import joeymod.cards.attacks.Closure;
-import joeymod.cards.cardBeta.skills.*;
-import joeymod.cards.skills.AndAnotherThing;
-import joeymod.cards.skills.BlankSlate;
-import joeymod.cards.skills.BreakTheCycle;
-import joeymod.cards.skills.Sublimation;
+import joeymod.cards.skills.*;
 import joeymod.relics.TeddyBear;
 
 public class MySleeperPlayer extends CustomPlayer {

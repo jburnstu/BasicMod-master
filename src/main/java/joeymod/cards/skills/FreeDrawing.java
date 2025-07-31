@@ -1,18 +1,15 @@
-package joeymod.cards.cardBeta.skills;
+package joeymod.cards.skills;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.cards.AbstractSleeperCard;
-import joeymod.powers.AmnesiaPower;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-//Gain 2 energy. gain 1 amnesia.
-public class CopingMechanism extends AbstractSleeperCard {
-    public static final String ID = makeID(CopingMechanism.class.getSimpleName());
+//Draw two cards. Forget.
+public class FreeDrawing extends AbstractSleeperCard {
+    public static final String ID = makeID(FreeDrawing.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -23,16 +20,16 @@ public class CopingMechanism extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int basemagicNumber = 2;
+    private int magicNumber = 2;
 
-    public CopingMechanism() {
+    public FreeDrawing() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.magicNumber = basemagicNumber;
+        this.forget = true;
+        this.magicNumber = magicNumber;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToTop(new ApplyPowerAction(p,p,new AmnesiaPower(p,1)));
-        addToBot(new GainEnergyAction(this.magicNumber));
+        addToBot(new DrawCardAction(p,this.magicNumber));
     }
 }

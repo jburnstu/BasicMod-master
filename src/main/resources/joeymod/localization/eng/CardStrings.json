@@ -409,7 +409,7 @@
   },
   "${modID}:Sleepwalk": {
     "NAME": "Sleepwalk",
-    "DESCRIPTION": "Urgent. Gain !B! Block. Forget a card.",
+    "DESCRIPTION": "Gain !B! Block. Draw a card. Forget a card.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
     "EXTENDED_DESCRIPTION": [
       "You can put more text in here.",

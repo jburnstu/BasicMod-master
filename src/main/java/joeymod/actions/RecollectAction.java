@@ -36,8 +36,6 @@ public class RecollectAction extends AbstractGameAction {
         setValues((AbstractCreature)this.p, (AbstractCreature)AbstractDungeon.player, this.amount);
         this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FAST;
-        System.out.println("Constructor complete...");
-//        this.followUpAction = null;
     }
 
     public RecollectAction(int amount, AbstractGameAction followUpAction) {
@@ -46,12 +44,12 @@ public class RecollectAction extends AbstractGameAction {
     }
 
     public void update() {
-        System.out.println("update starting...");
+//        System.out.println("update starting...");
         recalledCards.clear();
         CardGroup f = ((MySleeperPlayer) this.p).forgottenPile;
-        System.out.println("Checking duration...");
+//        System.out.println("Checking duration...");
         if (this.duration == Settings.ACTION_DUR_FAST) {
-            System.out.println("RecollectAction starting...");
+//            System.out.println("RecollectAction starting...");
             if (AbstractDungeon.player.hand.size() == 10) {
                 AbstractDungeon.player.createHandIsFullDialog();
                 this.isDone = true;
@@ -72,22 +70,22 @@ public class RecollectAction extends AbstractGameAction {
                 this.isDone = true;
                 return;
             }
-            System.out.println("Past if block which shouldn't trigger...");
+//            System.out.println("Past if block which shouldn't trigger...");
             for (AbstractCard abstractCard : f.group) {
-                System.out.println("Inside suspicious for loop...");
+//                System.out.println("Inside suspicious for loop...");
                 abstractCard.stopGlowing();
                 abstractCard.unhover();
                 abstractCard.unfadeOut();
             }
             if (f.isEmpty()) {
-                System.out.println("inside second ifempty block...");
+//                System.out.println("inside second ifempty block...");
                 f.group.addAll(this.recalls);
                 this.recalls.clear();
                 this.isDone = true;
                 return;
             }
             System.out.println("creating select screen....");
-            AbstractDungeon.gridSelectScreen.open(f, 1, "Choose a card to recollect", false);
+            AbstractDungeon.gridSelectScreen.open(f, this.amount, "Choose a card to recollect", false);
             System.out.println("screen successfully created...");
             tickDuration();
             return;

@@ -34,9 +34,5 @@ public class InnerChild extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        for (AbstractCard c : ((MySleeperPlayer) AbstractDungeon.player).forgottenPile.group) {
-            ((AbstractSleeperCard) c).backForgottenCard.setCostForTurn(0);
-            addToTop(new ApplyPowerAction(p, p, new ComaPower(p, this.magicNumber)));
-        }
     }
 }
