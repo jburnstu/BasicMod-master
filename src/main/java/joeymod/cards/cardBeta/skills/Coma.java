@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
+import joeymod.patches.AbstractCardBackForgottenCardPatch;
 import joeymod.powers.ComaPower;
 import joeymod.util.CardStats;
 
@@ -35,7 +36,7 @@ public class Coma extends AbstractSleeperCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         for (AbstractCard c : ((MySleeperPlayer) AbstractDungeon.player).forgottenPile.group) {
-            ((AbstractSleeperCard) c).backForgottenCard.setCostForTurn(0);
+            AbstractCardBackForgottenCardPatch.backForgottenCard.get(c).setCostForTurn(0);
             addToTop(new ApplyPowerAction(p, p, new ComaPower(p, this.magicNumber)));
         }
     }

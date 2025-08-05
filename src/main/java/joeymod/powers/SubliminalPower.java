@@ -18,7 +18,6 @@ public class SubliminalPower extends AbstractSleeperPower {
 
     @Override
     public void onForget(AbstractCard card) {
-
         addToTop(new GainBlockAction(this.owner, this.amount));
     }
 

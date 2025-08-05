@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import joeymod.cards.SleeperDefend;
 import joeymod.cards.SleeperStrike;
 import joeymod.cards.attacks.Reflex;
 
@@ -30,6 +31,7 @@ import static joeymod.JoeyBasicMod.characterPath;
 import static joeymod.JoeyBasicMod.makeID;
 
 import joeymod.cards.attacks.Closure;
+import joeymod.cards.attacks.TossAndTurn;
 import joeymod.cards.skills.*;
 import joeymod.relics.TeddyBear;
 
@@ -150,15 +152,15 @@ public class MySleeperPlayer extends CustomPlayer {
         //List of IDs of cards for your starting deck.
         //If you want multiple of the same card, you have to add it multiple times.
         retVal.add(SleeperStrike.ID);
-        retVal.add(Reflex.ID);
-        retVal.add(Sublimation.ID);
-        retVal.add(Closure.ID);
-        retVal.add(AndAnotherThing.ID);
-        retVal.add(BlankSlate.ID);
-        retVal.add(BreakTheCycle.ID);
-        retVal.add(CopingMechanism.ID);
-        retVal.add(FinalSession.ID);
+        retVal.add(SleeperStrike.ID);
+        retVal.add(SleeperStrike.ID);
+        retVal.add(SleeperStrike.ID);
+        retVal.add(SleeperDefend.ID);
+        retVal.add(SleeperDefend.ID);
+        retVal.add(SleeperDefend.ID);
+        retVal.add(SleeperDefend.ID);
         retVal.add(Sleepwalk.ID);
+        retVal.add(TossAndTurn.ID);
         return retVal;
     }
 

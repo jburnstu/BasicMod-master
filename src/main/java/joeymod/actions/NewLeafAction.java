@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.cards.ForgottenCard;
 import joeymod.character.MySleeperPlayer;
+import joeymod.patches.AbstractCardBackForgottenCardPatch;
 
 import java.util.ArrayList;
 
@@ -48,7 +49,7 @@ public class NewLeafAction extends AbstractGameAction {
                 }
                 if (possibleCards.size() == 1) {
                     AbstractCard c = possibleCards.get(0);
-                    ForgottenCard looseForgottenCard = ((AbstractSleeperCard) c).backForgottenCard;
+                    ForgottenCard looseForgottenCard = AbstractCardBackForgottenCardPatch.backForgottenCard.get(c);
                     AbstractDungeon.player.masterDeck.group.remove(c);
                     AbstractCard newCard = AbstractDungeon.returnTrulyRandomCard().makeCopy();
                     looseForgottenCard.frontForgottenCard = newCard;
