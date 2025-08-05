@@ -2,29 +2,26 @@ package joeymod.relics;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import joeymod.cards.ForgottenCard;
-import joeymod.character.MySleeperPlayer;
-import joeymod.powers.ObliviousPower;
 
 import static joeymod.JoeyBasicMod.makeID;
 
-public class TeddyBear extends AbstractSleeperRelic {
-    public static final String ID = makeID("TeddyBear");
+public class EyeMask extends AbstractSleeperRelic {
+    public static final String ID = makeID(EyeMask.class.getSimpleName());
 
-    public TeddyBear() {
-        super(makeID("TeddyBear"), AbstractRelic.RelicTier.STARTER, AbstractRelic.LandingSound.MAGICAL);
+    public EyeMask() {
+        super(ID, RelicTier.STARTER, LandingSound.MAGICAL);
         System.out.println("TeddyBear constructor called....");
     }
 
     public String getUpdatedDescription() {
-        return "The first time you draw a Forgotten Card in your turn, draw another card.";
+        return "Try this";
     }
 
 
     public AbstractRelic makeCopy() {
-        return new TeddyBear();
+        return new EyeMask();
     }
 
     public boolean usedThisTurn = false;
