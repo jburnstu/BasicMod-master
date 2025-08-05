@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.character.MySleeperPlayer;
+import joeymod.patches.AbstractCardBackForgottenCardPatch;
 import joeymod.util.CardStats;
 
 public class ForgottenCard extends AbstractSleeperCard {
@@ -27,7 +28,7 @@ public class ForgottenCard extends AbstractSleeperCard {
     public ForgottenCard(AbstractCard c) {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.frontForgottenCard = c;
-        ((AbstractSleeperCard) c).backForgottenCard = this;
+        AbstractCardBackForgottenCardPatch.backForgottenCard.set(c,this);
         this.p = (MySleeperPlayer) AbstractDungeon.player;
         this.purgeOnUse = true;
 
