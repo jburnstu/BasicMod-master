@@ -9,6 +9,7 @@ import joeymod.cards.AbstractSleeperCard;
 import joeymod.cards.ForgottenCard;
 import joeymod.character.MySleeperPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import joeymod.patches.AbstractCardBackForgottenCardPatch;
 import joeymod.powers.AbstractSleeperPower;
 import joeymod.relics.AbstractSleeperRelic;
 
@@ -36,7 +37,7 @@ public class Move {
     public static void fromForgottenPile(AbstractCard c) {
         MySleeperPlayer p = (MySleeperPlayer) AbstractDungeon.player;
         if (p.forgottenPile.group.contains(c)) {
-            ForgottenCard backForgottenCard = ((AbstractSleeperCard) c).backForgottenCard;
+            ForgottenCard backForgottenCard = AbstractCardBackForgottenCardPatch.backForgottenCard.get(c);
             if (p.drawPile.group.contains(backForgottenCard)) {
                 p.drawPile.removeCard(backForgottenCard);
             } else if (p.discardPile.group.contains(backForgottenCard)) {
