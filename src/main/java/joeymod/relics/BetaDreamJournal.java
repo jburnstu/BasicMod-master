@@ -7,17 +7,17 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import static joeymod.JoeyBasicMod.makeID;
 
 // When you recollect and no cards in forgottenPile,: add a new card to your hand (cost 1 less?)
-public class Blindfold extends AbstractSleeperRelic {
+public class BetaDreamJournal extends AbstractSleeperRelic {
     public static final String ID = makeID("Blindfold");
 
 
-    public Blindfold() {
+    public BetaDreamJournal() {
         super(ID, RelicTier.STARTER, LandingSound.MAGICAL);
     }
 
 
     public AbstractRelic makeCopy() {
-        return new Blindfold();
+        return new BetaDreamJournal();
     }
 
     public void onRecollectWithNoForgotten() {

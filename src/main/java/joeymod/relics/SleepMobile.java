@@ -9,6 +9,7 @@ import joeymod.character.MySleeperPlayer;
 
 import static joeymod.JoeyBasicMod.makeID;
 
+// Whenever you remember a power card, add a copy of that power to your draw pile.
 public abstract class SleepMobile extends BaseRelic {
     private static final String NAME = "SleepMobile"; //The name will be used for determining the image file as well as the ID.
     public static final String ID = makeID(NAME); //This adds the mod's prefix to the relic ID, resulting in modID:MyRelic
