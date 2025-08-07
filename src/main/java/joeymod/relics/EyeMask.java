@@ -7,6 +7,8 @@ import joeymod.cards.ForgottenCard;
 
 import static joeymod.JoeyBasicMod.makeID;
 
+
+// Forgotten card remain forgotten in between combats.
 public class EyeMask extends AbstractSleeperRelic {
     public static final String ID = makeID(EyeMask.class.getSimpleName());
 

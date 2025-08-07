@@ -11,7 +11,7 @@ import joeymod.cards.BaseCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.patches.CardColorEnum;
 import joeymod.relics.BaseRelic;
-import joeymod.relics.TeddyBear;
+import joeymod.relics.LavaLamp;
 import joeymod.util.GeneralUtils;
 import joeymod.util.KeywordInfo;
 import joeymod.util.TextureLoader;
@@ -104,7 +104,7 @@ public class JoeyBasicMod implements
 
     @Override
     public void receiveEditRelics() { //somewhere in the class
-        BaseMod.addRelicToCustomPool((AbstractRelic)new TeddyBear(),  CardColorEnum.SLEEPER);
+        BaseMod.addRelicToCustomPool((AbstractRelic)new LavaLamp(),  CardColorEnum.SLEEPER);
         System.out.println("Relic function was called....");
     }
 
