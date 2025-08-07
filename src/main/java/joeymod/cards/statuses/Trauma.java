@@ -5,17 +5,15 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import joeymod.actions.ForgetAction;
-import joeymod.actions.RecollectAction;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
 
-
-public class Dizzy extends AbstractSleeperCard {
-    public static final String ID = makeID(Dizzy.class.getSimpleName());
+public class Trauma extends AbstractSleeperCard {
+    public static final String ID = makeID(Trauma.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -26,12 +24,14 @@ public class Dizzy extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    public static final int magicNumber = 1;
+    public static int magicNumber = 2;
 
 
-    public Dizzy() {
-        super(ID, info); //Pass the required information to the BaseCard constructor.
+    public Trauma() {
+        super(ID, info);
         this.forget = true;
+        this.magicNumber = magicNumber;
+        //Pass the required information to the BaseCard constructor.
     }
 
     @Override
@@ -40,7 +40,6 @@ public class Dizzy extends AbstractSleeperCard {
 
     @Override
     public void triggerOnPlayedFromForgotten(AbstractPlayer p, AbstractMonster m, boolean randomTarget) {
-        addToBot(new ForgetAction(1,true,false,false));
-
+        addToBot(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, this.magicNumber, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
     }
 }
