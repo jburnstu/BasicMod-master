@@ -1,25 +1,21 @@
 package joeymod.relics;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import joeymod.cards.ForgottenCard;
-import joeymod.character.MySleeperPlayer;
-import joeymod.powers.ObliviousPower;
+import joeymod.actions.ForgetAction;
 
 import static joeymod.JoeyBasicMod.makeID;
 
+// When you recollect and no cards in forgottenPile,: add a new card to your hand (cost 1 less?)
 public class TeddyBear extends AbstractSleeperRelic {
-    public static final String ID = makeID("TeddyBear");
+    public static final String ID = makeID("Blindfold");
+
 
     public TeddyBear() {
-        super(makeID("TeddyBear"), AbstractRelic.RelicTier.STARTER, AbstractRelic.LandingSound.MAGICAL);
-        System.out.println("TeddyBear constructor called....");
-    }
-
-    public String getUpdatedDescription() {
-        return "The first time you draw a Forgotten Card in your turn, draw another card.";
+        super(ID, RelicTier.STARTER, LandingSound.MAGICAL);
     }
 
 
@@ -27,18 +23,23 @@ public class TeddyBear extends AbstractSleeperRelic {
         return new TeddyBear();
     }
 
-    public boolean usedThisTurn = false;
+    private boolean activated = false;
 
-    public void atTurnStart() {
-        System.out.println("atTurnStart called....");
-        usedThisTurn = false;
+    public String getUpdatedDescription() {
+        return this.DESCRIPTIONS[0];
     }
 
-    public void onCardDraw (AbstractCard drawnCard) {
-        if (!usedThisTurn && drawnCard instanceof ForgottenCard) {
+    public void atBattleStartPreDraw() {
+        this.activated = false;
+    }
+
+    public void atTurnStartPostDraw() {
+        if (!this.activated) {
+            this.activated = true;
             flash();
-            addToBot(new DrawCardAction(1));
-            usedThisTurn = true;
+            addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+            addToBot(new DrawCardAction(AbstractDungeon.player,1));
+            addToBot(new ForgetAction(1,false,false,false));
         }
     }
 }
