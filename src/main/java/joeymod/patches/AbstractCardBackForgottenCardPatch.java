@@ -8,5 +8,5 @@ import joeymod.cards.ForgottenCard;
 @SpirePatch(clz = AbstractCard.class,
             method = SpirePatch.CLASS)
 public class AbstractCardBackForgottenCardPatch {
-    public static SpireField<ForgottenCard> backForgottenCard;
+    public static SpireField<ForgottenCard> backForgottenCard = new SpireField<>(()->null);
 }
