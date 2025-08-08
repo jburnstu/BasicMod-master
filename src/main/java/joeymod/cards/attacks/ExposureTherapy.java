@@ -12,7 +12,7 @@ import joeymod.cards.statuses.Dizzy;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-// Deal X damage. Shuffle a traumatised into your deck
+// Deal X damage. Shuffle a trauma into your deck
 public class ExposureTherapy extends AbstractSleeperCard {
     public static final String ID = makeID(ExposureTherapy.class.getSimpleName());
     private static Object MyCharacter;

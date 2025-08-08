@@ -18,7 +18,6 @@ public class AlterEgoAction extends AbstractGameAction {
             }
             this.isDone = true;
         }
-        tickDuration();
     }
 
 

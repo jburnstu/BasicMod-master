@@ -92,7 +92,6 @@ public class MySleeperPlayer extends CustomPlayer {
         }
     }
 
-
     //In-game images
     private static final String SHOULDER_1 = characterPath("shoulder.png"); //Shoulder 1 and 2 are used at rest sites.
     private static final String SHOULDER_2 = characterPath("shoulder2.png");
@@ -122,14 +121,12 @@ public class MySleeperPlayer extends CustomPlayer {
             360.0F
     };
 
-
     //Actual character class code below this point
 
     public MySleeperPlayer() {
         super(getNames()[0], Meta.SLEEPER,
                 new CustomEnergyOrb(orbTextures, characterPath("energyorb/vfx.png"), layerSpeeds), //Energy Orb
                 new SpriterAnimation(characterPath("animation/default.scml"))); //Animation
-
 
         initializeClass(null,
                 SHOULDER_2,
@@ -143,8 +140,6 @@ public class MySleeperPlayer extends CustomPlayer {
         dialogX = (drawX + 0.0F * Settings.scale);
         dialogY = (drawY + 220.0F * Settings.scale);
     }
-
-
 
     @Override
     public ArrayList<String> getStartingDeck() {
