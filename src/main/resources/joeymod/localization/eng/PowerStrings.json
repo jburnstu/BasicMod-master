@@ -5,11 +5,25 @@
       "You are Very Cool and Strong."
     ]
   },
-  "${modID}:PavlovianResponsePower": {
-    "NAME": "Pavlovian Response",
+  "${modID}:AmnesiaPower": {
+    "NAME": "Amnesia",
     "DESCRIPTIONS": [
-      "When you remember an attack, gain",
-      "strength."
+      "The next",
+      "time(s) you play a card, forget it."
+
+    ]
+  },
+  "${modID}:Egoism": {
+  "NAME": "Ego",
+  "DESCRIPTIONS": [
+    "When you play a card of cost 2+, gain",
+    "energy."
+  ]
+},
+  "${modID}:InOneEarPower": {
+    "NAME": "In One Ear",
+    "DESCRIPTIONS": [
+      "When you forget a card, draw a card."
     ]
   },
   "${modID}:ObliviousPower": {
@@ -19,18 +33,18 @@
       "block."
     ]
   },
-  "${modID}:InOneEarPower": {
-    "NAME": "In One Ear",
+  "${modID}:PavlovianResponsePower": {
+    "NAME": "Pavlovian Response",
     "DESCRIPTIONS": [
-      "When you forget a card, draw a card."
+      "When you remember an attack, gain",
+      "strength."
     ]
   },
-  "${modID}:AmnesiaPower": {
-    "NAME": "Amnesia",
+  "${modID}:Subliminal": {
+    "NAME": "Subliminal",
     "DESCRIPTIONS": [
-      "The next",
-      "times you play a forgotten card, exhaust it."
-
+      "When you remember a skill, apply",
+      "weak to all enemies."
     ]
   }
 }

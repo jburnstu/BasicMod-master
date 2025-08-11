@@ -176,6 +176,7 @@ public class JoeyBasicMod implements
     }
 
     private void registerKeyword(KeywordInfo info) {
+        System.out.println("Register keyword reached with info "+info);
         BaseMod.addKeyword(modID.toLowerCase(), info.PROPER_NAME, info.NAMES, info.DESCRIPTION);
         if (!info.ID.isEmpty())
         {

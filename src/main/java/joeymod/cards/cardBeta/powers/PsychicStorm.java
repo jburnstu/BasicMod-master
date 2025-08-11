@@ -1,4 +1,4 @@
-package joeymod.cards.cardBeta.skills;
+package joeymod.cards.cardBeta.powers;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

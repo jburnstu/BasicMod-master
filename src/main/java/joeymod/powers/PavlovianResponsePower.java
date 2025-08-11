@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import joeymod.cards.ForgottenCard;
 
 import static joeymod.JoeyBasicMod.makeID;
@@ -17,16 +18,14 @@ public class PavlovianResponsePower extends AbstractSleeperPower {
 
 
     public PavlovianResponsePower(AbstractCreature owner, int amount) {
-
         super(POWER_ID, TYPE, false, owner, amount);
     }
 
     @Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
         if (c instanceof ForgottenCard && ((ForgottenCard) c).frontForgottenCard.type == AbstractCard.CardType.ATTACK) {
-            addToTop(new ApplyPowerAction(this.owner, this.owner, new GainStrengthPower(this.owner,this.amount)));
+            addToTop(new ApplyPowerAction(this.owner, this.owner, new StrengthPower(this.owner,this.amount)));
         }
-
     }
 
 }

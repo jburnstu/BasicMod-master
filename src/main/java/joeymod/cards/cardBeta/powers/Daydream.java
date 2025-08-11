@@ -10,7 +10,7 @@ import joeymod.character.MySleeperPlayer;
 import joeymod.powers.DaydreamPower;
 import joeymod.util.CardStats;
 
-//Heal 20HP. At the end of combat, lose 15HP.
+//Retain 1 forgotten card each turn.
 public class Daydream extends AbstractSleeperCard {
     public static final String ID = makeID(Daydream.class.getSimpleName());
     private static Object MyCharacter;

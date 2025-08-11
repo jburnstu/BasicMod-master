@@ -9,7 +9,7 @@ import joeymod.character.MySleeperPlayer;
 import joeymod.powers.LucidDreamPower;
 import joeymod.util.CardStats;
 
-//At the start of your turn, recollect 1 and gain 1 forgetful.
+//At the start of your turn, recollect 1 and gain 1 amnesia.
 public class LucidDream extends AbstractSleeperCard {
     public static final String ID = makeID(LucidDream.class.getSimpleName());
     private static Object MyCharacter;
