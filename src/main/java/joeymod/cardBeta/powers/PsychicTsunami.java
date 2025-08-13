@@ -1,4 +1,4 @@
-package joeymod.cards.cardBeta.powers;
+package joeymod.cardBeta.powers;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;

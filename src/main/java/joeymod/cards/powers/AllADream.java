@@ -1,17 +1,20 @@
-package joeymod.cards.cardBeta.powers;
+package joeymod.cards.powers;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.RepairPower;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
-import joeymod.powers.LucidDreamPower;
 import joeymod.util.CardStats;
 
-//At the start of your turn, recollect 1 and gain 1 amnesia.
-public class LucidDream extends AbstractSleeperCard {
-    public static final String ID = makeID(LucidDream.class.getSimpleName());
+//Heal 20HP. At the end of combat, lose 15HP.
+public class AllADream extends AbstractSleeperCard {
+    public static final String ID = makeID(AllADream.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -23,14 +26,17 @@ public class LucidDream extends AbstractSleeperCard {
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
 
-    public LucidDream() {
+    int baseMagicNumber = 20;
+
+    public AllADream() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new LucidDreamPower(p,this.magicNumber)));
+        addToBot((AbstractGameAction)new HealAction((AbstractCreature)p, (AbstractCreature)p, this.magicNumber));
+        addToBot((AbstractGameAction)new ApplyPowerAction(p,p,new RepairPower(p,-15)));
     }
 
     public void upgrade() {
@@ -41,6 +47,6 @@ public class LucidDream extends AbstractSleeperCard {
     }
 
     public AbstractCard makeCopy() {
-        return new LucidDream();
+        return new AllADream();
     }
 }

@@ -1,17 +1,16 @@
-package joeymod.cards.cardBeta.skills;
+package joeymod.cardBeta.skills;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.watcher.PressEndTurnButtonAction;
+import com.megacrit.cardcrawl.actions.watcher.SkipEnemiesTurnAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.cards.AbstractSleeperCard;
-import joeymod.powers.RecurringDreamPower;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-//Gain X block, copy the next card you remember this turn
-public class RecurringDream extends AbstractSleeperCard {
-    public static final String ID = makeID(RecurringDream.class.getSimpleName());
+//Urgent. end your turn and have another turn. exhaust
+public class HappyPlace extends AbstractSleeperCard {
+    public static final String ID = makeID(HappyPlace.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -22,19 +21,18 @@ public class RecurringDream extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int BLOCK = 6;
-    private static final int UPG_BLOCK = 3;
-    private static final int baseMagicNumber = 1;
+    private int magicNumber = 2;
 
-    public RecurringDream() {
+    public HappyPlace() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.forget = true;
-        this.magicNumber = baseMagicNumber;
+        this.exhaust = true;
+        this.urgent = true;
+        this.magicNumber = magicNumber;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-            addToBot(new GainBlockAction(p,block));
-            addToBot(new ApplyPowerAction(p,p, new RecurringDreamPower(p,this.magicNumber)));
-        }
+        addToBot(new SkipEnemiesTurnAction());
+        addToBot(new PressEndTurnButtonAction());
     }
+}

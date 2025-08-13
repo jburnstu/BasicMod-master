@@ -16,6 +16,7 @@ public class DaydreamPower extends AbstractSleeperPower {
     AbstractPlayer p;
 
     int amount = 1;
+    int count = 0;
 
     public DaydreamPower(AbstractPlayer p, int amount) {
         super(POWER_ID, TYPE, false, p, amount);
@@ -28,12 +29,13 @@ public class DaydreamPower extends AbstractSleeperPower {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         //make this random somehow
-        int count = 0;
+        count = 0;
         while (count < this.amount) {
             for (AbstractCard c:  p.hand.group) {
                 if (c instanceof ForgottenCard) {
                     c.retain = true;
                     count += 1;
+                    System.out.println(count);
                 }
             }
         }
