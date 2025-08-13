@@ -9,7 +9,7 @@ import static joeymod.JoeyBasicMod.makeID;
 
 // retain a random forgotten card
 public class DaydreamPower extends AbstractSleeperPower {
-    public static final String POWER_ID = makeID(InOneEarPower.class.getSimpleName());
+    public static final String POWER_ID = makeID(DaydreamPower.class.getSimpleName());
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
 

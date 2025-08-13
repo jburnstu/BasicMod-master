@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import static joeymod.JoeyBasicMod.makeID;
 
 public class EgoismPower extends AbstractSleeperPower {
-    public static final String POWER_ID = makeID(InOneEarPower.class.getSimpleName());
+    public static final String POWER_ID = makeID(EgoismPower.class.getSimpleName());
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
 

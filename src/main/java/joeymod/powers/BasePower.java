@@ -30,6 +30,7 @@ public abstract class BasePower extends AbstractPower {
     public BasePower(String id, PowerType powerType, boolean isTurnBased, AbstractCreature owner, int amount) {
         this(id, powerType, isTurnBased, owner, null, amount);
     }
+
     public BasePower(String id, PowerType powerType, boolean isTurnBased, AbstractCreature owner, AbstractCreature source, int amount) {
         this(id, powerType, isTurnBased, owner, source, amount, true);
     }

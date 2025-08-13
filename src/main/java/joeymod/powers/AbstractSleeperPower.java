@@ -1,10 +1,15 @@
 package joeymod.powers;
 
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public abstract class AbstractSleeperPower extends BasePower {
+
+    boolean reduceAtEndOfTurn = false;
+    boolean removeAtEndOfTurn = false;
 
     public AbstractSleeperPower(String id, PowerType powerType, boolean isTurnBased, AbstractCreature owner, int amount) {
         this(id, powerType, isTurnBased, owner, null, amount);
@@ -15,11 +20,13 @@ public abstract class AbstractSleeperPower extends BasePower {
     }
 
     public AbstractSleeperPower(String id, PowerType powerType, boolean isTurnBased, AbstractCreature owner, AbstractCreature source, int amount, boolean initDescription) {
-        this(id, powerType, isTurnBased, owner, source, amount, initDescription, true);
+        this(id, powerType, isTurnBased, owner, source, amount, initDescription, true,false,false);
     }
 
-    public AbstractSleeperPower(String id, PowerType powerType, boolean isTurnBased, AbstractCreature owner, AbstractCreature source, int amount, boolean initDescription, boolean loadImage) {
+    public AbstractSleeperPower(String id, PowerType powerType, boolean isTurnBased, AbstractCreature owner, AbstractCreature source, int amount, boolean initDescription, boolean loadImage, boolean reduceAtEnd, boolean removeAtEnd) {
         super(id, powerType, isTurnBased, owner, source, amount, initDescription, loadImage);
+        this.reduceAtEndOfTurn = reduceAtEnd;
+        this.removeAtEndOfTurn = removeAtEnd;
     }
 
     public void onForget (AbstractCard card) {}
@@ -39,5 +46,18 @@ public abstract class AbstractSleeperPower extends BasePower {
                     this.description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
                 break;
         }
+    }
+
+    public void alterAmountAtEndOfTurn() {
+        if (this.reduceAtEndOfTurn) {
+            addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
+        } else if (this.removeAtEndOfTurn){
+            addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+        }
+    }
+
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        alterAmountAtEndOfTurn();
     }
 }

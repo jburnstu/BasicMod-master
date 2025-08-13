@@ -15,14 +15,14 @@ public class RecurringDreamPower extends AbstractSleeperPower {
     public static final String POWER_ID = makeID(RecurringDreamPower.class.getSimpleName());
     private static final AbstractPower.PowerType TYPE = AbstractPower.PowerType.BUFF;
     private static final boolean TURN_BASED = false;
+    boolean removeAtEndOfTurn = true;
 
     public RecurringDreamPower(AbstractPlayer owner, int amount) {
-        super(POWER_ID, TYPE, false, owner, amount);
+        super(POWER_ID, TYPE, false, owner,owner, amount,true, true, false,true);
     }
 
 
-    public void onPlayCard(AbstractCard c, AbstractMonster m)
-    {
+    public void onPlayCard(AbstractCard c, AbstractMonster m) {
         if (c instanceof ForgottenCard) {
             AbstractCard tmp = ((ForgottenCard) c).frontForgottenCard.makeSameInstanceOf();
             tmp.purgeOnUse = true;
