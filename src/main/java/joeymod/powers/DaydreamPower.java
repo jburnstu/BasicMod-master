@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import joeymod.cards.ForgottenCard;
 
+// retain a random forgotten card
 public class DaydreamPower extends AbstractPower {
 
     AbstractPlayer p;
@@ -15,6 +16,7 @@ public class DaydreamPower extends AbstractPower {
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
+        //make this random somehow
         for (AbstractCard c:  p.hand.group) {
             if (c instanceof ForgottenCard) {
                 c.retain = true;

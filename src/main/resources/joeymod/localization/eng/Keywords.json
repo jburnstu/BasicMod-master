@@ -23,16 +23,16 @@
   {
     "PROPER_NAME": "Forget",
     "NAMES": [
-      "Forget",
-      "Forgotten",
-      "Forgot"
+      "forget",
+      "forgotten",
+      "forgot"
     ],
     "DESCRIPTION": "Forget -- when a card is forgotten, its effect is hidden and its energy cost changed to 1, until played. Forgotten cards are remembered when played."
   },
   {
     "PROPER_NAME": "Urgent",
     "NAMES": [
-      "Urgent"
+      "urgent"
     ],
     "DESCRIPTION": "Urgent -- urgent cards in your hand must be played before any other cards. If there are multiple urgent cards, you may choose the order in which you play them."  }
 ]

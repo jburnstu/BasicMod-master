@@ -25,6 +25,19 @@ public abstract class AbstractSleeperPower extends BasePower {
     public void onForget (AbstractCard card) {}
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        switch (DESCRIPTIONS.length) {
+            case 1:
+                this.description = DESCRIPTIONS[0];
+                break;
+            case 2:
+                this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+                break;
+            case 3:
+                if (amount == 1)
+                    this.description = DESCRIPTIONS[0];
+                else
+                    this.description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
+                break;
+        }
     }
 }

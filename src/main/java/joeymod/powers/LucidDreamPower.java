@@ -24,4 +24,9 @@ public class LucidDreamPower extends AbstractSleeperPower {
         addToBot((AbstractGameAction)new RecollectAction(this.amount,false));
 
     }
+
+    @Override
+    public void updateDescription () {
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[0] + this.amount;
+    }
 }
