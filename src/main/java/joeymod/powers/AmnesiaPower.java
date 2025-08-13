@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import joeymod.cards.ForgottenCard;
+import joeymod.patches.AbstractCardBackForgottenCardPatch;
 
 import static joeymod.JoeyBasicMod.makeID;
 
@@ -23,20 +24,13 @@ public class AmnesiaPower extends AbstractSleeperPower {
         super(POWER_ID, TYPE, false, owner, amount);
     }
 
-//    public void onPlayCard(AbstractCard c, AbstractMonster m) {
-//        if (c instanceof ForgottenCard) {
-//            ((ForgottenCard) c).backForgottenCard.exhaustOnUseOnce = true;
-//        }
-//    }
-
     public void onUseCard(AbstractCard c, UseCardAction action) {
-        if (c instanceof ForgottenCard) {
+        if (this.amount > 0) {
             flash();
-            ((ForgottenCard) c).frontForgottenCard.exhaustOnUseOnce = true;
+            AbstractCardBackForgottenCardPatch.forgetOnUseOnce.set(c, true);
             this.amount--;
-            if (this.amount == 0) {
-                addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, "Double Tap"));
-            }
+        } else {
+            addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
         }
     }
 }

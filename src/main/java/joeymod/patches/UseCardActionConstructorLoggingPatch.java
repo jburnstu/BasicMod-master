@@ -9,5 +9,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 public class UseCardActionConstructorLoggingPatch {
     public static void Prefix(Object _self) {
         System.out.println("UseCardAction constructor called");
+
     }
 }

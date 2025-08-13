@@ -9,4 +9,6 @@ import joeymod.cards.ForgottenCard;
             method = SpirePatch.CLASS)
 public class AbstractCardBackForgottenCardPatch {
     public static SpireField<ForgottenCard> backForgottenCard = new SpireField<>(()->null);
+
+    public static SpireField<Boolean> forgetOnUseOnce = new SpireField<>(()->false);
 }

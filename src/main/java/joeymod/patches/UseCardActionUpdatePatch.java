@@ -20,12 +20,13 @@ public class UseCardActionUpdatePatch {
 //    static Logger log = Logger.getLogger("MyLogger");
     @SpireInsertPatch(locator = Locator.class,localvars = {"targetCard"})
     public static void Insert(UseCardAction _self, AbstractCard targetCard) {
-//        Thread.dumpStack(); // Optional: shows call path
         AbstractCard newForgottenCard;
-        boolean forgetCard = targetCard instanceof AbstractSleeperCard && ((AbstractSleeperCard) targetCard).forget;
+        boolean forgetCard = (AbstractCardBackForgottenCardPatch.forgetOnUseOnce.get(targetCard)
+                ||(targetCard instanceof AbstractSleeperCard && ((AbstractSleeperCard) targetCard).forget));
         if (forgetCard) {
-//            System.out.println("forgetCard activated -- targetCard:" + targetCard.getClass());
-//            System.out.println(targetCard.dontTriggerOnUseCard);
+            AbstractCardBackForgottenCardPatch.forgetOnUseOnce.set(targetCard,false);
+            System.out.println("forgetCard activated -- targetCard:" + targetCard.getClass());
+            System.out.println(targetCard.dontTriggerOnUseCard);
             newForgottenCard = Move.toForgottenPile(AbstractDungeon.player.hand, targetCard,false);
             AbstractDungeon.actionManager.addToTop(new ShowCardAndPoofAction(targetCard));
             AbstractDungeon.player.cardInUse = null;
@@ -37,9 +38,9 @@ public class UseCardActionUpdatePatch {
                 AbstractDungeon.player.hand.moveToHand(newForgottenCard);
                 AbstractDungeon.player.onCardDrawOrDiscard();
             } else {
-//                System.out.println("Reached part where forgottenCard is discarded");
+                System.out.println("Reached part where forgottenCard is discarded");
                 AbstractDungeon.player.hand.moveToDiscardPile(newForgottenCard);
-//                System.out.println("Discard Pile Size:" + AbstractDungeon.player.discardPile.size());
+                System.out.println("Discard Pile Size:" + AbstractDungeon.player.discardPile.size());
             }
         }
     }
