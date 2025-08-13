@@ -10,7 +10,7 @@
     "DESCRIPTIONS": [
       "Forget the next card you play.",
       "Forget the next #b",
-      "cards you play."
+      " cards you play."
 
     ]
   },
@@ -26,7 +26,7 @@
     "DESCRIPTIONS": [
       "At the end of your turn, retain #b1 random forgotten card",
       "At the end of your turn, retain #b",
-      "random forgotten cards."
+      " random forgotten cards."
     ]
   },
   "${modID}:DisseveredFormPower": {
@@ -41,7 +41,7 @@
   "DESCRIPTIONS": [
     "When you play a card of cost 2+, draw #b1 extra card next turn.",
     "When you play a card of cost 2+, draw #b",
-    "extra card next turn."
+    " extra card next turn."
   ]
 },
   "${modID}:InOneEarPower": {
@@ -49,28 +49,28 @@
     "DESCRIPTIONS": [
       "When you forget a card, draw #b1 card",
       "When you forget a card, draw #b",
-      "card."
+      " cards."
     ]
   },
   "${modID}:LucidDreamPower": {
     "NAME": "Lucidity",
     "DESCRIPTIONS": [
       "At the start of your turn, gain #b",
-      "Amnesia and Recollect #b"
+      " Amnesia and Recollect #b"
     ]
   },
   "${modID}:ObliviousPower": {
     "NAME": "Oblivious",
     "DESCRIPTIONS": [
       "When you forget a card, gain #b",
-      "block."
+      " block."
     ]
   },
   "${modID}:PavlovianResponsePower": {
     "NAME": "Pavlovian Response",
     "DESCRIPTIONS": [
       "When you remember an attack, gain #b",
-      "strength."
+      " strength."
     ]
   },
   "${modID}:PsychicStormPower": {
@@ -84,21 +84,21 @@
     "DESCRIPTIONS": [
       "This turn, the next forgotten card you play is played twice.",
       "This turn, the next #b",
-      "cards you play are played twice."
+      " cards you play are played twice."
     ]
   },
   "${modID}:RemSleepPower": {
     "NAME": "REM Sleep",
     "DESCRIPTIONS": [
       "When you draw a forgotten card, gain #b",
-      "Vigor."
+      " Vigor."
     ]
   },
   "${modID}:Subliminal": {
     "NAME": "Subliminal",
     "DESCRIPTIONS": [
       "When you remember a skill, apply #b",
-      "weak to all enemies."
+      " weak to all enemies."
     ]
   }
 }

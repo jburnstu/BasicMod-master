@@ -24,16 +24,15 @@ public class Egoism extends AbstractSleeperCard {
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
 
-    int baseMagicNumber = 20;
+    int baseMagicNumber = 1;
 
     public Egoism() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction)new ApplyPowerAction(p,p,new EgoismPower()));
+        addToBot((AbstractGameAction)new ApplyPowerAction(p,p,new EgoismPower(p,this.magicNumber)));
     }
 
     public void upgrade() {

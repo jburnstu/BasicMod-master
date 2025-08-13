@@ -49,16 +49,6 @@
       "Blizzard is a good example for this."
     ]
   },
-  "${modID}:Reflex": {
-    "NAME": "Reflex",
-    "DESCRIPTION": "!D! Damage. Forget a card.",
-    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
-    "EXTENDED_DESCRIPTION": [
-      "You can put more text in here.",
-      "If you need to use it for stuff.",
-      "Blizzard is a good example for this."
-    ]
-  },
   "${modID}:BreakTheCycle": {
     "NAME": "Break The Cycle",
     "DESCRIPTION": "Recollect 1. If the card you recollect is an attack, gain its base attack as block.",
@@ -102,6 +92,16 @@
   "${modID}:CopingMechanism": {
     "NAME": "Coping Mechanism",
     "DESCRIPTION": "Gain !M! Energy. Gain 1 amnesia.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:Daydream": {
+    "NAME": "Daydream",
+    "DESCRIPTION": "At the end of your turn, retain 1 random forgotten card.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
     "EXTENDED_DESCRIPTION": [
       "You can put more text in here.",
@@ -340,6 +340,16 @@
   "${modID}:RecurringDream": {
     "NAME": "RecurringDream",
     "DESCRIPTION": "Recollect 1 card.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:Reflex": {
+    "NAME": "Reflex",
+    "DESCRIPTION": "!D! Damage. Forget a card.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
     "EXTENDED_DESCRIPTION": [
       "You can put more text in here.",
