@@ -14,16 +14,19 @@ public class InOneEarPower extends AbstractSleeperPower {
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
 
+    public boolean usedThisTurn = false;
 
     public InOneEarPower(AbstractCreature owner, int amount) {
 
-        super(POWER_ID, TYPE, false, owner, amount);
+        super(POWER_ID, TYPE, TURN_BASED, owner, amount);
     }
 
     @Override
     public void onForget(AbstractCard card) {
-
-        addToTop(new DrawCardAction(this.owner, this.amount));
+        if (!usedThisTurn) {
+            addToTop(new DrawCardAction(this.owner, this.amount));
+            usedThisTurn = true;
+        }
     }
 
 }

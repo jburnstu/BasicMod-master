@@ -47,8 +47,8 @@
   "${modID}:InOneEarPower": {
     "NAME": "In One Ear",
     "DESCRIPTIONS": [
-      "When you forget a card, draw #b1 card",
-      "When you forget a card, draw #b",
+      "The first time each turn you forget a card, draw #b1 card",
+      "The first time each turn you forget a card, draw #b",
       " cards."
     ]
   },
