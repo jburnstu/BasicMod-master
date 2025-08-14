@@ -3,10 +3,11 @@ package joeymod.relics;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import joeymod.actions.DreamJournalAction;
 
 import static joeymod.JoeyBasicMod.makeID;
 
-// When you recollect and no cards in forgottenPile,: add a new card to your hand (cost 1 less?)
+// Choose one card in hand at end of combat, starts next round in hand.
 public class BetaDreamJournal extends AbstractSleeperRelic {
     public static final String ID = makeID("Blindfold");
 
@@ -20,8 +21,9 @@ public class BetaDreamJournal extends AbstractSleeperRelic {
         return new BetaDreamJournal();
     }
 
-    public void onRecollectWithNoForgotten() {
-        addToBot(new MakeTempCardInHandAction(AbstractDungeon.returnTrulyRandomCardInCombat().makeCopy(), false));
+    @Override
+    public void onVictory () {
+        addToBot(new DreamJournalAction());
     }
 
 
