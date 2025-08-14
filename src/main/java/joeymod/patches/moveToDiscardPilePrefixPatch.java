@@ -11,7 +11,7 @@ import joeymod.character.MySleeperPlayer;
 @SpirePatch(clz = CardGroup.class, method = "moveToDiscardPile")
 public class moveToDiscardPilePrefixPatch {
     public static SpireReturn<Void> Prefix(Object _self, AbstractCard _c) {
-        if (((MySleeperPlayer) AbstractDungeon.player).forgottenPile.group.contains(_c)){
+        if (AbstractDungeon.player instanceof MySleeperPlayer && ((MySleeperPlayer) AbstractDungeon.player).forgottenPile.group.contains(_c)){
             System.out.println("Discard Avoided via patch...");
             return SpireReturn.Return();
         }
