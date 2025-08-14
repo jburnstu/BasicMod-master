@@ -4,6 +4,7 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
+import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -34,6 +35,7 @@ import org.scannotation.AnnotationDB;
 import com.badlogic.gdx.graphics.Color;
 
 
+import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
@@ -150,29 +152,20 @@ public class JoeyBasicMod implements
     @Override
     public void receiveEditKeywords()
     {
-        Gson gson = new Gson();
-        String json = Gdx.files.internal(localizationPath(defaultLanguage, "Keywords.json")).readString(String.valueOf(StandardCharsets.UTF_8));
-        KeywordInfo[] keywords = gson.fromJson(json, KeywordInfo[].class);
-        for (KeywordInfo keyword : keywords) {
-            keyword.prep();
-            registerKeyword(keyword);
-        }
+        logger.info("begin editing keywords");
+        Type typeToken = (new TypeToken<Map<String, Keyword>>() {
 
-        if (!defaultLanguage.equals(getLangString())) {
-            try
-            {
-                json = Gdx.files.internal(localizationPath(getLangString(), "Keywords.json")).readString(String.valueOf(StandardCharsets.UTF_8));
-                keywords = gson.fromJson(json, KeywordInfo[].class);
-                for (KeywordInfo keyword : keywords) {
-                    keyword.prep();
-                    registerKeyword(keyword);
-                }
-            }
-            catch (Exception e)
-            {
-                logger.warn(modID + " does not support " + getLangString() + " keywords.");
-            }
-        }
+        }).getType();
+        Gson gson = new Gson();
+        String strings = loadJson("joeymod/localization/eng/Keywords.json");
+        Map<String, Keyword> keywords = gson.fromJson(strings, typeToken);
+        for (Keyword kw : keywords.values())
+            BaseMod.addKeyword(kw.NAMES, kw.DESCRIPTION);
+        logger.info("done editing keywords");
+    }
+
+    private static String loadJson(String jsonPath) {
+        return Gdx.files.internal(jsonPath).readString(String.valueOf(StandardCharsets.UTF_8));
     }
 
     private void registerKeyword(KeywordInfo info) {
