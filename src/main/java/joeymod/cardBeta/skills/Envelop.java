@@ -1,4 +1,4 @@
-package joeymod.cardBeta.powers;
+package joeymod.cardBeta.skills;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -15,9 +15,9 @@ import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-// Lose 2 strength. When you remember an attack, deal its damage to all enemies.
-public class PsychicTsunami extends AbstractSleeperCard {
-    public static final String ID = makeID(PsychicTsunami.class.getSimpleName());
+// 1 block per forgotten card in deck at the moment
+public class Envelop extends AbstractSleeperCard {
+    public static final String ID = makeID(Envelop.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -32,7 +32,7 @@ public class PsychicTsunami extends AbstractSleeperCard {
     private static final int UPG_DAMAGE = 2;
     private static final int baseMagicNumber = 1;
 
-    public PsychicTsunami() {
+    public Envelop() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
 
         setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
@@ -83,6 +83,6 @@ public class PsychicTsunami extends AbstractSleeperCard {
     }
 
     public AbstractCard makeCopy() {
-        return new PsychicTsunami();
+        return new Envelop();
     }
 }

@@ -21,16 +21,14 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import joeymod.cards.SleeperDefend;
-import joeymod.cards.SleeperStrike;
-import joeymod.cards.attacks.Reflex;
+import joeymod.cards.skills.SleeperDefend;
+import joeymod.cards.attacks.SleeperStrike;
 
 import java.util.ArrayList;
 
 import static joeymod.JoeyBasicMod.characterPath;
 import static joeymod.JoeyBasicMod.makeID;
 
-import joeymod.cards.attacks.Closure;
 import joeymod.cards.attacks.TossAndTurn;
 import joeymod.cards.skills.*;
 import joeymod.relics.TeddyBear;

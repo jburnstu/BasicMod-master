@@ -249,7 +249,7 @@
   },
   "${modID}:Jumpscare": {
     "NAME": "Jumpscare",
-    "DESCRIPTION": "20 damage. transform this card for the rest of combat.",
+    "DESCRIPTION": "30 damage. Forget.",
     "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
     "EXTENDED_DESCRIPTION": [
       "You can put more text in here.",
