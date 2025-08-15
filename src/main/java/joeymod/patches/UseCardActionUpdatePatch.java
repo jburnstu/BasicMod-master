@@ -25,8 +25,8 @@ public class UseCardActionUpdatePatch {
                 ||(targetCard instanceof AbstractSleeperCard && ((AbstractSleeperCard) targetCard).forget));
         if (forgetCard) {
             AbstractCardBackForgottenCardPatch.forgetOnUseOnce.set(targetCard,false);
-            System.out.println("forgetCard activated -- targetCard:" + targetCard.getClass());
-            System.out.println(targetCard.dontTriggerOnUseCard);
+//            System.out.println("forgetCard activated -- targetCard:" + targetCard.getClass());
+//            System.out.println(targetCard.dontTriggerOnUseCard);
             newForgottenCard = Move.toForgottenPile(AbstractDungeon.player.hand, targetCard,false);
             AbstractDungeon.actionManager.addToTop(new ShowCardAndPoofAction(targetCard));
             AbstractDungeon.player.cardInUse = null;
@@ -38,9 +38,9 @@ public class UseCardActionUpdatePatch {
                 AbstractDungeon.player.hand.moveToHand(newForgottenCard);
                 AbstractDungeon.player.onCardDrawOrDiscard();
             } else {
-                System.out.println("Reached part where forgottenCard is discarded");
+//                System.out.println("Reached part where forgottenCard is discarded");
                 AbstractDungeon.player.hand.moveToDiscardPile(newForgottenCard);
-                System.out.println("Discard Pile Size:" + AbstractDungeon.player.discardPile.size());
+//                System.out.println("Discard Pile Size:" + AbstractDungeon.player.discardPile.size());
             }
         }
     }
@@ -57,11 +57,3 @@ public class UseCardActionUpdatePatch {
         }
     }
 }
-
-
-//import java.lang.reflect.Field;
-//
-//Field field = UseCardAction.class.getDeclaredField("targetCard");
-//field.setAccessible(true);
-//AbstractCard card = (AbstractCard) field.get(_self);
-//field.set(_self, newCard);
