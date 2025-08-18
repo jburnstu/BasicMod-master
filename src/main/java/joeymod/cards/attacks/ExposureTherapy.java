@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.cards.statuses.Dizzy;
+import joeymod.cards.statuses.Trauma;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
@@ -25,7 +26,7 @@ public class ExposureTherapy extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int DAMAGE = 20;
+    private static final int DAMAGE = 15;
     private static final int UPG_DAMAGE = 5;
     public static final int magicNumber = 1;
 
@@ -38,7 +39,7 @@ public class ExposureTherapy extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        addToBot(new MakeTempCardInDrawPileAction(new Dizzy(), 1, true, true));
+        addToBot(new MakeTempCardInDrawPileAction(new Trauma(), 1, true, true));
     }
 
 

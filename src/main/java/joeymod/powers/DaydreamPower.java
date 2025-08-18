@@ -30,14 +30,14 @@ public class DaydreamPower extends AbstractSleeperPower {
     public void atEndOfTurn(boolean isPlayer) {
         //make this random somehow
         count = 0;
-        while (count < this.amount) {
-            for (AbstractCard c:  p.hand.group) {
-                if (c instanceof ForgottenCard) {
-                    c.retain = true;
-                    count += 1;
-                    System.out.println(count);
-                }
+        System.out.println("count: " + count+ "this.amount: " + this.amount);
+        for (AbstractCard c:  p.hand.group) {
+            if (count < 1 && c instanceof ForgottenCard) {
+                c.retain = true;
+                count += 1;
+                System.out.println(count);
             }
         }
     }
 }
+

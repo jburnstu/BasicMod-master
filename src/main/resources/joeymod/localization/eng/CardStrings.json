@@ -11,81 +11,99 @@
   },
   "${modID}:AlterEgo": {
     "NAME": "Alter Ego",
-    "DESCRIPTION": "Deal !D! Damage. Forget all other attack cards in your hand."
+    "DESCRIPTION": "Deal !D! Damage. Forget all other attack cards in your hand.",
+    "EXTENDED_DESCRIPTION": []
   },
   "${modID}:AllADream": {
     "NAME": "All a Dream",
-    "DESCRIPTION": "Heal 20HP. At the end of combat, lose 15HP."
+    "DESCRIPTION": "Heal 20HP. At the end of combat, lose 15HP.",
+    "EXTENDED_DESCRIPTION": []
   },
   "${modID}:AndAnotherThing": {
     "NAME": "And Another Thing",
-    "DESCRIPTION": "Recollect 1. If the car you choose costs 2 or more energy, recollect again."
+    "DESCRIPTION": "Recollect 1. If the car you choose costs 2 or more energy, recollect again.",
+    "EXTENDED_DESCRIPTION": []
   },
   "${modID}:BackAndForth": {
     "NAME": "Back And Forth",
-    "DESCRIPTION": "Deal !D! Damage to a random enemy twice. Forget."
+    "DESCRIPTION": "Deal !D! Damage to a random enemy twice. Forget.",
+    "EXTENDED_DESCRIPTION": []
   },
   "${modID}:BlankSlate": {
     "NAME": "Blank Slate",
-    "DESCRIPTION": "Shuffle every forgotten card in play into your deck. Exhaust."
+    "DESCRIPTION": "Shuffle every forgotten card in play into your deck. Exhaust.",
+    "EXTENDED_DESCRIPTION": []
   },
   "${modID}:BreakTheCycle": {
     "NAME": "Break The Cycle",
-    "DESCRIPTION": "Recollect 1. If the card you recollect is an attack, gain its base attack as block."
+    "DESCRIPTION": "Recollect 1. If the card you recollect is an attack, gain its base attack as block.",
+    "EXTENDED_DESCRIPTION": []
   },
   "${modID}:Catharsis": {
     "NAME": "Catharsis",
-    "DESCRIPTION": "Deal !D! Damage. Recollect 1."
+    "DESCRIPTION": "Deal !D! Damage. Recollect 1.",
+    "EXTENDED_DESCRIPTION": []
   },
   "${modID}:Closure": {
     "NAME": "Closure",
-    "DESCRIPTION": "Deal !D! Damage. If remembered, gain !M! health. Exhaust."
+    "DESCRIPTION": "Deal !D! Damage. If remembered, gain !M! health. Exhaust.",
+    "EXTENDED_DESCRIPTION": []
   },
   "${modID}:Coma": {
     "NAME": "Coma (????)",
-    "DESCRIPTION": "Undecided"
+    "DESCRIPTION": "Undecided",
+    "EXTENDED_DESCRIPTION": []
   },
   "${modID}:Compulsion": {
     "NAME": "Compulsion",
-    "DESCRIPTION": "Urgent. Deal !D! damage and gain !B! block. Add a copy of this card to your discard. Forget."
+    "DESCRIPTION": "Urgent. Deal !D! damage and gain !B! block. Add a copy of this card to your discard. Forget.",
+    "EXTENDED_DESCRIPTION": []
   },
   "${modID}:CopingMechanism": {
     "NAME": "Coping Mechanism",
-    "DESCRIPTION": "Gain !M! Energy. Gain 1 amnesia."
+    "DESCRIPTION": "Gain !M! Energy. Gain 1 amnesia.",
+    "EXTENDED_DESCRIPTION": []
   },
   "${modID}:Daydream": {
     "NAME": "Daydream",
-    "DESCRIPTION": "At the end of your turn, retain !M! random forgotten card."
+    "DESCRIPTION": "At the end of your turn, retain !M! random forgotten card.",
+    "EXTENDED_DESCRIPTION": []
   },
   "${modID}:DisseveredForm": {
     "NAME": "Dissevered Form (????)",
-    "DESCRIPTION": "Undecided"
+    "DESCRIPTION": "Undecided",
+    "EXTENDED_DESCRIPTION": []
   },
   "${modID}:Dizzy": {
     "NAME": "Dizzy",
-    "DESCRIPTION": "Forget a random card in your hand. Forget."
+    "DESCRIPTION": "Urgent. Forget a random card in your hand. Forget.",
+    "EXTENDED_DESCRIPTION": []
   },
   "${modID}:DreamSequence": {
     "NAME": "Dream Sequence",
     "DESCRIPTION": "Forget 1 card. Draw 1 card.",
-    "UPGRADED_DESCRIPTION": "Forget 1 or more cards. Draw that many cards."
+    "UPGRADED_DESCRIPTION": "Forget 1 or more cards. Draw that many cards.",
+    "EXTENDED_DESCRIPTION": []
   },
   "${modID}:DreamTraveler": {
     "NAME": "Dream Traveler",
-    "DESCRIPTION": "Deal !D! damage. transform this card for the rest of combat."
+    "DESCRIPTION": "Deal !D! damage. transform this card for the rest of combat.",
+    "EXTENDED_DESCRIPTION": []
   },
   "${modID}:Egoism": {
     "NAME": "Egoism (Check power)",
-    "DESCRIPTION": "Whenever you play a card of cost 2 or more, draw 1 card."
+    "DESCRIPTION": "Whenever you play a card of cost 2 or more, draw 1 card.",
+    "EXTENDED_DESCRIPTION": []
   },
   "${modID}:EnterDreams": {
     "NAME": "Enter Dreams",
-    "DESCRIPTION": "Deal !D! damage. Apply !M! woozy."
+    "DESCRIPTION": "Deal !D! damage. Apply !M! woozy.",
+    "EXTENDED_DESCRIPTION": []
   },
   "${modID}:Envelop": {
     "NAME": "Envelop",
     "DESCRIPTION": "Gain !B! Block for each forgotten card in your deck.",
-    "EXTENDED_DESCRIPTION": ""
+    "EXTENDED_DESCRIPTION": [""]
   },
   "${modID}:ExposureTherapy": {
     "NAME": "Exposure Therapy",
@@ -152,7 +170,7 @@
   },
   "${modID}:LucidDream": {
     "NAME": "Lucid Dream",
-    "DESCRIPTION": "At the start of your turn, recollect !M! and gain !M! forgetful."
+    "DESCRIPTION": "At the start of your turn, recollect !M! and gain !M! amnesia."
   },
   "${modID}:MagicalThinking": {
     "NAME": "Magical Thinking",
@@ -241,7 +259,7 @@
   },
   "${modID}:Sublimation": {
     "NAME": "Sublimation",
-    "DESCRIPTION": "Gain !B! Block. Gain !M! forgetful."
+    "DESCRIPTION": "Draw !M! Cards. Gain !M! Amnesia."
   },
   "${modID}:Subliminal": {
     "NAME": "Subliminal",
@@ -253,7 +271,7 @@
   },
   "${modID}:Trauma": {
     "NAME": "Trauma",
-    "DESCRIPTION": "Lose 2HP. Forget."
+    "DESCRIPTION": "Urgent. Lose 2HP. Forget."
   },
   "${modID}:TossAndTurn": {
     "NAME": "Toss And Turn",

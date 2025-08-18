@@ -101,10 +101,13 @@ public class ForgetAction extends AbstractGameAction {
                 return;
             }
             if (this.isRandom) {
+                System.out.println("Testing dizzy....");
                 for (int i = 0; i < this.amount; i++) {
                     AbstractCard c = forgettable.getRandomCard(AbstractDungeon.cardRandomRng);
                     newForgottenCard = Move.toForgottenPile(this.p.hand, c, true);
                     forgettable.removeCard(c);
+                    this.p.hand.refreshHandLayout();
+                    this.p.hand.applyPowers();
                 }
             } else {
                 numForgotten = this.amount;

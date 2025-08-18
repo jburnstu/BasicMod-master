@@ -25,12 +25,12 @@ public class AmnesiaPower extends AbstractSleeperPower {
     }
 
     public void onUseCard(AbstractCard c, UseCardAction action) {
-        if (this.amount > 0) {
+        if (this.amount > 0 && c instanceof ForgottenCard) {
             flash();
-            AbstractCardBackForgottenCardPatch.forgetOnUseOnce.set(c, true);
+            ((ForgottenCard) c).frontForgottenCard.exhaustOnUseOnce = true;
             this.amount--;
-        } else {
-            addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+            if (this.amount == 0)
+                addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
         }
     }
 }
