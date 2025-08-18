@@ -1,4 +1,4 @@
-package joeymod.cardBeta.skills;
+package joeymod.cards.skills;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;

@@ -11,7 +11,7 @@ import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-
+//Lose 2HP. forget.
 public class Trauma extends AbstractSleeperCard {
     public static final String ID = makeID(Trauma.class.getSimpleName());
     private static Object MyCharacter;

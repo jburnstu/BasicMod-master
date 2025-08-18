@@ -13,7 +13,7 @@ import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
 
-
+// Forget a random card. forget.
 public class Dizzy extends AbstractSleeperCard {
     public static final String ID = makeID(Dizzy.class.getSimpleName());
     private static Object MyCharacter;

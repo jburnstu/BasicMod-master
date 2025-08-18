@@ -27,7 +27,6 @@ public class RecurringDreamPower extends AbstractSleeperPower {
             AbstractCard tmp = ((ForgottenCard) c).frontForgottenCard.makeSameInstanceOf();
             tmp.purgeOnUse = true;
             AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, tmp.energyOnUse, true, true), true);
-
         }
     }
 

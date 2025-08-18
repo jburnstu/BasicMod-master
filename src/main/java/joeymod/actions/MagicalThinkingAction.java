@@ -26,9 +26,7 @@ public class MagicalThinkingAction extends AbstractGameAction {
         this.startingDuration = Settings.ACTION_DUR_FAST;
         this.duration = this.startingDuration;
         this.p = AbstractDungeon.player;
-
     }
-
 
     public void update () {
         if (this.duration == Settings.ACTION_DUR_FAST) {

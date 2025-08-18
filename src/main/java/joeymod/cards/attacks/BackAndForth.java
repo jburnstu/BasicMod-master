@@ -1,16 +1,14 @@
-package joeymod.cardBeta.attacks;
+package joeymod.cards.attacks;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-// Deal 12 damage to a random enemy twice. forget.
+// Deal 10 damage to a random enemy twice. forget.
 public class BackAndForth extends AbstractSleeperCard {
     public static final String ID = makeID(BackAndForth.class.getSimpleName());
     private static Object MyCharacter;
@@ -24,7 +22,7 @@ public class BackAndForth extends AbstractSleeperCard {
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
     private static final int DAMAGE = 10;
-    private static final int UPG_DAMAGE = 3;
+    private static final int UPG_DAMAGE = 4;
 
     public BackAndForth() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
@@ -35,8 +33,9 @@ public class BackAndForth extends AbstractSleeperCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-       //sort out to be
-        addToBot((AbstractGameAction)new DamageAllEnemiesAction((AbstractCreature)p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_HEAVY, false));
+        for (int i = 1; i < this.magicNumber; i++) {
+            addToTop(new AttackDamageRandomEnemyAction(this));
+        }
     }
 
     public void upgrade() {

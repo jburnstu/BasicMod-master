@@ -1,4 +1,4 @@
-package joeymod.cardBeta.attacks;
+package joeymod.cards.attacks;
 
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import joeymod.actions.ForgetAction;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;

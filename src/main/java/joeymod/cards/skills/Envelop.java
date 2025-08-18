@@ -1,16 +1,10 @@
-package joeymod.cardBeta.skills;
+package joeymod.cards.skills;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import com.megacrit.cardcrawl.vfx.combat.BlizzardEffect;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
@@ -36,31 +30,19 @@ public class Envelop extends AbstractSleeperCard {
         super(ID, info); //Pass the required information to the BaseCard constructor.
 
         setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
-        this.forget = true;
         this.magicNumber = baseMagicNumber;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int numberOfForgottenCards = ((MySleeperPlayer) AbstractDungeon.player).forgottenPile.size();
-        this.baseDamage = numberOfForgottenCards * this.magicNumber;
-        calculateCardDamage((AbstractMonster)null);
-        if (Settings.FAST_MODE) {
-            addToBot((AbstractGameAction)new VFXAction((AbstractGameEffect)new BlizzardEffect(numberOfForgottenCards,
-                    AbstractDungeon.getMonsters().shouldFlipVfx()), 0.25F));
-        } else {
-            addToBot((AbstractGameAction)new VFXAction((AbstractGameEffect)new BlizzardEffect(numberOfForgottenCards, AbstractDungeon.getMonsters().shouldFlipVfx()), 1.0F));
-        }
-        addToBot((AbstractGameAction)new DamageAllEnemiesAction((AbstractCreature)p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_HEAVY, false));
+        addToBot(new GainBlockAction(p, p, this.block));
     }
 
     public void applyPowers() {
         int numberOfForgottenCards = ((MySleeperPlayer) AbstractDungeon.player).forgottenPile.size();
-        if (numberOfForgottenCards > 0) {
-            this.baseDamage = numberOfForgottenCards * this.magicNumber;
-            super.applyPowers();
-            this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-            initializeDescription();
-        }
+        this.baseDamage = numberOfForgottenCards * this.magicNumber;
+        super.applyPowers();
+        this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+        initializeDescription();
     }
 
     public void onMoveToDiscard() {
@@ -68,12 +50,6 @@ public class Envelop extends AbstractSleeperCard {
         initializeDescription();
     }
 
-    public void calculateCardDamage(AbstractMonster mo) {
-        super.calculateCardDamage(mo);
-        this.rawDescription = cardStrings.DESCRIPTION;
-        this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0];
-        initializeDescription();
-    }
 
     public void upgrade() {
         if (!this.upgraded) {
