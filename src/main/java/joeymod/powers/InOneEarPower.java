@@ -22,6 +22,11 @@ public class InOneEarPower extends AbstractSleeperPower {
     }
 
     @Override
+    public void atStartOfTurn() {
+        usedThisTurn = false;
+    }
+
+    @Override
     public void onForget(AbstractCard card) {
         if (!usedThisTurn) {
             addToTop(new DrawCardAction(this.owner, this.amount));
