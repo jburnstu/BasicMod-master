@@ -105,13 +105,13 @@ public class JoeyBasicMod implements
 
     @Override
     public void receiveEditRelics() { //somewhere in the class
-        BaseMod.addRelicToCustomPool((AbstractRelic)new LavaLamp(),  CardColorEnum.SLEEPER);
-        BaseMod.addRelicToCustomPool((AbstractRelic)new EyeMask(),  CardColorEnum.SLEEPER);
-        BaseMod.addRelicToCustomPool((AbstractRelic)new GoodJobSticker(),  CardColorEnum.SLEEPER);
-        BaseMod.addRelicToCustomPool((AbstractRelic)new IncenseHolder(),  CardColorEnum.SLEEPER);
-        BaseMod.addRelicToCustomPool((AbstractRelic)new LavaLamp(),  CardColorEnum.SLEEPER);
-        BaseMod.addRelicToCustomPool((AbstractRelic)new SleepMobile(),  CardColorEnum.SLEEPER);
-        BaseMod.addRelicToCustomPool((AbstractRelic)new TeddyBear(),  CardColorEnum.SLEEPER);
+        BaseMod.addRelicToCustomPool(new LavaLamp(),  CardColorEnum.SLEEPER);
+        BaseMod.addRelicToCustomPool(new EyeMask(),  CardColorEnum.SLEEPER);
+        BaseMod.addRelicToCustomPool(new GoodJobSticker(),  CardColorEnum.SLEEPER);
+        BaseMod.addRelicToCustomPool(new IncenseHolder(),  CardColorEnum.SLEEPER);
+        BaseMod.addRelicToCustomPool(new LavaLamp(),  CardColorEnum.SLEEPER);
+        BaseMod.addRelicToCustomPool(new SleepMobile(),  CardColorEnum.SLEEPER);
+        BaseMod.addRelicToCustomPool(new TeddyBear(),  CardColorEnum.SLEEPER);
 //        BaseMod.addRelicToCustomPool((AbstractRelic)new WhiteNoiseMachine(),  CardColorEnum.SLEEPER);
 
         System.out.println("Relic function was called....");

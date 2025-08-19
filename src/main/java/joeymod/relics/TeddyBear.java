@@ -26,7 +26,7 @@ public class TeddyBear extends AbstractSleeperRelic {
     }
 
     public ArrayList<AbstractCard> cardsToForget = new ArrayList<>();
-    public AbstractPlayer p = AbstractDungeon.player;
+    public AbstractPlayer p;
     public boolean activated = false;
 
     public AbstractRelic makeCopy() {
@@ -46,6 +46,7 @@ public class TeddyBear extends AbstractSleeperRelic {
     public void onPlayerEndTurn() {
         if (!this.activated) {
             this.activated = true;
+            p = AbstractDungeon.player;
             flash();
             for (AbstractCard c : p.hand.group) {
                 System.out.println("First for loop reached");

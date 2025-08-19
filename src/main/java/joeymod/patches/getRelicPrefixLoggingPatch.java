@@ -1,4 +1,4 @@
-package joeymod.archive;
+package joeymod.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
