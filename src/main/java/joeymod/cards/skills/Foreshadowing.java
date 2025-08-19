@@ -3,7 +3,7 @@ package joeymod.cards.skills;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import joeymod.actions.RecollectAction;
+import joeymod.actions.AwakenAction;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.actions.ForeshadowingAction;
 import joeymod.character.MySleeperPlayer;
@@ -23,7 +23,7 @@ public class Foreshadowing extends AbstractSleeperCard {
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
     private int magicNumber = 1;
-    private RecollectAction recollectAction;
+    private AwakenAction awakenAction;
 
 
     public Foreshadowing() {
@@ -34,7 +34,7 @@ public class Foreshadowing extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         System.out.println("Recollect Card Called...");
-        addToBot(new RecollectAction(this.magicNumber, (AbstractGameAction) new ForeshadowingAction(this.magicNumber)));
-        System.out.println("This shouldn't trigger until we're done..."+RecollectAction.recalledCards);
+        addToBot(new AwakenAction(this.magicNumber, (AbstractGameAction) new ForeshadowingAction(this.magicNumber)));
+        System.out.println("This shouldn't trigger until we're done..."+ AwakenAction.awakenedCards);
     }
 }

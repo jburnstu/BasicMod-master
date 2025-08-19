@@ -1,11 +1,9 @@
 package joeymod.cards.skills;
 
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.actions.AndAnotherThingAction;
-import joeymod.actions.ForgetAction;
-import joeymod.actions.RecollectAction;
+import joeymod.actions.AwakenAction;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
@@ -32,6 +30,6 @@ public class AndAnotherThing extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RecollectAction(1,new AndAnotherThingAction(this.magicNumber)));
+        addToBot(new AwakenAction(1,new AndAnotherThingAction(this.magicNumber)));
     }
 }

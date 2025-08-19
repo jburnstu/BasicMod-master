@@ -2,7 +2,7 @@ package joeymod.cards.skills;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import joeymod.actions.RecollectAction;
+import joeymod.actions.AwakenAction;
 import joeymod.actions.SpringCleaningAction;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
@@ -31,6 +31,6 @@ public class SpringCleaning extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RecollectAction(this.magicNumber, new SpringCleaningAction(this.magicNumber)));
+        addToBot(new AwakenAction(this.magicNumber, new SpringCleaningAction(this.magicNumber)));
     }
 }

@@ -24,7 +24,7 @@ public class ForeshadowingAction extends AbstractGameAction {
 
     public void update () {
         System.out.println("FA Update reached...");
-        if (RecollectAction.recalledCards.get(0).type == AbstractCard.CardType.ATTACK) {
+        if (AwakenAction.awakenedCards.get(0).type == AbstractCard.CardType.ATTACK) {
             for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters) {
                 addToBot(new ApplyPowerAction(mo, p, new VulnerablePower(mo, 1, false), 1, true, AbstractGameAction.AttackEffect.NONE));
             }

@@ -41,7 +41,7 @@ public class Closure extends AbstractSleeperCard {
     }
 
     @Override
-    public void triggerOnPlayedFromForgotten (AbstractPlayer p, AbstractMonster m, boolean randomTarget) {
+    public void triggerOnRemembered(AbstractPlayer p, AbstractMonster m, boolean randomTarget) {
         addToBot(new HealAction(p, p, magicNumber));
     }
 

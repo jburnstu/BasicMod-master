@@ -8,14 +8,14 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-public class RecollectSpecificCardAction extends AbstractGameAction {
+public class AwakenSpecificCardAction extends AbstractGameAction {
     private AbstractCard targetCard;
 
     private CardGroup group;
 
     private float startingDuration;
 
-    public RecollectSpecificCardAction(AbstractCard targetCard, CardGroup group, boolean isFast) {
+    public AwakenSpecificCardAction(AbstractCard targetCard, CardGroup group, boolean isFast) {
         this.targetCard = targetCard;
         setValues((AbstractCreature) AbstractDungeon.player, (AbstractCreature)AbstractDungeon.player, this.amount);
         this.actionType = ActionType.CARD_MANIPULATION;
@@ -24,7 +24,7 @@ public class RecollectSpecificCardAction extends AbstractGameAction {
         this.duration = this.startingDuration;
     }
 
-    public RecollectSpecificCardAction(AbstractCard targetCard, CardGroup group) {
+    public AwakenSpecificCardAction(AbstractCard targetCard, CardGroup group) {
         this(targetCard, group, false);
     }
 

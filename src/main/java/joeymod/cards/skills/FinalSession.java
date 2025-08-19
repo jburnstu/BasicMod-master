@@ -2,7 +2,7 @@ package joeymod.cards.skills;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import joeymod.actions.RecollectAction;
+import joeymod.actions.AwakenAction;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
@@ -32,6 +32,6 @@ public class FinalSession extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        addToBot(new RecollectAction(this.magicNumber,false));
+        addToBot(new AwakenAction(this.magicNumber,false));
     }
 }

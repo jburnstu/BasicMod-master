@@ -19,7 +19,7 @@ public class SpringCleaningAction extends AbstractGameAction {
 
 
     public void update () {
-        for (AbstractCard c : RecollectAction.recalledCards) {
+        for (AbstractCard c : AwakenAction.awakenedCards) {
             addToTop(new ExhaustSpecificCardAction(c,p.hand));
         }
     }

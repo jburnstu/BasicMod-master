@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import joeymod.actions.RecollectAction;
+import joeymod.actions.AwakenAction;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
@@ -40,8 +40,8 @@ public class TriggerPhrase extends AbstractSleeperCard {
     }
 
     @Override
-    public void triggerOnPlayedFromForgotten (AbstractPlayer p, AbstractMonster m, boolean randomTarget) {
-        addToBot(new RecollectAction(1,false));
+    public void triggerOnRemembered(AbstractPlayer p, AbstractMonster m, boolean randomTarget) {
+        addToBot(new AwakenAction(1,false));
     }
 
 

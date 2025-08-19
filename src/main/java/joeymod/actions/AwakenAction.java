@@ -4,7 +4,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -12,9 +11,8 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import joeymod.character.MySleeperPlayer;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
-public class RecollectAction extends AbstractGameAction {
+public class AwakenAction extends AbstractGameAction {
 
     private AbstractPlayer p;
 
@@ -22,11 +20,11 @@ public class RecollectAction extends AbstractGameAction {
 
     public AbstractGameAction followUpAction = null;
 
-    public static ArrayList<AbstractCard> recalledCards = new ArrayList<>();
+    public static ArrayList<AbstractCard> awakenedCards = new ArrayList<>();
 
-    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("RecollectAction");
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("AwakenAction");
 
-    public RecollectAction(int amount, boolean isRandom) {
+    public AwakenAction(int amount, boolean isRandom) {
         System.out.println("Constructor starting...");
         this.p = AbstractDungeon.player;
         this.amount = amount;
@@ -36,18 +34,18 @@ public class RecollectAction extends AbstractGameAction {
         this.duration = Settings.ACTION_DUR_FAST;
     }
 
-    public RecollectAction(int amount, AbstractGameAction followUpAction) {
+    public AwakenAction(int amount, AbstractGameAction followUpAction) {
         this(amount,false);
         this.followUpAction = followUpAction;
     }
 
     public void update() {
 //        System.out.println("update starting...");
-        recalledCards.clear();
+        awakenedCards.clear();
         CardGroup f = ((MySleeperPlayer) this.p).forgottenPile;
 //        System.out.println("Checking duration...");
         if (this.duration == Settings.ACTION_DUR_FAST) {
-//            System.out.println("RecollectAction starting...");
+//            System.out.println("AwakenAction starting...");
             if (AbstractDungeon.player.hand.size() == 10) {
                 AbstractDungeon.player.createHandIsFullDialog();
                 this.isDone = true;
@@ -61,7 +59,7 @@ public class RecollectAction extends AbstractGameAction {
                 AbstractCard c = f.getTopCard();
                 c.unfadeOut();
                 Move.fromForgottenPile(c);
-                recalledCards.add(c);
+                awakenedCards.add(c);
                 endActionWithFollowUp();
                 c.unhover();
                 c.fadingOut = false;
@@ -87,7 +85,7 @@ public class RecollectAction extends AbstractGameAction {
             for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
                 Move.fromForgottenPile(c);
                 System.out.println("Adding card to recalledCards...");
-                recalledCards.add(c);
+                awakenedCards.add(c);
                 c.unhover();
             }
             AbstractDungeon.gridSelectScreen.selectedCards.clear();

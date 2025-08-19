@@ -19,7 +19,7 @@
   },
   "${modID}:AndAnotherThing": {
     "NAME": "And Another Thing",
-    "DESCRIPTION": "Recollect 1. If the car you choose costs 2 or more energy, recollect again."
+    "DESCRIPTION": "Awaken 1. If the car you choose costs 2 or more energy, awaken again."
   },
   "${modID}:BackAndForth": {
     "NAME": "Back And Forth",
@@ -31,11 +31,11 @@
   },
   "${modID}:BreakTheCycle": {
     "NAME": "Break The Cycle",
-    "DESCRIPTION": "Recollect 1. If the card you recollect is an attack, gain its base attack as block."
+    "DESCRIPTION": "Awaken 1. If the card you awaken is an attack, gain its base attack as block."
   },
   "${modID}:Catharsis": {
     "NAME": "Catharsis",
-    "DESCRIPTION": "Deal !D! Damage. Recollect 1."
+    "DESCRIPTION": "Deal !D! Damage. Awaken 1."
   },
   "${modID}:Closure": {
     "NAME": "Closure",
@@ -94,11 +94,11 @@
   },
   "${modID}:FinalSession": {
     "NAME": "Final Session",
-    "DESCRIPTION": "Recollect 3. Exhaust."
+    "DESCRIPTION": "Awaken 3. Exhaust."
   },
   "${modID}:Flashback": {
     "NAME": "Flashback",
-    "DESCRIPTION": "Recollect !M!."
+    "DESCRIPTION": "Awaken !M!."
   },
   "${modID}:FlashBeforeMyEyes": {
     "NAME": "Flash Before My Eyes",
@@ -106,11 +106,11 @@
   },
   "${modID}:Foreshadowing": {
     "NAME": "Foreshadowing",
-    "DESCRIPTION": "Recollect 1. If you choose an attack, apply !M! vulnerable to ALL enemies."
+    "DESCRIPTION": "Awaken 1. If you choose an attack, apply !M! vulnerable to ALL enemies."
   },
   "${modID}:ForgottenCard": {
-    "NAME": "???",
-    "DESCRIPTION": "Forgotten.",
+    "NAME": "Forgotten Card",
+    "DESCRIPTION": "Remember.",
     "EXTENDED_DESCRIPTION": [
       "Until you play this card, its action is hidden and its cost is changed to 1. It is remembered when played."
     ]
@@ -153,7 +153,7 @@
   },
   "${modID}:LucidDream": {
     "NAME": "Lucid Dream",
-    "DESCRIPTION": "At the start of your turn, recollect !M! and gain !M! amnesia."
+    "DESCRIPTION": "At the start of your turn, awaken !M! and gain !M! amnesia."
   },
   "${modID}:MagicalThinking": {
     "NAME": "Magical Thinking",
@@ -165,7 +165,7 @@
   },
   "${modID}:NewLeaf": {
     "NAME": "New Leaf",
-    "DESCRIPTION": "Deal !D! Damage. If Fatal, recollect 1 card and permanently transform it."
+    "DESCRIPTION": "Deal !D! Damage. If Fatal, awaken 1 card and permanently transform it."
   },
   "${modID}:Oblivious": {
     "NAME": "Oblivious",
@@ -185,7 +185,7 @@
   },
   "${modID}:PsychicTsunami": {
     "NAME": "Psychic Tsunami",
-    "DESCRIPTION": "Deal damage equal to !M! times the number of cards played from forgotten this combat.",
+    "DESCRIPTION": "Deal damage equal to !M! times the number of cards remembered this combat.",
     "EXTENDED_DESCRIPTION": []
   },
   "${modID}:RecurringDream": {
@@ -234,7 +234,7 @@
   },
   "${modID}:SpringCleaning": {
     "NAME": "Spring Cleaning",
-    "DESCRIPTION": "Recollect !M! cards and exhaust them."
+    "DESCRIPTION": "Awaken !M! cards and exhaust them."
   },
   "${modID}:Startle": {
     "NAME": "Startle",
@@ -262,10 +262,10 @@
   },
   "${modID}:TriggerPhrase": {
     "NAME": "Trigger Phrase",
-    "DESCRIPTION": "Deal !D! Damage. If played from forgotten, recollect 1."
+    "DESCRIPTION": "Deal !D! Damage. If remembered, awaken 1."
   },
   "${modID}:WakeFromDanger": {
     "NAME": "Wake From Danger",
-    "DESCRIPTION": "Gain !B! block. if played from forgotten, gain an additional !M! block."
+    "DESCRIPTION": "Gain !B! block. if remembered, gain an additional !M! block."
   }
 }

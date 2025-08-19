@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.actions.IncreaseCostAction;
-import joeymod.actions.RecollectSpecificCardAction;
+import joeymod.actions.AwakenSpecificCardAction;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
@@ -44,7 +44,7 @@ public class RecurringTheme extends AbstractSleeperCard {
 
     public void triggerOnCardRecollected () {
         if (((MySleeperPlayer) AbstractDungeon.player).forgottenPile.group.contains(this)) {
-            addToBot(new RecollectSpecificCardAction(this,AbstractDungeon.player.hand));
+            addToBot(new AwakenSpecificCardAction(this,AbstractDungeon.player.hand));
         }
     }
 
