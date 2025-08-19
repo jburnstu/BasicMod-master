@@ -1,11 +1,15 @@
 package joeymod.cards.skills;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.watcher.PressEndTurnButtonAction;
 import com.megacrit.cardcrawl.actions.watcher.SkipEnemiesTurnAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
+import joeymod.powers.FreeCardPower;
 import joeymod.util.CardStats;
 
 //Urgent. X block. the next card costs 0.
@@ -21,17 +25,20 @@ public class MemorySkip extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int magicNumber = 2;
+    private int baseMagicNumber = 1;
+    private static final int BLOCK = 11;
+    private static final int UPG_BLOCK = 14;
 
     public MemorySkip() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.urgent = true;
-        this.magicNumber = magicNumber;
+        this.magicNumber = baseMagicNumber;
+        setBlock(BLOCK,UPG_BLOCK);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new SkipEnemiesTurnAction());
-        addToBot(new PressEndTurnButtonAction());
+        addToBot(new GainBlockAction(p,block));
+        addToBot(new ApplyPowerAction(p,p, new FreeCardPower(p,this.magicNumber)));
     }
 }
