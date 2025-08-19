@@ -11,8 +11,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import joeymod.cards.BaseCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.patches.CardColorEnum;
-import joeymod.relics.BaseRelic;
-import joeymod.relics.LavaLamp;
+import joeymod.relics.*;
 import joeymod.util.GeneralUtils;
 import joeymod.util.KeywordInfo;
 import joeymod.util.TextureLoader;
@@ -107,6 +106,14 @@ public class JoeyBasicMod implements
     @Override
     public void receiveEditRelics() { //somewhere in the class
         BaseMod.addRelicToCustomPool((AbstractRelic)new LavaLamp(),  CardColorEnum.SLEEPER);
+        BaseMod.addRelicToCustomPool((AbstractRelic)new EyeMask(),  CardColorEnum.SLEEPER);
+        BaseMod.addRelicToCustomPool((AbstractRelic)new GoodJobSticker(),  CardColorEnum.SLEEPER);
+        BaseMod.addRelicToCustomPool((AbstractRelic)new IncenseHolder(),  CardColorEnum.SLEEPER);
+        BaseMod.addRelicToCustomPool((AbstractRelic)new LavaLamp(),  CardColorEnum.SLEEPER);
+        BaseMod.addRelicToCustomPool((AbstractRelic)new SleepMobile(),  CardColorEnum.SLEEPER);
+        BaseMod.addRelicToCustomPool((AbstractRelic)new TeddyBear(),  CardColorEnum.SLEEPER);
+//        BaseMod.addRelicToCustomPool((AbstractRelic)new WhiteNoiseMachine(),  CardColorEnum.SLEEPER);
+
         System.out.println("Relic function was called....");
     }
 

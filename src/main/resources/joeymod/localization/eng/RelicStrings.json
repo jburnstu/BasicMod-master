@@ -1,9 +1,37 @@
 {
- "${modID}:TeddyBear": {
-    "NAME": "Teddy Bear",
-    "FLAVOR": "A treasured toy that seems to respond to strong dreams.",
+  "${modID}:DreamJournal": {
+    "NAME": "Eye Mask",
+    "FLAVOR": "The total darkness this mask creates is oddly comforting.",
     "DESCRIPTIONS": [
-      "The first time each turn that you draw a forgotten card, draw another card."
+      "Cards now remain forgotten between combats."
+    ]
+  },
+  "${modID}:EyeMask": {
+    "NAME": "Eye Mask",
+    "FLAVOR": "The total darkness this mask creates is oddly comforting.",
+    "DESCRIPTIONS": [
+      "Cards now remain forgotten between combats."
+    ]
+  },
+  "${modID}:GoodJobSticker": {
+    "NAME": "Good Job Sticker",
+    "FLAVOR": "Its yellow shine inspires you to dig deep.",
+    "DESCRIPTIONS": [
+      "When you recollect and you have no cards forgotten, add a random card to your hand."
+    ]
+  },
+  "${modID}:IncenseHolder": {
+    "NAME": "Incense Holder",
+    "FLAVOR": "The odour pouring from this seems to help dispel bad dreams.",
+    "DESCRIPTIONS": [
+      "When you play an unplayable card from forgotten, exhaust it and gain one energy."
+    ]
+  },
+  "${modID}:LavaLamp": {
+    "NAME": "Lava Lamp",
+    "FLAVOR": "The total darkness this mask creates is oddly comforting.",
+    "DESCRIPTIONS": [
+      "Every time you play three forgotten cards in a turn, apply 1 woozy to all enemies."
     ]
   },
   "${modID}:SleepMobile": {
@@ -11,6 +39,13 @@
     "FLAVOR": "Looking at it gives you an odd sense of deja vu.",
     "DESCRIPTIONS": [
       "Whenever you remember a power card, shuffle a copy of that card into your deck."
+    ]
+  },
+  "${modID}:TeddyBear": {
+    "NAME": "Teddy Bear",
+    "FLAVOR": "A treasured toy that seems to respond to strong dreams.",
+    "DESCRIPTIONS": [
+      "At the end of your first turn, forget all the cards left in your hand and draw that many at the start of your next."
     ]
   }
 }

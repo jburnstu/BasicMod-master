@@ -7,17 +7,19 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import static joeymod.JoeyBasicMod.makeID;
 
 // When you recollect and no cards in forgottenPile,: add a new card to your hand (cost 1 less?)
-public class BetaGoodJobSticker extends AbstractSleeperRelic {
-    public static final String ID = makeID("Blindfold");
+public class GoodJobSticker extends AbstractSleeperRelic {
+    public static final String ID = makeID("GoodJobSticker");
+    private static final RelicTier RARITY = RelicTier.COMMON; //The relic's rarity.
+    private static final LandingSound SOUND = LandingSound.CLINK; //The sound played when the relic is clicked.
 
 
-    public BetaGoodJobSticker() {
-        super(ID, RelicTier.STARTER, LandingSound.MAGICAL);
+    public GoodJobSticker() {
+        super(ID, RARITY, SOUND);
     }
 
 
     public AbstractRelic makeCopy() {
-        return new BetaGoodJobSticker();
+        return new GoodJobSticker();
     }
 
     public void onRecollectWithNoForgotten() {

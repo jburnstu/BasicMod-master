@@ -9,22 +9,15 @@ import joeymod.character.MySleeperPlayer;
 
 import static joeymod.JoeyBasicMod.makeID;
 
-// Whenever you remember a power card, add a copy of that power to your draw pile.
-public abstract class IncenseHolder extends BaseRelic {
-    private static final String NAME = "SleepMobile"; //The name will be used for determining the image file as well as the ID.
-    public static final String ID = makeID(NAME); //This adds the mod's prefix to the relic ID, resulting in modID:MyRelic
+// When you play an unplayable card from forgotten, exhaust it and gain one energy.
+public class IncenseHolder extends AbstractSleeperRelic {
+    public static final String ID = makeID("IncenseHolder"); //This adds the mod's prefix to the relic ID, resulting in modID:MyRelic
     private static final RelicTier RARITY = RelicTier.COMMON; //The relic's rarity.
     private static final LandingSound SOUND = LandingSound.CLINK; //The sound played when the relic is clicked.
 
 
     public IncenseHolder() {
-        super(ID, NAME, MySleeperPlayer.Meta.CARD_COLOR, RARITY, SOUND);
-    }
-
-    public boolean usedThisTurn = false;
-
-    public void atTurnStart() {
-        usedThisTurn = false;
+        super(ID, RARITY, SOUND);
     }
 
     @Override

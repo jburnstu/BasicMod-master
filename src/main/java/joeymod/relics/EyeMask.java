@@ -16,9 +16,11 @@ import static joeymod.JoeyBasicMod.makeID;
 // Forgotten cards remain forgotten in between combats.
 public class EyeMask extends AbstractSleeperRelic {
     public static final String ID = makeID(EyeMask.class.getSimpleName());
+    private static final RelicTier RARITY = RelicTier.BOSS; //The relic's rarity.
+    private static final LandingSound SOUND = LandingSound.CLINK; //The sound played when the relic is clicked.
 
     public EyeMask() {
-        super(ID, RelicTier.STARTER, LandingSound.MAGICAL);
+        super(ID, RARITY,SOUND);
         System.out.println("TeddyBear constructor called....");
     }
 

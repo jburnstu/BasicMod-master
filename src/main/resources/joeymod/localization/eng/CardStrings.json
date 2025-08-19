@@ -11,94 +11,77 @@
   },
   "${modID}:AlterEgo": {
     "NAME": "Alter Ego",
-    "DESCRIPTION": "Deal !D! Damage. Forget all other attack cards in your hand.",
-    "EXTENDED_DESCRIPTION": []
+    "DESCRIPTION": "Deal !D! Damage. Forget all other attack cards in your hand."
   },
   "${modID}:AllADream": {
     "NAME": "All a Dream",
-    "DESCRIPTION": "Heal 20HP. At the end of combat, lose 15HP.",
-    "EXTENDED_DESCRIPTION": []
+    "DESCRIPTION": "Heal 20HP. At the end of combat, lose 15HP."
   },
   "${modID}:AndAnotherThing": {
     "NAME": "And Another Thing",
-    "DESCRIPTION": "Recollect 1. If the car you choose costs 2 or more energy, recollect again.",
-    "EXTENDED_DESCRIPTION": []
+    "DESCRIPTION": "Recollect 1. If the car you choose costs 2 or more energy, recollect again."
   },
   "${modID}:BackAndForth": {
     "NAME": "Back And Forth",
-    "DESCRIPTION": "Deal !D! Damage to a random enemy twice. Forget.",
-    "EXTENDED_DESCRIPTION": []
+    "DESCRIPTION": "Deal !D! Damage to a random enemy twice. Forget."
   },
   "${modID}:BlankSlate": {
     "NAME": "Blank Slate",
-    "DESCRIPTION": "Shuffle every forgotten card in play into your deck. Exhaust.",
-    "EXTENDED_DESCRIPTION": []
+    "DESCRIPTION": "Shuffle every forgotten card in play into your deck. Exhaust."
   },
   "${modID}:BreakTheCycle": {
     "NAME": "Break The Cycle",
-    "DESCRIPTION": "Recollect 1. If the card you recollect is an attack, gain its base attack as block.",
-    "EXTENDED_DESCRIPTION": []
+    "DESCRIPTION": "Recollect 1. If the card you recollect is an attack, gain its base attack as block."
   },
   "${modID}:Catharsis": {
     "NAME": "Catharsis",
-    "DESCRIPTION": "Deal !D! Damage. Recollect 1.",
-    "EXTENDED_DESCRIPTION": []
+    "DESCRIPTION": "Deal !D! Damage. Recollect 1."
   },
   "${modID}:Closure": {
     "NAME": "Closure",
-    "DESCRIPTION": "Deal !D! Damage. If remembered, gain !M! health. Exhaust.",
-    "EXTENDED_DESCRIPTION": []
+    "DESCRIPTION": "Deal !D! Damage. If remembered, gain !M! health. Exhaust."
   },
   "${modID}:Coma": {
     "NAME": "Coma (????)",
-    "DESCRIPTION": "Undecided",
-    "EXTENDED_DESCRIPTION": []
+    "DESCRIPTION": "Undecided"
   },
   "${modID}:Compulsion": {
     "NAME": "Compulsion",
-    "DESCRIPTION": "Urgent. Deal !D! damage and gain !B! block. Add a copy of this card to your discard. Forget.",
-    "EXTENDED_DESCRIPTION": []
+    "DESCRIPTION": "Urgent. Deal !D! damage and gain !B! block. Add a copy of this card to your discard. Forget."
   },
   "${modID}:CopingMechanism": {
     "NAME": "Coping Mechanism",
-    "DESCRIPTION": "Gain !M! Energy. Gain 1 amnesia.",
-    "EXTENDED_DESCRIPTION": []
+    "DESCRIPTION": "Gain !M! Energy. Gain 1 amnesia."
   },
   "${modID}:Daydream": {
     "NAME": "Daydream",
-    "DESCRIPTION": "At the end of your turn, retain !M! random forgotten card.",
-    "EXTENDED_DESCRIPTION": []
+    "DESCRIPTION": "At the end of your turn, retain !M! random forgotten card."
   },
   "${modID}:DisseveredForm": {
     "NAME": "Dissevered Form (????)",
-    "DESCRIPTION": "Undecided",
-    "EXTENDED_DESCRIPTION": []
+    "DESCRIPTION": "Undecided"
   },
   "${modID}:Dizzy": {
     "NAME": "Dizzy",
-    "DESCRIPTION": "Urgent. Forget a random card in your hand. Forget.",
-    "EXTENDED_DESCRIPTION": []
+    "DESCRIPTION": "Urgent. Forget a random card in your hand. Forget."
   },
   "${modID}:DreamSequence": {
     "NAME": "Dream Sequence",
     "DESCRIPTION": "Forget 1 card. Draw 1 card.",
-    "UPGRADED_DESCRIPTION": "Forget 1 or more cards. Draw that many cards.",
-    "EXTENDED_DESCRIPTION": []
+    "UPGRADED_DESCRIPTION": "Forget 1 or more cards. Draw that many cards."
   },
   "${modID}:DreamTraveler": {
     "NAME": "Dream Traveler",
-    "DESCRIPTION": "Deal !D! damage. transform this card for the rest of combat.",
-    "EXTENDED_DESCRIPTION": []
+    "DESCRIPTION": "Deal !D! damage. transform this card for the rest of combat."
   },
   "${modID}:Egoism": {
     "NAME": "Egoism (Check power)",
-    "DESCRIPTION": "Whenever you play a card of cost 2 or more, draw 1 card.",
-    "EXTENDED_DESCRIPTION": []
+    "DESCRIPTION": "Whenever you play a card of cost 2 or more, draw 1 card."
+
   },
   "${modID}:EnterDreams": {
     "NAME": "Enter Dreams",
-    "DESCRIPTION": "Deal !D! damage. Apply !M! woozy.",
-    "EXTENDED_DESCRIPTION": []
+    "DESCRIPTION": "Deal !D! damage. Apply !M! woozy."
   },
   "${modID}:Envelop": {
     "NAME": "Envelop",
