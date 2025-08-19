@@ -1,0 +1,17 @@
+package joeymod.patches;
+
+import com.evacipated.cardcrawl.modthespire.lib.*;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import joeymod.character.MySleeperPlayer;
+
+
+@SpirePatch(clz = AbstractDungeon.class, method = "resetPlayer")
+public class AbstractDungeonResetPlayerPrefixPatch {
+
+    public static void Prefix(AbstractPlayer ___player) {
+        if (___player instanceof MySleeperPlayer) {
+            ((MySleeperPlayer) ___player).forgottenPile.clear();
+        }
+    }
+}

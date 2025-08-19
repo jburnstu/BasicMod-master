@@ -252,6 +252,10 @@
     "NAME": "Thrash",
     "DESCRIPTION": "Deal !D! damage !M! times. Forget."
   },
+  "${modID}:Torpor": {
+    "NAME": "Torpor",
+    "DESCRIPTION": "Apply !M! weak to all enemies. Gain !M! Amnesia."
+  },
   "${modID}:Trauma": {
     "NAME": "Trauma",
     "DESCRIPTION": "Urgent. Lose 2HP. Forget."
