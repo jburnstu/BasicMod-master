@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.cards.statuses.Dizzy;
+import joeymod.cards.statuses.Trauma;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
@@ -33,6 +34,7 @@ public class SpinningStrike extends AbstractSleeperCard {
     public SpinningStrike() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
+        this.cardsToPreview = new Dizzy();
     }
 
     @Override

@@ -34,6 +34,7 @@ public class ExposureTherapy extends AbstractSleeperCard {
     public ExposureTherapy() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
+        this.cardsToPreview = new Trauma();
     }
 
     @Override
