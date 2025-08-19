@@ -29,6 +29,9 @@ public class Move {
         g.addToBottom(newForgottenCard);
         ((MySleeperPlayer) AbstractDungeon.player).forgottenPile.addToTop(c);
         if (immediateDiscard) {
+            if (AbstractDungeon.player.hasPower("Hibernation")) {
+                g.moveToDeck(newForgottenCard,true);
+            }
             g.moveToDiscardPile(newForgottenCard);
         }
         return newForgottenCard;
