@@ -36,10 +36,11 @@ public class Trauma extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, this.magicNumber, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
+
     }
 
-    @Override
-    public void triggerOnPlayedFromForgotten(AbstractPlayer p, AbstractMonster m, boolean randomTarget) {
-        addToBot(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, this.magicNumber, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
-    }
+//    @Override
+//    public void triggerOnPlayedFromForgotten(AbstractPlayer p, AbstractMonster m, boolean randomTarget) {
+//      }
 }
