@@ -12,6 +12,7 @@ public class AbstractDungeonResetPlayerPrefixPatch {
     public static void Prefix(AbstractPlayer ___player) {
         if (___player instanceof MySleeperPlayer) {
             ((MySleeperPlayer) ___player).forgottenPile.clear();
+            ((MySleeperPlayer) ___player).cardsRememberedThisCombat.clear();
         }
     }
 }
