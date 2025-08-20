@@ -46,6 +46,7 @@ public class ForgottenCard extends AbstractSleeperCard {
 //            this.p.hand.addToHand(this.forgottenCard);
             ((AbstractSleeperCard) this.frontForgottenCard).triggerOnRemembered(p,m,true);
         }
+        this.p.cardsRememberedThisCombat.add(this.frontForgottenCard);
         addToTop(new ShowCardAndPoofAction(this));
     }
 
