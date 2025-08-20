@@ -9,7 +9,7 @@ import joeymod.character.MySleeperPlayer;
 import joeymod.powers.SubliminalPower;
 import joeymod.util.CardStats;
 
-//W
+//When you remember a skill, apply 1 weak to the targeted enemy.
 public class Subliminal extends AbstractSleeperCard {
     public static final String ID = makeID(Subliminal.class.getSimpleName());
     private static Object MyCharacter;

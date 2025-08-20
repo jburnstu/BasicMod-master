@@ -27,15 +27,9 @@ public class SubliminalPower extends AbstractSleeperPower {
     @Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
         if (c instanceof ForgottenCard && ((ForgottenCard) c).frontForgottenCard.type == AbstractCard.CardType.SKILL) {
-            {
-                flash();
-                AbstractPlayer abstractPlayer = AbstractDungeon.player;
-                for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters) {
-                    addToBot(new ApplyPowerAction(mo, abstractPlayer, new WeakPower(mo, this.amount, false), this.amount, true, AbstractGameAction.AttackEffect.NONE));
-                }
-            }
+            flash();
+            addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new WoozyPower(AbstractDungeon.player, 1)));
         }
-
     }
 
 }
