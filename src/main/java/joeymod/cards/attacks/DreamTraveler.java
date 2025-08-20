@@ -1,15 +1,14 @@
-package joeymod.cardBeta.attacks;
+package joeymod.cards.attacks;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import joeymod.actions.DreamTravelerAction;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-//X damamge then transform
+//X damage then transform
 public class DreamTraveler extends AbstractSleeperCard {
     public static final String ID = makeID(DreamTraveler.class.getSimpleName());
     private static Object MyCharacter;
@@ -22,19 +21,14 @@ public class DreamTraveler extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int magicNumber = 2;
 
     public DreamTraveler() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.forget = true;
-        this.magicNumber = magicNumber;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-
-//        addToBot(new TransformCardInHandAction(1));
+        addToBot(new DreamTravelerAction(m,new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL),this));
         }
     }

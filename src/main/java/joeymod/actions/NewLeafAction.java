@@ -81,7 +81,7 @@ public class NewLeafAction extends AbstractGameAction {
         if (this.isDone && this.theCard != null) {
             AbstractDungeon.effectsQueue.add(new UpgradeShineEffect(Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
             AbstractDungeon.topLevelEffectsQueue.add(new ShowCardBrieflyEffect(this.theCard.makeStatEquivalentCopy()));
-            addToTop((AbstractGameAction) new WaitAction(Settings.ACTION_DUR_MED));
+            addToTop(new WaitAction(Settings.ACTION_DUR_MED));
         }
     }
 }

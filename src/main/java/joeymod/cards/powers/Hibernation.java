@@ -1,4 +1,4 @@
-package joeymod.cardBeta.powers;
+package joeymod.cards.powers;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -9,9 +9,9 @@ import joeymod.character.MySleeperPlayer;
 import joeymod.powers.DaydreamPower;
 import joeymod.util.CardStats;
 
-//Retain 1 forgotten card each turn.
-public class Snooze extends AbstractSleeperCard {
-    public static final String ID = makeID(Snooze.class.getSimpleName());
+//Forgotten cards go into yuor draw pile. when your draw pile is empty, die.
+public class Hibernation extends AbstractSleeperCard {
+    public static final String ID = makeID(Hibernation.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -25,7 +25,7 @@ public class Snooze extends AbstractSleeperCard {
 
     int baseMagicNumber = 1;
 
-    public Snooze() {
+    public Hibernation() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.magicNumber = this.baseMagicNumber;
     }
@@ -42,6 +42,6 @@ public class Snooze extends AbstractSleeperCard {
     }
 
     public AbstractCard makeCopy() {
-        return new Snooze();
+        return new Hibernation();
     }
 }
