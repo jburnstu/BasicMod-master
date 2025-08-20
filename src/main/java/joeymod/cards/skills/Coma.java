@@ -27,7 +27,7 @@ public class Coma extends AbstractSleeperCard {
 
     public Coma() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.forget = true;
+        this.exhaust = true;
     }
 
     @Override

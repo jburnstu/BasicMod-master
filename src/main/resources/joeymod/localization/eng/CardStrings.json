@@ -42,8 +42,8 @@
     "DESCRIPTION": "Deal !D! Damage. If remembered, gain !M! health. Exhaust."
   },
   "${modID}:Coma": {
-    "NAME": "Coma (????)",
-    "DESCRIPTION": "Undecided"
+    "NAME": "Coma",
+    "DESCRIPTION": "Forgotten cards cost zero this turn. This turn, when you draw a card that is not forgotten, discard it. Exhaust."
   },
   "${modID}:Compulsion": {
     "NAME": "Compulsion",
