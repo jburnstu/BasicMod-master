@@ -21,12 +21,12 @@ public class DreamSequence extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int magicNumber = 1;
+    private int baseMagicNumber = 1;
 
     public DreamSequence() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.urgent = true;
-        this.magicNumber = magicNumber;
+        this.magicNumber = baseMagicNumber;
     }
 
     @Override

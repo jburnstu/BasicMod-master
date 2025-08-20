@@ -5,28 +5,34 @@
       "forgotten",
       "forgot"
     ],
-    "DESCRIPTION": "A forgotten card's effect is hidden, and its cost set to 1, until played."
+    "DESCRIPTION": "A Forgotten card's effect is hidden, and its cost set to 1, until played."
   },
   "URGENT": {
     "NAMES": [
       "urgent",
       "Urgent"
     ],
-    "DESCRIPTION": "Urgent cards in your hand must be played before any other cards. If there are multiple urgent cards, you may choose the order in which you play them."
+    "DESCRIPTION": "Urgent cards in your hand must be played before any other cards. If there are multiple Urgent cards, you may choose the order in which you play them."
   },
   "REMEMBER": {
     "NAMES": [
       "remember",
       "remembered"
     ],
-    "DESCRIPTION": "Removes the forgotten condition from a card."
+    "DESCRIPTION": "Removes the Forgotten condition from a card and plays it."
   },
   "AWAKEN": {
     "NAMES": [
       "awaken",
       "awakened"
     ],
-    "DESCRIPTION": "Choose one forgotten card anywhere in your deck to place, un-forgotten, in your hand. This does !bnot!b count as remembering the card."
+    "DESCRIPTION": "Remove the Forgotten condition from a Forgotten card anywhere in play, and add it to your hand. This does !bnot!b count as Remembering the card."
+  },
+  "WOOZY": {
+    "NAMES": [
+      "woozy"
+    ],
+    "DESCRIPTION": "Enemies lose HP equal to their Woozy whenever you Remember a card."
   }
 }
 

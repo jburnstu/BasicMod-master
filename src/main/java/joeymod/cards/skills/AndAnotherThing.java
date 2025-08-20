@@ -25,11 +25,11 @@ public class AndAnotherThing extends AbstractSleeperCard {
 
     public AndAnotherThing() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.magicNumber = magicNumber;
+        setMagic(magicNumber);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new AwakenAction(1,new AndAnotherThingAction(this.magicNumber)));
+        addToBot(new AwakenAction(1,new AndAnotherThingAction(magicNumber)));
     }
 }
