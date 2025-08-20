@@ -29,6 +29,7 @@ public class Foreshadowing extends AbstractSleeperCard {
     public Foreshadowing() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.magicNumber = magicNumber;
+        setMagic(magicNumber);
     }
 
     @Override

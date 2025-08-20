@@ -34,6 +34,7 @@ public class MemorySkip extends AbstractSleeperCard {
         this.urgent = true;
         this.magicNumber = baseMagicNumber;
         setBlock(BLOCK,UPG_BLOCK);
+        setMagic(magicNumber);
     }
 
     @Override

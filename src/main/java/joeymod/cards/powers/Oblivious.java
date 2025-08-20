@@ -27,6 +27,7 @@ public class Oblivious extends AbstractSleeperCard {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        setMagic(magicNumber);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

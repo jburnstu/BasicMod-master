@@ -32,6 +32,7 @@ public class Thrash extends AbstractSleeperCard {
         setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
         this.magicNumber = baseMagicNumber;
         this.forget = true;
+        setMagic(magicNumber);
 
     }
 

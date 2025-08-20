@@ -32,6 +32,7 @@ public class HideUnderTheCovers extends AbstractSleeperCard {
 
         this.forget = true;
         this.magicNumber = baseMagicNumber;
+        setMagic(magicNumber);
     }
 
     @Override

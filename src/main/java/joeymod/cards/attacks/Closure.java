@@ -34,6 +34,7 @@ public class Closure extends AbstractSleeperCard {
         setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
         this.exhaust = true;
         this.magicNumber = baseMagicNumber;
+        setMagic(magicNumber);
     }
 
     @Override

@@ -27,6 +27,7 @@ public class CopingMechanism extends AbstractSleeperCard {
     public CopingMechanism() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.magicNumber = baseMagicNumber;
+        setMagic(magicNumber);
     }
 
     @Override

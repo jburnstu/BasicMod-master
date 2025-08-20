@@ -29,6 +29,7 @@ public class Egoism extends AbstractSleeperCard {
     public Egoism() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.magicNumber = this.baseMagicNumber;
+        setMagic(magicNumber);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

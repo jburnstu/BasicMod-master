@@ -31,6 +31,7 @@ public class BackAndForth extends AbstractSleeperCard {
         setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
         this.forget = true;
         this.magicNumber = baseMagicNumber;
+        setMagic(magicNumber);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

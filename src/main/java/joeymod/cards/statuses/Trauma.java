@@ -33,6 +33,7 @@ public class Trauma extends AbstractSleeperCard {
         this.forget = true;
         this.urgent = true;
         this.magicNumber = baseMagicNumber;
+        setMagic(magicNumber);
     }
 
     @Override

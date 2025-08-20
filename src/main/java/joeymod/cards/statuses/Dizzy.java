@@ -29,6 +29,7 @@ public class Dizzy extends AbstractSleeperCard {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.urgent = true;
         this.forget = true;
+        setMagic(magicNumber);
     }
 
     @Override

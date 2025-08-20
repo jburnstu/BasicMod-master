@@ -26,14 +26,15 @@ public class SelfProtection extends AbstractSleeperCard {
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
     private static final int DAMAGE = 12;
-    private static final int UPG_DAMAGE = 3;
-    public static final int magicNumber = 4;
+    private static final int UPG_DAMAGE = 4;
+    public static final int magicNumber = 1;
 
 
     public SelfProtection() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
         this.exhaust = true;
+        setMagic(magicNumber);
     }
 
     @Override
@@ -43,7 +44,7 @@ public class SelfProtection extends AbstractSleeperCard {
 
     @Override
     public void triggerOnRemembered(AbstractPlayer p, AbstractMonster m, boolean randomTarget) {
-        addToBot(new ApplyPowerAction(p ,p, new DexterityPower(p,1)));
+        addToBot(new ApplyPowerAction(p ,p, new DexterityPower(p,this.magicNumber)));
     }
 
 

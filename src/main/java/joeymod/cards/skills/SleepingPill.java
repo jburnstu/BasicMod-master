@@ -31,6 +31,7 @@ public class SleepingPill extends AbstractSleeperCard {
         this.magicNumber = magicNumber;
         this.urgent = true;
         setBlock(BLOCK, UPG_BLOCK);
+        setMagic(magicNumber);
     }
 
     @Override

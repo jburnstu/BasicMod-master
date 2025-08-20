@@ -29,6 +29,7 @@ public class Torpor extends AbstractSleeperCard {
         this.exhaust = true;
         this.urgent = true;
         this.magicNumber = magicNumber;
+        setMagic(magicNumber);
     }
 
     @Override

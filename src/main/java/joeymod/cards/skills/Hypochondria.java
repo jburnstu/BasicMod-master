@@ -27,6 +27,7 @@ public class Hypochondria extends AbstractSleeperCard {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.urgent = true;
         this.magicNumber = magicNumber;
+        setMagic(magicNumber);
     }
 
     @Override

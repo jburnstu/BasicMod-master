@@ -28,6 +28,7 @@ public class HardReset extends AbstractSleeperCard {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.magicNumber = magicNumber;
         this.urgent = true;
+        setMagic(magicNumber);
     }
 
     @Override

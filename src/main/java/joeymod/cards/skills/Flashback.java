@@ -25,6 +25,7 @@ public class Flashback extends AbstractSleeperCard {
     public Flashback() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.magicNumber = magicNumber;
+        setMagic(magicNumber);
     }
 
     @Override

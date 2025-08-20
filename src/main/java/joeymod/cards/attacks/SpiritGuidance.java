@@ -26,13 +26,14 @@ public class SpiritGuidance extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
     private static final int DAMAGE = 12;
     private static final int UPG_DAMAGE = 3;
-    public static final int magicNumber = 4;
+    public static final int magicNumber = 2;
 
 
     public SpiritGuidance() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
         this.exhaust = true;
+        setMagic(magicNumber);
     }
 
     @Override
@@ -42,7 +43,7 @@ public class SpiritGuidance extends AbstractSleeperCard {
 
     @Override
     public void triggerOnRemembered(AbstractPlayer p, AbstractMonster m, boolean randomTarget) {
-        addToBot((AbstractGameAction)new GainEnergyAction(2));
+        addToBot((AbstractGameAction)new GainEnergyAction(magicNumber));
       }
 
 

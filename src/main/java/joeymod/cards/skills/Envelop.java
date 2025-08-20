@@ -27,6 +27,7 @@ public class Envelop extends AbstractSleeperCard {
     public Envelop() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.magicNumber = baseMagicNumber;
+        setMagic(magicNumber);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

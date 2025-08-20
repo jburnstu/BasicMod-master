@@ -29,6 +29,7 @@ public class FlashBeforeMyEyes extends AbstractSleeperCard {
         this.forget = true;
         this.magicNumber = magicNumber;
         this.urgent = true;
+        setMagic(magicNumber);
 //        setBlock(BLOCK, UPG_BLOCK);
     }
 

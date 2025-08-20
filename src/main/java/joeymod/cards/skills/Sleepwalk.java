@@ -31,6 +31,7 @@ public class Sleepwalk extends AbstractSleeperCard {
         this.forget = true;
         this.magicNumber = magicNumber;
         setBlock(BLOCK,UPG_BLOCK);
+        setMagic(magicNumber);
     }
 
     @Override

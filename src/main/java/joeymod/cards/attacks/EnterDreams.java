@@ -33,6 +33,7 @@ public class EnterDreams extends AbstractSleeperCard {
 
         setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
         this.magicNumber = baseMagicNumber;
+        setMagic(magicNumber);
     }
 
     @Override

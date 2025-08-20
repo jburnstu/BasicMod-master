@@ -28,6 +28,7 @@ public class Sublimation extends AbstractSleeperCard {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.forget = true;
         this.magicNumber = magicNumber;
+        setMagic(magicNumber);
     }
 
     @Override

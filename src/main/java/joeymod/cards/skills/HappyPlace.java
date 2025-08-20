@@ -28,6 +28,7 @@ public class HappyPlace extends AbstractSleeperCard {
         this.exhaust = true;
         this.urgent = true;
         this.magicNumber = magicNumber;
+        setMagic(magicNumber);
     }
 
     @Override

@@ -27,6 +27,7 @@ public class FinalSession extends AbstractSleeperCard {
         this.magicNumber = baseMagicNumber;
         this.forget = true;
         this.exhaust = true;
+        setMagic(magicNumber);
     }
 
     @Override
