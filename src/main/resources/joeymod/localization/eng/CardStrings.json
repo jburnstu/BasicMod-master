@@ -65,6 +65,10 @@
     "NAME": "Dizzy",
     "DESCRIPTION": "Urgent. Forget a random card in your hand. Forget."
   },
+  "${modID}:Doom": {
+    "NAME": "Doom",
+    "DESCRIPTION": "Deal !D! Damage. At the start of its turn, the target heals !M!HP."
+  },
   "${modID}:DreamSequence": {
     "NAME": "Dream Sequence",
     "DESCRIPTION": "Forget 1 card. Draw 1 card.",

@@ -9,7 +9,7 @@ import joeymod.character.MySleeperPlayer;
 import joeymod.powers.AmnesiaPower;
 import joeymod.util.CardStats;
 
-//Apply 2 weak to all enemies. gain 2 amnesia. exhaust.
+//Urgent. apply 2 weak to all enemies. gain 2 amnesia. exhaust.
 public class Torpor extends AbstractSleeperCard {
     public static final String ID = makeID(Torpor.class.getSimpleName());
     private static Object MyCharacter;
