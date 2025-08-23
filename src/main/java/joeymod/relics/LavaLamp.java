@@ -8,11 +8,10 @@ import joeymod.cards.ForgottenCard;
 import static joeymod.JoeyBasicMod.makeID;
 
 public class LavaLamp extends AbstractSleeperRelic {
-    public static final String ID = makeID("TeddyBear");
+    public static final String ID = makeID(LavaLamp.class.getSimpleName());
 
     public LavaLamp() {
         super(ID, AbstractRelic.RelicTier.STARTER, AbstractRelic.LandingSound.MAGICAL);
-        System.out.println("TeddyBear constructor called....");
     }
 
     public String getUpdatedDescription() {

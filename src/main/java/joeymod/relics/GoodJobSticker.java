@@ -3,12 +3,13 @@ package joeymod.relics;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import joeymod.cards.skills.SleepingPill;
 
 import static joeymod.JoeyBasicMod.makeID;
 
 // When you recollect and no cards in forgottenPile,: add a new card to your hand (cost 1 less?)
 public class GoodJobSticker extends AbstractSleeperRelic {
-    public static final String ID = makeID("GoodJobSticker");
+    public static final String ID = makeID(GoodJobSticker.class.getSimpleName());
     private static final RelicTier RARITY = RelicTier.COMMON; //The relic's rarity.
     private static final LandingSound SOUND = LandingSound.CLINK; //The sound played when the relic is clicked.
 

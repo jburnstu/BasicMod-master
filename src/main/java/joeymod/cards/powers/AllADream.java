@@ -27,16 +27,15 @@ public class AllADream extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
 
     int baseMagicNumber = 20;
+    int magicUpgrade = 5;
 
     public AllADream() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.baseMagicNumber = 1;
-        this.magicNumber = this.baseMagicNumber;
-        setMagic(magicNumber);
+        setMagic(baseMagicNumber,magicUpgrade);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction)new HealAction((AbstractCreature)p, (AbstractCreature)p, this.magicNumber));
+        addToBot((AbstractGameAction)new HealAction((AbstractCreature)p, (AbstractCreature)p, magicNumber));
         addToBot((AbstractGameAction)new ApplyPowerAction(p,p,new RepairPower(p,-15)));
     }
 

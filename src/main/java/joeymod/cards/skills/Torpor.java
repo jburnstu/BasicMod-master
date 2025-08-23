@@ -22,19 +22,19 @@ public class Torpor extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int magicNumber = 2;
+    private int baseMagicNumber = 2;
+    private int magicUpgrade = 1;
 
     public Torpor() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.exhaust = true;
         this.urgent = true;
-        this.magicNumber = magicNumber;
-        setMagic(magicNumber);
+        setMagic(baseMagicNumber,magicUpgrade);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(m,p, new WeakPower(m,this.magicNumber,false)));
-        addToBot(new ApplyPowerAction(p,p, new AmnesiaPower(p,this.magicNumber)));
+        addToBot(new ApplyPowerAction(m,p, new WeakPower(m,magicNumber,false)));
+        addToBot(new ApplyPowerAction(p,p, new AmnesiaPower(p,magicNumber)));
     }
 }

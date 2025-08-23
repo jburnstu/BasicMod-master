@@ -26,16 +26,18 @@ public class Coma extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
+    public boolean baseExhaust = true;
+    public boolean upgradeExhaust = false;
 
     public Coma() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.exhaust = true;
+        setExhaust(baseExhaust,upgradeExhaust);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new FreeForgottenCardsAction(p));
-        addToBot(new ApplyPowerAction(p, p, new ComaPower(p, this.magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new ComaPower(p, 1)));
 
     }
 }

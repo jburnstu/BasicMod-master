@@ -20,8 +20,8 @@ public class Startle extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int BLOCK = 13;
-    private static final int UPG_BLOCK = 3;
+    private static final int BLOCK = 10;
+    private static final int UPG_BLOCK = 5;
 
     public Startle() {
         super(ID, info); //Pass the required information to the BaseCard constructor.

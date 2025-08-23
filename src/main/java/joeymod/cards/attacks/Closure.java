@@ -20,13 +20,14 @@ public class Closure extends AbstractSleeperCard {
             CardType.ATTACK, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
             CardRarity.RARE, //Rarity. BASIC is for starting cards, then there's COMMON/UNCOMMON/RARE, and then SPECIAL and CURSE. SPECIAL is for cards you only get from events. Curse is for curses, except for special curses like Curse of the Bell and Necronomicurse.
             CardTarget.ENEMY, //The target. Single target is ENEMY, all enemies is ALL_ENEMY. Look at cards similar to what you want to see what to use.
-            0 //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
+            1 //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
     private static final int DAMAGE = 12;
     private static final int UPG_DAMAGE = 3;
     public static final int baseMagicNumber = 4;
+    public static final int upgradeMagic = 2;
 
 
     public Closure() {
@@ -34,7 +35,7 @@ public class Closure extends AbstractSleeperCard {
         setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
         this.exhaust = true;
         this.magicNumber = baseMagicNumber;
-        setMagic(magicNumber);
+        setMagic(magicNumber,upgradeMagic);
     }
 
     @Override

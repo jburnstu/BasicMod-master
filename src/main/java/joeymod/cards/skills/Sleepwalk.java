@@ -24,20 +24,19 @@ public class Sleepwalk extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
     private static final int BLOCK = 8;
     private static final int UPG_BLOCK = 3;
-    private int magicNumber = 2;
+    private int baseMagicNumber = 1;
 
     public Sleepwalk() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.forget = true;
-        this.magicNumber = magicNumber;
         setBlock(BLOCK,UPG_BLOCK);
-        setMagic(magicNumber);
+        setMagic(baseMagicNumber);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p,block));
-        addToBot(new DrawCardAction(1));
-        addToBot(new ForgetAction(1,false,false,false));
+        addToBot(new DrawCardAction(magicNumber));
+        addToBot(new ForgetAction(magicNumber,false,false,false));
         }
     }

@@ -41,6 +41,7 @@ public class NewLeafAction extends AbstractGameAction {
             this.target.damage(this.info);
             if ((this.target.isDying || this.target.currentHealth <= 0) && !this.target.halfDead &&
                     !this.target.hasPower("Minion")) {
+                System.out.println("Made it past main if");
                 CardGroup possibleCards = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
                 for (AbstractCard c : p.masterDeck.group) {
                     if (((MySleeperPlayer) p).forgottenPile.group.contains(c)) {
@@ -61,7 +62,7 @@ public class NewLeafAction extends AbstractGameAction {
                     return;
                 }
                 int numForgotten = this.amount;
-                AbstractDungeon.gridSelectScreen.open(possibleCards, numForgotten, "Choose a card(s) to transform", false, true);
+                AbstractDungeon.gridSelectScreen.open(possibleCards, numForgotten, "Choose a card(s) to transform", false, true,true,false);
                 tickDuration();
                 return;
             }

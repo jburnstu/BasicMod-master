@@ -11,7 +11,7 @@ import static joeymod.JoeyBasicMod.makeID;
 
 // Whenever you remember a power card, add a copy of that power to your draw pile.
 public class SleepMobile extends AbstractSleeperRelic {
-       public static final String ID = makeID("SleepMobile"); //This adds the mod's prefix to the relic ID, resulting in modID:MyRelic
+       public static final String ID = makeID(SleepMobile.class.getSimpleName()); //This adds the mod's prefix to the relic ID, resulting in modID:MyRelic
     private static final RelicTier RARITY = RelicTier.UNCOMMON; //The relic's rarity.
     private static final LandingSound SOUND = LandingSound.CLINK; //The sound played when the relic is clicked.
 

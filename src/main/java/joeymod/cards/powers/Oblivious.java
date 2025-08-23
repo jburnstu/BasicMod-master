@@ -22,16 +22,17 @@ public class Oblivious extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
+    public int baseMagicNumber = 3;
+    public int magicUpgrade = 1;
+
 
     public Oblivious() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.baseMagicNumber = 1;
-        this.magicNumber = this.baseMagicNumber;
-        setMagic(magicNumber);
+        setMagic(baseMagicNumber,magicUpgrade);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new ObliviousPower(p,this.magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new ObliviousPower(p,magicNumber)));
     }
 
     public void upgrade() {

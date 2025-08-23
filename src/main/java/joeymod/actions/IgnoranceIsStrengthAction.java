@@ -22,8 +22,8 @@ public class IgnoranceIsStrengthAction extends AbstractGameAction {
     public void update() {
         for (AbstractCard c : AbstractDungeon.player.hand.group) {
             if (c instanceof ForgottenCard) {
-                addToTop((AbstractGameAction)new GainBlockAction(this.target, this.passedBlock));
-                addToBot((AbstractGameAction)new DrawCardAction(this.target, 1));
+                addToTop(new GainBlockAction(this.target, this.passedBlock));
+                addToBot(new DrawCardAction(this.target, 1));
             }
         }
         this.isDone = true;

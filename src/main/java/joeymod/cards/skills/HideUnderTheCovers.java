@@ -22,22 +22,19 @@ public class HideUnderTheCovers extends AbstractSleeperCard {
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
     private static final int BLOCK = 10;
-    private static final int UPG_BLOCK = 3;
+    private static final int UPG_BLOCK = 4;
     private static final int baseMagicNumber = 1;
 
     public HideUnderTheCovers() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-
         setBlock(BLOCK, UPG_BLOCK);
-
+        setMagic(baseMagicNumber);
         this.forget = true;
-        this.magicNumber = baseMagicNumber;
-        setMagic(magicNumber);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
-        addToBot(new IncreaseCostAction(this.uuid, this.magicNumber));
+        addToBot(new IncreaseCostAction(this.uuid, magicNumber));
     }
 }

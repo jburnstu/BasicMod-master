@@ -26,7 +26,7 @@ public class NewLeaf extends AbstractSleeperCard {
 
     public NewLeaf() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-
+        this.exhaust = true;
         setDamage(DMG, UPG_DMG); //Sets the card's damage and how much it changes when upgraded.
     }
 

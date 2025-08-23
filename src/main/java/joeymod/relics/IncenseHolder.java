@@ -11,7 +11,7 @@ import static joeymod.JoeyBasicMod.makeID;
 
 // When you play an unplayable card from forgotten, exhaust it and gain one energy.
 public class IncenseHolder extends AbstractSleeperRelic {
-    public static final String ID = makeID("IncenseHolder"); //This adds the mod's prefix to the relic ID, resulting in modID:MyRelic
+    public static final String ID = makeID(IncenseHolder.class.getSimpleName()); //This adds the mod's prefix to the relic ID, resulting in modID:MyRelic
     private static final RelicTier RARITY = RelicTier.COMMON; //The relic's rarity.
     private static final LandingSound SOUND = LandingSound.CLINK; //The sound played when the relic is clicked.
 

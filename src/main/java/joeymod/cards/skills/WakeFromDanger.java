@@ -10,7 +10,7 @@ import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-//3 block. if played from forgotten, gain an additional 9 block.
+//6 block. if played from forgotten, gain an additional 6 block.
 public class WakeFromDanger extends AbstractSleeperCard {
     public static final String ID = makeID(WakeFromDanger.class.getSimpleName());
     private static Object MyCharacter;
@@ -28,15 +28,12 @@ public class WakeFromDanger extends AbstractSleeperCard {
 
     public WakeFromDanger() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-
         setBlock(BLOCK, UPG_BLOCK); //Sets the card's damage and how much it changes when upgraded.
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
-        addToBot(new DrawCardAction(1));
-        addToBot(new ForgetAction(1,false,false,false));
     }
 
     @Override

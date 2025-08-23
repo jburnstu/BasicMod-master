@@ -10,6 +10,13 @@ public class AlterEgoAction extends AbstractGameAction {
 
     private float startingDuration = Settings.ACTION_DUR_FAST;
 
+    public AlterEgoAction(){
+        System.out.println("FA constructor called...");
+        this.duration = startingDuration;
+        this.actionType = ActionType.WAIT;
+    }
+
+
     public void update() {
         System.out.println("entering AEA update....");
         if (this.duration == this.startingDuration) {

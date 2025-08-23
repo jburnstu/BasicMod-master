@@ -23,16 +23,16 @@ public class Snooze extends AbstractSleeperCard {
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
 
-    int baseMagicNumber = 1;
+    public int baseMagicNumber = 1;
+    int magicUpgrade = 1;
 
     public Snooze() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.magicNumber = this.baseMagicNumber;
-        setMagic(magicNumber);
+        setMagic(baseMagicNumber, magicUpgrade);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p,p,new DaydreamPower(p,this.magicNumber)));
+        addToBot(new ApplyPowerAction(p,p,new DaydreamPower(p,magicNumber)));
     }
 
     public void upgrade() {

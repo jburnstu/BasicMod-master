@@ -22,20 +22,16 @@ public class Foreshadowing extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int magicNumber = 1;
-    private AwakenAction awakenAction;
-
+    private int baseMagicNumber = 1;
+    private int magicUpgrade = 1;
 
     public Foreshadowing() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.magicNumber = magicNumber;
-        setMagic(magicNumber);
+        setMagic(baseMagicNumber,magicUpgrade);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        System.out.println("Recollect Card Called...");
-        addToBot(new AwakenAction(this.magicNumber, (AbstractGameAction) new ForeshadowingAction(this.magicNumber)));
-        System.out.println("This shouldn't trigger until we're done..."+ AwakenAction.awakenedCards);
+        addToBot(new AwakenAction(1, new ForeshadowingAction(magicNumber)));
     }
 }

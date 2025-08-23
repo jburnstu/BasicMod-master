@@ -34,6 +34,13 @@
       "Every time you play three forgotten cards in a turn, apply 1 woozy to all enemies."
     ]
   },
+  "${modID}:SleepingMouse": {
+    "NAME": "Sleeping Mouse",
+    "FLAVOR": "She seems completely impervious to the horrors around her.",
+    "DESCRIPTIONS": [
+      "At the end of your turn, gain 2 Block for each Forgotten card in your hand."
+    ]
+  },
   "${modID}:SleepMobile": {
     "NAME": "Sleep Mobile",
     "FLAVOR": "Looking at it gives you an odd sense of deja vu.",

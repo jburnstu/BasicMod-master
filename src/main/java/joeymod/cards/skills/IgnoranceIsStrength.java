@@ -20,8 +20,8 @@ public class IgnoranceIsStrength extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int BLOCK = 6;
-    private static final int UPG_BLOCK = 3;
+    private static final int BLOCK = 4;
+    private static final int UPG_BLOCK = 1;
 
     public IgnoranceIsStrength() {
         super(ID, info); //Pass the required information to the BaseCard constructor.

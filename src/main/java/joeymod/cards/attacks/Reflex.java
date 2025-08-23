@@ -28,7 +28,7 @@ public class Reflex extends AbstractSleeperCard {
     public Reflex() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
 
-        setBlock(DMG, UPG_DMG); //Sets the card's damage and how much it changes when upgraded.
+        setDamage(DMG, UPG_DMG); //Sets the card's damage and how much it changes when upgraded.
     }
 
     @Override

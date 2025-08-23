@@ -23,16 +23,16 @@ public class CopingMechanism extends AbstractSleeperCard {
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
     private int baseMagicNumber = 1;
+    private int magicUpgrade = 1;
 
     public CopingMechanism() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.magicNumber = baseMagicNumber;
-        setMagic(magicNumber);
+        setMagic(baseMagicNumber,magicUpgrade);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToTop(new ApplyPowerAction(p,p,new AmnesiaPower(p,this.magicNumber)));
-        addToBot(new GainEnergyAction(this.magicNumber));
+        addToTop(new ApplyPowerAction(p,p,new AmnesiaPower(p,magicNumber)));
+        addToBot(new GainEnergyAction(magicNumber));
     }
 }

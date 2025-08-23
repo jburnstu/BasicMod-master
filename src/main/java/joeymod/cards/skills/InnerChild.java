@@ -21,18 +21,18 @@ public class InnerChild extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int magicNumber = 1;
+    private int baseMagicNumber = 1;
 
     public InnerChild() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.forget = true;
-        this.magicNumber = magicNumber;
-        setMagic(magicNumber);
+        setMagic(baseMagicNumber);
+        setCostUpgrade(0);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCard longestForgottenCard = ((MySleeperPlayer) p).forgottenPile.group.get(0);
-        addToBot(new ReduceCostAction(longestForgottenCard.uuid,1));
+        addToBot(new ReduceCostAction(longestForgottenCard.uuid,magicNumber));
     }
 }

@@ -20,13 +20,9 @@ public class MagicalThinking extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int magicNumber = 2;
 
     public MagicalThinking() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.forget = true;
-        this.magicNumber = magicNumber;
-        setMagic(magicNumber);
     }
 
     @Override

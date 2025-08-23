@@ -11,7 +11,7 @@ import joeymod.character.MySleeperPlayer;
 import joeymod.powers.HealAtTurnStartPower;
 import joeymod.util.CardStats;
 
-// Attack and inflict woozy
+// Deal 25 (30) damage. At the start of its turn, the target gains 20HP.
 public class Doom extends AbstractSleeperCard {
     public static final String ID = makeID(Doom.class.getSimpleName());
     private static Object MyCharacter;

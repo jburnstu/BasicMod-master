@@ -21,22 +21,20 @@ public class SleepingPill extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int magicNumber = 2;
+    private int baseMagicNumber = 1;
     private static final int BLOCK = 6;
     private static final int UPG_BLOCK = 3;
 
     public SleepingPill() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.forget = true;
-        this.magicNumber = magicNumber;
         this.urgent = true;
         setBlock(BLOCK, UPG_BLOCK);
-        setMagic(magicNumber);
+        setMagic(baseMagicNumber);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p,this.block));
-        addToTop(new ForgetAction(1,false,false,false));
+        addToTop(new ForgetAction(magicNumber,false,false,false));
         }
 }

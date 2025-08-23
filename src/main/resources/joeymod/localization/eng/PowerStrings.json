@@ -44,6 +44,41 @@
     " extra card next turn."
   ]
 },
+  "${modID}:FreeCardPower": {
+    "NAME": "FreeCard",
+    "DESCRIPTIONS": [
+      "The next card you play is free.",
+      "The next #b",
+      " cards you play are free."
+    ]
+  },
+  "${modID}:GroundworkPower": {
+    "NAME": "Groundwork",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, Awaken #b",
+      " cards."
+    ]
+  },
+  "${modID}:HazePower": {
+    "NAME": "Haze",
+    "DESCRIPTIONS": [
+      "This turn, when you are dealt damage, apply #b",
+      " Woozy to the attacker."
+    ]
+  },
+  "${modID}:HealAtTurnStartPower": {
+    "NAME": "FutureRecovery",
+    "DESCRIPTIONS": [
+      "At the start of its next turn, recovers #b",
+      " HP."
+    ]
+  },
+  "${modID}:HibernationPower": {
+    "NAME": "Hibernation",
+    "DESCRIPTIONS": [
+      "When you forget a card, shuffle it into your draw pile. When your draw pile is empty, die."
+    ]
+  },
   "${modID}:InOneEarPower": {
     "NAME": "In One Ear",
     "DESCRIPTIONS": [
@@ -87,11 +122,18 @@
       " cards you play are played twice."
     ]
   },
-  "${modID}:RemSleepPower": {
+  "${modID}:REMSleepPower": {
     "NAME": "REM Sleep",
     "DESCRIPTIONS": [
       "When you draw a forgotten card, gain #b",
       " Vigor."
+    ]
+  },
+  "${modID}:SnoozePower": {
+    "NAME": "Snooze",
+    "DESCRIPTIONS": [
+      "At the start of your turn, draw #b",
+      " weak to all enemies."
     ]
   },
   "${modID}:Subliminal": {
@@ -99,6 +141,13 @@
     "DESCRIPTIONS": [
       "When you remember a skill, apply #b",
       " weak to all enemies."
+    ]
+  },
+  "${modID}:Woozy": {
+    "NAME": "Woozy",
+    "DESCRIPTIONS": [
+      "When you target this enemy with a Forgotten card, it loses #b",
+      " HP."
     ]
   }
 }

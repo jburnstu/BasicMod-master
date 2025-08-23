@@ -19,7 +19,7 @@ import static joeymod.JoeyBasicMod.makeID;
 
 // When you recollect and no cards in forgottenPile,: add a new card to your hand (cost 1 less?)
 public class TeddyBear extends AbstractSleeperRelic {
-    public static final String ID = makeID("TeddyBear");
+    public static final String ID = makeID(TeddyBear.class.getSimpleName());
 
     public TeddyBear() {
         super(ID, RelicTier.STARTER, LandingSound.MAGICAL);

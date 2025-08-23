@@ -32,7 +32,7 @@
     "NAMES": [
       "woozy"
     ],
-    "DESCRIPTION": "Enemies lose HP equal to their Woozy whenever you Remember a card."
+    "DESCRIPTION": "Enemies lose HP equal to their Woozy whenever you target them with a Forgotten card."
   }
 }
 

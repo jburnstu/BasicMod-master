@@ -20,17 +20,17 @@ public class FreeDrawing extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int magicNumber = 2;
+    private int baseMagicNumber = 2;
+    private int magicUpgrade = 1;
 
     public FreeDrawing() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.forget = true;
-        this.magicNumber = magicNumber;
-        setMagic(magicNumber);
+        setMagic(baseMagicNumber,magicUpgrade);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DrawCardAction(p,this.magicNumber));
+        addToBot(new DrawCardAction(p,magicNumber));
     }
 }

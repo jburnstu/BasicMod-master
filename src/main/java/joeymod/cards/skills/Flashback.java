@@ -1,5 +1,6 @@
 package joeymod.cards.skills;
 
+import com.megacrit.cardcrawl.actions.common.ReduceCostAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.actions.AwakenAction;
@@ -20,16 +21,20 @@ public class Flashback extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int magicNumber = 1;
+    private int baseMagicNumber = 1;
 
     public Flashback() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.magicNumber = magicNumber;
-        setMagic(magicNumber);
+        this.urgent = true;
+        setMagic(baseMagicNumber);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new AwakenAction(this.magicNumber, false));
+        if (!this.upgraded) {
+            addToBot(new AwakenAction(baseMagicNumber, false));
+        } else {
+            addToBot(new AwakenAction(baseMagicNumber, new ReduceCostAction(AwakenAction.awakenedCards.get(0).uuid, 1)));
+        }
     }
 }

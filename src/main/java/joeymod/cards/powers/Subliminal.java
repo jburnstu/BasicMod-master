@@ -9,7 +9,7 @@ import joeymod.character.MySleeperPlayer;
 import joeymod.powers.SubliminalPower;
 import joeymod.util.CardStats;
 
-//When you remember a skill, apply 1 weak to the targeted enemy.
+//When you remember a skill, apply 1 woozy to the targeted enemy.
 public class Subliminal extends AbstractSleeperCard {
     public static final String ID = makeID(Subliminal.class.getSimpleName());
     private static Object MyCharacter;
@@ -18,20 +18,20 @@ public class Subliminal extends AbstractSleeperCard {
             CardType.POWER, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
             CardRarity.UNCOMMON, //Rarity. BASIC is for starting cards, then there's COMMON/UNCOMMON/RARE, and then SPECIAL and CURSE. SPECIAL is for cards you only get from events. Curse is for curses, except for special curses like Curse of the Bell and Necronomicurse.
             CardTarget.SELF, //The target. Single target is ENEMY, all enemies is ALL_ENEMY. Look at cards similar to what you want to see what to use.
-            2 //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
+            1 //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
+    public int baseMagicNumber = 1;
+    public int magicUpgrade = 1;
 
     public Subliminal() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.baseMagicNumber = 1;
-        this.magicNumber = this.baseMagicNumber;
-        setMagic(magicNumber);
+        setMagic(baseMagicNumber, magicUpgrade);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new SubliminalPower(p,this.magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new SubliminalPower(p,magicNumber)));
     }
 
     public void upgrade() {

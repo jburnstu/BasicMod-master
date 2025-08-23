@@ -29,13 +29,17 @@
     "NAME": "Blank Slate",
     "DESCRIPTION": "Shuffle every Forgotten card in play into your deck. NL Exhaust."
   },
+  "${modID}:BrainZap": {
+    "NAME": "Brain Zap",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Amnesia."
+  },
   "${modID}:BreakTheCycle": {
     "NAME": "Break The Cycle",
-    "DESCRIPTION": "Awaken 1 card. NL If you choose an Attack, gain its base damage as Block."
+    "DESCRIPTION": "Awaken !M! card. NL If you choose an Attack, gain its base damage as Block."
   },
   "${modID}:Catharsis": {
     "NAME": "Catharsis",
-    "DESCRIPTION": "Deal !D! damage. NL Awaken 1 card."
+    "DESCRIPTION": "Deal !D! damage. NL Awaken !M! card."
   },
   "${modID}:Closure": {
     "NAME": "Closure",
@@ -48,6 +52,10 @@
   "${modID}:Compulsion": {
     "NAME": "Compulsion",
     "DESCRIPTION": "Urgent. Deal !D! damage and gain !B! Block. NL Add a copy of this card to your discard. NL Forget."
+  },
+  "${modID}:Confound": {
+    "NAME": "Confound",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Woozy."
   },
   "${modID}:CopingMechanism": {
     "NAME": "Coping Mechanism",
@@ -123,6 +131,10 @@
     "NAME": "Free-Drawing",
     "DESCRIPTION": "Draw !M! cards. NL Forget."
   },
+  "${modID}:Groundwork": {
+    "NAME": "Groundwork",
+    "DESCRIPTION": "Gain !B! Block. NL At the start of your next turn, Awaken !M! cards."
+  },
   "${modID}:HappyPlace": {
     "NAME": "Happy Place",
     "DESCRIPTION": "Urgent. NL End your turn and have another turn. NL Exhaust."
@@ -130,6 +142,14 @@
   "${modID}:HardReset": {
     "NAME": "Hard Reset",
     "DESCRIPTION": "Urgent. NL Lose all your Block. NL Gain [EE]. NL Draw 3 cards."
+  },
+  "${modID}:Haze": {
+    "NAME": "Haze",
+    "DESCRIPTION": "Gain !B! Block. Whenever you are attacked this turn, apply !M! Woozy to the attacker."
+  },
+  "${modID}:Hibernation": {
+    "NAME": "Hibernation",
+    "DESCRIPTION": "Whenever you forget a card, shuffle it back into your deck. NL When there are no cards in your draw pile, Die."
   },
   "${modID}:HideUnderTheCovers": {
     "NAME": "Hide Under The Covers",
@@ -151,6 +171,10 @@
     "NAME": "In One Ear",
     "DESCRIPTION": "The first time in your turn you Forget a card, draw !M! card."
   },
+  "${modID}:IntoNextWeek": {
+    "NAME": "IntoNextWeek",
+    "DESCRIPTION": "Deal !D! damage. NL Next turn, gain [E] [E]."
+  },
   "${modID}:Jumpscare": {
     "NAME": "Jumpscare",
     "DESCRIPTION": "30 damage. NL Forget."
@@ -163,6 +187,10 @@
     "NAME": "Magical Thinking",
     "DESCRIPTION": "Exchange the cost of this card with another card in your hand until the end of combat."
   },
+  "${modID}:MassSuggestion": {
+    "NAME": "Mass Suggestion",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL If remembered, apply 1 Woozy to ALL enemies."
+  },
   "${modID}:MemorySkip": {
     "NAME": "Memory Skip",
     "DESCRIPTION": "Urgent. NL Gain !B! Block. NL The next card you play costs 0."
@@ -174,6 +202,10 @@
   "${modID}:Oblivious": {
     "NAME": "Oblivious",
     "DESCRIPTION": "Whenever you Forget a card, gain !M! Block."
+  },
+  "${modID}:Opener": {
+    "NAME": "Opener",
+    "DESCRIPTION": "Urgent. NL  Deal !D! damage.  NL If this is the first card you played this turn, gain [E] and draw !M! card."
   },
   "${modID}:PavlovianResponse": {
     "NAME": "Pavlovian Response",
@@ -227,6 +259,14 @@
   "${modID}:Sleepwalk": {
     "NAME": "Sleepwalk",
     "DESCRIPTION": "Gain !B! Block. NL Draw a card. NL Forget a card."
+  },
+  "${modID}:Slumber": {
+    "NAME": "Slumber",
+    "DESCRIPTION": "Gain !B! Block. NL If you forgot a card this turn, gain [E] [E]."
+  },
+  "${modID}:Snooze": {
+    "NAME": "Snooze",
+    "DESCRIPTION": "At the start of your turn, draw !M! card. You may forget it."
   },
   "${modID}:SpinningStrike": {
     "NAME": "Spinning strike",

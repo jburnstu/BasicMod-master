@@ -20,22 +20,17 @@ public class FlashBeforeMyEyes extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int magicNumber = 3;
-//    private static final int BLOCK = 6;
-//    private static final int UPG_BLOCK = 3;
+    private int baseMagicNumber = 3;
+    private int magicUpgrade = 1;
 
     public FlashBeforeMyEyes() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.forget = true;
-        this.magicNumber = magicNumber;
         this.urgent = true;
-        setMagic(magicNumber);
-//        setBlock(BLOCK, UPG_BLOCK);
+        setMagic(baseMagicNumber,magicUpgrade);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-//        addToBot(new GainBlockAction(p,this.block));
-        addToTop(new DrawCardAction(this.magicNumber));
-        }
+        addToTop(new DrawCardAction(magicNumber));
+    }
 }
