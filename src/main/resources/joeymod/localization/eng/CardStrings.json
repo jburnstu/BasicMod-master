@@ -110,7 +110,7 @@
   },
   "${modID}:Flashback": {
     "NAME": "Flashback",
-    "DESCRIPTION": "Awaken !M! cards."
+    "DESCRIPTION": "Urgent. Awaken !M! card."
   },
   "${modID}:FlashBeforeMyEyes": {
     "NAME": "Flash Before My Eyes",

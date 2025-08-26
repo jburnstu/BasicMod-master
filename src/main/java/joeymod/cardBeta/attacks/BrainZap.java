@@ -1,5 +1,6 @@
 package joeymod.cardBeta.attacks;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -7,6 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.actions.ForgetAction;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
+import joeymod.powers.AmnesiaPower;
 import joeymod.util.CardStats;
 
 //8 Damage. Gain 1 amnesia
@@ -36,6 +38,6 @@ public class BrainZap extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
-        addToBot(new ForgetAction(magicNumber,false,false,false));
+        addToBot(new ApplyPowerAction(p,p, new AmnesiaPower(p,1)));
         };
     }

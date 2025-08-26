@@ -37,11 +37,12 @@ public class NewLeafAction extends AbstractGameAction {
     public void update() {
         if (this.duration == Settings.ACTION_DUR_MED &&
                 this.target != null) {
+            System.out.println("Made it past first if in NewLeaf");
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AbstractGameAction.AttackEffect.NONE));
             this.target.damage(this.info);
             if ((this.target.isDying || this.target.currentHealth <= 0) && !this.target.halfDead &&
                     !this.target.hasPower("Minion")) {
-                System.out.println("Made it past main if");
+                System.out.println("Made it past main if in NewLeaf");
                 CardGroup possibleCards = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
                 for (AbstractCard c : p.masterDeck.group) {
                     if (((MySleeperPlayer) p).forgottenPile.group.contains(c)) {

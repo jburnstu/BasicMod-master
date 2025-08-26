@@ -8,7 +8,7 @@ import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-//  X damage. If forgot a card this turn, gain the energy back
+//  X block. If forgot a card this turn, gain the energy back
 public class Slumber extends AbstractSleeperCard {
     public static final String ID = makeID(Slumber.class.getSimpleName());
     private static Object MyCharacter;
