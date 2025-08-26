@@ -50,6 +50,11 @@ public class Move {
                 p.hand.removeCard(backForgottenCard);}
             p.forgottenPile.removeCard(c);
             p.hand.addToHand(c);
+            for (AbstractCard otherCard : p.forgottenPile.group) {
+                if (otherCard instanceof AbstractSleeperCard) {
+                    ((AbstractSleeperCard) otherCard).triggerOnCardAwoken();
+                }
+            }
         }
     }
 }

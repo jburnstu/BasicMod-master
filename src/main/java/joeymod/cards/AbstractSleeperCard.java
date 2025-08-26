@@ -1,5 +1,6 @@
 package joeymod.cards;
 
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.util.CardStats;
@@ -30,5 +31,7 @@ public abstract class AbstractSleeperCard extends BaseCard {
     public void triggerOnForgotten () {}
 
     public void triggerOnRemembered (AbstractPlayer p, AbstractMonster m, boolean randomTarget) {}
+
+    public void triggerOnCardAwoken () {}
 
 }

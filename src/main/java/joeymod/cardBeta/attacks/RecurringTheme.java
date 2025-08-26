@@ -42,7 +42,7 @@ public class RecurringTheme extends AbstractSleeperCard {
         addToBot(new IncreaseCostAction(this.uuid, this.magicNumber));
     }
 
-    public void triggerOnCardRecollected () {
+    public void triggerOnCardAwoken() {
         if (((MySleeperPlayer) AbstractDungeon.player).forgottenPile.group.contains(this)) {
             addToBot(new AwakenSpecificCardAction(this,AbstractDungeon.player.hand));
         }
