@@ -1,4 +1,4 @@
-package joeymod.cardBeta.skills;
+package joeymod.cards.skills;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -6,13 +6,12 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
-import joeymod.powers.GroundworkPower;
 import joeymod.powers.HazePower;
 import joeymod.util.CardStats;
 
-//X block. next turn, awaken 2 cards.
-public class Groundwork extends AbstractSleeperCard {
-    public static final String ID = makeID(Groundwork.class.getSimpleName());
+//X block. when you're attacked, apply 1 woozy
+public class Haze extends AbstractSleeperCard {
+    public static final String ID = makeID(Haze.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -25,18 +24,15 @@ public class Groundwork extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
     private static final int BLOCK = 10;
     private static final int UPG_BLOCK = 5;
-    public static final int baseMagicNumber = 1;
-    public static final int magicUpgrade = 1;
 
-    public Groundwork() {
+    public Haze() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setBlock(BLOCK, UPG_BLOCK); //Sets the card's damage and how much it changes when upgraded.
-        setMagic(baseMagicNumber,magicUpgrade);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
-        addToBot(new ApplyPowerAction(p,p,new GroundworkPower(p,magicNumber)));
+        addToBot(new ApplyPowerAction(p,p,new HazePower(p,1)));
     }
 }

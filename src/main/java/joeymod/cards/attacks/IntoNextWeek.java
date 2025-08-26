@@ -1,19 +1,19 @@
-package joeymod.cardBeta.attacks;
+package joeymod.cards.attacks;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import joeymod.actions.ForgetAction;
+import com.megacrit.cardcrawl.powers.EnergizedPower;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
-import joeymod.powers.WoozyPower;
 import joeymod.util.CardStats;
 
-//X damage. Apply 2 woozy.
-public class Confound extends AbstractSleeperCard {
-    public static final String ID = makeID(Confound.class.getSimpleName());
+//x damage. gain energy next turn
+public class IntoNextWeek extends AbstractSleeperCard {
+    public static final String ID = makeID(IntoNextWeek.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -24,21 +24,20 @@ public class Confound extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int DMG = 13;
-    private static final int UPG_DMG = 0;
-    private static int baseMagicNumber = 2;
-    private static int magicUpgrade = 1;
+    private static final int DMG = 10;
+    private static final int UPG_DMG = 4;
+    int baseMagicNumber = 2;
 
-
-    public Confound() {
+    public IntoNextWeek() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
+
         setDamage(DMG, UPG_DMG); //Sets the card's damage and how much it changes when upgraded.
-        setMagic(baseMagicNumber,magicUpgrade);
+        setMagic(baseMagicNumber);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
-        addToBot(new ApplyPowerAction(p,p,new WoozyPower(p,magicNumber)));
-        };
+        addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        addToBot(new ApplyPowerAction(p, p, new EnergizedPower(p, magicNumber), magicNumber));
     }
+}
