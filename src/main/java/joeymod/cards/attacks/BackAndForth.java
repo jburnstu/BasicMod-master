@@ -27,7 +27,6 @@ public class BackAndForth extends AbstractSleeperCard {
 
     public BackAndForth() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-
         setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
         this.forget = true;
         this.magicNumber = baseMagicNumber;

@@ -24,7 +24,7 @@ public class SpiritGuidance extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int DAMAGE = 12;
+    private static final int DAMAGE = 10;
     private static final int UPG_DAMAGE = 4;
     public static final int magicNumber = 2;
 

@@ -1,5 +1,6 @@
 package joeymod.cards.skills;
 
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.cards.AbstractSleeperCard;
@@ -7,7 +8,7 @@ import joeymod.character.MySleeperPlayer;
 import joeymod.actions.BlankSlateAction;
 import joeymod.util.CardStats;
 
-//Shuffle every forgotten card in play into your deck. exhaust.
+//Gain X block. Shuffle every forgotten card in play into your deck. exhaust.
 public class BlankSlate extends AbstractSleeperCard {
     public static final String ID = makeID(BlankSlate.class.getSimpleName());
     private static Object MyCharacter;
@@ -20,16 +21,20 @@ public class BlankSlate extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
+    public int BLOCK = 3;
+    public int UPG_BLOCK = 2;
     public boolean baseExhaust = true;
     public boolean upgradeExhaust = false;
 
     public BlankSlate() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setExhaust(baseExhaust,upgradeExhaust);
+        setBlock(BLOCK,UPG_BLOCK);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new GainBlockAction(p,block));
         addToTop(new BlankSlateAction());
         }
     }

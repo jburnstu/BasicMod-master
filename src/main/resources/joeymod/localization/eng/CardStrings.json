@@ -89,11 +89,10 @@
   "${modID}:Egoism": {
     "NAME": "Egoism (Check power)",
     "DESCRIPTION": "Whenever you play a card of cost 2 or more, draw 1 card."
-
   },
   "${modID}:EnterDreams": {
     "NAME": "Enter Dreams",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Woozy."
+    "DESCRIPTION": "Remove all Woozy from the target. Deal !D! damage and draw !M! card for each Woozy removed. NL Exhaust."
   },
   "${modID}:Envelop": {
     "NAME": "Envelop",
@@ -179,6 +178,14 @@
     "NAME": "Jumpscare",
     "DESCRIPTION": "30 damage. NL Forget."
   },
+  "${modID}:Leitmotif": {
+    "NAME": "Leitmotif",
+    "DESCRIPTION": "Deal !D! damage. NL When you Awaken another card, Awaken this card (if forgotten). NL Forget."
+  },
+  "${modID}:LightSleeper": {
+    "NAME": "LightSleeper",
+    "DESCRIPTION": "Gain !B! Block. NL Draw !M! cards. NL Discard all Forgotten cards drawn this way."
+  },
   "${modID}:LucidDream": {
     "NAME": "Lucid Dream",
     "DESCRIPTION": "At the start of your turn, Awaken !M! card and gain !M! Amnesia."
@@ -186,6 +193,10 @@
   "${modID}:MagicalThinking": {
     "NAME": "Magical Thinking",
     "DESCRIPTION": "Exchange the cost of this card with another card in your hand until the end of combat."
+  },
+  "${modID}:Maladaptive": {
+    "NAME": "Maladaptive",
+    "DESCRIPTION": "Gain !M! Woozy. At the start of your turn, gain [E]."
   },
   "${modID}:MassSuggestion": {
     "NAME": "Mass Suggestion",
@@ -222,6 +233,11 @@
   "${modID}:PsychicTsunami": {
     "NAME": "Psychic Tsunami",
     "DESCRIPTION": "Deal damage equal to !M! times the number of cards you Remembered this combat.",
+    "EXTENDED_DESCRIPTION": []
+  },
+  "${modID}:Reckoning": {
+    "NAME": "Reckoning",
+    "DESCRIPTION": "Deal !D! damage for every Forgotten card in your hand.",
     "EXTENDED_DESCRIPTION": []
   },
   "${modID}:RecurringDream": {
