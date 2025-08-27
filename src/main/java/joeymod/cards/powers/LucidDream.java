@@ -28,7 +28,7 @@ public class LucidDream extends AbstractSleeperCard {
     public LucidDream() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setMagic(baseMagicNumber);
-        setCostUpgrade(2);
+        setCostUpgrade(1);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

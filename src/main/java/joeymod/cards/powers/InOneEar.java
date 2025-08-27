@@ -22,23 +22,21 @@ public class InOneEar extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
+    public int baseMagicNumber = 2;
 
     public InOneEar() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.baseMagicNumber = 1;
-        this.magicNumber = this.baseMagicNumber;
-        setMagic(magicNumber);
-        setCostUpgrade(1);
+        setMagic(baseMagicNumber);
+        setCostUpgrade(0);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new InOneEarPower(p,this.magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new InOneEarPower(p,magicNumber)));
     }
 
     public void upgrade() {
         if (!this.upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
         }
     }
 

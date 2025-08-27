@@ -41,6 +41,11 @@
     "NAME": "Catharsis",
     "DESCRIPTION": "Deal !D! damage. NL Awaken !M! card."
   },
+  "${modID}:CircadianRhythm": {
+    "NAME": "Circadian Rhythm",
+    "DESCRIPTION": "At the start of your turn, draw !M! card. NL At the end of your turn, Forget !M! card.",
+    "UPGRADED_DESCRIPTION": "Innate. NL At the start of your turn, draw !M! card. NL At the end of your turn, Forget !M! card."
+  },
   "${modID}:Closure": {
     "NAME": "Closure",
     "DESCRIPTION": "Deal !D! damage. NL If this card is Remembered, gain !M! health. NL Exhaust."
@@ -170,8 +175,7 @@
   },
   "${modID}:InOneEar": {
     "NAME": "In One Ear",
-    "DESCRIPTION": "The first time in your turn you Forget a card, draw !M! card.",
-    "UPGRADED_DESCRIPTION": "The first time in your turn you Forget a card, draw !M! cards."
+    "DESCRIPTION": "The first time in your turn you Remember a card, draw !M! cards."
   },
   "${modID}:IntoNextWeek": {
     "NAME": "IntoNextWeek",
@@ -287,10 +291,6 @@
   "${modID}:Slumber": {
     "NAME": "Slumber",
     "DESCRIPTION": "Gain !B! Block. NL If you forgot a card this turn, gain [E] [E]."
-  },
-  "${modID}:Snooze": {
-    "NAME": "Snooze (Don't take)",
-    "DESCRIPTION": "At the start of your turn, draw !M! card. You may forget it."
   },
   "${modID}:SpinningStrike": {
     "NAME": "Spinning strike",

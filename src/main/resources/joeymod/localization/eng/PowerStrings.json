@@ -13,6 +13,15 @@
       " cards you play."
     ]
   },
+  "${modID}:CircadianRhythmPower": {
+    "NAME": "Circadian",
+    "DESCRIPTIONS": [
+      "At the start of your turn, draw #b1 card. At the end of your turn, Forget #b1 card.",
+      "At the start of your turn, draw #b",
+      " cards. At the end of your turn, Forget #b",
+      " cards."
+    ]
+  },
   "${modID}:ComaPower": {
     "NAME": "Coma",
     "DESCRIPTIONS": [
@@ -81,8 +90,8 @@
   "${modID}:InOneEarPower": {
     "NAME": "In One Ear",
     "DESCRIPTIONS": [
-      "The first time each turn you Forget a card, draw #b1 card",
-      "The first time each turn you Forget a card, draw #b",
+      "The first time each turn you Remember a card, draw #b1 cards",
+      "The first time each turn you Remember a card, draw #b",
       " cards."
     ]
   },
@@ -132,15 +141,6 @@
     "NAME": "Self Discovery",
     "DESCRIPTIONS": [
       "Whenever you Awaken a card, upgrade it."
-    ]
-  },
-  "${modID}:SnoozePower": {
-    "NAME": "Snooze",
-    "DESCRIPTIONS": [
-      "At the start of your turn, draw #b1 card. At the end of your turn, Forget #b1 card.",
-      "At the start of your turn, draw #b",
-      " cards. At the end of your turn, Forget #b",
-      " cards."
     ]
   },
   "${modID}:Subliminal": {

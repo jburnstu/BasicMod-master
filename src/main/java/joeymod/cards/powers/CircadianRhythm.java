@@ -6,12 +6,12 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
-import joeymod.powers.DaydreamPower;
+import joeymod.powers.CircadianRhythmPower;
 import joeymod.util.CardStats;
 
-//Draw one card at the start of each turn. you can choose to forget it
-public class Snooze extends AbstractSleeperCard {
-    public static final String ID = makeID(Snooze.class.getSimpleName());
+//Draw one card at the start of each turn. Forget 1 card at the end of each turn.
+public class CircadianRhythm extends AbstractSleeperCard {
+    public static final String ID = makeID(CircadianRhythm.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -24,15 +24,18 @@ public class Snooze extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
 
     public int baseMagicNumber = 1;
-    int magicUpgrade = 1;
+    int magicUpgrade = 0;
+    public boolean innate = false;
+    public boolean innateUpgraded = true;
 
-    public Snooze() {
+    public CircadianRhythm() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setMagic(baseMagicNumber, magicUpgrade);
+        setInnate(innate,innateUpgraded);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p,p,new DaydreamPower(p,magicNumber)));
+        addToBot(new ApplyPowerAction(p,p,new CircadianRhythmPower(p,magicNumber)));
     }
 
     public void upgrade() {
@@ -43,6 +46,6 @@ public class Snooze extends AbstractSleeperCard {
     }
 
     public AbstractCard makeCopy() {
-        return new Snooze();
+        return new CircadianRhythm();
     }
 }
