@@ -52,6 +52,14 @@ public class Transparent extends AbstractSleeperCard {
         }
     }
 
+    @Override
+    public void triggerOnOtherCardDrawn(AbstractCard c) {
+        if (c instanceof ForgottenCard) {
+            setCostForTurn(this.cost -1);
+        }
+    }
+
+
     public void triggerWhenDrawn() {
         super.triggerWhenDrawn();
         int forgottenCardsInHand = 0;

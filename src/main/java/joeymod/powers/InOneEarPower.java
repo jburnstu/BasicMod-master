@@ -4,6 +4,8 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import joeymod.cards.ForgottenCard;
 
 import static joeymod.JoeyBasicMod.makeID;
 
@@ -27,8 +29,8 @@ public class InOneEarPower extends AbstractSleeperPower {
     }
 
     @Override
-    public void onForget(AbstractCard card) {
-        if (!usedThisTurn) {
+    public void onPlayCard(AbstractCard card, AbstractMonster m) {
+        if (!usedThisTurn && card instanceof ForgottenCard) {
             addToTop(new DrawCardAction(this.owner, this.amount));
             usedThisTurn = true;
         }

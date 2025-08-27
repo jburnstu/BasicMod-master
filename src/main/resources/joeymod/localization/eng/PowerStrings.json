@@ -11,7 +11,6 @@
       "Forget the next card you play.",
       "Forget the next #b",
       " cards you play."
-
     ]
   },
   "${modID}:ComaPower": {
@@ -82,8 +81,8 @@
   "${modID}:InOneEarPower": {
     "NAME": "In One Ear",
     "DESCRIPTIONS": [
-      "The first time each turn you forget a card, draw #b1 card",
-      "The first time each turn you forget a card, draw #b",
+      "The first time each turn you Forget a card, draw #b1 card",
+      "The first time each turn you Forget a card, draw #b",
       " cards."
     ]
   },
@@ -91,49 +90,57 @@
     "NAME": "Lucidity",
     "DESCRIPTIONS": [
       "At the start of your turn, gain #b",
-      " Amnesia and Recollect #b"
+      " Amnesia and Awaken #b"
     ]
   },
   "${modID}:ObliviousPower": {
     "NAME": "Oblivious",
     "DESCRIPTIONS": [
-      "When you forget a card, gain #b",
-      " block."
+      "When you Forget a card, gain #b",
+      " Block."
     ]
   },
   "${modID}:PavlovianResponsePower": {
     "NAME": "Pavlovian Response",
     "DESCRIPTIONS": [
-      "When you remember an attack, gain #b",
+      "When you Remember an Attack, gain #b",
       " strength."
     ]
   },
   "${modID}:PsychicStormPower": {
     "NAME": "Psychic Storm",
     "DESCRIPTIONS": [
-      "When you play an attack from forgotten, deal it attack damage to ALL enemies."
+      "When you play an Attack from Forgotten, deal its attack damage to ALL enemies."
     ]
   },
   "${modID}:RecurringDreamPower": {
     "NAME": "Recurring Dream",
     "DESCRIPTIONS": [
-      "This turn, the next forgotten card you play is played twice.",
+      "This turn, the next Forgotten card you play is played twice.",
       "This turn, the next #b",
-      " cards you play are played twice."
+      " Forgotten cards you play are played twice."
     ]
   },
   "${modID}:REMSleepPower": {
     "NAME": "REM Sleep",
     "DESCRIPTIONS": [
-      "When you draw a forgotten card, gain #b",
+      "When you draw a Forgotten card, gain #b",
       " Vigor."
+    ]
+  },
+  "${modID}:SelfDiscoveryPower": {
+    "NAME": "Self Discovery",
+    "DESCRIPTIONS": [
+      "Whenever you Awaken a card, upgrade it."
     ]
   },
   "${modID}:SnoozePower": {
     "NAME": "Snooze",
     "DESCRIPTIONS": [
+      "At the start of your turn, draw #b1 card. At the end of your turn, Forget #b1 card.",
       "At the start of your turn, draw #b",
-      " weak to all enemies."
+      " cards. At the end of your turn, Forget #b",
+      " cards."
     ]
   },
   "${modID}:Subliminal": {

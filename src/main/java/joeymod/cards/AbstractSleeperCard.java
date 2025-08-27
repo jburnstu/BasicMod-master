@@ -34,4 +34,6 @@ public abstract class AbstractSleeperCard extends BaseCard {
 
     public void triggerOnCardAwoken () {}
 
+    public void triggerOnOtherCardDrawn (AbstractCard c) {}
+
 }

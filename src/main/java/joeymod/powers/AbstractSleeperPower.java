@@ -31,6 +31,8 @@ public abstract class AbstractSleeperPower extends BasePower {
 
     public void onForget (AbstractCard card) {}
 
+    public void onAwaken(AbstractCard card) {}
+
     public void updateDescription() {
         switch (DESCRIPTIONS.length) {
             case 1:
