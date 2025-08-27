@@ -39,13 +39,13 @@ public class MassSuggestion extends AbstractSleeperCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAllEnemiesAction(p, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         for (AbstractCreature mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            addToBot(new ApplyPowerAction(mo, p, new WoozyPower(p,1)));}
+            addToBot(new ApplyPowerAction(mo, p, new WoozyPower(m,1)));}
     }
 
     @Override
     public void triggerOnRemembered(AbstractPlayer p, AbstractMonster m, boolean randomTarget) {
         for (AbstractCreature mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            addToBot(new ApplyPowerAction(mo, p, new WoozyPower(p,1)));
+            addToBot(new ApplyPowerAction(mo, p, new WoozyPower(m,1)));
         }
     }
 }

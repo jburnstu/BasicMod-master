@@ -52,6 +52,7 @@ public abstract class AbstractSleeperPower extends BasePower {
 
     public void alterAmountAtEndOfTurn() {
         if (this.reduceAtEndOfTurn) {
+            System.out.println("ID of power reduced:"+this.ID);
             addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
         } else if (this.removeAtEndOfTurn){
             addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));

@@ -18,12 +18,11 @@ public class WoozyPower extends AbstractSleeperPower {
     public static final String POWER_ID = makeID(WoozyPower.class.getSimpleName());
     private static final PowerType TYPE = PowerType.DEBUFF;
     private static final boolean TURN_BASED = false;
-    public boolean reduceAtEndOfTurn = true;
+    public boolean reduceAtEnd = true;
 
     public WoozyPower(AbstractCreature owner, int amount) {
-
         super(POWER_ID, TYPE, false, owner, amount);
-        this.reduceAtEndOfTurn = reduceAtEndOfTurn;
+        this.reduceAtEndOfTurn = reduceAtEnd;
     }
 
     @Override

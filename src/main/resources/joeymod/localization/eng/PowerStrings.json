@@ -44,7 +44,7 @@
       "?"
     ]
   },
-  "${modID}:Egoism": {
+  "${modID}:EgoismPower": {
   "NAME": "Ego",
   "DESCRIPTIONS": [
     "When you play a card of cost 2+, draw #b1 extra card next turn.",
@@ -143,14 +143,14 @@
       "Whenever you Awaken a card, upgrade it."
     ]
   },
-  "${modID}:Subliminal": {
+  "${modID}:SubliminalPower": {
     "NAME": "Subliminal",
     "DESCRIPTIONS": [
       "When you remember a skill, apply #b",
       " weak to all enemies."
     ]
   },
-  "${modID}:Woozy": {
+  "${modID}:WoozyPower": {
     "NAME": "Woozy",
     "DESCRIPTIONS": [
       "When you target this enemy with a Forgotten card, it loses #b",

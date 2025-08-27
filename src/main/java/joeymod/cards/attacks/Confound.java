@@ -38,6 +38,6 @@ public class Confound extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
-        addToBot(new ApplyPowerAction(p,p,new WoozyPower(p,magicNumber)));
+        addToBot(new ApplyPowerAction(p,p,new WoozyPower(m,magicNumber)));
         };
     }
