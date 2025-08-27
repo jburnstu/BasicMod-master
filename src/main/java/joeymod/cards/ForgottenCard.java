@@ -41,7 +41,7 @@ public class ForgottenCard extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.p.forgottenPile.group.remove(this.frontForgottenCard);
-        addToBot(new NewQueueCardAction(this.frontForgottenCard, false, false, true));
+        addToBot(new NewQueueCardAction(this.frontForgottenCard, m));
         if (this.frontForgottenCard instanceof AbstractSleeperCard) {
 //            this.p.hand.addToHand(this.forgottenCard);
             ((AbstractSleeperCard) this.frontForgottenCard).triggerOnRemembered(p,m,true);
