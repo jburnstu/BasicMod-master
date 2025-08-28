@@ -1,18 +1,15 @@
-package joeymod.cards.skills;
+package joeymod.cardBeta.skills;
 
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import joeymod.actions.ForgetAction;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-//6 block. if played from forgotten, gain an additional 6 block.
-public class WakeFromDanger extends AbstractSleeperCard {
-    public static final String ID = makeID(WakeFromDanger.class.getSimpleName());
+//X block
+public class Startle extends AbstractSleeperCard {
+    public static final String ID = makeID(Startle.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -23,21 +20,17 @@ public class WakeFromDanger extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int BLOCK = 6;
-    private static final int UPG_BLOCK = 3;
+    private static final int BLOCK = 10;
+    private static final int UPG_BLOCK = 5;
 
-    public WakeFromDanger() {
+    public Startle() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
+
         setBlock(BLOCK, UPG_BLOCK); //Sets the card's damage and how much it changes when upgraded.
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
-    }
-
-    @Override
-    public void triggerOnRemembered(AbstractPlayer p, AbstractMonster m, boolean randomTarget) {
-    addToTop(new GainBlockAction(p, block));
     }
 }
