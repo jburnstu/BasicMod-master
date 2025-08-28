@@ -37,7 +37,7 @@ public class PsychicTsunami extends AbstractSleeperCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 //        int numberOfForgottenCards = ((MySleeperPlayer) AbstractDungeon.player).cardsRememberedThisCombat.size();
 //        damage = numberOfForgottenCards * this.magicNumber;
-        calculateCardDamage(null);
+        calculateCardDamage(m);
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
                 System.out.println("Psychic Tsunami dealt" + damage);
     }

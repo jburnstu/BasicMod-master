@@ -23,20 +23,25 @@ public class Envelop extends AbstractSleeperCard {
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
     private static final int baseMagicNumber = 1;
+    public static final int magicUpgrade = 1;
 
     public Envelop() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        setMagic(baseMagicNumber);
+        this.baseBlock = 0;
+        setMagic(baseMagicNumber,magicUpgrade);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainBlockAction(p, p, block));
+        int numberOfForgottenCards = ((MySleeperPlayer) AbstractDungeon.player).forgottenPile.size();
+        System.out.println("number of forgotten cards" + numberOfForgottenCards);
+        this.baseBlock = numberOfForgottenCards * baseMagicNumber;
+        addToBot(new GainBlockAction(p, p, this.block));
     }
 
     public void applyPowers() {
         int numberOfForgottenCards = ((MySleeperPlayer) AbstractDungeon.player).forgottenPile.size();
         System.out.println("number of forgotten cards" + numberOfForgottenCards);
-        this.block = numberOfForgottenCards * baseMagicNumber;
+        this.baseBlock = numberOfForgottenCards * baseMagicNumber;
         super.applyPowers();
         this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         initializeDescription();

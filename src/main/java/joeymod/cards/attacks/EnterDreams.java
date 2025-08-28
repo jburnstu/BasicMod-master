@@ -27,14 +27,14 @@ public class EnterDreams extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
     private static final int DAMAGE = 6;
     private static final int UPG_DAMAGE = 2;
-//    private static int baseMagicNumber = 1;
+    private static int baseMagicNumber = 1;
 
     public EnterDreams() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.exhaust = true;
         setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
-//        this.magicNumber = baseMagicNumber;
-//        setMagic(magicNumber);
+        this.magicNumber = baseMagicNumber;
+        setMagic(magicNumber);
     }
 
     @Override

@@ -1,4 +1,17 @@
 {
+  "Amnesia": {
+    "NAMES": [
+      "amnesia"
+    ],
+    "DESCRIPTION": "When you Remember a card, if you have Amnesia, Exhaust the card and reduce your Amnesia by 1."
+  },
+  "AWAKEN": {
+    "NAMES": [
+      "awaken",
+      "awakened"
+    ],
+    "DESCRIPTION": "Remove the Forgotten condition from a Forgotten card anywhere in play, and add it to your hand. This does !bnot!b count as Remembering the card."
+  },
   "FORGET": {
     "NAMES": [
       "forget",
@@ -21,18 +34,11 @@
     ],
     "DESCRIPTION": "Removes the Forgotten condition from a card and plays it."
   },
-  "AWAKEN": {
-    "NAMES": [
-      "awaken",
-      "awakened"
-    ],
-    "DESCRIPTION": "Remove the Forgotten condition from a Forgotten card anywhere in play, and add it to your hand. This does !bnot!b count as Remembering the card."
-  },
   "WOOZY": {
     "NAMES": [
       "woozy"
     ],
-    "DESCRIPTION": "Enemies lose HP equal to their Woozy whenever you target them with a Forgotten card."
+    "DESCRIPTION": "Creatures lose HP equal to their Woozy whenever you Remember a card."
   }
 }
 
