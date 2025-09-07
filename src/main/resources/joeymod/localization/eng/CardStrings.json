@@ -114,8 +114,8 @@
   },
   "${modID}:Flashback": {
     "NAME": "Flashback",
-    "DESCRIPTION": "Urgent. Awaken !M! card.",
-    "UPGRADED_DESCRIPTION": "Urgent. Awaken !M! cards."
+    "DESCRIPTION": "Urgent. NL Awaken !M! card. NL Exhaust.",
+    "UPGRADED_DESCRIPTION": "Urgent. NL Awaken !M! cards. NL Exhaust."
   },
   "${modID}:FlashBeforeMyEyes": {
     "NAME": "Flash Before My Eyes",
@@ -244,12 +244,12 @@
   "${modID}:PsychicTsunami": {
     "NAME": "Psychic Tsunami",
     "DESCRIPTION": "Deal damage equal to !M! times the number of cards you Remembered this combat.",
-    "EXTENDED_DESCRIPTION": []
+    "EXTENDED_DESCRIPTION": [""]
   },
   "${modID}:Reckoning": {
     "NAME": "Reckoning",
     "DESCRIPTION": "Deal !D! damage for every Forgotten card in your hand.",
-    "EXTENDED_DESCRIPTION": []
+    "EXTENDED_DESCRIPTION": [""]
   },
   "${modID}:RecurringDream": {
     "NAME": "RecurringDream",

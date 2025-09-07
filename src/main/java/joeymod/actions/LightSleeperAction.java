@@ -17,7 +17,7 @@ public class LightSleeperAction extends AbstractGameAction {
         tickDuration();
         if (this.isDone) {
             for (AbstractCard c : DrawCardAction.drawnCards) {
-                if (c instanceof ForgottenCard) {
+                if (!(c instanceof ForgottenCard)) {
                     AbstractDungeon.player.hand.moveToDiscardPile(c);
                     c.triggerOnManualDiscard();
                     GameActionManager.incrementDiscard(false);

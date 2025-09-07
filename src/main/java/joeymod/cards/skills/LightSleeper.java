@@ -9,7 +9,7 @@ import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
 
-//  X block. draw cards and discard (forget?) non forgotten
+//   X block. draw cards and discard (forget?) non forgotten
 public class LightSleeper extends AbstractSleeperCard {
     public static final String ID = makeID(LightSleeper.class.getSimpleName());
     private static Object MyCharacter;
