@@ -1,7 +1,7 @@
 {
   "${modID}:DreamJournal": {
-    "NAME": "Eye Mask",
-    "FLAVOR": "The total darkness this mask creates is oddly comforting.",
+    "NAME": "Dream Journal",
+    "FLAVOR": "I've been meaning to keep one of these for ages!",
     "DESCRIPTIONS": [
       "Cards now remain forgotten between combats."
     ]
@@ -10,7 +10,7 @@
     "NAME": "Eye Mask",
     "FLAVOR": "The total darkness this mask creates is oddly comforting.",
     "DESCRIPTIONS": [
-      "Cards now remain forgotten between combats."
+      "???"
     ]
   },
   "${modID}:GoodJobSticker": {
@@ -29,7 +29,7 @@
   },
   "${modID}:LavaLamp": {
     "NAME": "Lava Lamp",
-    "FLAVOR": "The total darkness this mask creates is oddly comforting.",
+    "FLAVOR": "Staring too long at the globs of light gives you a headache.",
     "DESCRIPTIONS": [
       "Every time you play three forgotten cards in a turn, apply 1 woozy to all enemies."
     ]
