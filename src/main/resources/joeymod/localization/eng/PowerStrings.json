@@ -150,6 +150,14 @@
       " weak to all enemies."
     ]
   },
+  "${modID}:VisionPower": {
+    "NAME": "Vision",
+    "DESCRIPTIONS": [
+      "The next Forgotten card you play costs zero. Until then, all Forgotten cards are Urgent.",
+      "The next",
+      "Forgotten cards you play cost zero. Until then, all Forgotten cards are Urgent."
+    ]
+  },
   "${modID}:WoozyPower": {
     "NAME": "Woozy",
     "DESCRIPTIONS": [

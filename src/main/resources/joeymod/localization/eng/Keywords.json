@@ -34,6 +34,12 @@
     ],
     "DESCRIPTION": "Removes the Forgotten condition from a card and plays it."
   },
+  "VISION": {
+    "NAMES": [
+      "vision"
+    ],
+    "DESCRIPTION": "Forgotten Cards are Urgent and free to play. Resets at the end of your turn."
+  },
   "WOOZY": {
     "NAMES": [
       "woozy"

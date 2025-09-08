@@ -3,11 +3,7 @@ package joeymod;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.*;
-import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.google.gson.reflect.TypeToken;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import joeymod.cards.BaseCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.patches.CardColorEnum;
@@ -37,8 +33,6 @@ import com.badlogic.gdx.graphics.Color;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
-
-import static com.badlogic.gdx.graphics.Color.RED;
 
 @SpireInitializer
 public class JoeyBasicMod implements
@@ -106,7 +100,7 @@ public class JoeyBasicMod implements
     @Override
     public void receiveEditRelics() { //somewhere in the class
         BaseMod.addRelicToCustomPool(new LavaLamp(),  CardColorEnum.SLEEPER);
-        BaseMod.addRelicToCustomPool(new EyeMask(),  CardColorEnum.SLEEPER);
+        BaseMod.addRelicToCustomPool(new DreamJournal(),  CardColorEnum.SLEEPER);
         BaseMod.addRelicToCustomPool(new GoodJobSticker(),  CardColorEnum.SLEEPER);
         BaseMod.addRelicToCustomPool(new IncenseHolder(),  CardColorEnum.SLEEPER);
         BaseMod.addRelicToCustomPool(new LavaLamp(),  CardColorEnum.SLEEPER);

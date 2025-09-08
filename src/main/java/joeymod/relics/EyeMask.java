@@ -1,31 +1,17 @@
 package joeymod.relics;
 
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import joeymod.actions.Move;
-import joeymod.cards.ForgottenCard;
-import joeymod.patches.AbstractCardBackForgottenCardPatch;
-
-import java.util.ArrayList;
+import joeymod.actions.DreamJournalAction;
 
 import static joeymod.JoeyBasicMod.makeID;
 
-
-// Forgotten cards remain forgotten in between combats.
+// Choose one card in hand at end of combat, starts next round in hand.
 public class EyeMask extends AbstractSleeperRelic {
     public static final String ID = makeID(EyeMask.class.getSimpleName());
-    private static final RelicTier RARITY = RelicTier.BOSS; //The relic's rarity.
-    private static final LandingSound SOUND = LandingSound.CLINK; //The sound played when the relic is clicked.
+
 
     public EyeMask() {
-        super(ID, RARITY,SOUND);
-        System.out.println("TeddyBear constructor called....");
-    }
-
-    public String getUpdatedDescription() {
-        return "Try this";
+        super(ID, RelicTier.STARTER, LandingSound.MAGICAL);
     }
 
 
@@ -33,26 +19,10 @@ public class EyeMask extends AbstractSleeperRelic {
         return new EyeMask();
     }
 
-    public ArrayList<AbstractCard> cardsToRemainForgotten;
-
-
-    @Override
-    public void atBattleStartPreDraw () {
-        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-            if (cardsToRemainForgotten.contains(c)) {
-                Move.toForgottenPile(AbstractDungeon.player.drawPile,c,false);
-            }
-        }
-        cardsToRemainForgotten.clear();
-    }
-
     @Override
     public void onVictory () {
-        flash();
-        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-            if (!(AbstractCardBackForgottenCardPatch.backForgottenCard.get(c) == null)) {
-                cardsToRemainForgotten.add(c);
-            }
-        }
+        addToBot(new DreamJournalAction());
     }
+
+
 }

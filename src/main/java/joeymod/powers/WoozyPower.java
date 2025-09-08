@@ -26,13 +26,8 @@ public class WoozyPower extends AbstractSleeperPower {
     }
 
     @Override
-    public void onPlayCard(AbstractCard c, AbstractMonster m) {
-        if (c instanceof ForgottenCard) {
-            flash();
-            addToBot(new LoseHPAction(this.owner,null,this.amount, AbstractGameAction.AttackEffect.FIRE));
-            }
-        }
-
-
-
+    public void onForget(AbstractCard c) {
+        flash();
+        addToBot(new LoseHPAction(this.owner,null,this.amount, AbstractGameAction.AttackEffect.FIRE));
+    }
 }

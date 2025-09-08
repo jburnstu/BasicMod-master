@@ -61,6 +61,9 @@ public abstract class AbstractSleeperPower extends BasePower {
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        alterAmountAtEndOfTurn();
+        if (isPlayer) {
+            alterAmountAtEndOfTurn();
+        }
     }
+
 }

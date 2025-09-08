@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.character.MySleeperPlayer;
 import joeymod.patches.AbstractCardBackForgottenCardPatch;
+import joeymod.powers.VisionPower;
 import joeymod.util.CardStats;
 
 public class ForgottenCard extends AbstractSleeperCard {
@@ -39,6 +40,25 @@ public class ForgottenCard extends AbstractSleeperCard {
     }
 
     @Override
+    public void applyPowers() {
+        super.applyPowers();
+        if (AbstractDungeon.player.hasPower(VisionPower.POWER_ID)) {
+            this.urgent = true;
+            this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0] + cardStrings.DESCRIPTION;
+        } else {
+            this.rawDescription = cardStrings.DESCRIPTION;
+            this.urgent = false;
+        }
+        initializeDescription();
+    }
+
+
+    public void onMoveToDiscard() {
+        this.rawDescription = cardStrings.DESCRIPTION;
+        initializeDescription();
+    }
+
+    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.p.forgottenPile.group.remove(this.frontForgottenCard);
 
@@ -51,7 +71,6 @@ public class ForgottenCard extends AbstractSleeperCard {
                 break;
             default:
                 addToBot(new NewQueueCardAction(this.frontForgottenCard, m, true, true));
-
         }
 
         if (this.frontForgottenCard.target == CardTarget.ENEMY) {

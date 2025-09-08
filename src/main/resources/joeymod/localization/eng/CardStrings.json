@@ -130,8 +130,8 @@
     "NAME": "Forgotten Card",
     "DESCRIPTION": "Remember.",
     "EXTENDED_DESCRIPTION": [
-      "Until you play this card, its action is hidden and its cost is changed to 1. It is remembered when played."
-    ]
+        "Urgent. NL "
+         ]
   },
   "${modID}:FreeDrawing": {
     "NAME": "Free-Drawing",
@@ -207,7 +207,7 @@
   },
   "${modID}:MassSuggestion": {
     "NAME": "Mass Suggestion",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL If remembered, apply 1 Woozy to ALL enemies."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL If this card is Remembered, apply 1 Woozy to ALL enemies."
   },
   "${modID}:MemorySkip": {
     "NAME": "Memory Skip",
