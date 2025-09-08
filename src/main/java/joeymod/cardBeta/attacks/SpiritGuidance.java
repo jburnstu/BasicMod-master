@@ -1,4 +1,4 @@
-package joeymod.cards.attacks;
+package joeymod.cardBeta.attacks;
 
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
