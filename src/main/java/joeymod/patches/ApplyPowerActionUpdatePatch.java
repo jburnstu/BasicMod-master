@@ -15,18 +15,17 @@ import joeymod.actions.Move;
 import joeymod.cards.AbstractSleeperCard;
 
 
-@SpirePatch(clz = ApplyPowerAction.class, method = SpirePatch.CONSTRUCTOR,
+@SpirePatch(clz = ApplyPowerAction.class, method = "<ctor>",
                         paramtypez={AbstractCreature.class,
                             AbstractCreature.class,
                             AbstractPower.class,
                             int.class,
                             boolean.class,
-                            AbstractGameAction.AttackEffect.class})
+                            AbstractGameAction.AttackEffect.class}
+)
 public class ApplyPowerActionUpdatePatch {
-
-//    static Logger log = Logger.getLogger("MyLogger");
-    @SpireInsertPatch(locator = Locator.class,localvars = {"source","target","powerToApply","amount"})
-    public static void Insert(UseCardAction _self, AbstractCreature source, AbstractCreature target, AbstractPower powerToApply) {
+    @SpireInsertPatch(locator = Locator.class)
+    public static void Insert(ApplyPowerAction _self, AbstractCreature target,  AbstractCreature source,AbstractPower powerToApply) {
         if (AbstractDungeon.player.hasRelic("LavaLamp") && source != null && source.isPlayer && target != source && powerToApply.ID
                 .equals("Woozy")) {
             AbstractDungeon.player.getRelic("LavaLamp").flash();

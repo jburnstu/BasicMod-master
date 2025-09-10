@@ -9,6 +9,14 @@
       "Blizzard is a good example for this."
     ]
   },
+  "${modID}:AbsentMinded": {
+    "NAME": "Absent-Minded",
+    "DESCRIPTION": "Play and Forget the top card in your draw pile."
+  },
+  "${modID}:Accuse": {
+    "NAME": "Accuse",
+    "DESCRIPTION": "Apply !M! Vulnerable. NL Gain !M! Vision."
+  },
   "${modID}:AlterEgo": {
     "NAME": "Alter Ego",
     "DESCRIPTION": "Deal !D! damage. NL Forget all other attack cards in your hand."
@@ -20,6 +28,10 @@
   "${modID}:AndAnotherThing": {
     "NAME": "And Another Thing",
     "DESCRIPTION": "Awaken !M! card. NL If the car you choose costs [EE] or more, Awaken another card."
+  },
+  "${modID}:Atemporality": {
+    "NAME": "Atemporality",
+    "DESCRIPTION": "Deal !D! Damage. NL Forget the top card of your deck."
   },
   "${modID}:BackAndForth": {
     "NAME": "Back And Forth",
@@ -46,6 +58,10 @@
     "DESCRIPTION": "At the start of your turn, draw !M! card. NL At the end of your turn, Forget !M! card.",
     "UPGRADED_DESCRIPTION": "Innate. NL At the start of your turn, draw !M! card. NL At the end of your turn, Forget !M! card."
   },
+  "${modID}:ChosenOne": {
+    "NAME": "ChosenOne",
+    "DESCRIPTION": "Deal !D! damage. NL Whenever you attack this enemy, gain !M! Vision."
+  },
   "${modID}:Closure": {
     "NAME": "Closure",
     "DESCRIPTION": "Deal !D! damage. NL If this card is Remembered, gain !M! health. NL Exhaust."
@@ -53,6 +69,10 @@
   "${modID}:Coma": {
     "NAME": "Coma",
     "DESCRIPTION": "Forgotten cards cost zero this turn. NL This turn, when you draw a card that is not Forgotten, discard it. Exhaust."
+  },
+  "${modID}:Commune": {
+    "NAME": "Commune",
+    "DESCRIPTION": "Gain !B! Block and !M! Vision. NL Draw 1 card. NL If it is a Forgotten card, play this card again."
   },
   "${modID}:Compulsion": {
     "NAME": "Compulsion",
@@ -91,6 +111,10 @@
     "NAME": "Dream Traveler",
     "DESCRIPTION": "Deal !D! damage. NL Transform this card for the rest of combat."
   },
+  "${modID}:Drudge": {
+    "NAME": "Drudge",
+    "DESCRIPTION": "Deal !D! damage. NL Put the next non-Forgotten card in your draw pile into your hand."
+  },
   "${modID}:Egoism": {
     "NAME": "Egoism (Check power)",
     "DESCRIPTION": "Whenever you play a card of cost 2 or more, draw 1 card."
@@ -121,10 +145,14 @@
     "NAME": "Flash Before My Eyes",
     "DESCRIPTION": "Urgent. NL Draw !M! cards."
   },
+  "${modID}:FlashForward": {
+    "NAME": "Flashforward",
+    "DESCRIPTION": "Urgent. NL Gain !M! Vision. NL Draw !M! card. Exhaust.",
+    "UPGRADED_DESCRIPTION": "Urgent. Gain !M! Vision. NL Draw !M! cards. NL Exhaust."
+  },
   "${modID}:Foreshadowing": {
     "NAME": "Foreshadowing",
-    "DESCRIPTION": "Awaken !M! card. NL If you choose an attack, apply 1 Vulnerable to ALL enemies.",
-    "UPGRADED_DESCRIPTION": "Awaken !M! cards. NL For each attack you choose, apply 1 Vulnerable to ALL enemies."
+    "DESCRIPTION": "Whenever you awaken a Skill this turn, apply !M! Weak to ALL enemies. Awaken !M! card."
   },
   "${modID}:ForgottenCard": {
     "NAME": "Forgotten Card",
@@ -136,6 +164,10 @@
   "${modID}:FreeDrawing": {
     "NAME": "Free-Drawing",
     "DESCRIPTION": "Draw !M! cards. NL Forget."
+  },
+  "${modID}:GrandRitual": {
+    "NAME": "Grand Ritual",
+    "DESCRIPTION": "Awaken X cards. NL Gain X Vision."
   },
   "${modID}:Groundwork": {
     "NAME": "Groundwork",
@@ -191,11 +223,15 @@
   },
   "${modID}:LightSleeper": {
     "NAME": "LightSleeper",
-    "DESCRIPTION": "Gain !B! Block. NL Draw !M! cards. NL Discard all Forgotten cards drawn this way."
+    "DESCRIPTION": "Gain !B! Block. NL Draw !M! cards. NL Forget all cards drawn this way except for Forgotten cards."
   },
   "${modID}:LucidDream": {
     "NAME": "Lucid Dream",
     "DESCRIPTION": "At the start of your turn, Awaken !M! card and gain !M! Amnesia."
+  },
+  "${modID}:Lurch": {
+    "NAME": "Lurch",
+    "DESCRIPTION": "Deal !D! Damage. NL Forget the top card of your draw pile."
   },
   "${modID}:MagicalThinking": {
     "NAME": "Magical Thinking",
@@ -232,6 +268,14 @@
   "${modID}:PavlovianResponse": {
     "NAME": "Pavlovian Response",
     "DESCRIPTION": "Whenever you Remember an Attack, gain !M! Strength."
+  },
+  "${modID}:Precog": {
+    "NAME": "Precog",
+    "DESCRIPTION": "Deal !D! damage. NL If the target intends to attack, gain !M! Vision."
+  },
+  "${modID}:Premonition": {
+    "NAME": "Premonition",
+    "DESCRIPTION": "Deal !D! damage. NL Next turn, gain !M! Vision."
   },
   "${modID}:PsionicScream": {
     "NAME": "Psionic Scream",
@@ -317,13 +361,17 @@
     "NAME": "Subliminal",
     "DESCRIPTION": "Whenever you Remember a Skill, apply !M! Woozy to the targeted enemy."
   },
+  "${modID}:TheatreOfTheMind": {
+    "NAME": "Theatre Of The Mind",
+    "DESCRIPTION": "Gain !M! Vision for each Forgotten Card in your hand."
+  },
   "${modID}:Thrash": {
     "NAME": "Thrash",
     "DESCRIPTION": "Deal !D! damage !M! times. NL Forget."
   },
   "${modID}:Torpor": {
     "NAME": "Torpor",
-    "DESCRIPTION": "Apply !M! Weak to ALL enemies. NL Gain !M! Amnesia. NL Exhaust."
+    "DESCRIPTION": "At the start of your turn, apply !M! Woozy to ALL enemies."
   },
   "${modID}:Trauma": {
     "NAME": "Trauma",

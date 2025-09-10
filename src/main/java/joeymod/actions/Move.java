@@ -55,6 +55,11 @@ public class Move {
                     ((AbstractSleeperCard) otherCard).triggerOnCardAwoken();
                 }
             }
+            for (AbstractRelic relic : p.relics) {
+                if (relic instanceof AbstractSleeperRelic) {
+                    ((AbstractSleeperRelic) relic).onAwaken(c);
+                }
+            }
             for (AbstractPower power : p.powers) {
                 if (power instanceof AbstractSleeperPower) {
                     ((AbstractSleeperPower) power).onAwaken(c);

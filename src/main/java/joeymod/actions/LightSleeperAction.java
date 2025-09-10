@@ -13,14 +13,12 @@ import joeymod.cards.ForgottenCard;
 public class LightSleeperAction extends AbstractGameAction {
 
     public void update() {
-        AbstractDungeon.actionManager.addToTop((AbstractGameAction)new WaitAction(0.4F));
+        AbstractDungeon.actionManager.addToTop(new WaitAction(0.4F));
         tickDuration();
         if (this.isDone) {
             for (AbstractCard c : DrawCardAction.drawnCards) {
                 if (!(c instanceof ForgottenCard)) {
-                    AbstractDungeon.player.hand.moveToDiscardPile(c);
-                    c.triggerOnManualDiscard();
-                    GameActionManager.incrementDiscard(false);
+                    addToTop(new ForgetSpecificCardAction(c,AbstractDungeon.player.hand));
                 }
             }
         }

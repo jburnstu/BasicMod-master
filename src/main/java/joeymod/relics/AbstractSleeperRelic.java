@@ -1,6 +1,7 @@
 package joeymod.relics;
 
 import basemod.abstracts.CustomRelic;
+import com.megacrit.cardcrawl.actions.common.UpgradeSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -18,4 +19,6 @@ public abstract class AbstractSleeperRelic extends CustomRelic {
     public void onForget (AbstractCard card) {}
 
     public void onRecollectWithNoForgotten() {}
+
+    public void onAwaken (AbstractCard card) {}
 }
