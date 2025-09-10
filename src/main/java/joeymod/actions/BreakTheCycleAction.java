@@ -21,8 +21,8 @@ public class BreakTheCycleAction extends AbstractGameAction {
 
     public void update () {
         System.out.println("FA Update reached...");
-        if (AwakenAction.awakenedCards.get(0).type == AbstractCard.CardType.ATTACK) {
-            addToTop(new GainBlockAction(p, AwakenAction.awakenedCards.get(0).damage));
+        if (ForgetAction.forgottenCards.get(0).type == AbstractCard.CardType.ATTACK) {
+            addToTop(new GainBlockAction(p, ForgetAction.forgottenCards.get(0).damage));
         }
         System.out.println("done with update...");
         this.isDone = true;

@@ -1,14 +1,16 @@
 package joeymod.cardBeta.skills;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.actions.AwakenAction;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.actions.ForeshadowingAction;
 import joeymod.character.MySleeperPlayer;
+import joeymod.powers.ForeshadowingPower;
 import joeymod.util.CardStats;
 
-//Whenever you awaken a card this turn, apply 1 weak to ALL enemies. Awaken 1 card.
+//Whenever you awaken a skill this turn, apply 1 weak to ALL enemies. Awaken 1 card.
 public class Foreshadowing extends AbstractSleeperCard {
     public static final String ID = makeID(Foreshadowing.class.getSimpleName());
     private static Object MyCharacter;
@@ -31,6 +33,7 @@ public class Foreshadowing extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new AwakenAction(1, new ForeshadowingAction(magicNumber)));
+        addToBot(new ApplyPowerAction(p,p,new ForeshadowingPower(p,magicNumber)));
+        addToBot(new AwakenAction(1,false));
     }
 }

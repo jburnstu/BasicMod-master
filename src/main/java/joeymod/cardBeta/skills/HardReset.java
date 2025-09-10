@@ -31,7 +31,7 @@ public class HardReset extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new HardResetAction(p, this.upgraded, this.freeToPlayOnce, this.energyOnUse);
+        addToBot(new HardResetAction(p, this.upgraded, this.freeToPlayOnce, this.energyOnUse));
 //        addToBot(new RemoveAllBlockAction(p,p)); //how to get this?
 //        addToBot(new GainEnergyAction(2));
 //        addToBot(new DrawCardAction(3));

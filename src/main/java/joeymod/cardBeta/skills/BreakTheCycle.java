@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.actions.BreakTheCycleAction;
 import joeymod.actions.AwakenAction;
+import joeymod.actions.ForgetAction;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.util.CardStats;
@@ -32,6 +33,6 @@ public class BreakTheCycle extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new AwakenAction(magicNumber,new BreakTheCycleAction(magicNumber)));
+        addToBot(new ForgetAction(magicNumber,new BreakTheCycleAction(magicNumber)));
     }
 }

@@ -11,7 +11,7 @@ import joeymod.util.CardStats;
 
 //X block. next turn, awaken 2 cards.
 public class Groundwork extends AbstractSleeperCard {
-    public static final String ID = makeID(Groundwork.class.getSimpleName());
+    public static final String ID = makeID( Groundwork.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
