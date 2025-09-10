@@ -13,9 +13,8 @@ import joeymod.powers.VisionPower;
 public class TheatreOfTheMindAction extends AbstractGameAction {
     public int passedBlock;
 
-    public TheatreOfTheMindAction(AbstractPlayer target, int passedBlock) {
+    public TheatreOfTheMindAction(AbstractPlayer target) {
         this.target = target;
-        this.passedBlock = passedBlock;
     }
 
     @Override

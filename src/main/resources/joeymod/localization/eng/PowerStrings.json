@@ -143,11 +143,11 @@
       "Whenever you Awaken a card, upgrade it."
     ]
   },
-  "${modID}:SubliminalPower": {
-    "NAME": "Subliminal",
+  "${modID}:TorporPower": {
+    "NAME": "Torpor",
     "DESCRIPTIONS": [
-      "When you remember a skill, apply #b",
-      " weak to all enemies."
+      "At the start of your turn, apply #b",
+      " Woozy to ALL enemies."
     ]
   },
   "${modID}:VisionPower": {
@@ -158,11 +158,18 @@
       "Forgotten cards you play cost zero. Until then, all Forgotten cards are Urgent."
     ]
   },
+  "${modID}:VoidPower": {
+    "NAME": "Void",
+    "DESCRIPTIONS": [
+      "At the start of a creature's turn, if ",
+      " HP whenever you forget a card."
+    ]
+  },
   "${modID}:WoozyPower": {
     "NAME": "Woozy",
     "DESCRIPTIONS": [
-      "When you target this enemy with a Forgotten card, it loses #b",
-      " HP."
+      "Loses #b",
+      " HP whenever you forget a card."
     ]
   }
 }

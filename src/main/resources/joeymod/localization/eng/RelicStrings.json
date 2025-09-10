@@ -17,7 +17,7 @@
     "NAME": "Good Job Sticker",
     "FLAVOR": "Its yellow shine inspires you to dig deep.",
     "DESCRIPTIONS": [
-      "When you recollect and you have no cards forgotten, add a random card to your hand."
+      "When you Awaken a card, upgrade it until the end of combat."
     ]
   },
   "${modID}:IncenseHolder": {

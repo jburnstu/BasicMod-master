@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import joeymod.cards.AbstractSleeperCard;
 import joeymod.character.MySleeperPlayer;
 import joeymod.powers.AmnesiaPower;
+import joeymod.powers.PremonitionPower;
 import joeymod.util.CardStats;
 
 //8 Damage. Gain 1 amnesia
@@ -37,6 +38,6 @@ public class Premonition extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
-        addToBot(new ApplyPowerAction(p,p, new AmnesiaPower(p,1)));
+        addToBot(new ApplyPowerAction(p,p, new PremonitionPower(p,1)));
         };
     }

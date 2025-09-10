@@ -1,5 +1,6 @@
 package joeymod.powers;
 
+import com.megacrit.cardcrawl.actions.common.ReduceCostForTurnAction;
 import com.megacrit.cardcrawl.actions.common.UpgradeSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -20,7 +21,15 @@ public class SelfDiscoveryPower extends AbstractSleeperPower {
     }
 
     @Override
+    public void atStartOfTurn() {
+        usedThisTurn = false;
+    }
+
+    @Override
     public void onAwaken(AbstractCard card) {
-            addToTop(new UpgradeSpecificCardAction(card));
+        if (!usedThisTurn) {
+            addToTop(new ReduceCostForTurnAction(card, amount));
+            usedThisTurn = true;
+        }
     }
 }
