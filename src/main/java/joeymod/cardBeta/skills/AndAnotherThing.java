@@ -1,4 +1,4 @@
-package joeymod.cards.skills;
+package joeymod.cardBeta.skills;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
