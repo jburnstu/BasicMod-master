@@ -47,11 +47,11 @@
   },
   "${modID}:BrainZap": {
     "NAME": "Brain Zap",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Amnesia."
+    "DESCRIPTION": "Play and Forget the top card of your draw pile."
   },
   "${modID}:BreakTheCycle": {
     "NAME": "Break The Cycle",
-    "DESCRIPTION": "Awaken !M! card. NL If you choose an Attack, gain its base damage as Block."
+    "DESCRIPTION": "Forget 1 card. NL If you choose an Attack, gain its base damage as Block."
   },
   "${modID}:Catharsis": {
     "NAME": "Catharsis",
@@ -72,7 +72,7 @@
   },
   "${modID}:Coma": {
     "NAME": "Coma",
-    "DESCRIPTION": "Forgotten cards cost zero this turn. NL This turn, when you draw a card that is not Forgotten, discard it. Exhaust."
+    "DESCRIPTION": "Gain 99 Vision. NL This turn, when you draw a card that is not Forgotten, discard it. NL Exhaust."
   },
   "${modID}:Commune": {
     "NAME": "Commune",
@@ -115,8 +115,8 @@
     "NAME": "Dream Traveler",
     "DESCRIPTION": "Deal !D! damage. NL Transform this card for the rest of combat."
   },
-  "${modID}:Drudge": {
-    "NAME": "Drudge",
+  "${modID}:Dredge": {
+    "NAME": "Dredge",
     "DESCRIPTION": "Deal !D! damage. NL Put the next non-Forgotten card in your draw pile into your hand."
   },
   "${modID}:Egoism": {
@@ -299,11 +299,11 @@
   "${modID}:RecurringDream": {
     "NAME": "RecurringDream",
     "DESCRIPTION": "Gain !B! Block. The next Forgotten card you play this turn is played twice.",
-    "UPGRADED_DESCRIPTION": "Gain !B! Block. The next 2 Forgotten cards you play this turn is played twice."
+    "UPGRADED_DESCRIPTION": "Gain !B! Block. The next 2 Forgotten cards you play this turn are played twice."
   },
   "${modID}:Reflex": {
     "NAME": "Reflex",
-    "DESCRIPTION": "Deal !D! damage. NL Forget a card."
+    "DESCRIPTION": "Deal !D! damage. NL Forget a card in your hand."
   },
   "${modID}:REMSleep": {
     "NAME": "REM Sleep",

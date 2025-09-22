@@ -1,6 +1,10 @@
 package sleepermod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
+import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
+import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -14,141 +18,51 @@ import sleepermod.character.MySleeperPlayer;
 import java.util.ArrayList;
 
 public class ForgetTopCardAction extends AbstractGameAction {
-    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("ExhaustAction");
+    private boolean playFirst;
 
-    public static final String[] TEXT = uiStrings.TEXT;
-
-    private MySleeperPlayer p;
-
-    private boolean isRandom;
-
-    private boolean anyNumber;
-
-    private boolean canPickZero;
-
-    public static int numForgotten;
-
-    public AbstractGameAction followUpAction = null;
-
-    public static ArrayList<AbstractCard> forgottenCards = new ArrayList<>();
-
-    public ForgetTopCardAction(int amount, boolean isRandom, boolean anyNumber, boolean canPickZero) {
-        this.anyNumber = anyNumber;
-        this.p = (MySleeperPlayer) AbstractDungeon.player;
-        this.canPickZero = canPickZero;
-        this.isRandom = isRandom;
-        this.amount = amount;
-        this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
-        this.actionType = ActionType.SPECIAL;
-    }
-
-    public ForgetTopCardAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom, boolean anyNumber) {
-        this(amount, isRandom, anyNumber);
+    public ForgetTopCardAction(AbstractCreature target, boolean playFirst) {
+        this.duration = Settings.ACTION_DUR_FAST;
+        this.actionType = AbstractGameAction.ActionType.WAIT;
+        this.source = (AbstractCreature)AbstractDungeon.player;
         this.target = target;
-        this.source = source;
+        this.playFirst = playFirst;
     }
-
-    public ForgetTopCardAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom) {
-        this(amount, isRandom, false, false);
-        this.target = target;
-        this.source = source;
-    }
-
-    public ForgetTopCardAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom, boolean anyNumber, boolean canPickZero) {
-        this(amount, isRandom, anyNumber, canPickZero);
-        this.target = target;
-        this.source = source;
-    }
-
-    public ForgetTopCardAction(boolean isRandom, boolean anyNumber, boolean canPickZero) {
-        this(99, isRandom, anyNumber, canPickZero);
-    }
-
-    public ForgetTopCardAction(int amount, boolean canPickZero) {
-
-        this(amount, false, false, canPickZero);
-    }
-
-    public ForgetTopCardAction(int amount, boolean isRandom, boolean anyNumber) {
-        this(amount, isRandom, anyNumber, false);
-    }
-
-    public ForgetTopCardAction(int amount, boolean isRandom, boolean anyNumber, boolean canPickZero, float duration) {
-        this(amount, isRandom, anyNumber, canPickZero);
-        this.duration = this.startDuration = duration;
-    }
-
-    public ForgetTopCardAction(int amount, AbstractGameAction followUpAction) {
-        this(amount,false);
-        this.followUpAction = followUpAction;
-    }
-
 
     public void update() {
-        forgottenCards.clear();
-        ForgottenCard newForgottenCard = new ForgottenCard();
-        CardGroup forgettable = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        for (AbstractCard c: this.p.hand.group) {
-            if (!(c instanceof ForgottenCard)) {
-                forgettable.addToTop(c);
-            }
-        }
-
-        if (this.duration == this.startDuration) {
-            if (forgettable.isEmpty()) {
+        if (this.duration == Settings.ACTION_DUR_FAST) {
+            if (AbstractDungeon.player.drawPile.size() + AbstractDungeon.player.discardPile.size() == 0) {
                 this.isDone = true;
                 return;
             }
-            if (!this.anyNumber &&
-                    forgettable.size() <= this.amount) {
-                this.amount = forgettable.size();
-                numForgotten = this.amount;
-                int tmp = forgettable.size();
-                for (int i = 0; i < tmp; i++) {
-                    AbstractCard c = forgettable.getTopCard();
-                    newForgottenCard = Move.toForgottenPile(this.p.hand,c,true);
-                    forgottenCards.add(c);
-                    forgettable.removeCard(c);
-                }
-                endActionWithFollowUp();
+            if (AbstractDungeon.player.drawPile.isEmpty()) {
+                addToTop(new ForgetTopCardAction(this.target,this.playFirst));
+                addToTop(new EmptyDeckShuffleAction());
+                this.isDone = true;
                 return;
             }
-            if (this.isRandom) {
-                for (int i = 0; i < this.amount; i++) {
-                    AbstractCard c = forgettable.getRandomCard(AbstractDungeon.cardRandomRng);
-                    newForgottenCard = Move.toForgottenPile(this.p.hand, c, true);
-                    forgottenCards.add(c);
-                    forgettable.removeCard(c);
-                    this.p.hand.refreshHandLayout();
-                    this.p.hand.applyPowers();
+            if (!AbstractDungeon.player.drawPile.isEmpty()) {
+                AbstractCard card = AbstractDungeon.player.drawPile.getTopCard();
+                AbstractDungeon.player.drawPile.group.remove(card);
+                (AbstractDungeon.getCurrRoom()).souls.remove(card);
+                AbstractDungeon.player.limbo.group.add(card);
+                card.current_y = -200.0F * Settings.scale;
+                card.target_x = Settings.WIDTH / 2.0F + 200.0F * Settings.xScale;
+                card.target_y = Settings.HEIGHT / 2.0F;
+                card.targetAngle = 0.0F;
+                card.lighten(false);
+                card.drawScale = 0.12F;
+                card.targetDrawScale = 0.75F;
+                if (this.playFirst) {
+                    addToTop((AbstractGameAction)new NewQueueCardAction(card, this.target, false, true));
                 }
-                endActionWithFollowUp();
-            } else {
-                numForgotten = this.amount;
-                AbstractDungeon.gridSelectScreen.open(forgettable, numForgotten, "Choose a card(s) to forget",this.anyNumber, this.canPickZero);
-                tickDuration();
-                return;
+                addToBot(new ForgetSpecificCardAction(card,AbstractDungeon.player.limbo,true));
+                if (!Settings.FAST_MODE) {
+                    addToTop((AbstractGameAction)new WaitAction(Settings.ACTION_DUR_MED));
+                } else {
+                    addToTop((AbstractGameAction)new WaitAction(Settings.ACTION_DUR_FASTER));
+                }
             }
-        }
-        if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0) {
-            for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
-                c.unhover();
-                newForgottenCard = Move.toForgottenPile(this.p.hand, c, true);
-                forgottenCards.add(c);
-                this.p.hand.refreshHandLayout();
-                this.p.hand.applyPowers();
-            }
-            endActionWithFollowUp();
-            AbstractDungeon.gridSelectScreen.selectedCards.clear();
-            this.p.hand.refreshHandLayout();
-        }
-        tickDuration();
-    }
-
-    private void endActionWithFollowUp() {
-        this.isDone = true;
-        if (this.followUpAction != null) {
-            addToTop(this.followUpAction);
+            this.isDone = true;
         }
     }
 }

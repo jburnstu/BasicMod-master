@@ -7,6 +7,7 @@ import sleepermod.actions.FreeForgottenCardsAction;
 import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.character.MySleeperPlayer;
 import sleepermod.powers.ComaPower;
+import sleepermod.powers.VisionPower;
 import sleepermod.util.CardStats;
 
 //Forgotten cards cost zero this turn. This turn, when you draw a draw a non-forgotten card, discard it.
@@ -32,7 +33,7 @@ public class Coma extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new FreeForgottenCardsAction(p));
+        addToBot(new ApplyPowerAction(p,p,new VisionPower(p,99)));
         addToBot(new ApplyPowerAction(p, p, new ComaPower(p, 1)));
 
     }

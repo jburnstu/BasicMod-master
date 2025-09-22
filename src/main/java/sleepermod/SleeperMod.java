@@ -104,7 +104,7 @@ public class SleeperMod implements
     @Override
     public void receiveEditRelics() { //somewhere in the class
         BaseMod.addRelicToCustomPool(new LavaLamp(),  CardColorEnum.SLEEPER);
-        BaseMod.addRelicToCustomPool(new DreamJournal(),  CardColorEnum.SLEEPER);
+        BaseMod.addRelicToCustomPool(new WideEyedDoll(),  CardColorEnum.SLEEPER);
         BaseMod.addRelicToCustomPool(new GoodJobSticker(),  CardColorEnum.SLEEPER);
         BaseMod.addRelicToCustomPool(new IncenseHolder(),  CardColorEnum.SLEEPER);
         BaseMod.addRelicToCustomPool(new LavaLamp(),  CardColorEnum.SLEEPER);
