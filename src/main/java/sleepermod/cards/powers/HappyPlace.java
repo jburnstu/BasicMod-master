@@ -24,7 +24,7 @@ public class HappyPlace extends AbstractSleeperCard {
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
 
-    int baseMagicNumber = 1;
+    int baseMagicNumber = 2;
 
     public HappyPlace() {
         super(ID, info); //Pass the required information to the BaseCard constructor.

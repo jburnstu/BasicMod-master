@@ -22,11 +22,13 @@ public class TheatreOfTheMind extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
     private static final int BLOCK = 4;
     private static final int UPG_BLOCK = 1;
+    private static final int baseMagicNumber = 1;
 
     public TheatreOfTheMind() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setBlock(BLOCK, UPG_BLOCK); //Sets the card's damage and how much it changes when upgraded.
         setExhaust(true,false);
+        setMagic(baseMagicNumber);
     }
 
     @Override

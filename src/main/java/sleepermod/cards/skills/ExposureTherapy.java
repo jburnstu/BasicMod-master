@@ -23,14 +23,14 @@ public class ExposureTherapy extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int DAMAGE = 10;
-    private static final int UPG_DAMAGE = 4 ;
+    private static final int BLOCK = 10;
+    private static final int UPG_BLOCK = 4 ;
     public static final int magicNumber = 1;
 
 
     public ExposureTherapy() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        setBlock(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
+        setBlock(BLOCK, UPG_BLOCK); //Sets the card's damage and how much it changes when upgraded.
         this.cardsToPreview = new Trauma();
         setMagic(magicNumber);
     }

@@ -23,13 +23,15 @@ public class Opener extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
     private static final int DMG = 5;
     private static final int UPG_DMG = 3;
-//    private static int baseMagicNumber = 2;
+    private static int baseMagicNumber = 1;
 //    private static int magicUpgrade = 1;
 
 
     public Opener() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setDamage(DMG, UPG_DMG); //Sets the card's damage and how much it changes when upgraded.
+        setMagic(baseMagicNumber);
+        this.urgent = true;
     }
 
     @Override
