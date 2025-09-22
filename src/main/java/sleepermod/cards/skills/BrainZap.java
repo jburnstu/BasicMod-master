@@ -1,10 +1,11 @@
-package sleepermod.cardBeta.attacks;
+package sleepermod.cards.skills;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import sleepermod.actions.ForgetTopCardAction;
 import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.character.MySleeperPlayer;
 import sleepermod.powers.AmnesiaPower;
@@ -32,11 +33,11 @@ public class BrainZap extends AbstractSleeperCard {
 
         setDamage(DMG, UPG_DMG); //Sets the card's damage and how much it changes when upgraded.
         setMagic(baseMagicNumber);
+        setCostUpgrade(0);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
-        addToBot(new ApplyPowerAction(p,p, new AmnesiaPower(p,1)));
+        addToBot(new ForgetTopCardAction(null,true));
         };
     }

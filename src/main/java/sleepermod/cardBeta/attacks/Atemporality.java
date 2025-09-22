@@ -34,6 +34,6 @@ public class Atemporality extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
-        addToBot(new ForgetTopCardAction(1,false,false,false));
+        addToBot(new ForgetTopCardAction(null,false));
         };
     }

@@ -1,10 +1,12 @@
 package sleepermod.cards.attacks;
 
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sleepermod.actions.ForgetSpecificCardAction;
+import sleepermod.actions.ForgetTopCardAction;
 import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.character.MySleeperPlayer;
 import sleepermod.util.CardStats;
@@ -34,6 +36,6 @@ public class Lurch extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
-        addToBot(new ForgetSpecificCardAction(p.drawPile.getTopCard(),p.drawPile));
+        addToBot(new ForgetTopCardAction(null,false));
         }
     }

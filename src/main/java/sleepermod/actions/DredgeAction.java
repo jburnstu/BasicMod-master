@@ -15,6 +15,10 @@ public class DredgeAction extends AbstractGameAction {
 
     @Override
     public void update() {
+        if (AbstractDungeon.player.drawPile.isEmpty()){
+            this.isDone = true;
+            return;
+        }
         for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
             if (!(c instanceof ForgottenCard)) {
                 AbstractDungeon.player.drawPile.removeCard(c);
@@ -23,5 +27,6 @@ public class DredgeAction extends AbstractGameAction {
                 break;
             }
         }
+        this.isDone = true;
     }
 }
