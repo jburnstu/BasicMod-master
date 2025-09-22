@@ -1,4 +1,4 @@
-package sleepermod.patches;
+package sleepermod.patches.coremechanics;
 
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -7,7 +7,7 @@ import sleepermod.character.MySleeperPlayer;
 
 
 @SpirePatch(clz = AbstractDungeon.class, method = "resetPlayer")
-public class AbstractDungeonResetPlayerPrefixPatch {
+public class PrefixPatchAbstractDungeonResetPlayer {
 
     public static void Prefix(AbstractPlayer ___player) {
         if (___player instanceof MySleeperPlayer) {

@@ -1,4 +1,4 @@
-package sleepermod.patches;
+package sleepermod.patches.forgottenpanel;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
@@ -7,7 +7,7 @@ import sleepermod.ui.panels.ForgottenPanel;
 
 @SpirePatch(clz = OverlayMenu.class,
             method = SpirePatch.CLASS)
-public class OverlayMenuForgottenPanelFieldPatch {
+public class FieldPatchOverlayMenuForgottenPanel {
     public static SpireField<ForgottenPanel> forgottenPanel = new SpireField<>(()->new ForgottenPanel());
 
 }

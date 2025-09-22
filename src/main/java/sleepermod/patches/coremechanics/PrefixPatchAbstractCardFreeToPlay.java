@@ -1,4 +1,4 @@
-package sleepermod.patches;
+package sleepermod.patches.coremechanics;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
@@ -9,7 +9,7 @@ import sleepermod.cards.ForgottenCard;
 import sleepermod.powers.VisionPower;
 
 @SpirePatch(clz = CardGroup.class, method = "moveToDiscardPile")
-public class freeToPlayAbstractCardPrefixPatch {
+public class PrefixPatchAbstractCardFreeToPlay {
     public static SpireReturn<Boolean> Prefix(Object _self) {
         if (AbstractDungeon.player != null && AbstractDungeon.currMapNode != null &&
                 (AbstractDungeon.getCurrRoom()).phase == AbstractRoom.RoomPhase.COMBAT &&

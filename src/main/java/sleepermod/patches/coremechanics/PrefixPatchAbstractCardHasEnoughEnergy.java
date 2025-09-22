@@ -1,4 +1,4 @@
-package sleepermod.patches;
+package sleepermod.patches.coremechanics;
 
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -7,7 +7,7 @@ import sleepermod.cards.AbstractSleeperCard;
 
 
 @SpirePatch(clz = AbstractCard.class, method = "hasEnoughEnergy")
-public class AbstractCardHasEnoughEnergyPatch {
+public class PrefixPatchAbstractCardHasEnoughEnergy {
 
     @SpirePrefixPatch()
     public static SpireReturn<Boolean> Prefix(AbstractCard _self) {

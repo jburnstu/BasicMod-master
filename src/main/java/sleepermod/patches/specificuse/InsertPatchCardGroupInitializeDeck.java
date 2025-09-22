@@ -1,14 +1,11 @@
-package sleepermod.patches;
+package sleepermod.patches.specificuse;
 
 import com.evacipated.cardcrawl.modthespire.lib.*;
-import com.megacrit.cardcrawl.actions.utility.ShowCardAndPoofAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import javassist.CtBehavior;
 import sleepermod.actions.Move;
-import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.relics.TeddyBear;
 import sleepermod.relics.WideEyedDoll;
 
@@ -16,7 +13,7 @@ import java.util.ArrayList;
 
 
 @SpirePatch(clz = CardGroup.class, method = "initializeDeck")
-public class CardGroupInitializeDeckInsertPatch {
+public class InsertPatchCardGroupInitializeDeck {
 
 //    static Logger log = Logger.getLogger("MyLogger");
     @SpireInsertPatch(locator = Locator.class, localvars = {"copy"})

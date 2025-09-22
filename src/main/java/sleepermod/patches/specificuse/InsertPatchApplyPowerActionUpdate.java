@@ -1,4 +1,4 @@
-package sleepermod.patches;
+package sleepermod.patches.specificuse;
 
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -17,7 +17,7 @@ import javassist.CtBehavior;
                             boolean.class,
                             AbstractGameAction.AttackEffect.class}
 )
-public class ApplyPowerActionUpdatePatch {
+public class InsertPatchApplyPowerActionUpdate {
     @SpireInsertPatch(locator = Locator.class)
     public static void Insert(ApplyPowerAction _self, AbstractCreature target,  AbstractCreature source,AbstractPower powerToApply) {
         if (AbstractDungeon.player.hasRelic("LavaLamp") && source != null && source.isPlayer && target != source && powerToApply.ID

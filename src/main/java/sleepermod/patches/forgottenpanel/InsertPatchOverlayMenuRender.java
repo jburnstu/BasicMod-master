@@ -1,4 +1,4 @@
-package sleepermod.patches;
+package sleepermod.patches.forgottenpanel;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.*;
@@ -8,11 +8,11 @@ import javassist.CtBehavior;
 
 @SpirePatch(clz = OverlayMenu.class,
         method = "render")
-public class OverlayMenuRenderPatch {
-    @SpireInsertPatch(locator = OverlayMenuRenderPatch.Locator.class)
+public class InsertPatchOverlayMenuRender {
+    @SpireInsertPatch(locator = InsertPatchOverlayMenuRender.Locator.class)
 
     public static void Insert(Object _self, SpriteBatch sb) {
-        OverlayMenuForgottenPanelFieldPatch.forgottenPanel.get(_self).render(sb);
+        FieldPatchOverlayMenuForgottenPanel.forgottenPanel.get(_self).render(sb);
     }
 
     private static class Locator extends SpireInsertLocator {

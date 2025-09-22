@@ -1,4 +1,4 @@
-package sleepermod.patches;
+package sleepermod.patches.coremechanics;
 
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.utility.ShowCardAndPoofAction;
@@ -11,18 +11,17 @@ import sleepermod.actions.Move;
 import sleepermod.cards.AbstractSleeperCard;
 
 
-
 @SpirePatch(clz = UseCardAction.class, method = "update")
-public class UseCardActionUpdatePatch {
+public class InsertPatchUseCardActionUpdate {
 
 //    static Logger log = Logger.getLogger("MyLogger");
     @SpireInsertPatch(locator = Locator.class,localvars = {"targetCard"})
     public static void Insert(UseCardAction _self, AbstractCard targetCard) {
         AbstractCard newForgottenCard;
-        boolean forgetCard = (AbstractCardBackForgottenCardPatch.forgetOnUseOnce.get(targetCard)
+        boolean forgetCard = (FieldPatchAbstractCardBackForgottenCard.forgetOnUseOnce.get(targetCard)
                 ||(targetCard instanceof AbstractSleeperCard && ((AbstractSleeperCard) targetCard).forget));
         if (forgetCard) {
-            AbstractCardBackForgottenCardPatch.forgetOnUseOnce.set(targetCard,false);
+            FieldPatchAbstractCardBackForgottenCard.forgetOnUseOnce.set(targetCard,false);
 //            System.out.println("forgetCard activated -- targetCard:" + targetCard.getClass());
 //            System.out.println(targetCard.dontTriggerOnUseCard);
             newForgottenCard = Move.toForgottenPile(AbstractDungeon.player.hand, targetCard,false);
