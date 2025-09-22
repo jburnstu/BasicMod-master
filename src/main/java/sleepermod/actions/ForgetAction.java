@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import sleepermod.cards.ForgottenCard;
+import sleepermod.cards.skills.Slumber;
 import sleepermod.character.MySleeperPlayer;
 
 import java.util.ArrayList;
@@ -107,6 +108,7 @@ public class ForgetAction extends AbstractGameAction {
                 for (int i = 0; i < tmp; i++) {
                     AbstractCard c = forgettable.getTopCard();
                     newForgottenCard = Move.toForgottenPile(this.p.hand,c,true);
+                    Slumber.totalForgottenThisTurn++;
                     forgottenCards.add(c);
                     forgettable.removeCard(c);
                 }
@@ -117,6 +119,7 @@ public class ForgetAction extends AbstractGameAction {
                 for (int i = 0; i < this.amount; i++) {
                     AbstractCard c = forgettable.getRandomCard(AbstractDungeon.cardRandomRng);
                     newForgottenCard = Move.toForgottenPile(this.p.hand, c, true);
+                    Slumber.totalForgottenThisTurn++;
                     forgottenCards.add(c);
                     forgettable.removeCard(c);
                     this.p.hand.refreshHandLayout();
@@ -134,6 +137,7 @@ public class ForgetAction extends AbstractGameAction {
             for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
                 c.unhover();
                 newForgottenCard = Move.toForgottenPile(this.p.hand, c, true);
+                Slumber.totalForgottenThisTurn++;
                 forgottenCards.add(c);
                 this.p.hand.refreshHandLayout();
                 this.p.hand.applyPowers();

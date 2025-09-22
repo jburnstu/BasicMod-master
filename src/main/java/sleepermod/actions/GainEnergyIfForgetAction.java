@@ -8,15 +8,17 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class GainEnergyIfForgetAction extends AbstractGameAction {
     private int energyGain;
+    private boolean didForget;
 
-    public GainEnergyIfForgetAction(int amount) {
+    public GainEnergyIfForgetAction(int amount, boolean didForget) {
         setValues(AbstractDungeon.player, AbstractDungeon.player, 0);
         this.duration = Settings.ACTION_DUR_FAST;
         this.energyGain = amount;
+        this.didForget = didForget;
     }
 
     public void update() {
-        if (GameActionManager.totalDiscardedThisTurn > 0) {
+        if (this.didForget) {
             AbstractDungeon.player.gainEnergy(this.energyGain);
             AbstractDungeon.actionManager.updateEnergyGain(this.energyGain);
             for (AbstractCard c : AbstractDungeon.player.hand.group)

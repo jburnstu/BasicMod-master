@@ -25,16 +25,24 @@ public class Slumber extends AbstractSleeperCard {
     private static final int UPG_BLOCK = 4;
     private static final int baseMagicNumber = 1;
 
+    public static int totalForgottenThisTurn = 0;
+
     public Slumber() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        setDamage(BLOCK, UPG_BLOCK); //Sets the card's damage and how much it changes when upgraded.
+        setBlock(BLOCK, UPG_BLOCK); //Sets the card's damage and how much it changes when upgraded.
         setMagic(baseMagicNumber);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p,block));
-        addToBot(new GainEnergyIfForgetAction(magicNumber));
+        addToBot(new GainEnergyIfForgetAction(magicNumber, (Slumber.totalForgottenThisTurn > 0)));
     }
+
+    @Override
+    public void atTurnStartPreDraw() {
+        Slumber.totalForgottenThisTurn = 0;
+    }
+
 }
 
