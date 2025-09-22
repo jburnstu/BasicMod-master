@@ -1,4 +1,4 @@
-package sleepermod.cardBeta.attacks;
+package sleepermod.cardsDeprecated.attacks;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;

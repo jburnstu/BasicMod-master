@@ -1,15 +1,17 @@
-package sleepermod.cardBeta.skills;
+package sleepermod.cardsDeprecated.skills;
 
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sleepermod.cards.AbstractSleeperCard;
+import sleepermod.powers.AmnesiaPower;
 import sleepermod.character.MySleeperPlayer;
 import sleepermod.util.CardStats;
 
-//6 block. if played from forgotten, gain an additional 6 block.
-public class WakeFromDanger extends AbstractSleeperCard {
-    public static final String ID = makeID(WakeFromDanger.class.getSimpleName());
+//Gain 1 energy. gain 1 amnesia.
+public class CopingMechanism extends AbstractSleeperCard {
+    public static final String ID = makeID(CopingMechanism.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -20,21 +22,17 @@ public class WakeFromDanger extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int BLOCK = 6;
-    private static final int UPG_BLOCK = 3;
+    private int baseMagicNumber = 2;
+    private int magicUpgrade = 1;
 
-    public WakeFromDanger() {
+    public CopingMechanism() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        setBlock(BLOCK, UPG_BLOCK); //Sets the card's damage and how much it changes when upgraded.
+        setMagic(baseMagicNumber,magicUpgrade);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainBlockAction(p, block));
-    }
-
-    @Override
-    public void triggerOnRemembered(AbstractPlayer p, AbstractMonster m, boolean randomTarget) {
-    addToTop(new GainBlockAction(p, block));
+        addToTop(new ApplyPowerAction(p,p,new AmnesiaPower(p,1)));
+        addToBot(new GainEnergyAction(magicNumber));
     }
 }
