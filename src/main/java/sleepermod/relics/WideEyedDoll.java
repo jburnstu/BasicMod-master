@@ -12,27 +12,26 @@ import static sleepermod.SleeperMod.makeID;
 
 
 // Forgotten cards remain forgotten in between combats.
-public class DreamJournal extends AbstractSleeperRelic {
-    public static final String ID = makeID(DreamJournal.class.getSimpleName());
+public class WideEyedDoll extends AbstractSleeperRelic {
+    public static final String ID = makeID(WideEyedDoll.class.getSimpleName());
     private static final RelicTier RARITY = RelicTier.BOSS; //The relic's rarity.
     private static final LandingSound SOUND = LandingSound.CLINK; //The sound played when the relic is clicked.
 
-    public DreamJournal() {
+    public WideEyedDoll() {
         super(ID, RARITY,SOUND);
         System.out.println("TeddyBear constructor called....");
     }
 
-    public String getUpdatedDescription() {
-        return "Try this";
-    }
-
 
     public AbstractRelic makeCopy() {
-        return new DreamJournal();
+        return new WideEyedDoll();
     }
 
-    public ArrayList<AbstractCard> cardsToRemainForgotten;
+    public static ArrayList<AbstractCard> cardsToRemainForgotten;
 
+//    public boolean canSpawn() {
+//        return AbstractDungeon.player.hasRelic("TeddyBear");
+//    }
 
     @Override
     public void atBattleStartPreDraw () {

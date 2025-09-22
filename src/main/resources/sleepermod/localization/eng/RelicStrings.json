@@ -52,7 +52,14 @@
     "NAME": "Teddy Bear",
     "FLAVOR": "A treasured toy that seems to respond to strong dreams.",
     "DESCRIPTIONS": [
-      "At the end of your first turn, forget all the cards left in your hand and draw that many at the start of your next."
+      "At the end of combat, select three Forgotten cards at random . NL These cards start the next combat Forgotten."
     ]
+  },
+  "${modID}:WideEyedDoll": {
+    "NAME": "Wide-Eyed Doll",
+    "FLAVOR": "Was this there when I went to sleep...?.",
+    "DESCRIPTIONS": [
+      "ALL Forgotten cards now remain forgotten between combats."
+      ]
   }
 }

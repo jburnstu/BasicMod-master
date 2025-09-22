@@ -21,9 +21,6 @@ public class SleepingMouse extends AbstractSleeperRelic {
         super(ID, RARITY,SOUND);
     }
 
-    public String getUpdatedDescription() {
-        return "Try this";
-    }
 
 
     public AbstractRelic makeCopy() {

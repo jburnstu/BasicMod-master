@@ -1,61 +1,103 @@
 package sleepermod.relics;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import sleepermod.actions.Move;
 import sleepermod.cards.ForgottenCard;
+import sleepermod.character.MySleeperPlayer;
+import sleepermod.patches.AbstractCardBackForgottenCardPatch;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 import static sleepermod.SleeperMod.makeID;
 
 // When you recollect and no cards in forgottenPile,: add a new card to your hand (cost 1 less?)
 public class TeddyBear extends AbstractSleeperRelic {
     public static final String ID = makeID(TeddyBear.class.getSimpleName());
+    private static final RelicTier RARITY = RelicTier.STARTER; //The relic's rarity.
+    private static final LandingSound SOUND = LandingSound.CLINK; //The sound played when the relic is clicked.
 
     public TeddyBear() {
-        super(ID, RelicTier.STARTER, LandingSound.MAGICAL);
+        super(ID, RARITY,SOUND);
+        System.out.println("TeddyBear constructor called....");
     }
 
-    public ArrayList<AbstractCard> cardsToForget = new ArrayList<>();
-    public AbstractPlayer p;
-    public boolean activated = false;
 
     public AbstractRelic makeCopy() {
         return new TeddyBear();
     }
 
-    public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0];
-    }
+    public static ArrayList<UUID> uuidsToRemainForgotten = new ArrayList<UUID>();
 
-    public void atBattleStartPreDraw() {
-        this.activated = false;
-        this.cardsToForget.clear();
-    }
+//    public static CardGroup forgottenPileAtEndOfCombat = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+
+
+    public static int numberOfCardsToRemainForgotten = 3;
+    public static int countNumberOfCardsForgotten = 0;
+
+//    @Override
+//    public void atBattleStartPreDraw () {
+//        System.out.println("cardsToRemainForgotten: " + cardsToRemainForgotten.toString());
+//        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+//            if (cardsToRemainForgotten.contains(c)) {
+//                Move.toForgottenPile(AbstractDungeon.player.drawPile,c,false);
+//            }
+//        }
+//    }
 
     @Override
-    public void onPlayerEndTurn() {
-        if (!this.activated) {
-            this.activated = true;
-            p = AbstractDungeon.player;
-            flash();
-            for (AbstractCard c : p.hand.group) {
-                System.out.println("First for loop reached");
-                if (!(c instanceof ForgottenCard)){
-                    System.out.println("if loop reached");
-                    cardsToForget.add(c);
+    public void onVictory () {
+        System.out.println("onVictory for teddybear entered");
+        flash();
+        uuidsToRemainForgotten.clear();
+        countNumberOfCardsForgotten = 0;
+
+//        for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
+//            if (c instanceof ForgottenCard) {
+//                forgottenCardsAtEndOfCombat.addToRandomSpot(c);
+//            }
+//        }
+//        for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
+//            if (c instanceof ForgottenCard) {
+//                forgottenCardsAtEndOfCombat.addToRandomSpot(c);
+//            }
+//        }
+//        for (AbstractCard c : AbstractDungeon.player.hand.group) {
+//            if (c instanceof ForgottenCard) {
+//                forgottenCardsAtEndOfCombat.addToRandomSpot(c);
+//            }
+//        }
+
+        CardGroup forgottenPileAtEndOfCombat = new CardGroup(((MySleeperPlayer) AbstractDungeon.player).forgottenPile, CardGroup.CardGroupType.UNSPECIFIED);
+        forgottenPileAtEndOfCombat.shuffle(AbstractDungeon.shuffleRng);
+
+          for (AbstractCard forgottenPileCard : forgottenPileAtEndOfCombat.group) {
+              for (AbstractCard masterDeckCard : AbstractDungeon.player.masterDeck.group) {
+                  if ( masterDeckCard.uuid == forgottenPileCard.uuid) {
+                    System.out.println("Card added");
+                    uuidsToRemainForgotten.add(masterDeckCard.uuid);
+                    countNumberOfCardsForgotten++;
+                    if (countNumberOfCardsForgotten == numberOfCardsToRemainForgotten) {
+                        break;
+                    }
                 }
             }
-            for (AbstractCard c : cardsToForget) {
-                System.out.println("Second for loop reached");
-                Move.toForgottenPile(p.hand,c,true);
-            }
-            addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, cardsToForget.toArray().length)));
         }
+        
+//        for (AbstractCard c : forgottenCardsAtEndOfCombat.group) {
+//            System.out.println("AbstractCardBackForgottenCardPatch.backForgottenCard.get(c): " +AbstractCardBackForgottenCardPatch.backForgottenCard.get(c));
+//            if (((ForgottenCard) c).frontForgottenCard != null) {
+//                System.out.println("Card added");
+//                cardsToRemainForgotten.add(((ForgottenCard) c).frontForgottenCard);
+//                countNumberOfCardsForgotten++;
+//                if (countNumberOfCardsForgotten == numberOfCardsToRemainForgotten) {
+//                    break;
+//                }
+//            }
+//        }
+        System.out.println("end of TeddyBear" + uuidsToRemainForgotten.toString());
     }
 }

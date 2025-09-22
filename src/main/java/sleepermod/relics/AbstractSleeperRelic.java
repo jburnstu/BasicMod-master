@@ -13,6 +13,9 @@ public abstract class AbstractSleeperRelic extends CustomRelic {
             this.outlineImg = ImageMaster.loadImage("sleepermod/images/badge.png");
         }
 
+    public String getUpdatedDescription() {
+        return this.DESCRIPTIONS[0];
+    }
 
     public void onForget (AbstractCard card) {}
 

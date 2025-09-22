@@ -18,6 +18,7 @@ public class SleepMobile extends AbstractSleeperRelic {
         super(ID, RARITY, SOUND);
     }
 
+
     public boolean usedThisTurn = false;
 
     public void atTurnStart() {
