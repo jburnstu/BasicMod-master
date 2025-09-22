@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import sleepermod.cards.ForgottenCard;
 import sleepermod.character.MySleeperPlayer;
-import sleepermod.patches.AbstractCardBackForgottenCardPatch;
+import sleepermod.patches.coremechanics.FieldPatchAbstractCardBackForgottenCard;
 
 public class NewLeafAction extends AbstractGameAction {
     private DamageInfo info;
@@ -52,7 +52,7 @@ public class NewLeafAction extends AbstractGameAction {
                 }
                 if (possibleCards.size() == 1) {
                     AbstractCard c = possibleCards.group.get(0);
-                    ForgottenCard looseForgottenCard = AbstractCardBackForgottenCardPatch.backForgottenCard.get(c);
+                    ForgottenCard looseForgottenCard = FieldPatchAbstractCardBackForgottenCard.backForgottenCard.get(c);
                     p.masterDeck.group.remove(c);
                     AbstractCard newCard = AbstractDungeon.returnTrulyRandomCard().makeCopy();
                     looseForgottenCard.frontForgottenCard = newCard;
@@ -65,7 +65,7 @@ public class NewLeafAction extends AbstractGameAction {
             }
             if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0) {
                 AbstractCard c = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
-                ForgottenCard looseForgottenCard = AbstractCardBackForgottenCardPatch.backForgottenCard.get(c);
+                ForgottenCard looseForgottenCard = FieldPatchAbstractCardBackForgottenCard.backForgottenCard.get(c);
                 p.masterDeck.group.remove(c);
                 AbstractCard newCard = AbstractDungeon.returnTrulyRandomCard().makeCopy();
                 looseForgottenCard.frontForgottenCard = newCard;

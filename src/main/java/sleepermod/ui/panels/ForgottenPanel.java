@@ -45,7 +45,7 @@ public class ForgottenPanel extends AbstractPanel {
     public static final float ENERGY_VFX_TIME = 2.0F;
 
     public ForgottenPanel() {
-        super(Settings.WIDTH - 70.0F -20.0F * Settings.scale, 184.0F * Settings.scale + 20.0F, Settings.WIDTH + 100.0F * Settings.scale, 184.0F * Settings.scale, 0.0F, 0.0F, null, false);
+        super(Settings.WIDTH - 70.0F * Settings.scale, 184.0F * Settings.scale + 200.0F, Settings.WIDTH + 100.0F * Settings.scale, 184.0F * Settings.scale, 0.0F, 0.0F, null, false);
     }
 
     public void updatePositions() {

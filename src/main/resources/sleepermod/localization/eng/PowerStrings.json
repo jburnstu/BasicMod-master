@@ -160,8 +160,8 @@
   "${modID}:TorporPower": {
     "NAME": "Torpor",
     "DESCRIPTIONS": [
-      "At the start of your turn, apply #b",
-      " Woozy to ALL enemies."
+      "Whenever you Remember a card, apply #b",
+      " Insomnia to the target."
     ]
   },
   "${modID}:VisionPower": {

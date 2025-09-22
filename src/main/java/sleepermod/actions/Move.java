@@ -9,7 +9,7 @@ import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.cards.ForgottenCard;
 import sleepermod.character.MySleeperPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import sleepermod.patches.AbstractCardBackForgottenCardPatch;
+import sleepermod.patches.coremechanics.FieldPatchAbstractCardBackForgottenCard;
 import sleepermod.powers.AbstractSleeperPower;
 import sleepermod.relics.AbstractSleeperRelic;
 
@@ -48,7 +48,7 @@ public class Move {
     public static void fromForgottenPile(AbstractCard c) {
         MySleeperPlayer p = (MySleeperPlayer) AbstractDungeon.player;
         if (p.forgottenPile.group.contains(c)) {
-            ForgottenCard backForgottenCard = AbstractCardBackForgottenCardPatch.backForgottenCard.get(c);
+            ForgottenCard backForgottenCard = FieldPatchAbstractCardBackForgottenCard.backForgottenCard.get(c);
             if (p.drawPile.group.contains(backForgottenCard)) {
                 p.drawPile.removeCard(backForgottenCard);
             } else if (p.discardPile.group.contains(backForgottenCard)) {

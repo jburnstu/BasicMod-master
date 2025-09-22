@@ -4,7 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import sleepermod.character.MySleeperPlayer;
-import sleepermod.patches.AbstractCardBackForgottenCardPatch;
+import sleepermod.patches.coremechanics.FieldPatchAbstractCardBackForgottenCard;
 
 public class FreeForgottenCardsAction extends AbstractGameAction {
     public AbstractPlayer owner;
@@ -17,7 +17,7 @@ public class FreeForgottenCardsAction extends AbstractGameAction {
 
     public void update() {
         for (AbstractCard c : ((MySleeperPlayer) owner).forgottenPile.group) {
-            AbstractCardBackForgottenCardPatch.backForgottenCard.get(c).setCostForTurn(0);
+            FieldPatchAbstractCardBackForgottenCard.backForgottenCard.get(c).setCostForTurn(0);
         }
     }
 }

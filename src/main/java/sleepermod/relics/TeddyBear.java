@@ -4,10 +4,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import sleepermod.actions.Move;
-import sleepermod.cards.ForgottenCard;
 import sleepermod.character.MySleeperPlayer;
-import sleepermod.patches.AbstractCardBackForgottenCardPatch;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -88,7 +85,7 @@ public class TeddyBear extends AbstractSleeperRelic {
         }
         
 //        for (AbstractCard c : forgottenCardsAtEndOfCombat.group) {
-//            System.out.println("AbstractCardBackForgottenCardPatch.backForgottenCard.get(c): " +AbstractCardBackForgottenCardPatch.backForgottenCard.get(c));
+//            System.out.println("FieldPatchAbstractCardBackForgottenCard.backForgottenCard.get(c): " +FieldPatchAbstractCardBackForgottenCard.backForgottenCard.get(c));
 //            if (((ForgottenCard) c).frontForgottenCard != null) {
 //                System.out.println("Card added");
 //                cardsToRemainForgotten.add(((ForgottenCard) c).frontForgottenCard);

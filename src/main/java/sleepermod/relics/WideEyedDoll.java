@@ -4,7 +4,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import sleepermod.actions.Move;
-import sleepermod.patches.AbstractCardBackForgottenCardPatch;
+import sleepermod.patches.coremechanics.FieldPatchAbstractCardBackForgottenCard;
 
 import java.util.ArrayList;
 
@@ -47,7 +47,7 @@ public class WideEyedDoll extends AbstractSleeperRelic {
     public void onVictory () {
         flash();
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-            if (!(AbstractCardBackForgottenCardPatch.backForgottenCard.get(c) == null)) {
+            if (!(FieldPatchAbstractCardBackForgottenCard.backForgottenCard.get(c) == null)) {
                 cardsToRemainForgotten.add(c);
             }
         }

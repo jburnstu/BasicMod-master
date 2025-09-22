@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.character.MySleeperPlayer;
-import sleepermod.patches.AbstractCardBackForgottenCardPatch;
+import sleepermod.patches.coremechanics.FieldPatchAbstractCardBackForgottenCard;
 import sleepermod.util.CardStats;
 
 //X block. draw 1 card and forget one card.
@@ -35,6 +35,6 @@ public class AbsentMinded extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractCardBackForgottenCardPatch.forgetOnUseOnce.set(p.drawPile.getTopCard(),true);
+        FieldPatchAbstractCardBackForgottenCard.forgetOnUseOnce.set(p.drawPile.getTopCard(),true);
         addToBot(new PlayTopCardAction( (AbstractDungeon.getCurrRoom()).monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false));        }
     }

@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import sleepermod.cards.ForgottenCard;
-import sleepermod.patches.AbstractCardBackForgottenCardPatch;
+import sleepermod.patches.coremechanics.FieldPatchAbstractCardBackForgottenCard;
 
 public class DreamTravelerAction extends AbstractGameAction {
     public DamageInfo info;
@@ -31,7 +31,7 @@ public class DreamTravelerAction extends AbstractGameAction {
                 this.target != null) {
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.NONE));
             this.target.damage(this.info);
-            ForgottenCard looseForgottenCard = AbstractCardBackForgottenCardPatch.backForgottenCard.get(this.c);
+            ForgottenCard looseForgottenCard = FieldPatchAbstractCardBackForgottenCard.backForgottenCard.get(this.c);
             p.masterDeck.group.remove(this.c);
             AbstractCard newCard = AbstractDungeon.returnTrulyRandomCard().makeCopy();
             looseForgottenCard.frontForgottenCard = newCard;

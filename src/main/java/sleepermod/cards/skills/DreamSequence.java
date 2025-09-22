@@ -25,7 +25,6 @@ public class DreamSequence extends AbstractSleeperCard {
 
     public DreamSequence() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.urgent = true;
         this.magicNumber = baseMagicNumber;
     }
 

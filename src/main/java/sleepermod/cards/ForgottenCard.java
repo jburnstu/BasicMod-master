@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sleepermod.character.MySleeperPlayer;
-import sleepermod.patches.AbstractCardBackForgottenCardPatch;
+import sleepermod.patches.coremechanics.FieldPatchAbstractCardBackForgottenCard;
 import sleepermod.powers.VisionPower;
 import sleepermod.util.CardStats;
 
@@ -29,7 +29,7 @@ public class ForgottenCard extends AbstractSleeperCard {
     public ForgottenCard(AbstractCard c) {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.frontForgottenCard = c;
-        AbstractCardBackForgottenCardPatch.backForgottenCard.set(c,this);
+        FieldPatchAbstractCardBackForgottenCard.backForgottenCard.set(c,this);
         this.p = (MySleeperPlayer) AbstractDungeon.player;
         this.purgeOnUse = true;
 
