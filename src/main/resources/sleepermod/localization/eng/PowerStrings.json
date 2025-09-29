@@ -59,6 +59,13 @@
     " extra card next turn."
   ]
 },
+  "${modID}:ForeshadowingPower": {
+    "NAME": "Foreshadowing",
+    "DESCRIPTIONS": [
+      "Whenever you Awaken a card this turn, apply #b",
+      " Weak to ALL enemies."
+    ]
+  },
   "${modID}:FreeCardPower": {
     "NAME": "FreeCard",
     "DESCRIPTIONS": [
@@ -107,6 +114,13 @@
       "The first time each turn you Remember a card, draw #b1 cards",
       "The first time each turn you Remember a card, draw #b",
       " cards."
+    ]
+  },
+  "${modID}:InsomniaPower": {
+    "NAME": "Insomnia",
+    "DESCRIPTIONS": [
+      "When this creature's HP drops below #b",
+      " it dies. Reduces by #b1 whenever you Forget a card."
     ]
   },
   "${modID}:LucidDreamPower": {
@@ -177,13 +191,6 @@
     "DESCRIPTIONS": [
       "At the start of a creature's turn, if ",
       " HP whenever you forget a card."
-    ]
-  },
-  "${modID}:InsomniaPower": {
-    "NAME": "Insomnia",
-    "DESCRIPTIONS": [
-      "When this creature's HP drops below #b",
-      " it dies. Reduces by #b1 whenever you Forget a card."
     ]
   }
 }

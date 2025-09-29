@@ -54,7 +54,10 @@ public class NewLeafAction extends AbstractGameAction {
                     AbstractCard c = possibleCards.group.get(0);
                     ForgottenCard looseForgottenCard = FieldPatchAbstractCardBackForgottenCard.backForgottenCard.get(c);
                     p.masterDeck.group.remove(c);
+                    ((MySleeperPlayer) p).forgottenPile.group.remove(c);
                     AbstractCard newCard = AbstractDungeon.returnTrulyRandomCard().makeCopy();
+                    p.masterDeck.group.add(newCard);
+                    ((MySleeperPlayer) p).forgottenPile.group.add(newCard);
                     looseForgottenCard.frontForgottenCard = newCard;
                     return;
                 }
@@ -67,7 +70,10 @@ public class NewLeafAction extends AbstractGameAction {
                 AbstractCard c = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
                 ForgottenCard looseForgottenCard = FieldPatchAbstractCardBackForgottenCard.backForgottenCard.get(c);
                 p.masterDeck.group.remove(c);
+                ((MySleeperPlayer) p).forgottenPile.group.remove(c);
                 AbstractCard newCard = AbstractDungeon.returnTrulyRandomCard().makeCopy();
+                p.masterDeck.group.add(newCard);
+                ((MySleeperPlayer) p).forgottenPile.group.add(newCard);
                 looseForgottenCard.frontForgottenCard = newCard;
                 }
             AbstractDungeon.gridSelectScreen.selectedCards.clear();

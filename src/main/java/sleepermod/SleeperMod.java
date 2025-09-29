@@ -4,7 +4,9 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.google.gson.reflect.TypeToken;
+import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.cards.BaseCard;
+import sleepermod.cardsBeta.skills.WardOff;
 import sleepermod.character.MySleeperPlayer;
 import sleepermod.patches.CardColorEnum;
 import sleepermod.relics.*;
@@ -128,7 +130,10 @@ public class SleeperMod implements
     @Override
     public void receiveEditCards() {
         new AutoAdd(modID) //Loads files from this mod
-                .packageFilter(BaseCard.class) //In the same package as this class
+                .packageFilter(AbstractSleeperCard.class) //In the same package as this class
+//                .notPackageFilter(WardOff.class)
+                .notPackageFilter("sleepermod.cardsDeprecated")
+                .notPackageFilter("sleepermod.cardsBeta")
                 .setDefaultSeen(true) //And marks them as seen in the compendium
                 .cards(); //Adds the cards
 

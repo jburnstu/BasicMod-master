@@ -14,33 +14,34 @@ public class HappyPlacePower extends AbstractSleeperPower {
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
 
-    AbstractPlayer p;
+    AbstractPlayer owner;
 
     int amount = 1;
 
     int blockFromCards = 0;
 
-    public HappyPlacePower(AbstractPlayer p, int amount) {
-        super(POWER_ID, TYPE, false, p, amount);
-        this.p = p;
+    public HappyPlacePower(AbstractPlayer owner, int amount) {
+        super(POWER_ID, TYPE, false, owner, amount);
+        this.owner = owner;
         this.amount = amount;
         System.out.println(this.amount);
     }
 
-    public void onPlayerEndTurn() {
-        System.out.println("Arrived at HappyPlaceUpdate...");
-        blockFromCards = 0;
-        for (AbstractCard c : AbstractDungeon.player.hand.group) {
-            if (c instanceof ForgottenCard) {
-                System.out.println("found a forgottenCard -- blockFromCards is " + blockFromCards + "and this.amount is " + this.amount);
-                blockFromCards += this.amount;
+    @Override
+    public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
+        if (isPlayer) {
+            blockFromCards = 0;
+            for (AbstractCard c : this.owner.hand.group) {
+                if (c instanceof ForgottenCard) {
+                    System.out.println("found a forgottenCard -- blockFromCards is " + blockFromCards + "and this.amount is " + this.amount);
+                    blockFromCards += this.amount;
+                }
+            }
+            if (!(blockFromCards == 0)) {
+                System.out.println("second if activated");
+                flash();
+                addToBot(new GainBlockAction(this.owner, null, blockFromCards));
             }
         }
-        if (!(blockFromCards == 0)) {
-            System.out.println("second if activated");
-            flash();
-            addToBot(new GainBlockAction(AbstractDungeon.player, null,blockFromCards));
-        }
     }
-
 }
