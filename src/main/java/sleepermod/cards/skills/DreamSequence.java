@@ -3,6 +3,7 @@ package sleepermod.cards.skills;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import sleepermod.actions.DreamSequenceAction;
 import sleepermod.actions.ForgetAction;
 import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.character.MySleeperPlayer;
@@ -30,7 +31,6 @@ public class DreamSequence extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ForgetAction(this.magicNumber,false,false,false));
-        addToBot(new DrawCardAction(this.magicNumber));
+        addToBot(new ForgetAction(1,false,this.upgraded,false,new DreamSequenceAction()));
     }
 }

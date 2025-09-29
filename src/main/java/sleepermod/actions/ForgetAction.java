@@ -84,6 +84,11 @@ public class ForgetAction extends AbstractGameAction {
         this.followUpAction = followUpAction;
     }
 
+    public ForgetAction(int amount, boolean isRandom, boolean anyNumber, boolean canPickZero, AbstractGameAction followUpAction) {
+        this(amount, isRandom, anyNumber, canPickZero);
+        this.followUpAction = followUpAction;
+    }
+
 
     public void update() {
         forgottenCards.clear();

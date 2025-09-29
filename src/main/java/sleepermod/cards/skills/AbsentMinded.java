@@ -22,15 +22,16 @@ public class AbsentMinded extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int BLOCK = 8;
-    private static final int UPG_BLOCK = 3;
+//    private static final int BLOCK = 8;
+//    private static final int UPG_BLOCK = 3;
     private int baseMagicNumber = 1;
 
     public AbsentMinded() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.forget = true;
-        setBlock(BLOCK,UPG_BLOCK);
+//        this.forget = true;
+//        setBlock(BLOCK,UPG_BLOCK);
         setMagic(baseMagicNumber);
+        setCostUpgrade(0);
     }
 
     @Override

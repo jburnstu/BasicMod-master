@@ -24,7 +24,7 @@ public class MemorySkip extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
     private int baseMagicNumber = 1;
     private static final int BLOCK = 11;
-    private static final int UPG_BLOCK = 3;
+    private static final int UPG_BLOCK = 4;
 
     public MemorySkip() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
@@ -36,6 +36,6 @@ public class MemorySkip extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p,block));
-        addToBot(new ApplyPowerAction(p,p, new FreeCardPower(p,magicNumber)));
+        addToBot(new ApplyPowerAction(p,p, new FreeCardPower(p,magicNumber),magicNumber));
     }
 }
