@@ -1,4 +1,4 @@
-package sleepermod.cards.skills;
+package sleepermod.cardsBeta.skills;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;

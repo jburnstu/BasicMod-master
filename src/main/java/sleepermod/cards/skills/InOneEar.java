@@ -1,17 +1,16 @@
 package sleepermod.cards.skills;
 
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import sleepermod.actions.DreamSequenceAction;
+import sleepermod.actions.InOneEarAction;
 import sleepermod.actions.ForgetAction;
 import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.character.MySleeperPlayer;
 import sleepermod.util.CardStats;
 
 //Forget a card in your hand. Draw 1 card.
-public class DreamSequence extends AbstractSleeperCard {
-    public static final String ID = makeID(DreamSequence.class.getSimpleName());
+public class InOneEar extends AbstractSleeperCard {
+    public static final String ID = makeID(InOneEar.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -24,13 +23,13 @@ public class DreamSequence extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
     private int baseMagicNumber = 1;
 
-    public DreamSequence() {
+    public InOneEar() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.magicNumber = baseMagicNumber;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ForgetAction(1,false,this.upgraded,false,new DreamSequenceAction()));
+        addToBot(new ForgetAction(1,false,this.upgraded,false,new InOneEarAction()));
     }
 }

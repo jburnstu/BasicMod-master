@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sleepermod.character.MySleeperPlayer;
 import sleepermod.patches.coremechanics.FieldPatchAbstractCardBackForgottenCard;
-import sleepermod.powers.VisionPower;
+import sleepermod.powers.TrancePower;
 import sleepermod.util.CardStats;
 
 public class ForgottenCard extends AbstractSleeperCard {
@@ -42,7 +42,7 @@ public class ForgottenCard extends AbstractSleeperCard {
     @Override
     public void applyPowers() {
         super.applyPowers();
-        if (AbstractDungeon.player.hasPower(VisionPower.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(TrancePower.POWER_ID)) {
             this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[0] + cardStrings.DESCRIPTION;
             this.urgent = true;
             this.setCostForTurn(0);

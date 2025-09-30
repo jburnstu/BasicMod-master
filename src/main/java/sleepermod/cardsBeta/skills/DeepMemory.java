@@ -1,18 +1,18 @@
-package sleepermod.cards.skills;
+package sleepermod.cardsBeta.skills;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import sleepermod.actions.FreeForgottenCardsAction;
+import sleepermod.actions.DeepMemoryAction;
 import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.character.MySleeperPlayer;
 import sleepermod.powers.ComaPower;
-import sleepermod.powers.VisionPower;
+import sleepermod.powers.TrancePower;
 import sleepermod.util.CardStats;
 
 //Forgotten cards cost zero this turn. This turn, when you draw a draw a non-forgotten card, discard it.
-public class Coma extends AbstractSleeperCard {
-    public static final String ID = makeID(Coma.class.getSimpleName());
+public class DeepMemory extends AbstractSleeperCard {
+    public static final String ID = makeID(DeepMemory.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -26,15 +26,13 @@ public class Coma extends AbstractSleeperCard {
     public boolean baseExhaust = true;
     public boolean upgradeExhaust = false;
 
-    public Coma() {
+    public DeepMemory() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setExhaust(baseExhaust,upgradeExhaust);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p,p,new VisionPower(p,99)));
-        addToBot(new ApplyPowerAction(p, p, new ComaPower(p, 1)));
-
+        addToBot(new DeepMemoryAction(p));
     }
 }

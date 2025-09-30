@@ -24,7 +24,7 @@ public class ChosenOnePower extends AbstractSleeperPower {
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner) {
             flash();
-            addToTop(new ApplyPowerAction(p, p, new VisionPower(p, 1)));
+            addToTop(new ApplyPowerAction(p, p, new TrancePower(p, 1)));
         }
         return damageAmount;
     }

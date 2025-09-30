@@ -6,12 +6,12 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.character.MySleeperPlayer;
-import sleepermod.powers.InOneEarPower;
+import sleepermod.powers.FugueStatePower;
 import sleepermod.util.CardStats;
 
 // The first time you remember a card, draw X cards.
-public class InOneEar extends AbstractSleeperCard {
-    public static final String ID = makeID(InOneEar.class.getSimpleName());
+public class FugueState extends AbstractSleeperCard {
+    public static final String ID = makeID(FugueState.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -24,14 +24,14 @@ public class InOneEar extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
     public int baseMagicNumber = 2;
 
-    public InOneEar() {
+    public FugueState() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setMagic(baseMagicNumber);
         setCostUpgrade(0);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new InOneEarPower(p,magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new FugueStatePower(p,magicNumber)));
     }
 
     public void upgrade() {
@@ -41,6 +41,6 @@ public class InOneEar extends AbstractSleeperCard {
     }
 
     public AbstractCard makeCopy() {
-        return new InOneEar();
+        return new FugueState();
     }
 }

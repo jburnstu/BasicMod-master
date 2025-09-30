@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.character.MySleeperPlayer;
-import sleepermod.powers.VisionPower;
+import sleepermod.powers.TrancePower;
 import sleepermod.util.CardStats;
 
 //8 Damage. Gain 1 amnesia
@@ -37,6 +37,6 @@ public class Accuse extends AbstractSleeperCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 //        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m,magicNumber,false)));
-        addToBot(new ApplyPowerAction(p,p, new VisionPower(p,1)));
+        addToBot(new ApplyPowerAction(p,p, new TrancePower(p,1)));
         };
     }

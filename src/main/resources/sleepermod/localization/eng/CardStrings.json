@@ -15,7 +15,7 @@
   },
   "${modID}:Accuse": {
     "NAME": "Accuse",
-    "DESCRIPTION": "Apply !M! Vulnerable. NL Gain !M! Vision."
+    "DESCRIPTION": "Apply !M! Vulnerable. NL Enter Trance."
   },
   "${modID}:AllNighter": {
     "NAME": "All-Nighter",
@@ -64,7 +64,7 @@
   },
   "${modID}:ChosenOne": {
     "NAME": "Chosen One",
-    "DESCRIPTION": "Deal !D! damage. NL Whenever you attack this enemy, gain !M! Vision. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL Whenever you attack this enemy, enter Trance. NL Exhaust."
   },
   "${modID}:Closure": {
     "NAME": "Closure",
@@ -76,7 +76,7 @@
   },
   "${modID}:Commune": {
     "NAME": "Commune",
-    "DESCRIPTION": "Gain !B! Block and !M! Vision. NL Draw 1 card. NL If it is a Forgotten card, play this card again."
+    "DESCRIPTION": "Gain !B! Block and draw 1 card. NL If it is a Forgotten card, play this card again."
   },
   "${modID}:Compulsion": {
     "NAME": "Compulsion",
@@ -94,9 +94,9 @@
     "NAME": "Daydream",
     "DESCRIPTION": "At the end of your turn, retain !M! random forgotten card."
   },
-  "${modID}:DoubleInsomnia": {
-    "NAME": "Double Insomnia",
-    "DESCRIPTION": "Double the target's Insomnia."
+  "${modID}:DeepMemory": {
+    "NAME": "Deep Memory",
+    "DESCRIPTION": "If you are in Trance, draw cards until you draw a Forgotten card. NL Otherwise, enter Trance."
   },
   "${modID}:Dizzy": {
     "NAME": "Dizzy",
@@ -147,12 +147,11 @@
   },
   "${modID}:FlashBeforeMyEyes": {
     "NAME": "Flash Before My Eyes",
-    "DESCRIPTION": "Urgent. NL Draw !M! cards."
+    "DESCRIPTION": "Urgent. NL Draw !M! cards. NL Exhaust."
   },
   "${modID}:FlashForward": {
     "NAME": "Flashforward",
-    "DESCRIPTION": "Urgent. NL Gain !M! Vision. NL Draw !M! card. Exhaust.",
-    "UPGRADED_DESCRIPTION": "Urgent. NL Gain !M! Vision. NL Draw !M! cards. NL Exhaust."
+    "DESCRIPTION": "Urgent. NL Enter Trance. NL Draw !M! cards. NL Exhaust."
   },
   "${modID}:Foreshadowing": {
     "NAME": "Foreshadowing",
@@ -169,9 +168,13 @@
     "NAME": "Free-Drawing",
     "DESCRIPTION": "Draw !M! cards. NL Forget."
   },
+  "${modID}:FugueState": {
+    "NAME": "Fugue State",
+    "DESCRIPTION": "Whenever you enter Trance, draw !M! card."
+  },
   "${modID}:GrandRitual": {
     "NAME": "Grand Ritual",
-    "DESCRIPTION": "Awaken X cards. NL Gain X Vision. NL Exhaust."
+    "DESCRIPTION": "At the start of your next X turns, Awaken 1 and enter Trance. NL Exhaust."
   },
   "${modID}:Groundwork": {
     "NAME": "Groundwork",
@@ -212,7 +215,8 @@
   },
   "${modID}:InOneEar": {
     "NAME": "In One Ear",
-    "DESCRIPTION": "The first time in your turn you Remember a card, draw !M! cards."
+    "DESCRIPTION": "Forget 1 card. NL Draw 1 card.",
+    "UPGRADED_DESCRIPTION": "Forget 1 or more cards. NL Draw that many cards."
   },
   "${modID}:IntoNextWeek": {
     "NAME": "Into Next Week",
@@ -284,11 +288,11 @@
   },
   "${modID}:Precog": {
     "NAME": "Precog",
-    "DESCRIPTION": "Deal !D! damage. NL If the target intends to attack, gain !M! Vision."
+    "DESCRIPTION": "Deal !D! damage. NL If the target intends to attack, enter Trance."
   },
   "${modID}:Premonition": {
     "NAME": "Premonition",
-    "DESCRIPTION": "Deal !D! damage. NL Next turn, gain !M! Vision."
+    "DESCRIPTION": "Deal !D! damage. NL At the start of you next turn, enter Trance."
   },
   "${modID}:Procrastinate": {
     "NAME": "Procrastinate",
@@ -329,10 +333,13 @@
     "NAME": "Repress",
     "DESCRIPTION": "Forget !M! card in your hand. NL Gain !B! Block. NL Forget."
   },
+  "${modID}:Reinterpret": {
+    "NAME": "Reinterpret",
+    "DESCRIPTION": "Deal !D! damage. NL Move a random Forgotten card in your discard pile to the top of your deck."
+  },
   "${modID}:SelDiscovery": {
     "NAME": "Self Discovery",
     "DESCRIPTION": "The first time you awaken a card on your turn, reduce its cost by !M! until played.",
-    "UPGRADED_DESCRIPTION": "Deal !D! damage. NL If this card is Remembered, gain !M! Dexterity. NL Forget."
   },
   "${modID}:SelfProtection": {
     "NAME": "Self Protection",
@@ -395,7 +402,7 @@
   },
   "${modID}:TheatreOfTheMind": {
     "NAME": "Theatre Of The Mind",
-    "DESCRIPTION": "Gain !M! Vision for each Forgotten Card in your hand."
+    "DESCRIPTION": "Whenever you a Remember a card this turn, enter Trance."
   },
   "${modID}:Thrash": {
     "NAME": "Thrash",

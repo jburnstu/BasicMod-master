@@ -35,6 +35,12 @@
     ],
     "DESCRIPTION": "Removes the Forgotten condition from a card and plays it."
   },
+  "TRANCE": {
+    "NAMES": [
+      "trance"
+    ],
+    "DESCRIPTION": "Forgotten cards are Urgent and cost 0 to play. NL Exit Trance when you Remember a card."
+  },
   "URGENT": {
     "NAMES": [
       "urgent",

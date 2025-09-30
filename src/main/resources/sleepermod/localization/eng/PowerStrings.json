@@ -74,6 +74,14 @@
       " cards you play are free."
     ]
   },
+  "${modID}:FugueStatePower": {
+    "NAME": "Fugue State",
+    "DESCRIPTIONS": [
+      "Whenever you enter Trance, draw #b1 card.",
+      "Whenever you enter Trance, draw #",
+      " cards."
+    ]
+  },
   "${modID}:GroundworkPower": {
     "NAME": "Groundwork",
     "DESCRIPTIONS": [
@@ -176,6 +184,12 @@
     "DESCRIPTIONS": [
       "Whenever you Remember a card, apply #b",
       " Insomnia to the target."
+    ]
+  },
+  "${modID}:TrancePower": {
+    "NAME": "Trance",
+    "DESCRIPTIONS": [
+      "Forgotten cards are Urgent and cost 0 to play. NL Exit Trance when you Remember a card."
     ]
   },
   "${modID}:VisionPower": {

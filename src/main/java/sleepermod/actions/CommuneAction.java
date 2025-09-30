@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import sleepermod.cards.ForgottenCard;
-import sleepermod.powers.VisionPower;
+import sleepermod.powers.TrancePower;
 
 public class CommuneAction extends AbstractGameAction {
     public int passedBlock;
@@ -26,7 +26,6 @@ public class CommuneAction extends AbstractGameAction {
     @Override
     public void update() {
         addToBot(new GainBlockAction(this.target,this.passedBlock));
-        addToBot(new ApplyPowerAction(this.target,this.target,new VisionPower(this.target,this.passedMagicNumber)));
         addToBot(new DrawCardAction(1));
         System.out.println("Commune Action drawn, card is " + DrawCardAction.drawnCards.get(0));
         if (DrawCardAction.drawnCards.get(0) instanceof ForgottenCard) {

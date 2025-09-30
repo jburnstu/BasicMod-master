@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
-import sleepermod.powers.VisionPower;
+import sleepermod.powers.TrancePower;
 
 public class GrandRitualAction extends AbstractGameAction {
     private boolean freeToPlayOnce = false;
@@ -37,7 +37,7 @@ public class GrandRitualAction extends AbstractGameAction {
         if (this.upgraded)
             effect++;
         if (effect > 0) {
-            addToBot(new ApplyPowerAction(this.p,this.p,new VisionPower(this.p,effect)));
+            addToBot(new ApplyPowerAction(this.p,this.p,new TrancePower(this.p,effect)));
             addToBot(new AwakenAction(effect,false));
             if (!this.freeToPlayOnce)
                 this.p.energy.use(EnergyPanel.totalCount);
