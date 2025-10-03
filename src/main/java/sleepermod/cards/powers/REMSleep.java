@@ -34,11 +34,6 @@ public class REMSleep extends AbstractSleeperCard {
         addToBot(new ApplyPowerAction(p, p, new REMSleepPower(p,baseMagicNumber)));
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            upgradeName();
-        }
-    }
 
     public AbstractCard makeCopy() {
         return new REMSleep();

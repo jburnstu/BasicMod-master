@@ -22,13 +22,14 @@ public class FlashForward extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int baseMagicNumber = 2;
+    private int baseMagicNumber = 1;
     private int magicUpgrade = 1;
 
     public FlashForward() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.urgent = true;
         setMagic(baseMagicNumber,magicUpgrade);
+        setExhaust(false,true);
     }
 
     @Override

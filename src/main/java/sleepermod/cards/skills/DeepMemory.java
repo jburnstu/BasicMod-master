@@ -1,15 +1,15 @@
-package sleepermod.cardsBeta.skills;
+package sleepermod.cards.skills;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import sleepermod.actions.CommuneAction;
+import sleepermod.actions.DeepMemoryAction;
 import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.character.MySleeperPlayer;
 import sleepermod.util.CardStats;
 
-//Gain 3 block and draw one card for every forgotten card in your hand.
-public class Commune extends AbstractSleeperCard {
-    public static final String ID = makeID(Commune.class.getSimpleName());
+//Forgotten cards cost zero this turn. This turn, when you draw a draw a non-forgotten card, discard it.
+public class DeepMemory extends AbstractSleeperCard {
+    public static final String ID = makeID(DeepMemory.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
@@ -20,18 +20,16 @@ public class Commune extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int BLOCK = 4;
-    private static final int UPG_BLOCK = 1;
-    public int baseMagicNumber = 1;
+    public boolean baseExhaust = true;
+    public boolean upgradeExhaust = false;
 
-    public Commune() {
+    public DeepMemory() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        setBlock(BLOCK, UPG_BLOCK); //Sets the card's damage and how much it changes when upgraded.
-        setMagic(baseMagicNumber);
+        setExhaust(baseExhaust,upgradeExhaust);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new CommuneAction(p,block,magicNumber,this));
+        addToBot(new DeepMemoryAction(p));
     }
 }

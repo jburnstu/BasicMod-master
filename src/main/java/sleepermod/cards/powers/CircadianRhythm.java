@@ -38,13 +38,6 @@ public class CircadianRhythm extends AbstractSleeperCard {
         addToBot(new ApplyPowerAction(p,p,new CircadianRhythmPower(p,magicNumber)));
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(1);
-        }
-    }
-
     public AbstractCard makeCopy() {
         return new CircadianRhythm();
     }

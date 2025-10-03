@@ -26,8 +26,8 @@ public class Leitmotif extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int DAMAGE = 4;
-    private static final int UPG_DAMAGE = 2;
+    private static final int DAMAGE = 5;
+    private static final int UPG_DAMAGE = 3;
     public static final int magicNumber = 1;
 
 

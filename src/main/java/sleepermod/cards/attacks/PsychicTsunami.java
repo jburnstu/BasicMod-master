@@ -43,11 +43,16 @@ public class PsychicTsunami extends AbstractSleeperCard {
     }
 
     public void applyPowers() {
-        int numberOfForgottenCards = ((MySleeperPlayer) AbstractDungeon.player).cardsRememberedThisCombat.size();
-        if (numberOfForgottenCards > 0) {
-            this.baseDamage = numberOfForgottenCards * this.magicNumber;
+        int numberOfRememberedCards = ((MySleeperPlayer) AbstractDungeon.player).cardsRememberedThisCombat.size();
+        if (numberOfRememberedCards > 0) {
+            this.baseDamage = numberOfRememberedCards * this.magicNumber;
             super.applyPowers();
-            this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+            this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0] + numberOfRememberedCards;
+            if (numberOfRememberedCards == 1) {
+                this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[1];
+            } else {
+                this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[2];
+            }
             initializeDescription();
         }
     }
@@ -64,12 +69,6 @@ public class PsychicTsunami extends AbstractSleeperCard {
         initializeDescription();
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(1);
-        }
-    }
 
     public AbstractCard makeCopy() {
         return new PsychicTsunami();

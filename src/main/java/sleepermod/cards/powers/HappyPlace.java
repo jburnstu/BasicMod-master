@@ -25,23 +25,17 @@ public class HappyPlace extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
 
     int baseMagicNumber = 2;
+    int magicUpgrade = 1;
 
     public HappyPlace() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.magicNumber = this.baseMagicNumber;
-        setMagic(magicNumber);
+        setMagic(baseMagicNumber,magicUpgrade);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction)new ApplyPowerAction(p,p,new HappyPlacePower(p,this.magicNumber)));
+        addToBot((AbstractGameAction)new ApplyPowerAction(p,p,new HappyPlacePower(p,magicNumber)));
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(1);
-        }
-    }
 
     public AbstractCard makeCopy() {
         return new HappyPlace();

@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import sleepermod.actions.RememberAction;
 import sleepermod.character.MySleeperPlayer;
 import sleepermod.patches.coremechanics.FieldPatchAbstractCardBackForgottenCard;
 import sleepermod.powers.TrancePower;
@@ -62,30 +63,7 @@ public class ForgottenCard extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.p.forgottenPile.group.remove(this.frontForgottenCard);
-
-        switch (this.frontForgottenCard.target) {
-            case ENEMY:
-                addToBot(new NewQueueCardAction(this.frontForgottenCard, m, true, true));
-                break;
-            case SELF:
-                addToBot(new NewQueueCardAction(this.frontForgottenCard, p, true, true));
-                break;
-            default:
-                addToBot(new NewQueueCardAction(this.frontForgottenCard, m, true, true));
-        }
-
-        if (this.frontForgottenCard.target == CardTarget.ENEMY) {
-            addToBot(new NewQueueCardAction(this.frontForgottenCard, m, true, true));
-        } else {
-            addToBot(new NewQueueCardAction(this.frontForgottenCard, false, true, true));
-        }
-        if (this.frontForgottenCard instanceof AbstractSleeperCard) {
-//            this.p.hand.addToHand(this.forgottenCard);
-            ((AbstractSleeperCard) this.frontForgottenCard).triggerOnRemembered(p,m,true);
-        }
-        this.p.cardsRememberedThisCombat.add(this.frontForgottenCard);
-        addToTop(new ShowCardAndPoofAction(this));
+        addToBot(new RememberAction(m,(MySleeperPlayer) p,this));
     }
 
 

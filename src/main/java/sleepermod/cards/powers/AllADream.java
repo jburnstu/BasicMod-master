@@ -35,16 +35,10 @@ public class AllADream extends AbstractSleeperCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot((AbstractGameAction)new HealAction((AbstractCreature)p, (AbstractCreature)p, magicNumber));
-        addToBot((AbstractGameAction)new ApplyPowerAction(p,p,new RepairPower(p,-15)));
+        addToBot(new HealAction(p, p, magicNumber));
+        addToBot(new ApplyPowerAction(p,p,new RepairPower(p,-15)));
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(1);
-        }
-    }
 
     public AbstractCard makeCopy() {
         return new AllADream();

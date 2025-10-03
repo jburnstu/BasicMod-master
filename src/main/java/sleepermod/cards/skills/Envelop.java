@@ -22,7 +22,7 @@ public class Envelop extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int baseMagicNumber = 1;
+    private static final int baseMagicNumber = 2;
     public static final int magicUpgrade = 1;
 
     public Envelop() {
@@ -43,7 +43,12 @@ public class Envelop extends AbstractSleeperCard {
         System.out.println("number of forgotten cards" + numberOfForgottenCards);
         this.baseBlock = numberOfForgottenCards * baseMagicNumber;
         super.applyPowers();
-        this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+        this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0] + numberOfForgottenCards;
+        if (numberOfForgottenCards == 1) {
+            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[1];
+        } else {
+            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[2];
+        }
         initializeDescription();
     }
 
@@ -52,12 +57,6 @@ public class Envelop extends AbstractSleeperCard {
         initializeDescription();
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(1);
-        }
-    }
 
     public AbstractCard makeCopy() {
         return new Envelop();

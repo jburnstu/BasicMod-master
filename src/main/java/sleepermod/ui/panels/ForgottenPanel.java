@@ -116,11 +116,11 @@ public class ForgottenPanel extends AbstractPanel {
             this.hb.render(sb);
             if (this.hb.hovered && (AbstractDungeon.getCurrRoom()).phase == AbstractRoom.RoomPhase.COMBAT && !AbstractDungeon.isScreenUp)
                 if (Settings.isConsoleBuild) {
-                    TipHelper.renderGenericTip(1550.0F * Settings.scale, 450.0F * Settings.scale, LABEL[0] + " (" + InputActionSet.exhaustPile
+                    TipHelper.renderGenericTip(1550.0F * Settings.scale, 450.0F * Settings.scale, "Forgotten Cards" + " (" + InputActionSet.exhaustPile
 
                             .getKeyString() + ")", MSG[1]);
                 } else {
-                    TipHelper.renderGenericTip(1550.0F * Settings.scale, 450.0F * Settings.scale, LABEL[0] + " (" + InputActionSet.exhaustPile
+                    TipHelper.renderGenericTip(1550.0F * Settings.scale, 450.0F * Settings.scale, "Forgotten Cards" + " (" + InputActionSet.exhaustPile
 
                             .getKeyString() + ")", MSG[0]);
                 }

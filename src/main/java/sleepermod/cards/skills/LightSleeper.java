@@ -22,8 +22,8 @@ public class LightSleeper extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int BLOCK = 8;
-    private static final int UPG_BLOCK = 4;
+    private static final int BLOCK = 7;
+    private static final int UPG_BLOCK = 3;
     private static final int baseMagicNumber = 4;
 
     public LightSleeper() {

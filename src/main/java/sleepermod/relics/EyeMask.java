@@ -19,10 +19,11 @@ public class EyeMask extends AbstractSleeperRelic {
         return new EyeMask();
     }
 
-    @Override
-    public void onVictory () {
-        addToBot(new DreamJournalAction());
-    }
+
+//    @Override
+//    public void onVictory () {
+//        addToBot(new DreamJournalAction());
+//    }
 
 
 }

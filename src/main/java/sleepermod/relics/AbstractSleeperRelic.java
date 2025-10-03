@@ -22,4 +22,6 @@ public abstract class AbstractSleeperRelic extends CustomRelic {
     public void onRecollectWithNoForgotten() {}
 
     public void onAwaken (AbstractCard card) {}
+
+    public void onRemember (AbstractCard card) {}
 }

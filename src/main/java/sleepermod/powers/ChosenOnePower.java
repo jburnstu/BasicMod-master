@@ -15,17 +15,18 @@ public class ChosenOnePower extends AbstractSleeperPower {
     private static final PowerType TYPE = PowerType.DEBUFF;
     private static final boolean TURN_BASED = false;
 
-    public AbstractPlayer p = AbstractDungeon.player;
+    public AbstractCreature source;
 
-    public ChosenOnePower(AbstractCreature owner, int amount) {
+    public ChosenOnePower(AbstractCreature owner, AbstractCreature source, int amount) {
+
         super(POWER_ID, TYPE, false, owner, amount);
+        this.source = source;
     }
 
-    public int onAttacked(DamageInfo info, int damageAmount) {
-        if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner) {
-            flash();
-            addToTop(new ApplyPowerAction(p, p, new TrancePower(p, 1)));
-        }
-        return damageAmount;
+    @Override
+    public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
+        if (target == this.source && damageAmount > 0 && info.type == DamageInfo.DamageType.NORMAL) {
+            addToTop(new ApplyPowerAction(this.source, this.source, new TrancePower(this.source, 1)));
+            }
     }
 }

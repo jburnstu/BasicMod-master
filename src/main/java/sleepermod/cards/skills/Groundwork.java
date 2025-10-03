@@ -22,8 +22,8 @@ public class Groundwork extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int BLOCK = 10;
-    private static final int UPG_BLOCK = 5;
+    private static final int BLOCK = 12;
+    private static final int UPG_BLOCK = 0;
     public static final int baseMagicNumber = 1;
     public static final int magicUpgrade = 1;
 

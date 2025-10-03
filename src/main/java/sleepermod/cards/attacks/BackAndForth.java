@@ -34,17 +34,11 @@ public class BackAndForth extends AbstractSleeperCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i = 1; i < this.magicNumber; i++) {
+        for (int i = 0; i < this.magicNumber; i++) {
             addToTop(new AttackDamageRandomEnemyAction(this));
         }
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(1);
-        }
-    }
 
     public AbstractCard makeCopy() {
         return new BackAndForth();

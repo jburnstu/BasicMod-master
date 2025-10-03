@@ -22,11 +22,17 @@ public class MagicalThinking extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
 
     public MagicalThinking() {
+
         super(ID, info); //Pass the required information to the BaseCard constructor.
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToTop(new MagicalThinkingAction(this));
+    }
+
+    @Override
+    public void changeForgetForUpgrade() {
+        this.forget = true;
     }
 }

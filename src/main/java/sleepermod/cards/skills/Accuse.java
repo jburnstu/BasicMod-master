@@ -22,15 +22,16 @@ public class Accuse extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int DMG = 10;
-    private static final int UPG_DMG = 4;
-    private static final int baseMagicNumber = 1;
+//    private static final int DMG = 10;
+//    private static final int UPG_DMG = 4;
+    private static final int baseMagicNumber = 2;
 
     public Accuse() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
 
-        setDamage(DMG, UPG_DMG); //Sets the card's damage and how much it changes when upgraded.
+//        setDamage(DMG, UPG_DMG); //Sets the card's damage and how much it changes when upgraded.
         setMagic(baseMagicNumber);
+        setCostUpgrade(0);
     }
 
     @Override

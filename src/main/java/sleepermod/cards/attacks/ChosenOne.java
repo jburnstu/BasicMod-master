@@ -39,6 +39,6 @@ public class ChosenOne extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
-        addToBot(new ApplyPowerAction(m,p,new ChosenOnePower(m,magicNumber)));
+        addToBot(new ApplyPowerAction(m,p,new ChosenOnePower(m,p,magicNumber)));
         };
     }

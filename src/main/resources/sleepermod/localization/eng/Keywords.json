@@ -26,8 +26,7 @@
     "NAMES": [
       "insomnia"
     ],
-    "DESCRIPTION": "At the start of a creature's turn, if it has more Insomnia than HP, it dies. NL Decreases by 1 whenever you Forget a card."
-  },
+    "DESCRIPTION": "At the end of a creature's turn, if it has Insomnia greater than its HP, it dies. Otherwise, its Insomnia doubles. NL Reduces by 1 whenever you Forget a card."  },
   "REMEMBER": {
     "NAMES": [
       "remember",

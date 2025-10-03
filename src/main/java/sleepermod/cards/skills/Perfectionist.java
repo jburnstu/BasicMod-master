@@ -30,6 +30,7 @@ public class Perfectionist extends AbstractSleeperCard {
         this.urgent = true;
         setMagic(baseMagicNumber,magicUpgrade);
         setCostUpgrade(0);
+        setExhaust(true,false);
     }
 
     @Override

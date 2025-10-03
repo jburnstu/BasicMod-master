@@ -21,7 +21,7 @@ public class BlankSlate extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    public int BLOCK = 3;
+    public int BLOCK = 4;
     public int UPG_BLOCK = 2;
     public boolean baseExhaust = true;
     public boolean upgradeExhaust = false;

@@ -14,7 +14,7 @@ public class DaydreamPower extends AbstractSleeperPower {
 
     AbstractPlayer p;
 
-    int amount = 1;
+    int amount;
     int count = 0;
 
     public DaydreamPower(AbstractPlayer p, int amount) {
@@ -31,7 +31,7 @@ public class DaydreamPower extends AbstractSleeperPower {
         count = 0;
         System.out.println("count: " + count+ "this.amount: " + this.amount);
         for (AbstractCard c:  p.hand.group) {
-            if (count < 1 && c instanceof ForgottenCard) {
+            if (count < this.amount && c instanceof ForgottenCard) {
                 c.retain = true;
                 count += 1;
                 System.out.println(count);

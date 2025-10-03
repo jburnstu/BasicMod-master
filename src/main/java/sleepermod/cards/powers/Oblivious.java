@@ -35,13 +35,6 @@ public class Oblivious extends AbstractSleeperCard {
         addToBot(new ApplyPowerAction(p, p, new ObliviousPower(p,magicNumber)));
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(1);
-        }
-    }
-
     public AbstractCard makeCopy() {
         return new Oblivious();
     }

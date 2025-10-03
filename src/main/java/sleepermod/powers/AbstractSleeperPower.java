@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public abstract class AbstractSleeperPower extends BasePower {
 
@@ -31,6 +32,8 @@ public abstract class AbstractSleeperPower extends BasePower {
     public void onForget (AbstractCard card) {}
 
     public void onAwaken(AbstractCard card) {}
+
+    public void onRemember(AbstractCard card, AbstractCreature m) {}
 
     public void onEnterTrance() {}
 

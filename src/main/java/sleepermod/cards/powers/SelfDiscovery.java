@@ -33,11 +33,6 @@ public class SelfDiscovery extends AbstractSleeperCard {
         addToBot(new ApplyPowerAction(p, p, new SelfDiscoveryPower(p,magicNumber)));
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            upgradeName();
-        }
-    }
 
     public AbstractCard makeCopy() {
         return new SelfDiscovery();

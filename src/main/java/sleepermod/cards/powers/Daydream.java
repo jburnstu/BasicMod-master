@@ -24,22 +24,15 @@ public class Daydream extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
 
     int baseMagicNumber = 1;
+    int magicUpgrade = 1;
 
     public Daydream() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        setMagic(baseMagicNumber);
-        setCostUpgrade(0);
+        setMagic(baseMagicNumber,magicUpgrade);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p,p,new DaydreamPower(p,magicNumber)));
-    }
-
-    public void upgrade() {
-        if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(1);
-        }
     }
 
     public AbstractCard makeCopy() {

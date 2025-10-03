@@ -34,12 +34,6 @@ public class FugueState extends AbstractSleeperCard {
         addToBot(new ApplyPowerAction(p, p, new FugueStatePower(p,magicNumber)));
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            upgradeName();
-        }
-    }
-
     public AbstractCard makeCopy() {
         return new FugueState();
     }

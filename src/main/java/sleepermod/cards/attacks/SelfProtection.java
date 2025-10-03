@@ -33,7 +33,6 @@ public class SelfProtection extends AbstractSleeperCard {
     public SelfProtection() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
-        this.exhaust = true;
         setMagic(magicNumber);
     }
 
@@ -47,5 +46,9 @@ public class SelfProtection extends AbstractSleeperCard {
         addToBot(new ApplyPowerAction(p ,p, new DexterityPower(p,this.magicNumber)));
     }
 
+    @Override
+    public void changeForgetForUpgrade() {
+        this.forget = true;
+    }
 
 }

@@ -23,11 +23,12 @@ public class Sublimation extends AbstractSleeperCard {
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
     private int baseMagicNumber = 3;
+    private int magicUpgrade = 1;
 
 
     public Sublimation() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        setMagic(baseMagicNumber);
+        setMagic(baseMagicNumber,magicUpgrade);
     }
 
     @Override

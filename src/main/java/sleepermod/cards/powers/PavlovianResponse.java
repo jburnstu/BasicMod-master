@@ -34,12 +34,6 @@ public class PavlovianResponse extends AbstractSleeperCard {
         addToBot(new ApplyPowerAction(p, p, new PavlovianResponsePower(p,magicNumber)));
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(1);
-        }
-    }
 
     public AbstractCard makeCopy() {
         return new PavlovianResponse();

@@ -11,7 +11,7 @@ import sleepermod.util.CardStats;
 //Forget a card in your hand. Draw 1 card.
 public class InOneEar extends AbstractSleeperCard {
     public static final String ID = makeID(InOneEar.class.getSimpleName());
-    private static Object MyCharacter;
+
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
             CardType.SKILL, //The type. ATTACK/SKILL/POWER/CURSE/STATUS

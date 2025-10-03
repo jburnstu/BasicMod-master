@@ -39,4 +39,12 @@ public abstract class AbstractSleeperCard extends BaseCard {
 
     public void triggerOnShuffle() {}
 
+    public void changeForgetForUpgrade() {}
+
+    @Override
+    public void upgrade() {
+        super.upgrade();
+        changeForgetForUpgrade();
+    }
+
 }

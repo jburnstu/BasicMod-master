@@ -24,8 +24,8 @@ public class Closure extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int DAMAGE = 12;
-    private static final int UPG_DAMAGE = 3;
+    private static final int DAMAGE = 10;
+    private static final int UPG_DAMAGE = 4;
     public static final int baseMagicNumber = 4;
     public static final int upgradeMagic = 2;
 
@@ -48,5 +48,8 @@ public class Closure extends AbstractSleeperCard {
         addToBot(new HealAction(p, p, this.magicNumber));
     }
 
-
+    @Override
+    public void changeForgetForUpgrade() {
+        this.forget = true;
+    }
 }
