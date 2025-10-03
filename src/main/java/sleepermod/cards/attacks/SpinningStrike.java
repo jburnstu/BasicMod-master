@@ -3,10 +3,13 @@ package sleepermod.cards.attacks;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import sleepermod.actions.ForgetTopCardOfDiscardAction;
+import sleepermod.actions.MakeTempForgottenCardInDiscardAction;
 import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.cards.statuses.Dizzy;
 import sleepermod.character.MySleeperPlayer;
@@ -25,8 +28,8 @@ public class SpinningStrike extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int DAMAGE = 8;
-    private static final int UPG_DAMAGE = 11;
+    private static final int DAMAGE = 9;
+    private static final int UPG_DAMAGE = 3;
     public static final int magicNumber = 1;
 
 
@@ -40,7 +43,8 @@ public class SpinningStrike extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        addToBot(new MakeTempCardInDrawPileAction(new Dizzy(), 1, true, true));
+        addToBot(new MakeTempCardInDiscardAction(new Dizzy(),1));
+        addToBot(new ForgetTopCardOfDiscardAction(1));
     }
 
 
