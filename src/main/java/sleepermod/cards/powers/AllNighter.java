@@ -23,8 +23,8 @@ public class AllNighter extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    int baseMagicNumber = 20;
-    int magicUpgrade = -5;
+    int baseMagicNumber = 5;
+    int magicUpgrade = -1;
 
 
     public AllNighter() {
@@ -35,13 +35,6 @@ public class AllNighter extends AbstractSleeperCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p, new InsomniaPower(p,this.magicNumber)));
         addToBot(new ApplyPowerAction(p,p,new BerserkPower(p,1)));
-    }
-
-    public void upgrade() {
-        if (!this.upgraded) {
-            upgradeName();
-            upgradeMagicNumber(1);
-        }
     }
 
     public AbstractCard makeCopy() {

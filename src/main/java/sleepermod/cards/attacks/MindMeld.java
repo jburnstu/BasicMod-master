@@ -7,38 +7,39 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.character.MySleeperPlayer;
-import sleepermod.powers.InsomniaPower;
+import sleepermod.powers.ChosenOnePower;
+import sleepermod.powers.MindMeldPower;
 import sleepermod.util.CardStats;
 
-// Deal 25 (30) damage. At the start of its turn, the target gains 20HP.
-public class Doom extends AbstractSleeperCard {
-    public static final String ID = makeID(Doom.class.getSimpleName());
+//X damage. Apply 2 woozy.
+public class MindMeld extends AbstractSleeperCard {
+    public static final String ID = makeID(MindMeld.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or similar for a basegame character color.
             CardType.ATTACK, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
-            CardRarity.COMMON, //Rarity. BASIC is for starting cards, then there's COMMON/UNCOMMON/RARE, and then SPECIAL and CURSE. SPECIAL is for cards you only get from events. Curse is for curses, except for special curses like Curse of the Bell and Necronomicurse.
+            CardRarity.UNCOMMON, //Rarity. BASIC is for starting cards, then there's COMMON/UNCOMMON/RARE, and then SPECIAL and CURSE. SPECIAL is for cards you only get from events. Curse is for curses, except for special curses like Curse of the Bell and Necronomicurse.
             CardTarget.ENEMY, //The target. Single target is ENEMY, all enemies is ALL_ENEMY. Look at cards similar to what you want to see what to use.
             2 //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private final static int DAMAGE = 9;
-    private final static int UPG_DAMAGE = 3;
-    private final static int baseMagicNumber = 3;
-    private final static int magicUpgrade = 0;
+    private static final int DMG = 5;
+    private static final int UPG_DMG = 8;
+    private static int baseMagicNumber = 1;
+    private static int magicUpgrade = 0;
 
-    public Doom() {
+
+    public MindMeld() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.forget = true;
-        setDamage(DAMAGE,UPG_DAMAGE);
+        setDamage(DMG, UPG_DMG); //Sets the card's damage and how much it changes when upgraded.
         setMagic(baseMagicNumber,magicUpgrade);
+        this.exhaust = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m,new DamageInfo(p,DAMAGE)));
-         addToBot(new ApplyPowerAction(m,p,new InsomniaPower(m,magicNumber)));
-          }
-}
-
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
+        addToBot(new ApplyPowerAction(m,p,new MindMeldPower(m,p,magicNumber)));
+        };
+    }

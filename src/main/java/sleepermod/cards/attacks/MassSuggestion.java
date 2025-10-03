@@ -28,7 +28,7 @@ public class MassSuggestion extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
     private static final int DAMAGE = 10;
     private static final int UPG_DAMAGE = 4;
-    private static final int baseMagicNumber = 5;
+    private static final int baseMagicNumber = 2;
 
     public MassSuggestion() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
@@ -50,6 +50,11 @@ public class MassSuggestion extends AbstractSleeperCard {
         for (AbstractCreature mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             addToBot(new ApplyPowerAction(mo, p, new InsomniaPower(m,magicNumber)));
         }
+    }
+
+    @Override
+    public void changeForgetForUpgrade() {
+        this.forget = true;
     }
 }
 

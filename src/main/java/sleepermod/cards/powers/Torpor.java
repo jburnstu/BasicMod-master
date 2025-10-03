@@ -22,7 +22,7 @@ public class Torpor extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    public int baseMagicNumber = 4;
+    public int baseMagicNumber = 2;
     public int magicUpgrade = 1;
 
     public Torpor() {
@@ -34,11 +34,6 @@ public class Torpor extends AbstractSleeperCard {
         addToBot(new ApplyPowerAction(p, p, new TorporPower(p,magicNumber)));
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            upgradeName();
-        }
-    }
 
     public AbstractCard makeCopy() {
         return new Torpor();

@@ -16,8 +16,7 @@
   "${modID}:ChosenOnePower": {
     "NAME": "Chosen One",
     "DESCRIPTIONS": [
-      "Whenever you attack this enemy, gain #b",
-      " Vision."
+      "Whenever this enemy deals unblocked attack damage to you, Enter Trance."
     ]
   },
   "${modID}:CircadianRhythmPower": {
@@ -96,6 +95,13 @@
       " Block for every Forgotten card in your hand."
     ]
   },
+  "${modID}:GrandRitual": {
+    "NAME": "Grand Ritual",
+    "DESCRIPTIONS": [
+      "At the start of your next #b",
+      " turns, draw 1 card and enter Trance."
+    ]
+  },
   "${modID}:HazePower": {
     "NAME": "Haze",
     "DESCRIPTIONS": [
@@ -138,6 +144,13 @@
       " Amnesia and Awaken #b"
     ]
   },
+  "${modID}:MindMeldPower": {
+    "NAME": "Mind Meld",
+    "DESCRIPTIONS": [
+      "Whenever you Awaken a card, apply #b",
+      " Insomnia to this creature."
+    ]
+  },
   "${modID}:ObliviousPower": {
     "NAME": "Oblivious",
     "DESCRIPTIONS": [
@@ -177,6 +190,12 @@
     "NAME": "Self Discovery",
     "DESCRIPTIONS": [
       "Whenever you Awaken a card, upgrade it."
+    ]
+  },
+  "${modID}:TheatreOfTheMindPower": {
+    "NAME": "Theatre Of The Mind",
+    "DESCRIPTIONS": [
+      "This turn, whenever you Remember a card, enter Trance."
     ]
   },
   "${modID}:TorporPower": {

@@ -27,9 +27,7 @@ public class TorporPower extends AbstractSleeperPower {
 //    }
 
     @Override
-    public void onPlayCard(AbstractCard card, AbstractMonster m) {
-        if (card instanceof ForgottenCard) {
-            addToTop(new ApplyPowerAction(m,this.owner,new InsomniaPower(m,this.amount)));
-        }
+    public void onRemember(AbstractCard c, AbstractCreature m) {
+        addToTop(new ApplyPowerAction(m,this.owner,new InsomniaPower(m,this.amount)));
     }
 }

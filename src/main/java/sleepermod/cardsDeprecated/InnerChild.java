@@ -1,4 +1,4 @@
-package sleepermod.cards.skills;
+package sleepermod.cardsDeprecated;
 
 import com.megacrit.cardcrawl.actions.common.ReduceCostAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;

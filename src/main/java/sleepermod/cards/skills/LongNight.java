@@ -25,7 +25,7 @@ public class LongNight extends AbstractSleeperCard {
 
     public LongNight() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.exhaust = true;
+        setExhaust(true,false);
         setMagic(baseMagicNumber,magicUpgrade);
     }
 
