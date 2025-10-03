@@ -15,8 +15,9 @@ public class TrancePower extends AbstractSleeperPower {
     public static boolean removeAtEnd = false;
 
     public TrancePower(AbstractCreature owner, int amount) {
-        super(POWER_ID, TYPE, false, owner, amount);
+        super(POWER_ID, TYPE, false, owner, 0);
         this.removeAtEndOfTurn = removeAtEnd;
+        this.canGoNegative = false;
     }
 
     public void onUseCard(AbstractCard card, UseCardAction action) {

@@ -1,10 +1,12 @@
 package sleepermod.cards.skills;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sleepermod.actions.GrandRitualAction;
 import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.character.MySleeperPlayer;
+import sleepermod.powers.GrandRitualPower;
 import sleepermod.util.CardStats;
 
 //X awaken X vision
@@ -20,7 +22,8 @@ public class GrandRitual extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int baseMagicNumber = 3;
+    private int baseMagicNumber = 0;
+    private int magicUpgrade = 1;
     public boolean baseExhaust = true;
     public boolean upgradeExhaust = true;
 
@@ -28,11 +31,11 @@ public class GrandRitual extends AbstractSleeperCard {
     public GrandRitual() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setExhaust(baseExhaust,upgradeExhaust);
-        setMagic(baseMagicNumber);
+        setMagic(baseMagicNumber, magicUpgrade);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GrandRitualAction(p,this.upgraded,this.freeToPlayOnce,this.energyOnUse));
+        addToBot(new ApplyPowerAction(p,p, new GrandRitualPower(p,this.energyOnUse+magicUpgrade)));
     }
 }

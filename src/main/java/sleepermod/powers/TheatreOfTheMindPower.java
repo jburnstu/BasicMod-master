@@ -16,15 +16,12 @@ public class TheatreOfTheMindPower extends AbstractSleeperPower {
 
 
     public TheatreOfTheMindPower(AbstractCreature owner, int amount) {
-
         super(POWER_ID, TYPE, false, owner, amount);
         this.reduceAtEndOfTurn = true;
     }
 
     @Override
-    public void onPlayCard(AbstractCard card, AbstractMonster m) {
-        if (card instanceof ForgottenCard) {
+    public void onRemember(AbstractCard c, AbstractCreature m) {
             addToBot(new ApplyPowerAction(this.owner,this.owner, new TrancePower(this.owner,1)));
-        }
     }
 }

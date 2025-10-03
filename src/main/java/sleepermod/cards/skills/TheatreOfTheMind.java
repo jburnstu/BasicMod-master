@@ -1,9 +1,8 @@
-package sleepermod.cardsBeta.skills;
+package sleepermod.cards.skills;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import sleepermod.actions.TheatreOfTheMindAction;
 import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.character.MySleeperPlayer;
 import sleepermod.powers.TheatreOfTheMindPower;
