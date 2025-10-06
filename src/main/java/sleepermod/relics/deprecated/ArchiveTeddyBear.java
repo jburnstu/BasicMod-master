@@ -1,4 +1,4 @@
-package sleepermod.relics;
+package sleepermod.relics.deprecated;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import sleepermod.actions.Move;
 import sleepermod.cards.ForgottenCard;
+import sleepermod.relics.AbstractSleeperRelic;
 
 import java.util.ArrayList;
 

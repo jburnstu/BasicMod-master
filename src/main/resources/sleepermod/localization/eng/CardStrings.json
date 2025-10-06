@@ -15,7 +15,7 @@
   },
   "${modID}:Accuse": {
     "NAME": "Accuse",
-    "DESCRIPTION": "Apply !M! Vulnerable. NL Enter Trance."
+    "DESCRIPTION": "Apply !M! Vulnerable. NL Gain !M! Trance."
   },
   "${modID}:AllNighter": {
     "NAME": "All-Nighter",
@@ -28,6 +28,11 @@
   "${modID}:AlterEgo": {
     "NAME": "Alter Ego",
     "DESCRIPTION": "Deal !D! damage. NL Forget all other attack cards in your hand."
+  },
+  "${modID}:Atemporality": {
+    "NAME": "Atemporality",
+    "DESCRIPTION": "Whenever you Remember a card, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Whenever you Remember a card, draw !M! cards."
   },
   "${modID}:BackAndForth": {
     "NAME": "Back And Forth",
@@ -58,7 +63,7 @@
   },
   "${modID}:ChosenOne": {
     "NAME": "Chosen One",
-    "DESCRIPTION": "Deal !D! damage. NL Whenever this enemy deals unblocked attack damage, enter Trance. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL Whenever this enemy deals unblocked attack damage, gain !M! Trance. NL Exhaust."
   },
   "${modID}:Closure": {
     "NAME": "Closure",
@@ -126,8 +131,8 @@
   },
   "${modID}:Flashback": {
     "NAME": "Flashback",
-    "DESCRIPTION": "Urgent. NL Awaken !M! card.  NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Urgent. NL Awaken !M! card."
+    "DESCRIPTION": "Urgent. NL Awaken !M! card.  NL Gain 1 Amnesia. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Urgent. NL Awaken !M! card. NL Gain 1 Amnesia."
   },
   "${modID}:FlashBeforeMyEyes": {
     "NAME": "Flash Before My Eyes",
@@ -135,8 +140,8 @@
   },
   "${modID}:FlashForward": {
     "NAME": "Flashforward",
-    "DESCRIPTION": "Urgent. NL Enter Trance. NL Draw !M! card. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Urgent. NL Enter Trance. NL Draw !M! card."
+    "DESCRIPTION": "Urgent. NL Gain 2 Trance. NL Gain 1 Amnesia. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Urgent. NL Gain 2 Trance. NL Gain 1 Amnesia."
   },
   "${modID}:ForgottenCard": {
     "NAME": "Forgotten Card",
@@ -147,13 +152,13 @@
   },
   "${modID}:FugueState": {
     "NAME": "Fugue State",
-    "DESCRIPTION": "Whenever you enter Trance, draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Whenever you enter Trance, draw !M! cards."
+    "DESCRIPTION": "Whenever you Remember a card, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Whenever you Remember a card, draw !M! cards."
   },
   "${modID}:GrandRitual": {
     "NAME": "Grand Ritual",
-    "DESCRIPTION": "At the start of your next X turns, draw 1 card and enter Trance. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "At the start of your next X+1 turns, draw 1 card and enter Trance. NL Exhaust."
+    "DESCRIPTION": "At the start of your next X turns, draw 1 card and gain 1 Trance. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "At the start of your next X+1 turns, draw 1 card and gain 1 Trance. NL Exhaust."
   },
   "${modID}:Groundwork": {
     "NAME": "Groundwork",
@@ -265,7 +270,7 @@
   },
   "${modID}:Premonition": {
     "NAME": "Premonition",
-    "DESCRIPTION": "Deal !D! damage. NL At the start of you next turn, enter Trance."
+    "DESCRIPTION": "Deal !D! damage. NL At the start of you next turn, gain !M! Trance."
   },
   "${modID}:Procrastinate": {
     "NAME": "Procrastinate",
@@ -355,7 +360,7 @@
   },
   "${modID}:TheatreOfTheMind": {
     "NAME": "Theatre Of The Mind",
-    "DESCRIPTION": "Whenever you Remember a card this turn, enter Trance."
+    "DESCRIPTION": "Whenever you Remember a card this turn, gain !M! Trance."
   },
   "${modID}:Thrash": {
     "NAME": "Thrash",

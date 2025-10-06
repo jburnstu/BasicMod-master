@@ -1,8 +1,9 @@
-package sleepermod.relics;
+package sleepermod.relics.deprecated;
 
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import sleepermod.relics.AbstractSleeperRelic;
 
 import static sleepermod.SleeperMod.makeID;
 

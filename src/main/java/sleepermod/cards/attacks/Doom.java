@@ -25,8 +25,8 @@ public class Doom extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
     private final static int DAMAGE = 10;
     private final static int UPG_DAMAGE = 0;
-    private final static int baseMagicNumber = 2;
-    private final static int magicUpgrade = 2;
+    private final static int baseMagicNumber = 3;
+    private final static int magicUpgrade = 1;
 
     public Doom() {
         super(ID, info); //Pass the required information to the BaseCard constructor.

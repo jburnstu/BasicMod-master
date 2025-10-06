@@ -25,19 +25,20 @@ public class Accuse extends AbstractSleeperCard {
 //    private static final int DMG = 10;
 //    private static final int UPG_DMG = 4;
     private static final int baseMagicNumber = 2;
+    private static final int magicUpgrade = 2;
 
     public Accuse() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
 //        this.urgent = true;
 //        setDamage(DMG, UPG_DMG); //Sets the card's damage and how much it changes when upgraded.
-        setMagic(baseMagicNumber);
-        setCostUpgrade(0);
+        setMagic(baseMagicNumber,magicUpgrade);
+//        setCostUpgrade(0);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 //        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
         addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m,magicNumber,false)));
-        addToBot(new ApplyPowerAction(p,p, new TrancePower(p,1)));
+        addToBot(new ApplyPowerAction(p,p, new TrancePower(p,magicNumber)));
         };
     }

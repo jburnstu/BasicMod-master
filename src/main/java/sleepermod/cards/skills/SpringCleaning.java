@@ -1,7 +1,9 @@
 package sleepermod.cards.skills;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import sleepermod.actions.AwakenAction;
 import sleepermod.actions.SpringCleaningAction;
 import sleepermod.cards.AbstractSleeperCard;
@@ -32,7 +34,9 @@ public class SpringCleaning extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if (!this.freeToPlayOnce)
+            AbstractDungeon.player.energy.use(EnergyPanel.totalCount);
         int chemicalXBonus = (p.hasRelic("Chemical X"))? 2:0;
-        addToBot(new AwakenAction(energyOnUse + magicNumber + 2, new SpringCleaningAction()));
+        addToBot(new AwakenAction(energyOnUse + magicNumber + chemicalXBonus, new SpringCleaningAction()));
         }
 }

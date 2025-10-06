@@ -1,7 +1,7 @@
-package sleepermod.relics;
+package sleepermod.relics.deprecated;
 
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import sleepermod.actions.DreamJournalAction;
+import sleepermod.relics.AbstractSleeperRelic;
 
 import static sleepermod.SleeperMod.makeID;
 

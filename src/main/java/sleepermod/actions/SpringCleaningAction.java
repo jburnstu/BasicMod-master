@@ -5,10 +5,11 @@ import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 public class SpringCleaningAction extends AbstractGameAction {
-    public AbstractPlayer p;
+    public AbstractPlayer p = AbstractDungeon.player;
 
     public SpringCleaningAction() {
         this.duration = 0.0F;
@@ -25,5 +26,6 @@ public class SpringCleaningAction extends AbstractGameAction {
                 addToTop(new GainEnergyAction(c.costForTurn));
             }
         }
+        this.isDone = true;
     }
 }

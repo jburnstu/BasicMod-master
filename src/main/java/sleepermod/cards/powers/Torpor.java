@@ -22,7 +22,7 @@ public class Torpor extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    public int baseMagicNumber = 2;
+    public int baseMagicNumber = 3;
     public int magicUpgrade = 1;
 
     public Torpor() {

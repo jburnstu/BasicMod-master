@@ -1,9 +1,10 @@
-package sleepermod.relics;
+package sleepermod.relics.deprecated;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sleepermod.cards.ForgottenCard;
+import sleepermod.relics.AbstractSleeperRelic;
 
 import static sleepermod.SleeperMod.makeID;
 

@@ -29,9 +29,9 @@ public class Tongues extends AbstractSleeperCard {
     public Tongues() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
 //        this.urgent = true;
-        setMagic(baseMagicNumber,0);
+        setMagic(baseMagicNumber,1);
 //        setExhaust(true,false);
-        setCostUpgrade(0);
+//        setCostUpgrade(0);
     }
 
     @Override

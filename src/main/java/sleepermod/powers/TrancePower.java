@@ -15,15 +15,18 @@ public class TrancePower extends AbstractSleeperPower {
     public static boolean removeAtEnd = false;
 
     public TrancePower(AbstractCreature owner, int amount) {
-        super(POWER_ID, TYPE, false, owner, 0);
+        super(POWER_ID, TYPE, false, owner, amount);
         this.removeAtEndOfTurn = removeAtEnd;
         this.canGoNegative = false;
     }
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (card instanceof ForgottenCard) {
-           flash();
-           addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+            flash();
+            this.amount--;
+            if (this.amount == 0) {
+                addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+            }
         }
     }
 }

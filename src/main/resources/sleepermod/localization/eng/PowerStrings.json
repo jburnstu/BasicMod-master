@@ -13,6 +13,14 @@
       " cards you play."
     ]
   },
+  "${modID}:AtemporalityPower": {
+    "NAME": "Atemporal",
+    "DESCRIPTIONS": [
+      "Whenever you Remember a card, draw #b1 card.",
+      "Whenever you Remember a card, draw #",
+      " cards."
+    ]
+  },
   "${modID}:ChosenOnePower": {
     "NAME": "Chosen One",
     "DESCRIPTIONS": [
@@ -224,7 +232,7 @@
   "${modID}:TrancePower": {
     "NAME": "Trance",
     "DESCRIPTIONS": [
-      "Forgotten cards are Urgent and cost 0 to play. NL Exit Trance when you Remember a card."
+      "Forgotten cards are Urgent and cost 0 to play. NL Exit Trance at the end of your turn."
     ]
   },
   "${modID}:VisionPower": {
