@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.character.MySleeperPlayer;
-import sleepermod.powers.DaydreamPower;
+import sleepermod.powers.SnoozePower;
 import sleepermod.util.CardStats;
 
 //Forgotten cards go into your draw pile. when your draw pile is empty, die.
@@ -33,7 +33,7 @@ public class Hibernation extends AbstractSleeperCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p,p,new DaydreamPower(p,this.magicNumber)));
+        addToBot(new ApplyPowerAction(p,p,new SnoozePower(p,this.magicNumber)));
     }
 
     public void upgrade() {

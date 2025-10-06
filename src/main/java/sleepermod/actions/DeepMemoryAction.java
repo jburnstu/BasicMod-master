@@ -16,19 +16,19 @@ public class DeepMemoryAction extends AbstractGameAction {
     public int passedMagicNumber;
     public AbstractCard communeToCopy;
 
-    public DeepMemoryAction(AbstractPlayer target) {
-        this.target = target;
+    public DeepMemoryAction() {
+
     }
 
     @Override
     public void update() {
         if (this.target.hasPower(TrancePower.POWER_ID)) {
-            while (true) {
-                addToBot(new DrawCardAction(1));
-                if (DrawCardAction.drawnCards.get(0) instanceof ForgottenCard) {
-                    break;
-                }
+            addToTop(new DrawCardAction(1));
+            if (!(DrawCardAction.drawnCards.get(0) instanceof ForgottenCard)) {
+                addToTop(new DeepMemoryAction());
             }
+            this.isDone = true;
+            return;
         }
         else {
             addToBot(new ApplyPowerAction(this.target,this.target,new TrancePower(this.target,1)));

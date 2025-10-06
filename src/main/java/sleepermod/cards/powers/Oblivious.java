@@ -23,12 +23,13 @@ public class Oblivious extends AbstractSleeperCard {
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
     public int baseMagicNumber = 3;
-    public int magicUpgrade = 1;
+    public int magicUpgrade = 0;
 
 
     public Oblivious() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setMagic(baseMagicNumber,magicUpgrade);
+        setInnate(false,true);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

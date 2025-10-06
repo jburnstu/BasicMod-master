@@ -3,7 +3,7 @@ package sleepermod.cards.attacks;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import sleepermod.actions.NewLeafAction;
+import sleepermod.actions.NewLeafAttackAction;
 import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.character.MySleeperPlayer;
 import sleepermod.util.CardStats;
@@ -32,6 +32,7 @@ public class NewLeaf extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new NewLeafAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
+//        addToBot(new AwakenAction(1,new NewLeafTransformationAction()));
+        addToBot(new NewLeafAttackAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
         };
     }

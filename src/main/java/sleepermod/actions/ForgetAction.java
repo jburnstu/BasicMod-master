@@ -33,6 +33,8 @@ public class ForgetAction extends AbstractGameAction {
 
     public static ArrayList<AbstractCard> forgottenCards = new ArrayList<>();
 
+    public static boolean onlyAttacks = false;
+
     public ForgetAction(int amount, boolean isRandom, boolean anyNumber, boolean canPickZero) {
         this.anyNumber = anyNumber;
         this.p = (MySleeperPlayer) AbstractDungeon.player;
@@ -84,9 +86,10 @@ public class ForgetAction extends AbstractGameAction {
         this.followUpAction = followUpAction;
     }
 
-    public ForgetAction(int amount, boolean isRandom, boolean anyNumber, boolean canPickZero, AbstractGameAction followUpAction) {
+    public ForgetAction(int amount, boolean isRandom, boolean anyNumber, boolean canPickZero, boolean onlyAttacks, AbstractGameAction followUpAction) {
         this(amount, isRandom, anyNumber, canPickZero);
         this.followUpAction = followUpAction;
+        this.onlyAttacks = onlyAttacks;
     }
 
 
@@ -96,10 +99,13 @@ public class ForgetAction extends AbstractGameAction {
         CardGroup forgettable = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (AbstractCard c: this.p.hand.group) {
             if (!(c instanceof ForgottenCard)) {
-                forgettable.addToTop(c);
+                System.out.println("first forget if passed -- only attacks value is " + this.onlyAttacks);
+                if (!(this.onlyAttacks) || c.type == AbstractCard.CardType.ATTACK) {
+                    System.out.println("second forget if passed");
+                    forgettable.addToTop(c);
+                }
             }
         }
-
         if (this.duration == this.startDuration) {
             if (forgettable.isEmpty()) {
                 this.isDone = true;

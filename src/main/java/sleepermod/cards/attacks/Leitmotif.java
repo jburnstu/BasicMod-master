@@ -34,12 +34,12 @@ public class Leitmotif extends AbstractSleeperCard {
     public Leitmotif() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
+        this.forget = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        addToBot(new IncreaseCostAction(this.uuid, this.magicNumber));
     }
 
     public void triggerOnCardAwoken() {

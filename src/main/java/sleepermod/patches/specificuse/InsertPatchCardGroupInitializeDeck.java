@@ -22,14 +22,13 @@ public class InsertPatchCardGroupInitializeDeck {
         ArrayList<AbstractCard> cardsToStartForgotten = new ArrayList<AbstractCard>();
 
         System.out.println("InitializeDeck patch entered");
-        if (AbstractDungeon.player.hasRelic("WideEyedDoll")) {
+        if (AbstractDungeon.player.hasRelic(WideEyedDoll.ID)) {
             for (AbstractCard c : copy.group) {
                 if (WideEyedDoll.cardsToRemainForgotten.contains(c)) {
                     Move.toForgottenPile(copy, c, false);
                 }
             }
-        }
-        if (AbstractDungeon.player.hasRelic(TeddyBear.ID)) {
+        } else if (AbstractDungeon.player.hasRelic(TeddyBear.ID)) {
             System.out.println("Teddybear IF entered");
             System.out.println(TeddyBear.uuidsToRemainForgotten.toString());
             for (AbstractCard c : copy.group) {

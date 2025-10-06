@@ -23,14 +23,14 @@ public class Haze extends AbstractSleeperCard {
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
     private static final int BLOCK = 12;
-    private static final int UPG_BLOCK = 5;
+    private static final int UPG_BLOCK = 4;
     public static final int baseMagicNumber = 1;
 
     public Haze() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setBlock(BLOCK, UPG_BLOCK); //Sets the card's damage and how much it changes when upgraded.
         setMagic(baseMagicNumber);
-        this.exhaust = true;
+//        this.exhaust = true;
     }
 
     @Override

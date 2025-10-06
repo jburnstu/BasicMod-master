@@ -30,6 +30,6 @@ public class InOneEar extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ForgetAction(1,false,this.upgraded,false,new InOneEarAction()));
+        addToBot(new ForgetAction(1,false,this.upgraded,false,false,new InOneEarAction()));
     }
 }

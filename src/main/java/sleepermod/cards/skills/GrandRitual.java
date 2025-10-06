@@ -22,8 +22,8 @@ public class GrandRitual extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int baseMagicNumber = 0;
-    private int magicUpgrade = 1;
+//    private int baseMagicNumber = 0;
+//    private int magicUpgrade = 1;
     public boolean baseExhaust = true;
     public boolean upgradeExhaust = true;
 
@@ -31,11 +31,12 @@ public class GrandRitual extends AbstractSleeperCard {
     public GrandRitual() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setExhaust(baseExhaust,upgradeExhaust);
-        setMagic(baseMagicNumber, magicUpgrade);
+//        setMagic(baseMagicNumber, magicUpgrade);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p,p, new GrandRitualPower(p,this.energyOnUse+magicUpgrade)));
+//        addToBot(new ApplyPowerAction(p,p, new GrandRitualPower(p,this.energyOnUse+magicNumber)));
+        addToBot(new GrandRitualAction(p, this.freeToPlayOnce, this.upgraded,this.energyOnUse));
     }
 }

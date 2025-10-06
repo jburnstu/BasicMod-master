@@ -1,6 +1,7 @@
 package sleepermod.powers;
 
 import com.megacrit.cardcrawl.actions.common.ReduceCostForTurnAction;
+import com.megacrit.cardcrawl.actions.common.UpgradeSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 
@@ -16,7 +17,7 @@ public class SelfDiscoveryPower extends AbstractSleeperPower {
     public boolean usedThisTurn = false;
 
     public SelfDiscoveryPower(AbstractCreature owner, int amount) {
-        super(POWER_ID, TYPE, TURN_BASED, owner, amount);
+        super(POWER_ID, TYPE, TURN_BASED, owner, 0);
     }
 
     @Override
@@ -24,11 +25,16 @@ public class SelfDiscoveryPower extends AbstractSleeperPower {
         usedThisTurn = false;
     }
 
+//    @Override
+//    public void onAwaken(AbstractCard card) {
+//        if (!usedThisTurn) {
+//            addToTop(new ReduceCostForTurnAction(card, amount));
+//            usedThisTurn = true;
+//        }
+//    }
+
     @Override
     public void onAwaken(AbstractCard card) {
-        if (!usedThisTurn) {
-            addToTop(new ReduceCostForTurnAction(card, amount));
-            usedThisTurn = true;
-        }
+        addToTop(new UpgradeSpecificCardAction(card));
     }
 }

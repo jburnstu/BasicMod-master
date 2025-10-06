@@ -8,7 +8,6 @@ import sleepermod.powers.InsomniaPower;
 
 public class AllEnemiesLoseEqualToInsomniaAction extends AbstractGameAction {
 
-
     @Override
     public void update() {
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {

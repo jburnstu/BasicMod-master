@@ -22,12 +22,12 @@ public class FugueState extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    public int baseMagicNumber = 2;
+    public int baseMagicNumber = 1;
+    public int magicUpgrade = 1;
 
     public FugueState() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        setMagic(baseMagicNumber);
-        setCostUpgrade(0);
+        setMagic(baseMagicNumber,magicUpgrade);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

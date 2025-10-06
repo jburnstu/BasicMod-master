@@ -32,6 +32,6 @@ public class BreakTheCycle extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ForgetAction(magicNumber,false,this.upgraded,false,new BreakTheCycleAction()));
+        addToBot(new ForgetAction(magicNumber,false,this.upgraded,false,true,new BreakTheCycleAction()));
     }
 }

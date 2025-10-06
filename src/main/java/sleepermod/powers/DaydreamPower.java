@@ -1,7 +1,10 @@
 package sleepermod.powers;
 
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import sleepermod.actions.MakeTempForgottenCardInDiscardAction;
 import sleepermod.cards.ForgottenCard;
 
 import static sleepermod.SleeperMod.makeID;
@@ -19,23 +22,20 @@ public class DaydreamPower extends AbstractSleeperPower {
 
     public DaydreamPower(AbstractPlayer p, int amount) {
         super(POWER_ID, TYPE, false, p, amount);
-        System.out.println("Reached DaydreamPower Constructor.....");
+        System.out.println("Reached SnoozePower Constructor.....");
         this.p = p;
         this.amount = amount;
         System.out.println(this.amount);
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
-        //make this random somehow
-        count = 0;
-        System.out.println("count: " + count+ "this.amount: " + this.amount);
-        for (AbstractCard c:  p.hand.group) {
-            if (count < this.amount && c instanceof ForgottenCard) {
-                c.retain = true;
-                count += 1;
-                System.out.println(count);
-            }
+    public void atStartOfTurn() {
+        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+            flash();
+            for (int i = 0; i < this.amount; i++)
+                addToBot(new MakeTempForgottenCardInDiscardAction(
+                        AbstractDungeon.getCard(AbstractCard.CardRarity.COMMON, AbstractDungeon.cardRandomRng)
+                                .makeCopy(), 1));
         }
     }
 }

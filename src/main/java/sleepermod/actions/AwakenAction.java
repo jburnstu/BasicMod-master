@@ -56,7 +56,7 @@ public class AwakenAction extends AbstractGameAction {
                 return;
             }
             if (f.size() <= this.amount) {
-                for (int count = 0; count < this.amount; count++) {
+                for (int count = 0; count < f.size(); count++) {
                     System.out.println("Awaken exact number loop with count " + count);
                     AbstractCard c = f.getTopCard();
                     c.unfadeOut();

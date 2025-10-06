@@ -63,7 +63,7 @@ public class ForgottenCard extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RememberAction(m,(MySleeperPlayer) p,this));
+        addToTop(new RememberAction(m,(MySleeperPlayer) p,this));
     }
 
 

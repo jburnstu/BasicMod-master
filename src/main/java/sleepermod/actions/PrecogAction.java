@@ -16,8 +16,9 @@ public class PrecogAction extends AbstractGameAction {
     }
 
     public void update() {
-        if (this.m != null && this.m.getIntentBaseDmg() >= 0)
-            addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,new TrancePower(AbstractDungeon.player,this.amount)));
+        if (this.m != null && this.m.getIntentBaseDmg() >= 0) {
+            addToTop(new AwakenAction(1,false));
+        }
         this.isDone = true;
     }
 }

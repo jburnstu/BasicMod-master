@@ -36,6 +36,6 @@ public class Precog extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
-        addToBot(new PrecogAction(1,m));
+        addToBot(new PrecogAction(magicNumber,m));
         };
     }

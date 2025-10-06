@@ -33,7 +33,7 @@ public class TeddyBear extends AbstractSleeperRelic {
 
 
     public static int numberOfCardsToRemainForgotten = 3;
-    public static int countNumberOfCardsForgotten = 0;
+    public static int count = 0;
 
 //    @Override
 //    public void atBattleStartPreDraw () {
@@ -50,23 +50,7 @@ public class TeddyBear extends AbstractSleeperRelic {
         System.out.println("onVictory for teddybear entered");
         flash();
         uuidsToRemainForgotten.clear();
-        countNumberOfCardsForgotten = 0;
-
-//        for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
-//            if (c instanceof ForgottenCard) {
-//                forgottenCardsAtEndOfCombat.addToRandomSpot(c);
-//            }
-//        }
-//        for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
-//            if (c instanceof ForgottenCard) {
-//                forgottenCardsAtEndOfCombat.addToRandomSpot(c);
-//            }
-//        }
-//        for (AbstractCard c : AbstractDungeon.player.hand.group) {
-//            if (c instanceof ForgottenCard) {
-//                forgottenCardsAtEndOfCombat.addToRandomSpot(c);
-//            }
-//        }
+        count = 0;
 
         CardGroup forgottenPileAtEndOfCombat = new CardGroup(((MySleeperPlayer) AbstractDungeon.player).forgottenPile, CardGroup.CardGroupType.UNSPECIFIED);
         forgottenPileAtEndOfCombat.shuffle(AbstractDungeon.shuffleRng);
@@ -74,27 +58,15 @@ public class TeddyBear extends AbstractSleeperRelic {
           for (AbstractCard forgottenPileCard : forgottenPileAtEndOfCombat.group) {
               for (AbstractCard masterDeckCard : AbstractDungeon.player.masterDeck.group) {
                   if ( masterDeckCard.uuid == forgottenPileCard.uuid) {
-                    System.out.println("Card added");
+                    System.out.println("Card added -- count is " +count + " and max is " + numberOfCardsToRemainForgotten);
                     uuidsToRemainForgotten.add(masterDeckCard.uuid);
-                    countNumberOfCardsForgotten++;
-                    if (countNumberOfCardsForgotten == numberOfCardsToRemainForgotten) {
-                        break;
+                    count++;
+                    if (count == numberOfCardsToRemainForgotten) {
+                        return;
                     }
                 }
             }
         }
-        
-//        for (AbstractCard c : forgottenCardsAtEndOfCombat.group) {
-//            System.out.println("FieldPatchAbstractCardBackForgottenCard.backForgottenCard.get(c): " +FieldPatchAbstractCardBackForgottenCard.backForgottenCard.get(c));
-//            if (((ForgottenCard) c).frontForgottenCard != null) {
-//                System.out.println("Card added");
-//                cardsToRemainForgotten.add(((ForgottenCard) c).frontForgottenCard);
-//                countNumberOfCardsForgotten++;
-//                if (countNumberOfCardsForgotten == numberOfCardsToRemainForgotten) {
-//                    break;
-//                }
-//            }
-//        }
-        System.out.println("end of TeddyBear" + uuidsToRemainForgotten.toString());
+//        System.out.println("end of TeddyBear" + uuidsToRemainForgotten.toString());
     }
 }

@@ -3,6 +3,8 @@ package sleepermod.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.ShowCardAndPoofAction;
+import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -38,36 +40,41 @@ public class RememberAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        this.source.forgottenPile.group.remove(this.card.frontForgottenCard);
-        switch (this.card.frontForgottenCard.target) {
-            case ENEMY:
-                addToTop(new NewQueueCardAction(this.card.frontForgottenCard, this.target, true, true));
-                break;
-            case SELF:
-                addToTop(new NewQueueCardAction(this.card.frontForgottenCard, this.source, true, true));
-                break;
-            default:
-                addToTop(new NewQueueCardAction(this.card.frontForgottenCard, this.target, true, true));
+        AbstractCard cardToPlay = this.card.frontForgottenCard;
+        this.source.forgottenPile.group.remove(cardToPlay);
+        AbstractDungeon.player.limbo.group.add(card);
+        cardToPlay.current_y = -200.0F * Settings.scale;
+        cardToPlay.target_x = Settings.WIDTH / 2.0F + 200.0F * Settings.xScale;
+        cardToPlay.target_y = Settings.HEIGHT / 2.0F;
+        cardToPlay.targetAngle = 0.0F;
+        cardToPlay.lighten(false);
+        cardToPlay.drawScale = 0.12F;
+        cardToPlay.targetDrawScale = 0.75F;
+        cardToPlay.applyPowers();
+        addToTop(new NewQueueCardAction(cardToPlay, this.target, true, true));
+        addToTop(new UnlimboAction(cardToPlay));
+
+        if (!Settings.FAST_MODE) {
+            addToTop(new WaitAction(Settings.ACTION_DUR_MED));
+        } else {
+            addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
         }
 
-        if (this.card.frontForgottenCard.target == AbstractCard.CardTarget.ENEMY) {
-            addToTop(new NewQueueCardAction(this.card.frontForgottenCard, this.target, true, true));
-        } else {
-            addToTop(new NewQueueCardAction(this.card.frontForgottenCard, false, true, true));
+        if (cardToPlay instanceof AbstractSleeperCard && this.target instanceof AbstractMonster) {
+            ((AbstractSleeperCard) cardToPlay).triggerOnRemembered(this.source, (AbstractMonster) this.target, true);
         }
-        if (this.card.frontForgottenCard instanceof AbstractSleeperCard && this.target instanceof AbstractMonster) {
-            ((AbstractSleeperCard) this.card.frontForgottenCard).triggerOnRemembered(this.source, (AbstractMonster) this.target, true);
-        }
-        this.source.cardsRememberedThisCombat.add(this.card.frontForgottenCard);
+
+        this.source.cardsRememberedThisCombat.add(cardToPlay);
         addToTop(new ShowCardAndPoofAction(this.card));
+
         for (AbstractPower power : this.source.powers) {
             if (power instanceof AbstractSleeperPower) {
-                ((AbstractSleeperPower) power).onRemember(this.card.frontForgottenCard,this.target);
+                ((AbstractSleeperPower) power).onRemember(cardToPlay,this.target);
             }
         }
         for (AbstractRelic relic : this.source.relics) {
             if (relic instanceof AbstractSleeperRelic) {
-                ((AbstractSleeperRelic) relic).onRemember(this.card.frontForgottenCard);
+                ((AbstractSleeperRelic) relic).onRemember(cardToPlay);
             }
         }
     this.isDone = true;

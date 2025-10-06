@@ -21,19 +21,25 @@ public class InsomniaPower extends AbstractSleeperPower {
         this.reduceAtEndOfTurn = reduceAtEnd;
     }
 
-    @Override
-    public void atEndOfTurn(boolean isPlayer) {
-        if (this.amount >= this.owner.currentHealth) {
-            addToBot(new LoseHPAction(this.owner, this.owner, this.owner.currentHealth));
-        } else {
-            addToBot(new ApplyPowerAction(this.owner, AbstractDungeon.player, new InsomniaPower(this.owner, this.amount)));
-        }
+//    @Override
+//    public void atEndOfTurn(boolean isPlayer) {
+//        if (this.amount >= this.owner.currentHealth) {
+//            addToBot(new LoseHPAction(this.owner, this.owner, this.owner.currentHealth));
+//        } else {
+//            addToBot(new ApplyPowerAction(this.owner, AbstractDungeon.player, new InsomniaPower(this.owner, this.amount)));
+//        }
+//    }
+//
+//    @Override
+//    public void onForget(AbstractCard c) {
+//        this.amount--;
+//    }
+        @Override
+    public void onForget(AbstractCard c) {
+        addToTop(new LoseHPAction(this.owner,null,this.amount));
+//        this.amount--;
     }
 
-    @Override
-    public void onForget(AbstractCard c) {
-        this.amount--;
-    }
 }
 
 

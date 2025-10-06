@@ -2,6 +2,7 @@ package sleepermod.powers;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import sleepermod.actions.AwakenAction;
@@ -21,7 +22,7 @@ public class GrandRitualPower extends AbstractSleeperPower {
 
     public GrandRitualPower(AbstractPlayer p, int amount) {
         super(POWER_ID, TYPE, false, p, amount);
-        System.out.println("Reached DaydreamPower Constructor.....");
+        System.out.println("Reached SnoozePower Constructor.....");
         this.p = p;
         this.amount = amount;
         this.reduceAtEndOfTurn = false;
@@ -29,9 +30,9 @@ public class GrandRitualPower extends AbstractSleeperPower {
 
     @Override
     public void atStartOfTurn() {
-        this.reduceAtEndOfTurn = true;
         addToBot(new ApplyPowerAction(p,p,new TrancePower(p,1)));
         addToBot(new DrawCardAction(1));
+        addToBot(new ReducePowerAction(this.p,this.p,this,1));
     }
 }
 

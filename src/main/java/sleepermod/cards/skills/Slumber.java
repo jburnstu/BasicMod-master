@@ -23,7 +23,7 @@ public class Slumber extends AbstractSleeperCard {
     //but constants at the top of the file are easy to adjust.
     private static final int BLOCK = 10;
     private static final int UPG_BLOCK = 4;
-    private static final int baseMagicNumber = 1;
+    private static final int baseMagicNumber = 2;
 
     public static int totalForgottenThisTurn = 0;
 
@@ -36,7 +36,7 @@ public class Slumber extends AbstractSleeperCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p,block));
-        addToBot(new GainEnergyIfForgetAction(magicNumber, (Slumber.totalForgottenThisTurn > 0)));
+        addToBot(new GainEnergyIfForgetAction(magicNumber, (Slumber.totalForgottenThisTurn != 0)));
     }
 
     @Override

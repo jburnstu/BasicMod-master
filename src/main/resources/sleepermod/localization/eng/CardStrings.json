@@ -35,13 +35,17 @@
   },
   "${modID}:BlankSlate": {
     "NAME": "Blank Slate",
-    "DESCRIPTION": "Gain !B! Block. NL Shuffle every Forgotten card in play into your deck. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Shuffle every Forgotten card in play into your deck."
+    "DESCRIPTION": "Gain !B! Block. NL Shuffle every Forgotten card in play into your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Shuffle every Forgotten card in play into your draw pile."
+  },
+  "${modID}:BrainZap": {
+    "NAME": "Brain Zap",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Amnesia."
   },
   "${modID}:BreakTheCycle": {
     "NAME": "Break The Cycle",
-    "DESCRIPTION": "Forget 1 card. NL If you choose an Attack, gain its base damage as Block.",
-    "UPGRADE_DESCRIPTION": "Forget 1 or more cards. NL For each attack you choose, gain its base damage as Block."
+    "DESCRIPTION": "Forget 1 Attack in your hand and gain its base damage as Block.",
+    "UPGRADE_DESCRIPTION": "Forget 1 or more Attacks in your hand. NL Gain their combined base damage as Block."
   },
   "${modID}:Catharsis": {
     "NAME": "Catharsis",
@@ -54,11 +58,11 @@
   },
   "${modID}:ChosenOne": {
     "NAME": "Chosen One",
-    "DESCRIPTION": "Deal !D! damage. NL Whenever this enemy deals unblocked attack damage to you, enter Trance. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL Whenever this enemy deals unblocked attack damage, enter Trance. NL Exhaust."
   },
   "${modID}:Closure": {
     "NAME": "Closure",
-    "DESCRIPTION": "Deal !D! damage. NL If this card is Remembered, gain !M! health. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL If Remembered, Heal !M! HP. NL Exhaust."
   },
   "${modID}:Coma": {
     "NAME": "Coma",
@@ -70,16 +74,16 @@
   },
   "${modID}:Compulsion": {
     "NAME": "Compulsion",
-    "DESCRIPTION": "Urgent. Deal !D! damage and gain !B! Block. NL Add a copy of this card to your discard. NL Forget."
+    "DESCRIPTION": "Urgent. NL Deal !D! damage and gain !B! Block. NL Add a copy of this card to your discard. NL Forget."
   },
   "${modID}:CopingMechanism": {
     "NAME": "Coping Mechanism",
-    "DESCRIPTION": "Gain !M! Energy. NL Gain 1 Amnesia."
+    "DESCRIPTION": "Gain [E][E]. NL Gain 1 Amnesia.",
+    "UPGRADE_DESCRIPTION": "Gain [E][E][E]. NL Gain 1 Amnesia."
   },
   "${modID}:Daydream": {
     "NAME": "Daydream",
-    "DESCRIPTION": "At the end of your turn, retain !M! random forgotten card.",
-    "UPGRADE_DESCRIPTION": "At the end of your turn, retain !M! random forgotten cards."
+    "DESCRIPTION": "At the end of your turn, retain !M! random forgotten cards."
   },
   "${modID}:DeepMemory": {
     "NAME": "Deep Memory",
@@ -91,7 +95,7 @@
   },
   "${modID}:Doom": {
     "NAME": "Doom",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Insomnia. NL Forget."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Insomnia."
   },
   "${modID}:DreamSequence": {
     "NAME": "Dream Sequence",
@@ -108,14 +112,17 @@
     "UPGRADE_DESCRIPTION": "Gain 3 Block for each Forgotten card in your deck.",
     "EXTENDED_DESCRIPTION": ["(#b", " Forgotten card", " Forgotten cards"]
   },
+  "${modID}:EnterDreams": {
+    "NAME": "Enter Dreams",
+    "DESCRIPTION": "Deal !D! damage and apply !M! Vulnerable for each Insomnia on the target. NL Exhaust."
+  },
   "${modID}:ExposureTherapy": {
     "NAME": "Exposure Therapy",
     "DESCRIPTION": "Gain !B! Block. NL Shuffle a *Trauma into your deck."
   },
   "${modID}:FinalSession": {
     "NAME": "Final Session",
-    "DESCRIPTION": "Awaken !M! cards. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Awaken !M! cards."
+    "DESCRIPTION": "Awaken !M! cards. NL Exhaust."
   },
   "${modID}:Flashback": {
     "NAME": "Flashback",
@@ -124,12 +131,12 @@
   },
   "${modID}:FlashBeforeMyEyes": {
     "NAME": "Flash Before My Eyes",
-    "DESCRIPTION": "Urgent. NL Draw !M! cards. NL Exhaust."
+    "DESCRIPTION": "Urgent. NL Draw !M! cards. If you drew a Forgotten card, gain [E]."
   },
   "${modID}:FlashForward": {
     "NAME": "Flashforward",
-    "DESCRIPTION": "Urgent. NL Enter Trance. NL Draw !M! cards. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Urgent. NL Enter Trance. NL Draw !M! cards."
+    "DESCRIPTION": "Urgent. NL Enter Trance. NL Draw !M! card. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Urgent. NL Enter Trance. NL Draw !M! card."
   },
   "${modID}:ForgottenCard": {
     "NAME": "Forgotten Card",
@@ -140,7 +147,8 @@
   },
   "${modID}:FugueState": {
     "NAME": "Fugue State",
-    "DESCRIPTION": "Whenever you enter Trance, draw !M! cards."
+    "DESCRIPTION": "Whenever you enter Trance, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Whenever you enter Trance, draw !M! cards."
   },
   "${modID}:GrandRitual": {
     "NAME": "Grand Ritual",
@@ -158,7 +166,7 @@
   },
   "${modID}:Haze": {
     "NAME": "Haze",
-    "DESCRIPTION": "Gain !B! Block. NL Whenever you are attacked this turn, apply !M! Insomnia to the attacker. NL Exhaust."
+    "DESCRIPTION": "Gain !B! Block. NL Whenever you are attacked this turn, apply !M! Insomnia to the attacker."
   },
   "${modID}:Hibernation": {
     "NAME": "Hibernation",
@@ -170,16 +178,13 @@
   },
   "${modID}:Hypochondria": {
     "NAME": "Hypochondria",
-    "DESCRIPTION": "Urgent. NL Remove all your debuffs. Exhaust."
-  },
-  "${modID}:InnerChild": {
-    "NAME": "Inner Child",
-    "DESCRIPTION": "Reduce the cost of the longest-forgotten card by !M!."
+    "DESCRIPTION": "Urgent. NL Remove all your debuffs. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Urgent. NL Remove all your debuffs."
   },
   "${modID}:InOneEar": {
     "NAME": "In One Ear",
-    "DESCRIPTION": "Forget 1 card. NL Draw 1 card.",
-    "UPGRADE_DESCRIPTION": "Forget 1 or more cards. NL Draw that many cards."
+    "DESCRIPTION": "Urgent. NL Forget 1 card. NL Draw 2 cards.",
+    "UPGRADE_DESCRIPTION": " Urgent. Forget 1 or more cards. NL Draw that many cards, plus 1."
   },
   "${modID}:IntoNextWeek": {
     "NAME": "Into Next Week",
@@ -191,11 +196,11 @@
   },
   "${modID}:Leitmotif": {
     "NAME": "Leitmotif",
-    "DESCRIPTION": "Deal !D! damage. NL When you Awaken another card, Awaken this card (if forgotten). NL Forget."
+    "DESCRIPTION": "Deal !D! damage. NL When you Awaken another card, Awaken this card. NL Forget."
   },
   "${modID}:LightSleeper": {
     "NAME": "Light Sleeper",
-    "DESCRIPTION": "Gain !B! Block. NL Draw !M! cards. NL Forget all cards drawn this way except for Forgotten cards."
+    "DESCRIPTION": "Gain !B! Block. NL Draw !M! cards. NL Discard all non-Forgotten cards drawn this way."
   },
   "${modID}:LongNight": {
     "NAME": "Long Night",
@@ -217,8 +222,8 @@
   },
   "${modID}:MassSuggestion": {
     "NAME": "Mass Suggestion",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL If this card is Remembered, apply !M! Insomnia to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL If this card is Remembered, apply !M! Insomnia to ALL enemies. NL Forget."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL If  Remembered, apply !M! Insomnia to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL If  Remembered, apply !M! Insomnia to ALL enemies. NL Forget."
   },
   "${modID}:MemorySkip": {
     "NAME": "Memory Skip",
@@ -230,19 +235,16 @@
   },
   "${modID}:Mnemonic": {
     "NAME": "Mnemonic",
-    "DESCRIPTION": "Deal !D! damage. NL Increase this card's cost by 1 this combat every time you shuffle your discard pile into your draw pile."
+    "DESCRIPTION": "Costs 1 less for each time you shuffled your draw pile this combat. NL Gain !B! Block."
   },
   "${modID}:NewLeaf": {
     "NAME": "New Leaf",
-    "DESCRIPTION": "Deal !D! damage. NL If Fatal, Awaken 1 card and permanently Transform it."
-  },
-  "${modID}:SelfDiscovery": {
-    "NAME": "Self Discovery",
-    "DESCRIPTION": "Whenever you Awaken a card, upgrade it."
+    "DESCRIPTION": "Deal !D! damage. NL If Fatal, Awaken 1 card and permanently Transform it. NL Exhaust."
   },
   "${modID}:Oblivious": {
     "NAME": "Oblivious",
-    "DESCRIPTION": "Whenever you Forget a card, gain !M! Block."
+    "DESCRIPTION": "Whenever you Forget a card, gain !M! Block.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you Forget a card, gain !M! Block."
   },
   "${modID}:Opener": {
     "NAME": "Opener",
@@ -259,7 +261,7 @@
   },
   "${modID}:Precog": {
     "NAME": "Precog",
-    "DESCRIPTION": "Deal !D! damage. NL If the target intends to attack, enter Trance."
+    "DESCRIPTION": "Deal !D! damage. NL If the target intends to attack, Awaken !M! card."
   },
   "${modID}:Premonition": {
     "NAME": "Premonition",
@@ -276,12 +278,12 @@
   "${modID}:PsychicTsunami": {
     "NAME": "Psychic Tsunami",
     "DESCRIPTION": "Deal damage equal to !M! times the number of cards you Remembered this combat.",
-    "EXTENDED_DESCRIPTION": ["(Remembered #b", " card", " cards "]
+    "EXTENDED_DESCRIPTION": ["(Remembered ", " card", " cards)"]
   },
   "${modID}:Reckoning": {
     "NAME": "Reckoning",
     "DESCRIPTION": "Deal !D! damage and apply !M! Insomnia for every Forgotten card in your hand.",
-    "EXTENDED_DESCRIPTION": [" (#b"," Forgotten card)", " Forgotten cards)"]
+    "EXTENDED_DESCRIPTION": [" ("," Forgotten card)", " Forgotten cards)"]
   },
   "${modID}:RecurringDream": {
     "NAME": "Recurring Dream",
@@ -290,7 +292,7 @@
   },
   "${modID}:Reflex": {
     "NAME": "Reflex",
-    "DESCRIPTION": "Deal !D! damage. NL Forget a card in your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card. NL Forget !M! card."
   },
   "${modID}:REMSleep": {
     "NAME": "REM Sleep",
@@ -298,16 +300,16 @@
   },
   "${modID}:Reinterpret": {
     "NAME": "Reinterpret",
-    "DESCRIPTION": "Deal !D! damage. NL Move a random Forgotten card in your discard pile to the top of your deck."
+    "DESCRIPTION": "Deal !D! damage. NL Move a random discarded Forgotten card to the top of your deck."
   },
-  "${modID}:SelDiscovery": {
+  "${modID}:SelfDiscovery": {
     "NAME": "Self Discovery",
-    "DESCRIPTION": "The first time you awaken a card on your turn, reduce its cost by !M! until played."
+    "DESCRIPTION": "Whenever you Awaken a card, upgrade it for the rest of combat."
   },
   "${modID}:SelfProtection": {
     "NAME": "Self Protection",
-    "DESCRIPTION": "Deal !D! damage. NL If this card is Remembered, gain !M! Dexterity.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If this card is Remembered, gain !M! Dexterity. NL Forget."
+    "DESCRIPTION": "Deal !D! damage. NL If Remembered, gain !M! Dexterity.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If Remembered, gain !M! Dexterity. NL Forget."
   },
   "${modID}:SleeperDefend": {
     "NAME": "Defend",
@@ -329,6 +331,10 @@
     "NAME": "Slumber",
     "DESCRIPTION": "Gain !B! Block. NL If you forgot a card this turn, gain [E] [E]."
   },
+  "${modID}:Snooze": {
+    "NAME": "Snooze",
+    "DESCRIPTION": "At the end of your turn, retain !M! random forgotten cards."
+  },
   "${modID}:SpinningStrike": {
     "NAME": "Spinning Strike",
     "DESCRIPTION": "Deal !D! damage. NL Shuffle a *Dizzy into your deck."
@@ -336,11 +342,12 @@
   "${modID}:Spiral": {
     "NAME": "Spiral",
     "DESCRIPTION": "Double the target's Insomnia. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Triple the target's Insomnia. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Double the target's Insomnia."
   },
   "${modID}:SpringCleaning": {
     "NAME": "Spring Cleaning",
-    "DESCRIPTION": "Awaken X cards and Exhaust them."
+    "DESCRIPTION": "Awaken X cards and Exhaust them. NL Gain [E] equal to their combined cost. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Awaken X+1 cards and Exhaust them. NL Gain [E] equal to their combined cost. NL Exhaust."
   },
   "${modID}:Sublimation": {
     "NAME": "Sublimation",
@@ -353,6 +360,10 @@
   "${modID}:Thrash": {
     "NAME": "Thrash",
     "DESCRIPTION": "Deal !D! damage !M! times. NL Forget."
+  },
+  "${modID}:Tongues": {
+    "NAME": "Tongues",
+    "DESCRIPTION": "Apply !M! Weak to ALL enemies. NL Awaken 1 card."
   },
   "${modID}:Torpor": {
     "NAME": "Torpor",

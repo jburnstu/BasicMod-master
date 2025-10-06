@@ -1,11 +1,9 @@
-package sleepermod.cards.attacks;
+package sleepermod.cardsDeprecated.attacks;
 
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import sleepermod.actions.ForgetSpecificCardAction;
 import sleepermod.actions.ForgetTopCardAction;
 import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.character.MySleeperPlayer;
@@ -24,7 +22,7 @@ public class Lurch extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private static final int DMG = 10;
+    private static final int DMG = 8;
     private static final int UPG_DMG = 4;
 
     public Lurch() {

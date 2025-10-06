@@ -20,15 +20,16 @@ public class FinalSession extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int baseMagicNumber = 3;
+    private int baseMagicNumber = 2;
     public boolean baseExhaust = true;
-    public boolean upgradeExhaust = false;
+    public boolean upgradeExhaust = true;
 
 
     public FinalSession() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setExhaust(baseExhaust,upgradeExhaust);
         setMagic(baseMagicNumber);
+        setCostUpgrade(1);
     }
 
     @Override

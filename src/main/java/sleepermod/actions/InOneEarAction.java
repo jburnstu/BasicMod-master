@@ -15,6 +15,7 @@ public class InOneEarAction extends AbstractGameAction {
 
     public void update () {
         System.out.println("DS Update reached...");
+        addToTop(new DrawCardAction(1));
         for (AbstractCard c : ForgetAction.forgottenCards) {
             addToTop(new DrawCardAction(1));
         }

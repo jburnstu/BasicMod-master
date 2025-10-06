@@ -3,6 +3,7 @@ package sleepermod.cards.skills;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import sleepermod.actions.FlashBeforeMyEyesAction;
 import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.character.MySleeperPlayer;
 import sleepermod.util.CardStats;
@@ -20,18 +21,18 @@ public class FlashBeforeMyEyes extends AbstractSleeperCard {
     );
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    private int baseMagicNumber = 4;
+    private int baseMagicNumber = 3;
     private int magicUpgrade = 1;
 
     public FlashBeforeMyEyes() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.urgent = true;
-        this.exhaust = true;
+//        this.exhaust = true;
         setMagic(baseMagicNumber,magicUpgrade);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToTop(new DrawCardAction(magicNumber));
+        addToTop(new DrawCardAction(magicNumber,new FlashBeforeMyEyesAction()));
     }
 }

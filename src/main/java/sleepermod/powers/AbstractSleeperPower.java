@@ -51,6 +51,12 @@ public abstract class AbstractSleeperPower extends BasePower {
                 else
                     this.description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
                 break;
+            case 4:
+                if (amount == 1)
+                    this.description = DESCRIPTIONS[0];
+                else
+                    this.description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2] + amount + DESCRIPTIONS[3];
+                break;
         }
     }
 
@@ -65,9 +71,10 @@ public abstract class AbstractSleeperPower extends BasePower {
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        if (isPlayer) {
+//        if (isPlayer) {
             alterAmountAtEndOfTurn();
-        }
+//        }
     }
+
 
 }

@@ -81,6 +81,14 @@
       " cards."
     ]
   },
+  "${modID}:GrandRitualPower": {
+    "NAME": "Grand Ritual",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, draw 1 card and enter Trance.",
+      "At the start of your next #b",
+      "turns, draw 1 card and enter Trance."
+    ]
+  },
   "${modID}:GroundworkPower": {
     "NAME": "Groundwork",
     "DESCRIPTIONS": [
@@ -133,8 +141,8 @@
   "${modID}:InsomniaPower": {
     "NAME": "Insomnia",
     "DESCRIPTIONS": [
-      "When this creature's HP drops below #b",
-      " it dies. Reduces by #b1 whenever you Forget a card."
+      "Whenever you Forget a card, this creature loses #b",
+      " HP. Decreases by 1 at the end of this creature's turn."
     ]
   },
   "${modID}:LucidDreamPower": {
@@ -189,7 +197,15 @@
   "${modID}:SelfDiscoveryPower": {
     "NAME": "Self Discovery",
     "DESCRIPTIONS": [
-      "Whenever you Awaken a card, upgrade it."
+      "Whenever you Awaken a card, upgrade it for the rest of combat."
+    ]
+  },
+  "${modID}:SnoozePower": {
+    "NAME": "Snooze",
+    "DESCRIPTIONS": [
+      "At the end of your turn, retain #b1 random forgotten card",
+      "At the end of your turn, retain #b",
+      " random forgotten cards."
     ]
   },
   "${modID}:TheatreOfTheMindPower": {
