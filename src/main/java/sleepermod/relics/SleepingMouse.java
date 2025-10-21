@@ -1,11 +1,10 @@
-package sleepermod.relics.deprecated;
+package sleepermod.relics;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import sleepermod.cards.ForgottenCard;
-import sleepermod.relics.AbstractSleeperRelic;
 
 import java.util.ArrayList;
 
@@ -22,26 +21,14 @@ public class SleepingMouse extends AbstractSleeperRelic {
         super(ID, RARITY,SOUND);
     }
 
-
+    public int blockAmt = 3;
 
     public AbstractRelic makeCopy() {
         return new SleepingMouse();
     }
 
-    public ArrayList<AbstractCard> cardsToRemainForgotten;
-
-
-    public void onPlayerEndTurn() {
-        int blockPerForgottenCard = 2;
-        int block = 0;
-        for (AbstractCard c : AbstractDungeon.player.hand.group) {
-            if (c instanceof ForgottenCard) {
-                block += blockPerForgottenCard;
-            }
-        }
-        if (!(block == 0)) {
-            flash();
-            addToBot(new GainBlockAction(AbstractDungeon.player, null,block));
-        }
+    @Override
+    public void onAwaken(AbstractCard card) {
+        addToTop(new GainBlockAction(AbstractDungeon.player, blockAmt));
     }
 }

@@ -24,10 +24,10 @@ public class GoodJobSticker extends AbstractSleeperRelic {
         return new GoodJobSticker();
     }
 
-//    @Override
-//    public void onAwaken(AbstractCard card) {
-//        addToTop(new UpgradeSpecificCardAction(card));
-//    }
+    @Override
+    public void onAwaken(AbstractCard card) {
+        addToTop(new UpgradeSpecificCardAction(card));
+    }
 
     public boolean usedThisTurn = false;
 
@@ -37,11 +37,11 @@ public class GoodJobSticker extends AbstractSleeperRelic {
     }
 
 
-    @Override
-    public void onAwaken(AbstractCard card) {
-        if (!usedThisTurn) {
-            addToTop(new ReduceCostForTurnAction(card, 1));
-            usedThisTurn = true;
-        }
-    }
+//    @Override
+//    public void onAwaken(AbstractCard card) {
+//        if (!usedThisTurn) {
+//            addToTop(new ReduceCostForTurnAction(card, 1));
+//            usedThisTurn = true;
+//        }
+//    }
 }

@@ -20,17 +20,19 @@ public class SleepMobile extends AbstractSleeperRelic {
     }
 
 
-    public boolean usedThisTurn = false;
-
-    public void atTurnStart() {
-        usedThisTurn = false;
-    }
-
     @Override
-    public void onPlayCard(AbstractCard c, AbstractMonster m) {
-        if (c instanceof ForgottenCard && ((ForgottenCard) c).frontForgottenCard.type == AbstractCard.CardType.POWER) {
-            AbstractCard cardCopy = ((ForgottenCard) c).frontForgottenCard.makeStatEquivalentCopy();
+    public void onRemember(AbstractCard card) {
+        if (card.type == AbstractCard.CardType.POWER) {
+            AbstractCard cardCopy = card.makeStatEquivalentCopy();
             AbstractDungeon.player.drawPile.addToRandomSpot(cardCopy);
         }
     }
+
+//    @Override
+//    public void onPlayCard(AbstractCard c, AbstractMonster m) {
+//        if (c instanceof ForgottenCard && ((ForgottenCard) c).frontForgottenCard.type == AbstractCard.CardType.POWER) {
+//            AbstractCard cardCopy = ((ForgottenCard) c).frontForgottenCard.makeStatEquivalentCopy();
+//            AbstractDungeon.player.drawPile.addToRandomSpot(cardCopy);
+//        }
+//    }
 }

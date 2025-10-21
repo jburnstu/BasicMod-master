@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import static sleepermod.SleeperMod.makeID;
 
 
-// Whenever you draw a forgotten card, gain 1 vigour.
+
 public class MindMeldPower extends AbstractSleeperPower {
     public static final String POWER_ID = makeID(MindMeldPower.class.getSimpleName());
     private static final PowerType TYPE = PowerType.DEBUFF;

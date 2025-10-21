@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
+import sleepermod.powers.InsomniaPower;
 
 public class EnterDreamsAction extends AbstractGameAction {
     private DamageInfo info;
@@ -21,11 +23,11 @@ public class EnterDreamsAction extends AbstractGameAction {
 
     public void update() {
         for (AbstractPower power: this.target.powers) {
-            if (power.ID.equals("InsomniaPower")) {
+            if (power.ID.equals(InsomniaPower.POWER_ID)) {
                 for (int i=0; i < power.amount; i++) {
                     addToTop(new DamageAction(this.target, this.info, AttackEffect.BLUNT_HEAVY));
                 }
-                addToBot(new ApplyPowerAction(this.target,null,new VulnerablePower(this.target,power.amount,false)));
+                addToBot(new ApplyPowerAction(this.target,null,new WeakPower(this.target,power.amount,false)));
             }
         }
         this.isDone = true;

@@ -22,7 +22,7 @@ public class MultiplyPowerAction extends AbstractGameAction {
         if (this.targetPowerID.equals(InsomniaPower.POWER_ID) && this.target.hasPower(this.targetPowerID))
             addToTop(new ApplyPowerAction(this.target, this.source, new InsomniaPower(this.target,
                     (this.target.getPower(this.targetPowerID)).amount * (this.amount - 1)),
-                    (this.target.getPower("Poison")).amount * (this.amount - 1)));
+                    (this.target.getPower(this.targetPowerID)).amount * (this.amount - 1)));
         this.isDone = true;
     }
 }

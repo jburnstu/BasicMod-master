@@ -1,5 +1,5 @@
 {
-  "Amnesia": {
+  "AMNESIA": {
     "NAMES": [
       "amnesia"
     ],
@@ -10,7 +10,7 @@
       "awaken",
       "awakened"
     ],
-    "DESCRIPTION": "Remove the Forgotten condition from a Forgotten card anywhere in play, and add it to your hand. This does !bnot!b count as Remembering the card."
+    "DESCRIPTION": "Remove the Forgotten condition from a Forgotten card anywhere in play, and add it to your hand. NL This does not count as Remembering the card."
   },
   "FORGET": {
     "NAMES": [
@@ -18,7 +18,8 @@
       "forgotten",
       "forgot",
       "non-forgotten",
-      "unforgotten"
+      "unforgotten",
+      "forgetting"
     ],
     "DESCRIPTION": "A Forgotten card's effect is hidden, and its cost set to 1, until played."
   },
@@ -26,11 +27,12 @@
     "NAMES": [
       "insomnia"
     ],
-    "DESCRIPTION": "At the end of a creature's turn, if it has Insomnia greater than its HP, it dies. Otherwise, its Insomnia doubles. NL Reduces by 1 whenever you Forget a card."  },
+    "DESCRIPTION": "Whenever you Forget a card, all creatures lose HP equal to their Insomnia, then reduce it by 1."  },
   "REMEMBER": {
     "NAMES": [
       "remember",
-      "remembered"
+      "remembered",
+      "remembering"
     ],
     "DESCRIPTION": "Removes the Forgotten condition from a card and plays it."
   },
@@ -38,26 +40,13 @@
     "NAMES": [
       "trance"
     ],
-    "DESCRIPTION": "Forgotten cards are Urgent and cost 0 to play. NL Exit Trance when you Remember a card."
-  },
+    "DESCRIPTION": "Causes Forgotten cards to become Urgent and cost 0 to play."  },
   "URGENT": {
     "NAMES": [
       "urgent",
       "Urgent"
     ],
-    "DESCRIPTION": "Urgent cards in your hand must be played before any other cards. If there are multiple Urgent cards, you may choose the order in which you play them."
-  },
-  "VISION": {
-    "NAMES": [
-      "vision"
-    ],
-    "DESCRIPTION": "Forgotten Cards are Urgent and free to play. Resets at the end of your turn."
-  },
-  "WOOZY": {
-    "NAMES": [
-      "woozy"
-    ],
-    "DESCRIPTION": "At the start of a creature's turn, if it has more Woozy than HP, it dies. NL Decreases by 1 whenever you Forget a card."
+    "DESCRIPTION": "Must be played before any other cards. If there are multiple Urgent cards in your hand, you may choose the order in which you play them."
   }
 }
 

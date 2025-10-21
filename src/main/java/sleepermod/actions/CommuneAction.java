@@ -26,7 +26,7 @@ public class CommuneAction extends AbstractGameAction {
     @Override
     public void update() {
         addToBot(new GainBlockAction(this.target,this.passedBlock));
-        addToBot(new DrawCardAction(1));
+        addToBot(new DrawCardAction(1,true));
         System.out.println("Commune Action drawn, card is " + DrawCardAction.drawnCards.get(0));
         if (DrawCardAction.drawnCards.get(0) instanceof ForgottenCard) {
             System.out.println("COmmune loop entered....");

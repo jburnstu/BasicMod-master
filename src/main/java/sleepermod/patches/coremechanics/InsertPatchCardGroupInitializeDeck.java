@@ -1,4 +1,4 @@
-package sleepermod.patches.specificuse;
+package sleepermod.patches.coremechanics;
 
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -19,25 +19,49 @@ public class InsertPatchCardGroupInitializeDeck {
     @SpireInsertPatch(locator = Locator.class, localvars = {"copy"})
     public static void Insert(CardGroup _self, CardGroup masterDeck, CardGroup copy) {
 
+
+
         ArrayList<AbstractCard> cardsToStartForgotten = new ArrayList<AbstractCard>();
 
-        System.out.println("InitializeDeck patch entered");
         if (AbstractDungeon.player.hasRelic(WideEyedDoll.ID)) {
             for (AbstractCard c : copy.group) {
-                if (WideEyedDoll.cardsToRemainForgotten.contains(c)) {
-                    Move.toForgottenPile(copy, c, false);
-                }
-            }
-        } else if (AbstractDungeon.player.hasRelic(TeddyBear.ID)) {
-            System.out.println("Teddybear IF entered");
-            System.out.println(TeddyBear.uuidsToRemainForgotten.toString());
-            for (AbstractCard c : copy.group) {
-                if (TeddyBear.uuidsToRemainForgotten.contains(c.uuid)) {
-                    System.out.println("uuidsToRemainForgotten IF entered");
+                if (FieldPatchAbstractCardBackForgottenCard.forgottenInMasterDeck.get(c)) {
                     cardsToStartForgotten.add(c);
                 }
             }
+        } else if (AbstractDungeon.player.hasRelic(TeddyBear.ID)) {
+            copy.shuffle(AbstractDungeon.shuffleRng);
+            int count = 0;
+            for (AbstractCard c : copy.group) {
+                if (!(c.isInnate ||c.inBottleFlame || c.inBottleLightning || c.inBottleTornado)) {
+                    cardsToStartForgotten.add(c);
+                    count++;
+                    System.out.println("card added to be forgotten: " + c);
+                    if (count >= TeddyBear.numberOfCardsToStayForgotten) {
+                        System.out.println("Leaving teddy bear loop");
+                        break;
+                    }
+                }
+            }
         }
+
+//        System.out.println("InitializeDeck patch entered");
+//        if (AbstractDungeon.player.hasRelic(WideEyedDoll.ID)) {
+//            for (AbstractCard c : copy.group) {
+//                if (WideEyedDoll.cardsToRemainForgotten.contains(c)) {
+//                    Move.toForgottenPile(copy, c, false);
+//                }
+//            }
+//        } else if (AbstractDungeon.player.hasRelic(TeddyBear.ID)) {
+//            System.out.println("Teddybear IF entered");
+//            System.out.println(TeddyBear.uuidsToRemainForgotten.toString());
+//            for (AbstractCard c : copy.group) {
+//                if (TeddyBear.uuidsToRemainForgotten.contains(c.uuid)) {
+//                    System.out.println("uuidsToRemainForgotten IF entered");
+//                    cardsToStartForgotten.add(c);
+//                }
+//            }
+//        }
         for (AbstractCard c: cardsToStartForgotten) {
             Move.toForgottenPile(copy,c,false);
         }

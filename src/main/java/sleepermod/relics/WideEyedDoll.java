@@ -1,5 +1,8 @@
 package sleepermod.relics;
 
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -17,6 +20,8 @@ public class WideEyedDoll extends AbstractSleeperRelic {
     private static final RelicTier RARITY = RelicTier.BOSS; //The relic's rarity.
     private static final LandingSound SOUND = LandingSound.CLINK; //The sound played when the relic is clicked.
 
+    private boolean expensiveCardPlayedLastTurn = false;
+
     public WideEyedDoll() {
         super(ID, RARITY,SOUND);
         System.out.println("TeddyBear constructor called....");
@@ -27,29 +32,21 @@ public class WideEyedDoll extends AbstractSleeperRelic {
         return new WideEyedDoll();
     }
 
-    public static ArrayList<AbstractCard> cardsToRemainForgotten;
-
-//    public boolean canSpawn() {
-//        return AbstractDungeon.player.hasRelic("TeddyBear");
+//    @Override
+//    public void atTurnStart() {
+//        if (expensiveCardPlayedLastTurn) {
+//            addToBot(new DrawCardAction(1));
+//            addToBot(new GainEnergyAction(1));
+//            expensiveCardPlayedLastTurn = false;
+//        }
+//    }
+//
+//    @Override
+//    public void onUseCard(AbstractCard targetCard, UseCardAction useCardAction) {
+//        if (!(targetCard.freeToPlayOnce) && targetCard.costForTurn > 1) {
+//            expensiveCardPlayedLastTurn = true;
+//        }
 //    }
 
-    @Override
-    public void atBattleStartPreDraw () {
-        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-            if (cardsToRemainForgotten.contains(c)) {
-                Move.toForgottenPile(AbstractDungeon.player.drawPile,c,false);
-            }
-        }
-        cardsToRemainForgotten.clear();
-    }
 
-    @Override
-    public void onVictory () {
-        flash();
-        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-            if (!(FieldPatchAbstractCardBackForgottenCard.backForgottenCard.get(c) == null)) {
-                cardsToRemainForgotten.add(c);
-            }
-        }
-    }
 }

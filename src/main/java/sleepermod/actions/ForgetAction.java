@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class ForgetAction extends AbstractGameAction {
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("ExhaustAction");
 
-    public static final String[] TEXT = uiStrings.TEXT;
+//    public static final String[] TEXT = uiStrings.TEXT;
 
     private MySleeperPlayer p;
 
@@ -34,7 +34,7 @@ public class ForgetAction extends AbstractGameAction {
 
     public static ArrayList<AbstractCard> forgottenCards = new ArrayList<>();
 
-    public static boolean onlyAttacks = false;
+    public static boolean onlyAttacks;
 
     public ForgetAction(int amount, boolean isRandom, boolean anyNumber, boolean canPickZero) {
         this.anyNumber = anyNumber;
@@ -44,6 +44,7 @@ public class ForgetAction extends AbstractGameAction {
         this.amount = amount;
         this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
         this.actionType = ActionType.SPECIAL;
+        this.onlyAttacks = false;
     }
 
     public ForgetAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom, boolean anyNumber) {
@@ -119,11 +120,7 @@ public class ForgetAction extends AbstractGameAction {
                 int tmp = forgettable.size();
                 for (int i = 0; i < tmp; i++) {
                     AbstractCard c = forgettable.getTopCard();
-                    newForgottenCard = Move.toForgottenPile(this.p.hand,c,true);
-                    if (c instanceof AbstractSleeperCard) {
-                        ((AbstractSleeperCard) c).triggerOnForgotten();
-                    }
-                    Slumber.totalForgottenThisTurn++;
+                    Move.toForgottenPile(this.p.hand,c,true);
                     forgottenCards.add(c);
                     forgettable.removeCard(c);
                 }
@@ -133,11 +130,7 @@ public class ForgetAction extends AbstractGameAction {
             if (this.isRandom) {
                 for (int i = 0; i < this.amount; i++) {
                     AbstractCard c = forgettable.getRandomCard(AbstractDungeon.cardRandomRng);
-                    newForgottenCard = Move.toForgottenPile(this.p.hand, c, true);
-                    if (c instanceof AbstractSleeperCard) {
-                        ((AbstractSleeperCard) c).triggerOnForgotten();
-                    }
-                    Slumber.totalForgottenThisTurn++;
+                    Move.toForgottenPile(this.p.hand, c, true);
                     forgottenCards.add(c);
                     forgettable.removeCard(c);
                     this.p.hand.refreshHandLayout();
@@ -154,11 +147,7 @@ public class ForgetAction extends AbstractGameAction {
         if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0) {
             for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
                 c.unhover();
-                newForgottenCard = Move.toForgottenPile(this.p.hand, c, true);
-                if (c instanceof AbstractSleeperCard) {
-                    ((AbstractSleeperCard) c).triggerOnForgotten();
-                }
-                Slumber.totalForgottenThisTurn++;
+                Move.toForgottenPile(this.p.hand, c, true);
                 forgottenCards.add(c);
                 this.p.hand.refreshHandLayout();
                 this.p.hand.applyPowers();

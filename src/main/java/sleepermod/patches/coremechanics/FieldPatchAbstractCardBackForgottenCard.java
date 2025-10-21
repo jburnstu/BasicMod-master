@@ -11,4 +11,6 @@ public class FieldPatchAbstractCardBackForgottenCard {
     public static SpireField<ForgottenCard> backForgottenCard = new SpireField<>(()->null);
 
     public static SpireField<Boolean> forgetOnUseOnce = new SpireField<>(()->false);
+
+    public static SpireField<Boolean> forgottenInMasterDeck = new SpireField<>(()->false);
 }

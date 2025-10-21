@@ -8,17 +8,25 @@
   "${modID}:AmnesiaPower": {
     "NAME": "Amnesia",
     "DESCRIPTIONS": [
-      "Forget the next card you play.",
-      "Forget the next #b",
-      " cards you play."
+      "Exhaust the next card you Remember.",
+      "Exhaust the next #b",
+      " cards you Remember."
     ]
   },
   "${modID}:AtemporalityPower": {
     "NAME": "Atemporal",
     "DESCRIPTIONS": [
-      "Whenever you Remember a card, draw #b1 card.",
-      "Whenever you Remember a card, draw #",
+      "The first time on your turn you Remember a card, draw #b1 card.",
+      "The first time on your turn you Remember a card, draw #",
       " cards."
+    ]
+  },
+  "${modID}:BrainstormPower": {
+    "NAME": "Brainstorm",
+    "DESCRIPTIONS": [
+      "At the start of your turn, add one Forgotten *Brain Zap to your discard pile.",
+      "At the start of your turn, add #b",
+      " Forgotten *Brain Zaps to your discard pile."
     ]
   },
   "${modID}:ChosenOnePower": {
@@ -66,6 +74,12 @@
     " extra card next turn."
   ]
 },
+  "${modID}:EnterTheVoidPower": {
+    "NAME": "InTheVoid",
+    "DESCRIPTIONS": [
+      "This turn, when you play a Forgotten Card, discard it instead of Remembering it."
+    ]
+  },
   "${modID}:ForeshadowingPower": {
     "NAME": "Foreshadowing",
     "DESCRIPTIONS": [
@@ -181,6 +195,13 @@
       " strength."
     ]
   },
+  "${modID}:PremonitionPower": {
+    "NAME": "Premonition",
+    "DESCRIPTIONS": [
+      "Next turn, gain #b",
+      " Trance."
+    ]
+  },
   "${modID}:PsychicStormPower": {
     "NAME": "Psychic Storm",
     "DESCRIPTIONS": [
@@ -205,7 +226,9 @@
   "${modID}:SelfDiscoveryPower": {
     "NAME": "Self Discovery",
     "DESCRIPTIONS": [
-      "Whenever you Awaken a card, upgrade it for the rest of combat."
+      "The first card you Awaken each turn costs #b1 less this turn.",
+      "The first card you Awaken each turn costs #b",
+      " less this turn."
     ]
   },
   "${modID}:SnoozePower": {
@@ -232,22 +255,9 @@
   "${modID}:TrancePower": {
     "NAME": "Trance",
     "DESCRIPTIONS": [
-      "Forgotten cards are Urgent and cost 0 to play. NL Exit Trance at the end of your turn."
-    ]
-  },
-  "${modID}:VisionPower": {
-    "NAME": "Vision",
-    "DESCRIPTIONS": [
-      "The next Forgotten card you play this turn costs zero. Until then, all Forgotten cards are Urgent.",
-      "The next #b",
-      " Forgotten cards you play this turn cost zero. Until then, all Forgotten cards are Urgent."
-    ]
-  },
-  "${modID}:VoidPower": {
-    "NAME": "Void",
-    "DESCRIPTIONS": [
-      "At the start of a creature's turn, if ",
-      " HP whenever you forget a card."
+      "Forgotten cards are Urgent. NL The next Forgotten Card you play this turn is free.",
+      "Forgotten cards are Urgent. NL The next #b",
+      " Forgotten Cards you play this turn are free."
     ]
   }
 }

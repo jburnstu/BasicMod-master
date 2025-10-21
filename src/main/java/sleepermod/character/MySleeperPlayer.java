@@ -44,6 +44,7 @@ public class MySleeperPlayer extends CustomPlayer {
     public CardGroup forgottenPile = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
     public ArrayList<AbstractCard> cardsRememberedThisCombat = new ArrayList<>();
     public ArrayList<AbstractCard> cardsForgottenThisTurn = new ArrayList<>();
+    public static AbstractCard lastCardRemembered = null;
 
     //Strings
     private static final String ID = makeID("Sleeper"); //This should match whatever you have in the CharacterStrings.json file

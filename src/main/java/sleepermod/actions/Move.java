@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.cards.ForgottenCard;
+import sleepermod.cards.skills.Slumber;
 import sleepermod.character.MySleeperPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import sleepermod.patches.coremechanics.FieldPatchAbstractCardBackForgottenCard;
@@ -16,18 +17,20 @@ import sleepermod.relics.AbstractSleeperRelic;
 public class Move {
 
     public static ForgottenCard toForgottenPile(CardGroup g, AbstractCard c, boolean immediateDiscard) {
-        for (AbstractRelic r : AbstractDungeon.player.relics)
-            if (r instanceof AbstractSleeperRelic) {
-                ((AbstractSleeperRelic) r).onForget(c);
-            }
-        for (AbstractPower p : AbstractDungeon.player.powers)
-            if (p instanceof AbstractSleeperPower) {
-                ((AbstractSleeperPower) p).onForget(c);
-            }
-        for (AbstractMonster mo: AbstractDungeon.getCurrRoom().monsters.monsters) {
-            for (AbstractPower p : mo.powers) {
+        if (immediateDiscard) {
+            for (AbstractRelic r : AbstractDungeon.player.relics)
+                if (r instanceof AbstractSleeperRelic) {
+                    ((AbstractSleeperRelic) r).onForget(c);
+                }
+            for (AbstractPower p : AbstractDungeon.player.powers)
                 if (p instanceof AbstractSleeperPower) {
                     ((AbstractSleeperPower) p).onForget(c);
+                }
+            for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                for (AbstractPower p : mo.powers) {
+                    if (p instanceof AbstractSleeperPower) {
+                        ((AbstractSleeperPower) p).onForget(c);
+                    }
                 }
             }
         }
@@ -37,11 +40,15 @@ public class Move {
         ((MySleeperPlayer) AbstractDungeon.player).forgottenPile.addToTop(c);
         ((MySleeperPlayer) AbstractDungeon.player).cardsForgottenThisTurn.add(c);
         if (immediateDiscard) {
-            if (AbstractDungeon.player.hasPower("Hibernation")) {
-                g.moveToDeck(newForgottenCard,true);
-            }
+//            if (AbstractDungeon.player.hasPower("Hibernation")) {
+//                g.moveToDeck(newForgottenCard,true);
+//            }
             g.moveToDiscardPile(newForgottenCard);
         }
+        if (c instanceof AbstractSleeperCard) {
+            ((AbstractSleeperCard) c).triggerOnForgotten();
+        }
+        Slumber.totalForgottenThisTurn++;
         return newForgottenCard;
     }
 
@@ -70,6 +77,13 @@ public class Move {
             for (AbstractPower power : p.powers) {
                 if (power instanceof AbstractSleeperPower) {
                     ((AbstractSleeperPower) power).onAwaken(c);
+                }
+            }
+            for (AbstractMonster mo: AbstractDungeon.getCurrRoom().monsters.monsters) {
+                for (AbstractPower power : mo.powers) {
+                    if (power instanceof AbstractSleeperPower) {
+                        ((AbstractSleeperPower) power).onForget(c);
+                    }
                 }
             }
         }

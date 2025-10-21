@@ -1,8 +1,12 @@
 package sleepermod.relics;
 
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import sleepermod.character.MySleeperPlayer;
 
@@ -17,6 +21,8 @@ public class TeddyBear extends AbstractSleeperRelic {
     private static final RelicTier RARITY = RelicTier.STARTER; //The relic's rarity.
     private static final LandingSound SOUND = LandingSound.CLINK; //The sound played when the relic is clicked.
 
+    private static boolean usedThisCombat = false;
+
     public TeddyBear() {
         super(ID, RARITY,SOUND);
         System.out.println("TeddyBear constructor called....");
@@ -29,44 +35,21 @@ public class TeddyBear extends AbstractSleeperRelic {
 
     public static ArrayList<UUID> uuidsToRemainForgotten = new ArrayList<UUID>();
 
-//    public static CardGroup forgottenPileAtEndOfCombat = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-
-
-    public static int numberOfCardsToRemainForgotten = 3;
-    public static int count = 0;
+    public static final int numberOfCardsToStayForgotten = 3;
 
 //    @Override
-//    public void atBattleStartPreDraw () {
-//        System.out.println("cardsToRemainForgotten: " + cardsToRemainForgotten.toString());
-//        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-//            if (cardsToRemainForgotten.contains(c)) {
-//                Move.toForgottenPile(AbstractDungeon.player.drawPile,c,false);
-//            }
+//    public void atBattleStart() {
+//        usedThisCombat = false;
+//    }
+//
+//    @Override
+//    public void onUseCard(AbstractCard targetCard, UseCardAction useCardAction) {
+//        if (!(usedThisCombat) &&!(targetCard.freeToPlayOnce) && targetCard.costForTurn > 1) {
+//            addToBot(new DrawCardAction(1));
+//            addToBot(new GainEnergyAction(1));
+//            usedThisCombat = true;
 //        }
 //    }
 
-    @Override
-    public void onVictory () {
-        System.out.println("onVictory for teddybear entered");
-        flash();
-        uuidsToRemainForgotten.clear();
-        count = 0;
 
-        CardGroup forgottenPileAtEndOfCombat = new CardGroup(((MySleeperPlayer) AbstractDungeon.player).forgottenPile, CardGroup.CardGroupType.UNSPECIFIED);
-        forgottenPileAtEndOfCombat.shuffle(AbstractDungeon.shuffleRng);
-
-          for (AbstractCard forgottenPileCard : forgottenPileAtEndOfCombat.group) {
-              for (AbstractCard masterDeckCard : AbstractDungeon.player.masterDeck.group) {
-                  if ( masterDeckCard.uuid == forgottenPileCard.uuid) {
-                    System.out.println("Card added -- count is " +count + " and max is " + numberOfCardsToRemainForgotten);
-                    uuidsToRemainForgotten.add(masterDeckCard.uuid);
-                    count++;
-                    if (count == numberOfCardsToRemainForgotten) {
-                        return;
-                    }
-                }
-            }
-        }
-//        System.out.println("end of TeddyBear" + uuidsToRemainForgotten.toString());
-    }
 }

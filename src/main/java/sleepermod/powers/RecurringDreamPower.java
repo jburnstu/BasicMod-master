@@ -26,6 +26,31 @@ public class RecurringDreamPower extends AbstractSleeperPower {
         super(POWER_ID, TYPE, false, owner,owner, amount,true, true, false,true);
     }
 
+
+    @Override
+    public void onRemember(AbstractCard c, AbstractCreature m) {
+        if (this.amount > 0) {
+            flash();
+            AbstractCard tmp = c.makeSameInstanceOf();
+            AbstractDungeon.player.limbo.addToBottom(tmp);
+            tmp.current_x = c.current_x;
+            tmp.current_y = c.current_y;
+            tmp.target_x = Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
+            tmp.target_y = Settings.HEIGHT / 2.0F;
+            if (m != null)
+                tmp.calculateCardDamage((AbstractMonster) m);
+            tmp.purgeOnUse = true;
+            AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, (AbstractMonster) m, c.energyOnUse, true, true), true);
+            this.amount--;
+            if (this.amount == 0) {
+                addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+            }
+        }
+    }
+
+
+
+
     @Override
     public void onUseCard(AbstractCard c, UseCardAction action) {
         if (c instanceof ForgottenCard && this.amount > 0) {

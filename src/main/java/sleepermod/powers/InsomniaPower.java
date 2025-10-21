@@ -9,12 +9,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import static sleepermod.SleeperMod.makeID;
 
 
-// Whenever you draw a forgotten card, gain 1 vigour.
+
 public class InsomniaPower extends AbstractSleeperPower {
     public static final String POWER_ID = makeID(InsomniaPower.class.getSimpleName());
     private static final PowerType TYPE = PowerType.DEBUFF;
-    private static final boolean TURN_BASED = false;
-    public boolean reduceAtEnd = true;
+    public boolean reduceAtEnd = false;
 
     public InsomniaPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, false, owner, amount);
@@ -37,7 +36,7 @@ public class InsomniaPower extends AbstractSleeperPower {
         @Override
     public void onForget(AbstractCard c) {
         addToTop(new LoseHPAction(this.owner,null,this.amount));
-//        this.amount--;
+        this.amount--;
     }
 
 }

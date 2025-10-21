@@ -14,16 +14,17 @@ public class AtemporalityPower extends AbstractSleeperPower {
     private static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURN_BASED = false;
 
-    public boolean usedThisTurn = false;
+    public boolean usedThisTurn;
 
     public AtemporalityPower(AbstractCreature owner, int amount) {
 
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
+        this.usedThisTurn = false;
     }
 
     @Override
     public void atStartOfTurn() {
-        usedThisTurn = false;
+        this.usedThisTurn = false;
     }
 
 //    @Override
@@ -36,7 +37,10 @@ public class AtemporalityPower extends AbstractSleeperPower {
 
     @Override
     public void onRemember(AbstractCard card, AbstractCreature m) {
-        addToTop(new DrawCardAction(this.owner, this.amount));
+        if (!this.usedThisTurn) {
+            addToTop(new DrawCardAction(this.owner, this.amount));
+            this.usedThisTurn = true;
+        }
     }
 
 }

@@ -28,7 +28,7 @@ public class ForgottenPileViewScreen extends CustomScreen implements ScrollBarLi
 
         private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("ExhaustViewScreen");
 
-        public static final String[] TEXT = uiStrings.TEXT;
+//        public static final String[] TEXT = uiStrings.TEXT;
 
         private CardGroup forgottenPileCopy = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 

@@ -33,10 +33,6 @@ public class ForgetSpecificCardAction extends AbstractGameAction {
     public void update() {
         if (this.duration == this.startingDuration && this.group.contains(this.targetCard)) {
             Move.toForgottenPile(this.group,this.targetCard,true);
-            if (this.targetCard instanceof AbstractSleeperCard) {
-                ((AbstractSleeperCard) this.targetCard).triggerOnForgotten();
-            }
-            Slumber.totalForgottenThisTurn++;
             this.targetCard.exhaustOnUseOnce = false;
             this.targetCard.freeToPlayOnce = false;
         }
