@@ -23,16 +23,19 @@ public class Reinterpret extends AbstractSleeperCard {
 
     private static final int DMG = 8;
     private static final int UPG_DMG = 3;
+    private int baseMagicNumber = 1;
+    private int magicUpgrade = 0;
 
     public Reinterpret() {
         super(ID, info); 
 
-        setDamage(DMG, UPG_DMG); 
+        setDamage(DMG, UPG_DMG);
+        setMagic(baseMagicNumber,magicNumber);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
-        addToBot(new ReinterpretAction());
+        addToBot(new ReinterpretAction(magicNumber));
         };
     }

@@ -10,35 +10,38 @@ import sleepermod.cards.ForgottenCard;
 
 public class ReinterpretAction extends AbstractGameAction {
 
-    private int magicNumber;
+    private int amount;
 
     public AbstractPlayer p;
 
-    public ReinterpretAction() {
+    public ReinterpretAction(int amount) {
         this.duration = 0.0F;
         this.actionType = ActionType.WAIT;
         this.p = AbstractDungeon.player;
+        this.amount = amount;
     }
 
 
     public void update () {
         System.out.println("RA update reached");
-        AbstractCard cardToMove = null;
-        System.out.println("RA null set -- discard pile: " + this.p.discardPile.group.toString());
 
-        for (AbstractCard c : this.p.discardPile.group) {
-            System.out.println("c: " + c.toString());
-            if (c instanceof ForgottenCard) {
-                System.out.println("Forgotten card found");
-                cardToMove = c;
-                break;
+        for (int i=0; i < amount; i++) {
+            AbstractCard cardToMove = null;
+            System.out.println("RA null set -- discard pile: " + this.p.discardPile.group.toString());
+
+            for (AbstractCard c : this.p.discardPile.group) {
+                System.out.println("c: " + c.toString());
+                if (c instanceof ForgottenCard) {
+                    System.out.println("Forgotten card found");
+                    cardToMove = c;
+                    break;
+                }
+            }
+            if (cardToMove != null) {
+                this.p.hand.addToHand(cardToMove);
+                this.p.discardPile.removeCard(cardToMove);
             }
         }
-        if (cardToMove != null) {
-            this.p.discardPile.removeCard(cardToMove);
-            this.p.discardPile.moveToDeck(cardToMove, false);
-        }
-        System.out.println("RAfor loop escaped");
         this.isDone = true;
     }
 }

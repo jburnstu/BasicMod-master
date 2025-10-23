@@ -17,7 +17,7 @@ public class ForgottenCard extends AbstractSleeperCard {
     public static final String ID = makeID(ForgottenCard.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
-            MySleeperPlayer.Meta.CARD_COLOR, 
+            CardColor.COLORLESS,
             CardType.STATUS, 
             CardRarity.SPECIAL, 
             CardTarget.ENEMY, 

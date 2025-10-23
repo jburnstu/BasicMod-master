@@ -17,6 +17,7 @@ public class InsertPatchUseCardActionUpdate {
 //    static Logger log = Logger.getLogger("MyLogger");
     @SpireInsertPatch(locator = Locator.class,localvars = {"targetCard"})
     public static void Insert(UseCardAction _self, AbstractCard targetCard) {
+        System.out.println("card played is: " + targetCard.getClass());
         AbstractCard newForgottenCard;
         boolean forgetCard = (FieldPatchAbstractCardBackForgottenCard.forgetOnUseOnce.get(targetCard)
                 ||(targetCard instanceof AbstractSleeperCard && ((AbstractSleeperCard) targetCard).forget));
