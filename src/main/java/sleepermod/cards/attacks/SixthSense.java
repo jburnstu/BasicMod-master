@@ -12,7 +12,7 @@ import sleepermod.util.CardStats;
 
 
 public class SixthSense extends AbstractSleeperCard {
-    public static final String ID = makeID(Precog.class.getSimpleName());
+    public static final String ID = makeID(SixthSense.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, 

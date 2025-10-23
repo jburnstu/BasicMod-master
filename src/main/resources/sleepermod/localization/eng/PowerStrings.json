@@ -167,6 +167,13 @@
       " HP. Decreases by 1 at the end of this creature's turn."
     ]
   },
+  "${modID}:InsomniaPower": {
+    "NAME": "Insomnia",
+    "DESCRIPTIONS": [
+      "Whenever you Forget a card, this creature loses #b",
+      " HP. Decreases by 1 at the end of this creature's turn."
+    ]
+  },
   "${modID}:LucidDreamPower": {
     "NAME": "Lucidity",
     "DESCRIPTIONS": [

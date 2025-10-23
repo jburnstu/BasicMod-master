@@ -18,7 +18,7 @@ public class Precog extends AbstractSleeperCard {
             CardType.ATTACK, 
             CardRarity.COMMON, 
             CardTarget.ENEMY, 
-            1 
+            1
     );
 
     private static final int DMG = 5;
@@ -34,6 +34,7 @@ public class Precog extends AbstractSleeperCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        System.out.println("Precog being used");
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
         addToBot(new PrecogAction(magicNumber,m));
         };

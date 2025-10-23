@@ -13,8 +13,8 @@ import sleepermod.character.MySleeperPlayer;
 import sleepermod.util.CardStats;
 
 // Deal X damage. If played from forgotten, gain 1 dexterity.
-public class SelfProtection extends AbstractSleeperCard {
-    public static final String ID = makeID(SelfProtection.class.getSimpleName());
+public class MuscleMemory extends AbstractSleeperCard {
+    public static final String ID = makeID(MuscleMemory.class.getSimpleName());
     private static Object MyCharacter;
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, 
@@ -29,7 +29,7 @@ public class SelfProtection extends AbstractSleeperCard {
     public static final int magicNumber = 1;
 
 
-    public SelfProtection() {
+    public MuscleMemory() {
         super(ID, info); 
         setDamage(DAMAGE, UPG_DAMAGE); 
         setMagic(magicNumber);

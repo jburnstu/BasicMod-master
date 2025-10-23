@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import sleepermod.actions.MakeTempForgottenCardInDiscardAction;
 import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.character.MySleeperPlayer;
 import sleepermod.util.CardStats;
@@ -29,7 +30,7 @@ public class Compulsion extends AbstractSleeperCard {
 
     public Compulsion() {
         super(ID, info); 
-        this.forget = true;
+//        this.forget = true;
         setDamage(DMG,UPG_DMG);
         setBlock(BLOCK,UPG_BLOCK); 
     }
@@ -38,6 +39,6 @@ public class Compulsion extends AbstractSleeperCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
         addToBot(new GainBlockAction(p,block));
-        addToBot(new MakeTempCardInDiscardAction(makeStatEquivalentCopy(), 1));
+        addToBot(new MakeTempForgottenCardInDiscardAction(makeStatEquivalentCopy(), 1));
         };
     }

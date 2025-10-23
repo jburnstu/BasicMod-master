@@ -15,12 +15,12 @@ public class BlankSlate extends AbstractSleeperCard {
     private static final CardStats info = new CardStats(
             MySleeperPlayer.Meta.CARD_COLOR, 
             CardType.SKILL, 
-            CardRarity.COMMON, 
+            CardRarity.UNCOMMON,
             CardTarget.SELF, 
             0 
     );
 
-    public int BLOCK = 4;
+    public int BLOCK = 8;
     public int UPG_BLOCK = 2;
     public boolean baseExhaust = true;
     public boolean upgradeExhaust = false;

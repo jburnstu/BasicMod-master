@@ -82,7 +82,7 @@
   },
   "${modID}:Compulsion": {
     "NAME": "Compulsion",
-    "DESCRIPTION": "Urgent. NL Deal !D! damage. NL. Gain !B! Block. NL Add a copy of this card to your discard. NL Forget."
+    "DESCRIPTION": "Deal !D! damage. NL. Gain !B! Block. NL Add a Forgotten copy of this card to your discard."
   },
   "${modID}:CopingMechanism": {
     "NAME": "Coping Mechanism",
@@ -95,7 +95,7 @@
   },
   "${modID}:DeepestFear": {
     "NAME": "Deepest Fear",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Apply Vulnerable to each enemy equal to its insomnia. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Apply Vulnerable to each enemy equal to its Insomnia. NL Exhaust."
   },
   "${modID}:Dizzy": {
     "NAME": "Dizzy",
@@ -122,7 +122,7 @@
   },
   "${modID}:EnterDreams": {
     "NAME": "Enter Dreams",
-    "DESCRIPTION": "Deal !D! damage and apply !M! Weak for each Insomnia on the target. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage and apply !M! Weak for each Insomnia the target has. NL Exhaust."
   },
   "${modID}:EnterTheVoid": {
     "NAME": "Enter The Void",
@@ -208,6 +208,10 @@
     "NAME": "Into Next Week",
     "DESCRIPTION": "Deal !D! damage. NL Next turn, gain [E] [E]."
   },
+  "${modID}:Introspection": {
+    "NAME": "Introspection",
+    "DESCRIPTION": "Whenever you Awaken a card, gain !M! Block."
+  },
   "${modID}:Jumpscare": {
     "NAME": "Jumpscare",
     "DESCRIPTION": "!D! damage. NL Forget."
@@ -261,8 +265,7 @@
   },
   "${modID}:Oblivious": {
     "NAME": "Oblivious",
-    "DESCRIPTION": "Whenever you Forget a card, gain !M! Block.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you Forget a card, gain !M! Block."
+    "DESCRIPTION": "At the end of your turn, gain !M! Block for every Forgotten card in your hand."
   },
   "${modID}:Opener": {
     "NAME": "Opener",
@@ -318,14 +321,14 @@
   },
   "${modID}:Reinterpret": {
     "NAME": "Reinterpret",
-    "DESCRIPTION": "Deal !D! damage. NL Put a random Forgotten card from your discard pile on top of your draw pile."
+    "DESCRIPTION": "Deal !D! damage. NL Put a random Forgotten card from your discard pile into your hand."
   },
   "${modID}:SelfDiscovery": {
     "NAME": "Self Discovery",
     "DESCRIPTION": "Whenever you Awaken a card, upgrade it for the rest of combat."
   },
-  "${modID}:SelfProtection": {
-    "NAME": "Self Protection",
+  "${modID}:MuscleMemory": {
+    "NAME": "Muscle Memory",
     "DESCRIPTION": "Deal !D! damage. NL If Remembered, gain !M! Dexterity.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If Remembered, gain !M! Dexterity. NL Forget."
   },

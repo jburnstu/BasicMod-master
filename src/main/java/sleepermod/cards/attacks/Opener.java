@@ -17,10 +17,10 @@ public class Opener extends AbstractSleeperCard {
             CardType.ATTACK,
             CardRarity.UNCOMMON,
             CardTarget.ENEMY,
-            0
+            1
     );
 
-    private static final int DMG = 5;
+    private static final int DMG = 8;
     private static final int UPG_DMG = 3;
     private static int baseMagicNumber = 1;
 //    private static int magicUpgrade = 1;
