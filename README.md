@@ -14,7 +14,12 @@ In particular, the places where I've done the most "ground-up" coding are in the
   - whereas the class "ForgetAction" in actions.core was adapted from the base game's "ExhaustAction". I've added the latter as "ReferenceExhaustAction", so that the amount of copying is clear.
 - powers (note this is "sleepermod / powers", not "sleepermod / cards / powers"): the functional code here is more or less all me, although the structure of each file is prescribed by the mod template.
 
-Therefore I'd recommend having a look in these folders, for the work I lay the strongest claim to / am proudest of :)
+Therefore I'd recommend having a look in these folders, for the work I lay the strongest claim to :)
+
+### Code Quality
+I've been a bit cavalier with allowing warnings on my commits, because Intellij marks a lot of classes as "unused" and it didn't seem like a good use of time to annnotate everything to avoid this.
+
+I've mostly been focusing on top-level functionality, ie "does the game work", over inherent code quality. In particular, I've slightly neglected modifiers on variables, eg "public / private / final" etc.. I'm going through now and trying to understand what would academically be best in each case, but overall this shouldn't affect how the code runs -- it just means there's places where you could in theory have an easier time breaking the code (intentionally or otherwise) by accessing a variable from a place you shouldn't be able to.
 
 ### Commenting
 I am working through now and ensuring the comments in all the files are up-to-date. Tthere are quite a lot of files I copied and pasted as a starting point (eg all 75 cards!) so I found a couple of early comments that got erroneously copied all over the place.
