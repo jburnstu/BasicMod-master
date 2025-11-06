@@ -9,9 +9,9 @@ If you're here because of a link from a job application -- thank you for having 
 
 In particular, the places where I've done the most "ground-up" coding are in the following sub-folders:
 - patches: this is more or less all me (the Locator nested class in the Insert patches is fairly boilerplate though).
-- actions: this is a real mix, as even where code is borrowed from the decompiled base-game, it was often a lot of work to adapt it here.
-  - in particular, the classes "RememberAction" and "Move" are mostly my own;
-  - whereas the class "ForgetAction" was adapted from the base game's "ExhaustAction". I've added the latter as "ReferenceExhaustAction", so that the amount of copying is clear.
+- actions(.core): this is a real mix, as even where code is borrowed from the decompiled base-game, it was often a lot of work to adapt it here.
+  - in particular, the classes "RememberAction" and "Move" in actions.core are mostly my own;
+  - whereas the class "ForgetAction" in actions.core was adapted from the base game's "ExhaustAction". I've added the latter as "ReferenceExhaustAction", so that the amount of copying is clear.
 - powers (note this is "sleepermod / powers", not "sleepermod / cards / powers"): the functional code here is more or less all me, although the structure of each file is prescribed by the mod template.
 
 Therefore I'd recommend having a look in these folders, for the work I lay the strongest claim to / am proudest of :)
@@ -40,6 +40,9 @@ The folders within:
   - the game uses the AbstractGameAction class to track changes to the game-state. Wherever a card's effect is too complicated to express with existing Action classes, I have given it a dedicated class here.
   - generally the name of the card's class with "Action" sufffixed, although there are execpetions.
   - some of the files here are very heavily inspired by Action subclasses in the base game (such as my ForgetAction from the game's ExhaustAction). Others are written more or less from the ground up. There is no actual temmplate class provided in the template (I don't think it's set up for people to be making their own actions?) so I would consider all the code here effectively mine.
+  - I've added a couple of sub-packages:
+    - "core" contains the key Actions -- each of these is called by several different cards / powers / other actions.
+    - "followUps" contains actions that are called as a follow-up to another action (either Forget or Awaken).
 - archive:
   - old classes no longer in use.
   - Does not generally include old cards (these are in cardsDeprecated instead).
