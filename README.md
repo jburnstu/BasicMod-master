@@ -19,7 +19,7 @@ Therefore I'd recommend having a look in these folders, for the work I lay the s
 ### Commenting
 I am working through now and ensuring the comments in all the files are up-to-date. Tthere are quite a lot of files I copied and pasted as a starting point (eg all 75 cards!) so I found a couple of early comments that got erroneously copied all over the place.
 
-In general I've gone fairly light on comments, as I feel the code is fairly self-explanatory *provided a knowledge of the game's base code*. I have just provided comments where I feel that even someone who understands how Slay The Spire itself is coded, would still need a pointer. I suggest the Slay The Spire BaseMod wiki (https://github.com/Alchyr/BasicMod/wiki) for a fuller understanding of the base game's code.
+In general I've gone fairly light on comments, as I feel the code is fairly self-explanatory *provided a knowledge of the game's base code*. I have just provided comments where I feel that even someone who understands how Slay The Spire itself is coded, would still need a pointer. I suggest the Slay The Spire BaseMod wiki (https://github.com/Alchyr/BasicMod/wiki) for a fuller understanding of the base game's code -- it's actually a tutorial for setting up the mod template, but it takes you through how the game handles its objects.
 
 ### Use of GitHub
 Although I started this project with the intention of using the full branching capabilities of GitHub, I quickly realised this was overkill for a one-man project with a surprisingly linear development. Now that the mod is "finished", I might consider using branches for overall mechanical decisions I haven't yet settled to myself.
