@@ -167,11 +167,11 @@
       " HP. Decreases by 1 at the end of this creature's turn."
     ]
   },
-  "${modID}:InsomniaPower": {
-    "NAME": "Insomnia",
+  "${modID}:IntrospectionPower": {
+    "NAME": "Introspection",
     "DESCRIPTIONS": [
-      "Whenever you Forget a card, this creature loses #b",
-      " HP. Decreases by 1 at the end of this creature's turn."
+      "When you Awaken a card, gain #b",
+      " Block."
     ]
   },
   "${modID}:LucidDreamPower": {
@@ -191,8 +191,8 @@
   "${modID}:ObliviousPower": {
     "NAME": "Oblivious",
     "DESCRIPTIONS": [
-      "When you Forget a card, gain #b",
-      " Block."
+      "At the end of your turn, gain #b",
+      " Block for every Forgotten card in your hand."
     ]
   },
   "${modID}:PavlovianResponsePower": {
