@@ -8,16 +8,31 @@
   "${modID}:AmnesiaPower": {
     "NAME": "Amnesia",
     "DESCRIPTIONS": [
-      "Forget the next card you play.",
-      "Forget the next #b",
-      " cards you play."
+      "Exhaust the next card you Remember.",
+      "Exhaust the next #b",
+      " cards you Remember."
+    ]
+  },
+  "${modID}:AtemporalityPower": {
+    "NAME": "Atemporal",
+    "DESCRIPTIONS": [
+      "The first time on your turn you Remember a card, draw #b1 card.",
+      "The first time on your turn you Remember a card, draw #",
+      " cards."
+    ]
+  },
+  "${modID}:BrainstormPower": {
+    "NAME": "Brainstorm",
+    "DESCRIPTIONS": [
+      "At the start of your turn, add one Forgotten *Brain Zap to your discard pile.",
+      "At the start of your turn, add #b",
+      " Forgotten *Brain Zaps to your discard pile."
     ]
   },
   "${modID}:ChosenOnePower": {
     "NAME": "Chosen One",
     "DESCRIPTIONS": [
-      "Whenever you attack this enemy, gain #b",
-      " Vision."
+      "Whenever this enemy deals unblocked attack damage to you, Enter Trance."
     ]
   },
   "${modID}:CircadianRhythmPower": {
@@ -59,12 +74,41 @@
     " extra card next turn."
   ]
 },
+  "${modID}:EnterTheVoidPower": {
+    "NAME": "InTheVoid",
+    "DESCRIPTIONS": [
+      "This turn, when you play a Forgotten Card, discard it instead of Remembering it."
+    ]
+  },
+  "${modID}:ForeshadowingPower": {
+    "NAME": "Foreshadowing",
+    "DESCRIPTIONS": [
+      "Whenever you Awaken a card this turn, apply #b",
+      " Weak to ALL enemies."
+    ]
+  },
   "${modID}:FreeCardPower": {
     "NAME": "FreeCard",
     "DESCRIPTIONS": [
       "The next card you play is free.",
       "The next #b",
       " cards you play are free."
+    ]
+  },
+  "${modID}:FugueStatePower": {
+    "NAME": "Fugue State",
+    "DESCRIPTIONS": [
+      "Whenever you enter Trance, draw #b1 card.",
+      "Whenever you enter Trance, draw #",
+      " cards."
+    ]
+  },
+  "${modID}:GrandRitualPower": {
+    "NAME": "Grand Ritual",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, draw 1 card and enter Trance.",
+      "At the start of your next #b",
+      "turns, draw 1 card and enter Trance."
     ]
   },
   "${modID}:GroundworkPower": {
@@ -79,6 +123,13 @@
     "DESCRIPTIONS": [
       "At the end of your turn, gain #b",
       " Block for every Forgotten card in your hand."
+    ]
+  },
+  "${modID}:GrandRitual": {
+    "NAME": "Grand Ritual",
+    "DESCRIPTIONS": [
+      "At the start of your next #b",
+      " turns, draw 1 card and enter Trance."
     ]
   },
   "${modID}:HazePower": {
@@ -109,6 +160,20 @@
       " cards."
     ]
   },
+  "${modID}:InsomniaPower": {
+    "NAME": "Insomnia",
+    "DESCRIPTIONS": [
+      "Whenever you Forget a card, this creature loses #b",
+      " HP. Decreases by 1 at the end of this creature's turn."
+    ]
+  },
+  "${modID}:IntrospectionPower": {
+    "NAME": "Introspection",
+    "DESCRIPTIONS": [
+      "When you Awaken a card, gain #b",
+      " Block."
+    ]
+  },
   "${modID}:LucidDreamPower": {
     "NAME": "Lucidity",
     "DESCRIPTIONS": [
@@ -116,11 +181,18 @@
       " Amnesia and Awaken #b"
     ]
   },
+  "${modID}:MindMeldPower": {
+    "NAME": "Mind Meld",
+    "DESCRIPTIONS": [
+      "Whenever you Awaken a card, apply #b",
+      " Insomnia to this creature."
+    ]
+  },
   "${modID}:ObliviousPower": {
     "NAME": "Oblivious",
     "DESCRIPTIONS": [
-      "When you Forget a card, gain #b",
-      " Block."
+      "At the end of your turn, gain #b",
+      " Block for every Forgotten card in your hand."
     ]
   },
   "${modID}:PavlovianResponsePower": {
@@ -128,6 +200,13 @@
     "DESCRIPTIONS": [
       "When you Remember an Attack, gain #b",
       " strength."
+    ]
+  },
+  "${modID}:PremonitionPower": {
+    "NAME": "Premonition",
+    "DESCRIPTIONS": [
+      "Next turn, gain #b",
+      " Trance."
     ]
   },
   "${modID}:PsychicStormPower": {
@@ -154,36 +233,38 @@
   "${modID}:SelfDiscoveryPower": {
     "NAME": "Self Discovery",
     "DESCRIPTIONS": [
-      "Whenever you Awaken a card, upgrade it."
+      "The first card you Awaken each turn costs #b1 less this turn.",
+      "The first card you Awaken each turn costs #b",
+      " less this turn."
+    ]
+  },
+  "${modID}:SnoozePower": {
+    "NAME": "Snooze",
+    "DESCRIPTIONS": [
+      "At the end of your turn, retain #b1 random forgotten card",
+      "At the end of your turn, retain #b",
+      " random forgotten cards."
+    ]
+  },
+  "${modID}:TheatreOfTheMindPower": {
+    "NAME": "Theatre Of The Mind",
+    "DESCRIPTIONS": [
+      "This turn, whenever you Remember a card, enter Trance."
     ]
   },
   "${modID}:TorporPower": {
     "NAME": "Torpor",
     "DESCRIPTIONS": [
-      "At the start of your turn, apply #b",
-      " Woozy to ALL enemies."
+      "Whenever you Remember a card, apply #b",
+      " Insomnia to the target."
     ]
   },
-  "${modID}:VisionPower": {
-    "NAME": "Vision",
+  "${modID}:TrancePower": {
+    "NAME": "Trance",
     "DESCRIPTIONS": [
-      "The next Forgotten card you play this turn costs zero. Until then, all Forgotten cards are Urgent.",
-      "The next #b",
-      " Forgotten cards you play this turn cost zero. Until then, all Forgotten cards are Urgent."
-    ]
-  },
-  "${modID}:VoidPower": {
-    "NAME": "Void",
-    "DESCRIPTIONS": [
-      "At the start of a creature's turn, if ",
-      " HP whenever you forget a card."
-    ]
-  },
-  "${modID}:InsomniaPower": {
-    "NAME": "Insomnia",
-    "DESCRIPTIONS": [
-      "When this creature's HP drops below #b",
-      " it dies. Reduces by #b1 whenever you Forget a card."
+      "Forgotten cards are Urgent. NL The next Forgotten Card you play this turn is free.",
+      "Forgotten cards are Urgent. NL The next #b",
+      " Forgotten Cards you play this turn are free."
     ]
   }
 }

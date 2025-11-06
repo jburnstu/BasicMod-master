@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import sleepermod.cards.ForgottenCard;
-import sleepermod.powers.VisionPower;
+import sleepermod.powers.TrancePower;
 
 public class TheatreOfTheMindAction extends AbstractGameAction {
     public int passedBlock;
@@ -24,7 +24,7 @@ public class TheatreOfTheMindAction extends AbstractGameAction {
             }
         }
         if (!(count ==0)) {
-            addToBot(new ApplyPowerAction(this.target,this.target,new VisionPower(this.target,count)));
+            addToBot(new ApplyPowerAction(this.target,this.target,new TrancePower(this.target,count)));
         }
         this.isDone = true;
     }

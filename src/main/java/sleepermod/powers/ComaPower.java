@@ -2,7 +2,9 @@ package sleepermod.powers;
 
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import sleepermod.actions.ForgetSpecificCardAction;
 import sleepermod.cards.ForgottenCard;
 
 import static sleepermod.SleeperMod.makeID;
@@ -27,5 +29,4 @@ public class ComaPower extends AbstractSleeperPower {
             addToBot(new DiscardSpecificCardAction(c));
         }
     }
-
 }

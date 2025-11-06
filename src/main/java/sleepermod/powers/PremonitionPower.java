@@ -18,7 +18,7 @@ public class PremonitionPower extends AbstractSleeperPower {
 
     public PremonitionPower(AbstractPlayer p, int amount) {
         super(POWER_ID, TYPE, false, p, amount);
-        System.out.println("Reached DaydreamPower Constructor.....");
+        System.out.println("Reached SnoozePower Constructor.....");
         this.p = p;
         this.amount = amount;
         System.out.println(this.amount);
@@ -26,7 +26,7 @@ public class PremonitionPower extends AbstractSleeperPower {
 
     @Override
     public void atStartOfTurn() {
-        addToBot(new ApplyPowerAction(this.p,this.p,new VisionPower(this.p,this.amount)));
+        addToBot(new ApplyPowerAction(this.p,this.p,new TrancePower(this.p,this.amount)));
         addToTop(new RemoveSpecificPowerAction(this.p,this.p,POWER_ID));
     }
 }

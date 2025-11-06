@@ -1,16 +1,23 @@
 {
+  "${modID}:BrokenAlarm": {
+    "NAME": "Broken Alarm",
+    "FLAVOR": "You've tried everything, but the beeping just wont stop.",
+    "DESCRIPTIONS": [
+      "At the start of your turn, apply 1 Insomnia to all enemies."
+    ]
+  },
   "${modID}:DreamJournal": {
     "NAME": "Dream Journal",
     "FLAVOR": "I've been meaning to keep one of these for ages!",
     "DESCRIPTIONS": [
-      "Cards now remain forgotten between combats."
+      "At the start of each combat, Awaken 1 card."
     ]
   },
   "${modID}:EyeMask": {
     "NAME": "Eye Mask",
-    "FLAVOR": "The total darkness this mask creates is oddly comforting.",
+    "FLAVOR": "At last, total darkness... and a light flickering in the far distance.",
     "DESCRIPTIONS": [
-      "???"
+      "Start each combat with 1 Trance."
     ]
   },
   "${modID}:GoodJobSticker": {
@@ -31,14 +38,14 @@
     "NAME": "Lava Lamp",
     "FLAVOR": "Staring too long at the globs of light gives you a headache.",
     "DESCRIPTIONS": [
-      "Every time you play three forgotten cards in a turn, apply 1 woozy to all enemies."
+      "Whenever you apply Insomnia to an enemy, apply 1 more Insomnia."
     ]
   },
   "${modID}:SleepingMouse": {
     "NAME": "Sleeping Mouse",
     "FLAVOR": "She seems completely impervious to the horrors around her.",
     "DESCRIPTIONS": [
-      "At the end of your turn, gain 2 Block for each Forgotten card in your hand."
+      "Whenever you Awaken a card, gain 3 block."
     ]
   },
   "${modID}:SleepMobile": {
@@ -48,11 +55,24 @@
       "Whenever you remember a power card, shuffle a copy of that card into your deck."
     ]
   },
-  "${modID}:TeddyBear": {
-    "NAME": "Teddy Bear",
-    "FLAVOR": "A treasured toy that seems to respond to strong dreams.",
+  "${modID}:StickerNote": {
+    "NAME": "Sticker Note",
+    "FLAVOR": "Funny.... it's your handwriting, but you don't remember writing it.",
     "DESCRIPTIONS": [
-      "At the end of your first turn, forget all the cards left in your hand and draw that many at the start of your next."
+      "You may play non-Urgent cards even when you have an Urgent card in your hand. When you do, lose 1HP for every Urgent card in your hand."
     ]
+  },
+  "${modID}:TeddyBear": {
+    "NAME": "Fluffy the Bear",
+    "FLAVOR": "Fluffy? How did you get into my dream?",
+    "DESCRIPTIONS": [
+      "Start each combat with three cards in your deck Forgotten."    ]
+  },
+  "${modID}:WideEyedDoll": {
+    "NAME": "Wide-Eyed Doll",
+    "FLAVOR": "Where's Fluffy? ...Was this there when I went to sleep?",
+    "DESCRIPTIONS": [
+      " (TESTING) Replaces Fluffy the Bear. NL Cards remain Forgotten between combats."
+      ]
   }
 }

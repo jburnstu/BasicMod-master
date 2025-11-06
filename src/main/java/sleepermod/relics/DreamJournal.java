@@ -1,29 +1,19 @@
 package sleepermod.relics;
 
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import sleepermod.actions.Move;
-import sleepermod.patches.AbstractCardBackForgottenCardPatch;
-
-import java.util.ArrayList;
+import sleepermod.actions.AwakenAction;
 
 import static sleepermod.SleeperMod.makeID;
 
-
-// Forgotten cards remain forgotten in between combats.
+// Choose one card in hand at end of combat, starts next round in hand.
 public class DreamJournal extends AbstractSleeperRelic {
     public static final String ID = makeID(DreamJournal.class.getSimpleName());
-    private static final RelicTier RARITY = RelicTier.BOSS; //The relic's rarity.
-    private static final LandingSound SOUND = LandingSound.CLINK; //The sound played when the relic is clicked.
+    private AbstractPlayer p = AbstractDungeon.player;
 
     public DreamJournal() {
-        super(ID, RARITY,SOUND);
-        System.out.println("TeddyBear constructor called....");
-    }
-
-    public String getUpdatedDescription() {
-        return "Try this";
+        super(ID, RelicTier.UNCOMMON, LandingSound.MAGICAL);
     }
 
 
@@ -31,26 +21,10 @@ public class DreamJournal extends AbstractSleeperRelic {
         return new DreamJournal();
     }
 
-    public ArrayList<AbstractCard> cardsToRemainForgotten;
-
 
     @Override
-    public void atBattleStartPreDraw () {
-        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-            if (cardsToRemainForgotten.contains(c)) {
-                Move.toForgottenPile(AbstractDungeon.player.drawPile,c,false);
-            }
-        }
-        cardsToRemainForgotten.clear();
+    public void atBattleStart() {
+        addToBot(new AwakenAction(1,false));
     }
 
-    @Override
-    public void onVictory () {
-        flash();
-        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-            if (!(AbstractCardBackForgottenCardPatch.backForgottenCard.get(c) == null)) {
-                cardsToRemainForgotten.add(c);
-            }
-        }
-    }
-}
+  }

@@ -1,61 +1,55 @@
 package sleepermod.relics;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import sleepermod.actions.Move;
-import sleepermod.cards.ForgottenCard;
+import sleepermod.character.MySleeperPlayer;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 import static sleepermod.SleeperMod.makeID;
 
 // When you recollect and no cards in forgottenPile,: add a new card to your hand (cost 1 less?)
 public class TeddyBear extends AbstractSleeperRelic {
     public static final String ID = makeID(TeddyBear.class.getSimpleName());
+    private static final RelicTier RARITY = RelicTier.STARTER; //The relic's rarity.
+    private static final LandingSound SOUND = LandingSound.CLINK; //The sound played when the relic is clicked.
+
+    private static boolean usedThisCombat = false;
 
     public TeddyBear() {
-        super(ID, RelicTier.STARTER, LandingSound.MAGICAL);
+        super(ID, RARITY,SOUND);
+        System.out.println("TeddyBear constructor called....");
     }
 
-    public ArrayList<AbstractCard> cardsToForget = new ArrayList<>();
-    public AbstractPlayer p;
-    public boolean activated = false;
 
     public AbstractRelic makeCopy() {
         return new TeddyBear();
     }
 
-    public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0];
-    }
+    public static ArrayList<UUID> uuidsToRemainForgotten = new ArrayList<UUID>();
 
-    public void atBattleStartPreDraw() {
-        this.activated = false;
-        this.cardsToForget.clear();
-    }
+    public static final int numberOfCardsToStayForgotten = 3;
 
-    @Override
-    public void onPlayerEndTurn() {
-        if (!this.activated) {
-            this.activated = true;
-            p = AbstractDungeon.player;
-            flash();
-            for (AbstractCard c : p.hand.group) {
-                System.out.println("First for loop reached");
-                if (!(c instanceof ForgottenCard)){
-                    System.out.println("if loop reached");
-                    cardsToForget.add(c);
-                }
-            }
-            for (AbstractCard c : cardsToForget) {
-                System.out.println("Second for loop reached");
-                Move.toForgottenPile(p.hand,c,true);
-            }
-            addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, cardsToForget.toArray().length)));
-        }
-    }
+//    @Override
+//    public void atBattleStart() {
+//        usedThisCombat = false;
+//    }
+//
+//    @Override
+//    public void onUseCard(AbstractCard targetCard, UseCardAction useCardAction) {
+//        if (!(usedThisCombat) &&!(targetCard.freeToPlayOnce) && targetCard.costForTurn > 1) {
+//            addToBot(new DrawCardAction(1));
+//            addToBot(new GainEnergyAction(1));
+//            usedThisCombat = true;
+//        }
+//    }
+
+
 }

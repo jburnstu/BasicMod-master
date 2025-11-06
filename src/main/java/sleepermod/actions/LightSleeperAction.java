@@ -1,6 +1,7 @@
 package sleepermod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -15,7 +16,7 @@ public class LightSleeperAction extends AbstractGameAction {
         if (this.isDone) {
             for (AbstractCard c : DrawCardAction.drawnCards) {
                 if (!(c instanceof ForgottenCard)) {
-                    addToTop(new ForgetSpecificCardAction(c,AbstractDungeon.player.hand));
+                    addToTop(new DiscardSpecificCardAction(c,AbstractDungeon.player.hand));
                 }
             }
         }

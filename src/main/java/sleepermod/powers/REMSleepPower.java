@@ -9,7 +9,7 @@ import sleepermod.cards.ForgottenCard;
 import static sleepermod.SleeperMod.makeID;
 
 
-// Whenever you draw a forgotten card, gain 1 vigour.
+
 public class REMSleepPower extends AbstractSleeperPower {
     public static final String POWER_ID = makeID(REMSleepPower.class.getSimpleName());
     private static final PowerType TYPE = PowerType.BUFF;

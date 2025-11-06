@@ -12,17 +12,17 @@ import static com.megacrit.cardcrawl.actions.defect.RecycleAction.TEXT;
 
 public class MagicalThinkingAction extends AbstractGameAction {
     private AbstractCard calledByThisCard;
-    private AbstractCard targetCard;
     public AbstractPlayer p;
 
     private float startingDuration;
 
     public MagicalThinkingAction(AbstractCard calledByThisCard) {
-        setValues((AbstractCreature) AbstractDungeon.player, (AbstractCreature) AbstractDungeon.player, this.amount);
+        setValues(AbstractDungeon.player, AbstractDungeon.player, this.amount);
         this.actionType = ActionType.CARD_MANIPULATION;
         this.startingDuration = Settings.ACTION_DUR_FAST;
         this.duration = this.startingDuration;
         this.p = AbstractDungeon.player;
+        this.calledByThisCard = calledByThisCard;
     }
 
     public void update () {
@@ -33,28 +33,31 @@ public class MagicalThinkingAction extends AbstractGameAction {
             }
             if (this.p.hand.size() == 1) {
                 AbstractCard targetCard = this.p.hand.getBottomCard();
-                if ((targetCard).costForTurn == -1) {
-                    this.calledByThisCard.modifyCostForCombat(-this.calledByThisCard.cost);
+                int changeThisCardBy = 0;
+                if (targetCard.costForTurn == -1) {
+                    changeThisCardBy = -this.calledByThisCard.cost;
                 } else {
-                    this.calledByThisCard.modifyCostForCombat(targetCard.costForTurn - this.calledByThisCard.costForTurn);
-                    targetCard.modifyCostForCombat(this.calledByThisCard.costForTurn - targetCard.costForTurn);
+                    changeThisCardBy = targetCard.costForTurn - this.calledByThisCard.cost;
                 }
+                this.calledByThisCard.modifyCostForCombat(changeThisCardBy);
+                targetCard.modifyCostForCombat(-changeThisCardBy);
                 tickDuration();
                 return;
             }
-            AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false);
+            AbstractDungeon.handCardSelectScreen.open("Select a card to swap costs with.", 1, false);
             tickDuration();
             return;
         }
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
             AbstractCard targetCard = AbstractDungeon.handCardSelectScreen.selectedCards.getBottomCard();
-            if ((this.p.hand.getBottomCard()).costForTurn == -1) {
-                this.calledByThisCard.modifyCostForCombat(-this.calledByThisCard.cost);
+            int changeThisCardBy = 0;
+            if (targetCard.costForTurn == -1) {
+                changeThisCardBy = -this.calledByThisCard.cost;
             } else {
-                this.calledByThisCard.modifyCostForCombat(targetCard.costForTurn - this.calledByThisCard.costForTurn);
-                targetCard.modifyCostForCombat(this.calledByThisCard.costForTurn - targetCard.costForTurn);
+                changeThisCardBy = targetCard.costForTurn - this.calledByThisCard.cost;
             }
-
+            this.calledByThisCard.modifyCostForCombat(changeThisCardBy);
+            targetCard.modifyCostForCombat(-changeThisCardBy);
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
             AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
         }

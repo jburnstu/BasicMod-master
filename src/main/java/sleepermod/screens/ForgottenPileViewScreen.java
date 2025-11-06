@@ -28,7 +28,7 @@ public class ForgottenPileViewScreen extends CustomScreen implements ScrollBarLi
 
         private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("ExhaustViewScreen");
 
-        public static final String[] TEXT = uiStrings.TEXT;
+//        public static final String[] TEXT = uiStrings.TEXT;
 
         private CardGroup forgottenPileCopy = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
@@ -54,7 +54,7 @@ public class ForgottenPileViewScreen extends CustomScreen implements ScrollBarLi
 
         private float scrollUpperBound = Settings.DEFAULT_SCROLL_LIMIT;
 
-        private static final String DESC = TEXT[0];
+        private static final String DESC = "These are the cards that have been Forgotten this combat.";
 
         private AbstractCard hoveredCard = null;
 
@@ -251,13 +251,13 @@ public class ForgottenPileViewScreen extends CustomScreen implements ScrollBarLi
         }
 
         public void reopen() {
-            AbstractDungeon.overlayMenu.cancelButton.show(TEXT[1]);
+            AbstractDungeon.overlayMenu.cancelButton.show("Forgotten Cards");
         }
 
         public void open() {
             CardCrawlGame.sound.play("DECK_OPEN");
             AbstractDungeon.overlayMenu.showBlackScreen();
-            AbstractDungeon.overlayMenu.cancelButton.show(TEXT[1]);
+            AbstractDungeon.overlayMenu.cancelButton.show("Forgotten Cards");
             this.currentDiffY = 0.0F;
             this.grabStartY = 0.0F;
             this.grabbedScreen = false;

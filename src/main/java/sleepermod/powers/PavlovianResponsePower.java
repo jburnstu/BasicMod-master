@@ -21,8 +21,8 @@ public class PavlovianResponsePower extends AbstractSleeperPower {
     }
 
     @Override
-    public void onPlayCard(AbstractCard c, AbstractMonster m) {
-        if (c instanceof ForgottenCard && ((ForgottenCard) c).frontForgottenCard.type == AbstractCard.CardType.ATTACK) {
+    public void onRemember(AbstractCard c, AbstractCreature m) {
+        if (c.type == AbstractCard.CardType.ATTACK) {
             addToTop(new ApplyPowerAction(this.owner, this.owner, new StrengthPower(this.owner,this.amount)));
         }
     }

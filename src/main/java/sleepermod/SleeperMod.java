@@ -4,10 +4,11 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.google.gson.reflect.TypeToken;
-import sleepermod.cards.BaseCard;
+import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.character.MySleeperPlayer;
 import sleepermod.patches.CardColorEnum;
 import sleepermod.relics.*;
+import sleepermod.relics.deprecated.SleepMobile;
 import sleepermod.screens.ForgottenPileViewScreen;
 import sleepermod.util.GeneralUtils;
 import sleepermod.util.KeywordInfo;
@@ -104,7 +105,7 @@ public class SleeperMod implements
     @Override
     public void receiveEditRelics() { //somewhere in the class
         BaseMod.addRelicToCustomPool(new LavaLamp(),  CardColorEnum.SLEEPER);
-        BaseMod.addRelicToCustomPool(new DreamJournal(),  CardColorEnum.SLEEPER);
+        BaseMod.addRelicToCustomPool(new WideEyedDoll(),  CardColorEnum.SLEEPER);
         BaseMod.addRelicToCustomPool(new GoodJobSticker(),  CardColorEnum.SLEEPER);
         BaseMod.addRelicToCustomPool(new IncenseHolder(),  CardColorEnum.SLEEPER);
         BaseMod.addRelicToCustomPool(new LavaLamp(),  CardColorEnum.SLEEPER);
@@ -128,7 +129,10 @@ public class SleeperMod implements
     @Override
     public void receiveEditCards() {
         new AutoAdd(modID) //Loads files from this mod
-                .packageFilter(BaseCard.class) //In the same package as this class
+                .packageFilter(AbstractSleeperCard.class) //In the same package as this class
+//                .notPackageFilter(WardOff.class)
+                .notPackageFilter("sleepermod.cardsDeprecated")
+                .notPackageFilter("sleepermod.cardsBeta")
                 .setDefaultSeen(true) //And marks them as seen in the compendium
                 .cards(); //Adds the cards
 

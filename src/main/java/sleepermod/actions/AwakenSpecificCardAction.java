@@ -11,27 +11,23 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 public class AwakenSpecificCardAction extends AbstractGameAction {
     private AbstractCard targetCard;
 
-    private CardGroup group;
-
     private float startingDuration;
 
-    public AwakenSpecificCardAction(AbstractCard targetCard, CardGroup group, boolean isFast) {
+    public AwakenSpecificCardAction(AbstractCard targetCard, boolean isFast) {
         this.targetCard = targetCard;
         setValues((AbstractCreature) AbstractDungeon.player, (AbstractCreature)AbstractDungeon.player, this.amount);
         this.actionType = ActionType.CARD_MANIPULATION;
-        this.group = group;
         this.startingDuration = Settings.ACTION_DUR_FAST;
         this.duration = this.startingDuration;
     }
 
-    public AwakenSpecificCardAction(AbstractCard targetCard, CardGroup group) {
-        this(targetCard, group, false);
+    public AwakenSpecificCardAction(AbstractCard targetCard) {
+        this(targetCard, false);
     }
 
     public void update() {
-        if (this.duration == this.startingDuration && this.group.contains(this.targetCard)) {
+        if (this.duration == this.startingDuration) {
             Move.fromForgottenPile(this.targetCard);
-//  Should this be added for all forget features?           this.targetCard.exhaustOnUseOnce = false;
             this.targetCard.freeToPlayOnce = false;
         }
         tickDuration();

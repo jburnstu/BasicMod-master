@@ -8,7 +8,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import sleepermod.cards.AbstractSleeperCard;
 import sleepermod.cards.ForgottenCard;
+import sleepermod.cards.skills.Slumber;
 import sleepermod.character.MySleeperPlayer;
 
 import java.util.ArrayList;
@@ -16,7 +18,7 @@ import java.util.ArrayList;
 public class ForgetAction extends AbstractGameAction {
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("ExhaustAction");
 
-    public static final String[] TEXT = uiStrings.TEXT;
+//    public static final String[] TEXT = uiStrings.TEXT;
 
     private MySleeperPlayer p;
 
@@ -32,6 +34,8 @@ public class ForgetAction extends AbstractGameAction {
 
     public static ArrayList<AbstractCard> forgottenCards = new ArrayList<>();
 
+    public static boolean onlyAttacks;
+
     public ForgetAction(int amount, boolean isRandom, boolean anyNumber, boolean canPickZero) {
         this.anyNumber = anyNumber;
         this.p = (MySleeperPlayer) AbstractDungeon.player;
@@ -40,6 +44,7 @@ public class ForgetAction extends AbstractGameAction {
         this.amount = amount;
         this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
         this.actionType = ActionType.SPECIAL;
+        this.onlyAttacks = false;
     }
 
     public ForgetAction(AbstractCreature target, AbstractCreature source, int amount, boolean isRandom, boolean anyNumber) {
@@ -83,6 +88,12 @@ public class ForgetAction extends AbstractGameAction {
         this.followUpAction = followUpAction;
     }
 
+    public ForgetAction(int amount, boolean isRandom, boolean anyNumber, boolean canPickZero, boolean onlyAttacks, AbstractGameAction followUpAction) {
+        this(amount, isRandom, anyNumber, canPickZero);
+        this.followUpAction = followUpAction;
+        this.onlyAttacks = onlyAttacks;
+    }
+
 
     public void update() {
         forgottenCards.clear();
@@ -90,10 +101,13 @@ public class ForgetAction extends AbstractGameAction {
         CardGroup forgettable = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (AbstractCard c: this.p.hand.group) {
             if (!(c instanceof ForgottenCard)) {
-                forgettable.addToTop(c);
+                System.out.println("first forget if passed -- only attacks value is " + this.onlyAttacks);
+                if (!(this.onlyAttacks) || c.type == AbstractCard.CardType.ATTACK) {
+                    System.out.println("second forget if passed");
+                    forgettable.addToTop(c);
+                }
             }
         }
-
         if (this.duration == this.startDuration) {
             if (forgettable.isEmpty()) {
                 this.isDone = true;
@@ -106,7 +120,7 @@ public class ForgetAction extends AbstractGameAction {
                 int tmp = forgettable.size();
                 for (int i = 0; i < tmp; i++) {
                     AbstractCard c = forgettable.getTopCard();
-                    newForgottenCard = Move.toForgottenPile(this.p.hand,c,true);
+                    Move.toForgottenPile(this.p.hand,c,true);
                     forgottenCards.add(c);
                     forgettable.removeCard(c);
                 }
@@ -116,7 +130,7 @@ public class ForgetAction extends AbstractGameAction {
             if (this.isRandom) {
                 for (int i = 0; i < this.amount; i++) {
                     AbstractCard c = forgettable.getRandomCard(AbstractDungeon.cardRandomRng);
-                    newForgottenCard = Move.toForgottenPile(this.p.hand, c, true);
+                    Move.toForgottenPile(this.p.hand, c, true);
                     forgottenCards.add(c);
                     forgettable.removeCard(c);
                     this.p.hand.refreshHandLayout();
@@ -133,7 +147,7 @@ public class ForgetAction extends AbstractGameAction {
         if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0) {
             for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
                 c.unhover();
-                newForgottenCard = Move.toForgottenPile(this.p.hand, c, true);
+                Move.toForgottenPile(this.p.hand, c, true);
                 forgottenCards.add(c);
                 this.p.hand.refreshHandLayout();
                 this.p.hand.applyPowers();

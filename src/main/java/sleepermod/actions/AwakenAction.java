@@ -55,16 +55,19 @@ public class AwakenAction extends AbstractGameAction {
                 this.isDone = true;
                 return;
             }
-            if (f.size() == 1) {
-                AbstractCard c = f.getTopCard();
-                c.unfadeOut();
-                Move.fromForgottenPile(c);
-                awakenedCards.add(c);
-                endActionWithFollowUp();
-                c.unhover();
-                c.fadingOut = false;
-                this.isDone = true;
-                return;
+            if (f.size() <= this.amount) {
+                for (int count = 0; count < f.size(); count++) {
+                    System.out.println("Awaken exact number loop with count " + count);
+                    AbstractCard c = f.getTopCard();
+                    c.unfadeOut();
+                    Move.fromForgottenPile(c);
+                    awakenedCards.add(c);
+                    c.unhover();
+                    c.fadingOut = false;
+                }
+            endActionWithFollowUp();
+            this.isDone = true;
+            return;
             }
 //            System.out.println("Past if block which shouldn't trigger...");
             for (AbstractCard c : f.group) {

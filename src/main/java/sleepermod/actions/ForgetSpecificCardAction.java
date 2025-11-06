@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import sleepermod.cards.AbstractSleeperCard;
+import sleepermod.cards.skills.Slumber;
 
 public class ForgetSpecificCardAction extends AbstractGameAction {
     private AbstractCard targetCard;
