@@ -51,6 +51,7 @@ The folders within:
 - archive:
   - old classes no longer in use.
   - Does not generally include old cards (these are in cardsDeprecated instead).
+  - A to-do item for me is a new round of archiving, as there's a few actions / powers that need to be removed at the moment.
 - cards:
   - the cards currently loaded by the game, sub-packaged into attacks, skills, powers, and statuses.
   - the structure of each card's dedicated subclass is taken from BasicMod (ie the dedicated variables for Damage / Block, the containment of data within CardInfo etc.) -- I'm not sure after working on this that it's how I would have done it, and in any case they get all the credit for it.
