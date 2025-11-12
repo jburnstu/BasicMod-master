@@ -7,7 +7,7 @@ This is a mod for Slay The Spire. See details of the play behaviour on its page 
 ### Potential Employers
 If you're here because of a link from a job application -- thank you for having a look at my code! While I've made a rough indication below where the code here isn't my own, it's somewhat in the nature of modding to copy a fair amount of code from the base-game, so sometimes this line gets blurred. For instance, the cards themselves are basically all copied from the same template, with differing permutations of lines of code taken from the base game.
 
-In particular, the places where I've done the most "ground-up" coding are in the following sub-folders:
+In particular, the places where I've done the most "ground-up" coding are in the following sub-folders (note: all in src / main / java / sleepermod):
 - patches: this is more or less all me (the Locator nested class in the Insert patches is fairly boilerplate though).
 - actions(.core): this is a real mix, as even where code is borrowed from the decompiled base-game, it was often a lot of work to adapt it here.
   - for instance, the classes "RememberAction" and "Move" in actions.core are mostly my own;
