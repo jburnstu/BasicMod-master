@@ -11,8 +11,10 @@ In particular, the places where I've done the most "ground-up" coding are in the
 - patches: this is more or less all me (the Locator nested class in the Insert patches is fairly boilerplate though).
 - actions(.core): this is a real mix, as even where code is borrowed from the decompiled base-game, it was often a lot of work to adapt it here.
   - for instance, the classes "RememberAction" and "Move" in actions.core are mostly my own;
-  - whereas the class "ForgetAction" in actions.core was adapted from the base game's "ExhaustAction". I've added the latter as "ReferenceExhaustAction", so that the amount of copying is clear.
+  - whereas the class "ForgetAction" in actions.core was adapted from the base game's "ExhaustAction". I've added the latter as "ReferenceExhaustAction", so that the line between adapting / copying is  hopefully clear.
 - powers (note this is "sleepermod / powers", not "sleepermod / cards / powers"): the functional code here is more or less all me, although the structure of each file is prescribed by the mod template.
+
+Also, all the abstract classes here (AbstractSleeperCard, AbstractSleeperPower, AbstractSleeperRelic) are my own work (although they're pretty basic obviously).
 
 Therefore I'd recommend having a look in these folders, for the work I lay the strongest claim to :)
 
